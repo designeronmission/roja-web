@@ -231,78 +231,198 @@
       <div class="container">
 
         <div class="section_title mb-4" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-          <span class="title_badge">Request Quote</span>
-          <h2>Launch Your Own<span> Cash Advance App in Weeks </span></h2>
+          <span class="title_badge">Join Our Team</span>
+          <h2> Help shape the future<span> of digital lending </span></h2>
         </div>
-        <form data-aos="fade-up" data-aos-duration="1500" class="form-common col-lg-10">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Full Name <span class="red">*</span></label>
-                <input type="text" class="form-control" placeholder="Full Name" required>
-              </div>
+    <div class="form-container">
+            <div class="form-progress">
+                <div class="progress-step active"><i class="fas fa-user"></i> Personal</div>
+                <div class="progress-step"><i class="fas fa-briefcase"></i> Position</div>
+                <div class="progress-step"><i class="fas fa-star"></i> Experience</div>
+                <div class="progress-step"><i class="fas fa-info-circle"></i> Additional</div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Email Address <span class="red">*</span></label>
-                <input type="email" class="form-control" placeholder="Enter your email " required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Company Name <span class="red">*</span></label>
-                <input type="email" class="form-control" placeholder="Enter your company name">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Cell Phone Number <span class="red">*</span></label>
-                <input type="number" class="form-control" placeholder="Enter your Cell phone number">
-              </div>
-            </div>
-
-            <div class="col-md-12">
-              <div class="form-group">
-                <label> Monthly Lending Volume <span class="red">*</span></label>
-                              <div class="input-with-icon">
-                <i class="fas fa-chart-line"></i>
-                <select id="lending-volume" required>
-                  <option value="">Select an option</option>
-                  <option value="less-than-50k">Less than $20,000</option>
-                  <option value="over-1m">Over $20,000</option>
-                </select>
-              </div>
-              </div>
-
-            </div>
-
-
-
-            <div class="col-md-12">
-              <label>Your Requirements</label>
-              <div class="form-group">
-                <textarea class="form-control" placeholder="Tell us about your specific requirements"></textarea>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-              <!--NOTE THE ACTION IS POINTING TO form-data.com-->
-              <form action="https://api.form-data.com/f/bqtxth46icif4r4ot1p5qn" method="post">
-
-
-                <div class="g-recaptcha mt-4" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-
-                <div class="help-block with-errors"></div>
-            </div>
-            <div class="col-md-4 text-right">
-              <div class="btn_block mt-4">
-                <button class="btn puprple_btn ml-0">Submit</button>
-                <div class="btn_bottom"></div>
-              </div>
-            </div>
-          </div>
-        </form>
+            
+            <form id="career-form">
+                <!-- Personal Information Section -->
+                <div class="form-section active" id="personal-info">
+                    <h2>Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullname" class="required">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8901">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location" class="required">Location (City, Country)</label>
+                        <input type="text" id="location" name="location" required placeholder="New York, USA">
+                    </div>
+                    
+                    <div class="btn-container">
+                        <div></div> <!-- Empty div for spacing -->
+                        <button type="button" class="btn-next frm-btn">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Position Details Section -->
+                <div class="form-section" id="position-details">
+                    <h2>Position Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="position" class="required">Position You're Applying For</label>
+                        <input type="text" id="position" name="position" required placeholder="e.g. Senior Developer">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department" class="required">Department</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Product">Product</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Operations">Operations</option>
+                                <option value="Compliance">Compliance</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="work-type" class="required">Preferred Work Type</label>
+                            <select id="work-type" name="work-type" required>
+                                <option value="">Select Work Type</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Remote">Remote</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start-date" class="required">Available Start Date</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next frm-btn">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Experience & Skills Section -->
+                <div class="form-section" id="experience-skills">
+                    <h2>Experience & Skills</h2>
+                    
+                    <div class="form-group">
+                        <label for="resume" class="required">Upload Resume/CV</label>
+                        <div class="file-upload">
+                            <input type="file" id="resume" name="resume" required style="display: none;">
+                            <div class="file-upload-btn" onclick="document.getElementById('resume').click()">
+                                <i class="fas fa-upload"></i> Choose File
+                            </div>
+                            <span id="file-name">No file chosen</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio/LinkedIn/GitHub (optional)</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience" class="required">Years of Relevant Experience</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select Experience</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="2-5">2-5 years</option>
+                                <option value="5-10">5-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills" class="required">Key Skills</label>
+                        <textarea id="skills" name="skills" rows="3" required placeholder="List your key skills separated by commas"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cover-letter" class="required">Cover Letter</label>
+                        <textarea id="cover-letter" name="cover-letter" rows="5" required placeholder="Tell us why you'd like to join Roja and how you can contribute"></textarea>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next frm-btn">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Additional Information Section -->
+                <div class="form-section" id="additional-info">
+                    <h2>Additional Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="hear-about">How did you hear about us?</label>
+                        <select id="hear-about" name="hear-about">
+                            <option value="">Select Source</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Job Board">Job Board</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Website">Website</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="salary">Expected Salary (optional)</label>
+                        <input type="text" id="salary" name="salary" placeholder="e.g. $80,000 - $90,000">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="work-authorization" class="required">Are you legally authorized to work in this country?</label>
+                            <select id="work-authorization" name="work-authorization" required>
+                                <option value="">Select Answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visa-sponsorship" class="required">Do you require visa sponsorship?</label>
+                            <select id="visa-sponsorship" name="visa-sponsorship" required>
+                                <option value="">Select Answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="consent-container">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent" class="required">I agree to the processing of my personal data for recruitment purposes</label>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="submit" class="btn-submit">Submit Application</button>
+                    </div>
+                </div>
+            </form>
+        </div>
       </div>
     </section>
 
@@ -502,3 +622,79 @@
     text-decoration: none;
   }
 </style>
+
+
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // File upload name display
+            document.getElementById('resume').addEventListener('change', function(e) {
+                const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+                document.getElementById('file-name').textContent = fileName;
+            });
+            
+            // Form navigation
+            const formSections = document.querySelectorAll('.form-section');
+            const progressSteps = document.querySelectorAll('.progress-step');
+            const nextButtons = document.querySelectorAll('.btn-next');
+            const prevButtons = document.querySelectorAll('.btn-prev');
+            let currentSection = 0;
+            
+            // Show current section
+            function showSection(index) {
+                formSections.forEach(section => section.classList.remove('active'));
+                formSections[index].classList.add('active');
+                
+                progressSteps.forEach(step => step.classList.remove('active'));
+                progressSteps[index].classList.add('active');
+                
+                currentSection = index;
+            }
+            
+            // Next button click
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (validateSection(currentSection)) {
+                        showSection(currentSection + 1);
+                    }
+                });
+            });
+            
+            // Previous button click
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    showSection(currentSection - 1);
+                });
+            });
+            
+            // Form validation for each section
+            function validateSection(sectionIndex) {
+                const currentFormSection = formSections[sectionIndex];
+                const requiredFields = currentFormSection.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#e63946';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields before proceeding.');
+                }
+                
+                return isValid;
+            }
+            
+            // Form submission
+            document.getElementById('career-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (validateSection(currentSection)) {
+                    alert('Thank you for your application! We will review your submission and get back to you soon.');
+                    // In a real application, you would submit the form data to a server here
+                }
+            });
+        });
+    </script>

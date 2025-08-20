@@ -1,450 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roja | Lender Benefits</title>
-
-  <!-- icofont-css-link -->
-  <link rel="stylesheet" href="css/icofont.min.css">
-  <!-- Owl-Carosal-Style-link -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <!-- Bootstrap-Style-link -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://htmldemo.zcubethemes.com/bingle/css/swiper.css">
-  
-  <!-- Aos-Style-link -->
-  <link rel="stylesheet" href="css/aos.css">
-  <!-- Coustome-Style-link -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-
-  <style>
-    /* Additional Benefits Page Styles */
-    .benefit-hero {
-      background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-      padding: 120px 0 80px;
-      color: white;
-    }
-    .benefit-badge {
-      background: rgba(255,255,255,0.15);
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 30px;
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-    .value-card {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-      height: 100%;
-      transition: transform 0.3s;
-    }
-    .value-card:hover {
-      transform: translateY(-10px);
-    }
-    .value-icon {
-      width: 80px;
-      height: 80px;
-      background: #f8f5ff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-    .stat-number {
-      font-size: 48px;
-      font-weight: 700;
-      background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-    .testimonial-card {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      position: relative;
-    }
-    .testimonial-card:before {
-      content: "";
-      font-size: 120px;
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      color: rgba(110,72,170,0.1);
-      font-family: serif;
-      line-height: 1;
-    }
-    .client-logo {
-      height: 40px;
-      margin-bottom: 20px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="loader"></div>
-  </div>
-
-  <!-- Header Start -->
-  <header>
-    <!-- container start -->
-    <div class="container">
-      <!-- navigation bar -->
-      <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/logo.png" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-            <span class="toggle-wrap">
-              <span class="toggle-bar"></span>
-            </span>
-          </span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item has_dropdown mega_menu">
-              <a class="nav-link" href="#">Solutions</a>
-              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-              <div class="sub_menu mega_menu_content meg-box">
-                <!-- Solutions dropdown content -->
-              </div>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">How it Works</a></li>
-            <li class="nav-item has_dropdown mega_menu">
-              <a class="nav-link active" href="#">For Lenders</a>
-              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-              <div class="sub_menu mega_menu_content meg-boxs">
-                <div class="col-lg-12 meg-head">Lenders</div>
-                <div class="col-lg-12 row mb-4">
-                  <div class="col-md-6 card-ones row">
-                    <div class="col-md-6">
-                      <img src="images/mega/benefits.png" alt="Lender Benefits" class="mega-images">
-                    </div>
-                    <div class="col-md-6">
-                      <h6 class="mt-4 mb-2 text-center meg-h"><strong>Benefits</strong></h6>
-                      <p class="text-center meg-p">Why leading lenders trust Roja to accelerate growth while reducing risk.</p>
-                      <a href="benefits.html"><button class="meg-btn">See Advantages</button></a> 
-                    </div>
-                  </div>
-                  <div class="col-md-6 row m-2">
-                    <div class="col-md-6">
-                      <img src="images/mega/usecase.png" alt="Lender Use Cases" class="mega-images">
-                    </div>
-                    <div class="col-md-6">
-                      <h6 class="mt-4 mb-2 text-center meg-h"><strong>Use Cases</strong></h6> 
-                      <p class="text-center meg-p">Adaptable solutions for every lending business model.</p>
-                      <a href="use-cases.html"><button class="meg-btn">Explore Solutions</button></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-            <!-- Other menu items -->
-          </ul>
-        </div>
-      </nav>
-      <!-- navigation end -->
-    </div>
-    <!-- container end -->
-  </header>
-
-  <!-- Benefits Hero Section -->
-  <section class="benefit-hero row_am">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-          <span class="benefit-badge">FOR LENDERS</span>
-          <h1>Transform Your Lending Business With <span>Roja's Platform</span></h1>
-          <p class="mt-4">Join 200+ financial institutions that increased loan volume by 65% while reducing defaults by 42% with our next-generation cash advance technology.</p>
-          <div class="btn_block mt-4">
-            <a href="freedemo.html" class="btn puprple_btn ml-0">Request Demo</a>
-            <div class="btn_bottom"></div>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-          <img src="images/lender-dashboard.png" alt="Lender Dashboard" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Benefits Section -->
-  <section class="row_am" style="padding: 100px 0; background: #f9f9ff;">
-    <div class="container">
-      <div class="section_title text-center" data-aos="fade-up" data-aos-duration="1500">
-        <span class="title_badge">Strategic Advantages</span>
-        <h2>Why <span>Lenders Choose</span> Roja</h2>
-        <p class="mx-auto" style="max-width: 700px;">Our platform delivers measurable results across all key lending performance indicators</p>
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000">
-          <div class="value-card">
-            <div class="value-icon">
-              <i class="icofont-chart-growth" style="font-size: 32px; color: #6e48aa;"></i>
-            </div>
-            <h3>Accelerated Growth</h3>
-            <p>Process 300% more applications with our automated underwriting and mobile-first borrower experience.</p>
-            <div class="stat-number mt-3">65%</div>
-            <p class="small">Average increase in loan volume</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <div class="value-card">
-            <div class="value-icon">
-              <i class="icofont-shield-alt" style="font-size: 32px; color: #6e48aa;"></i>
-            </div>
-            <h3>Reduced Risk</h3>
-            <p>Our AI-driven risk models analyze 200+ data points to deliver 42% lower default rates than industry averages.</p>
-            <div class="stat-number mt-3">42%</div>
-            <p class="small">Lower default rates</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <div class="value-card">
-            <div class="value-icon">
-              <i class="icofont-bank" style="font-size: 32px; color: #6e48aa;"></i>
-            </div>
-            <h3>Regulatory Confidence</h3>
-            <p>Stay ahead of compliance requirements with our always-updated platform that meets all state and federal regulations.</p>
-            <div class="stat-number mt-3">100%</div>
-            <p class="small">Compliance coverage</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feature Deep Dive Section -->
-  <section class="row_am" style="padding: 100px 0;">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-          <img src="images/underwriting-dashboard.png" alt="Underwriting Dashboard" class="img-fluid rounded-lg">
-        </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-          <span class="title_badge">SMART UNDERWRITING</span>
-          <h2 class="mt-2">AI-Powered Decisioning That <span>Reduces Risk</span></h2>
-          <p class="mt-3">Our machine learning models go beyond traditional credit scoring to analyze:</p>
-          
-          <ul class="feature_list mt-4">
-            <li>
-              <div class="icon">
-                <span><i class="icofont-check-circled"></i></span>
-              </div>
-              <div class="text">
-                <p>Real-time cash flow patterns</p>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <span><i class="icofont-check-circled"></i></span>
-              </div>
-              <div class="text">
-                <p>Industry-specific risk factors</p>
-              </div>
-            </li>
-            <li>
-              <div class="icon">
-                <span><i class="icofont-check-circled"></i></span>
-              </div>
-              <div class="text">
-                <p>Behavioral repayment predictors</p>
-              </div>
-            </li>
-          </ul>
-
-          <div class="stats-grid mt-5">
-            <div class="stat-item">
-              <div class="stat-number">90s</div>
-              <div class="stat-label">Approval Decisions</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">42%</div>
-              <div class="stat-label">Lower Defaults</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">200+</div>
-              <div class="stat-label">Data Points</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Lender Results Section -->
-  <section class="row_am" style="padding: 100px 0; background: #6e48aa; color: white;">
-    <div class="container">
-      <div class="section_title text-center" data-aos="fade-up" data-aos-duration="1500">
-        <span class="title_badge" style="background: rgba(255,255,255,0.15); color: white;">PROVEN RESULTS</span>
-        <h2 style="color: white;">Real <span>Lenders.</span> Real <span>Results.</span></h2>
-      </div>
-
-      <div class="row mt-5">
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000">
-          <div class="testimonial-card">
-            <img src="images/client1.png" alt="Client Logo" class="client-logo">
-            <p>"Roja's platform helped us increase loan volume by 78% while maintaining our strict risk parameters. The automated underwriting saves us 400+ hours monthly in manual review."</p>
-            <div class="client-info mt-4">
-              <h5>Michael Chen</h5>
-              <p class="text-muted">Chief Lending Officer, Regional Credit Union</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-          <div class="testimonial-card">
-            <img src="images/client2.png" alt="Client Logo" class="client-logo">
-            <p>"Implementation took just 3 weeks and we saw ROI in 60 days. The compliance automation alone justifies the investment - we eliminated $250k in potential regulatory fines last year."</p>
-            <div class="client-info mt-4">
-              <h5>Sarah Johnson</h5>
-              <p class="text-muted">VP Operations, Online Lender</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-          <div class="testimonial-card">
-            <img src="images/client3.png" alt="Client Logo" class="client-logo">
-            <p>"Our NPS score jumped 35 points after switching to Roja. Borrowers love the mobile experience and our team loves the intuitive dashboard. It's transformed our entire operation."</p>
-            <div class="client-info mt-4">
-              <h5>David Rodriguez</h5>
-              <p class="text-muted">CEO, Community Development FI</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-5" data-aos="fade-up" data-aos-duration="1500">
-        <div class="btn_block">
-          <a href="case-studies.html" class="btn puprple_btn ml-0">View All Case Studies</a>
-          <div class="btn_bottom"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Integration Section -->
-  <section class="row_am" style="padding: 100px 0;">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
-          <span class="title_badge">SEAMLESS INTEGRATION</span>
-          <h2 class="mt-2">Works With Your <span>Existing Stack</span></h2>
-          <p class="mt-3">Roja integrates with all major core banking systems, CRMs, and payment processors for instant implementation.</p>
-          
-          <div class="integration-grid mt-5">
-            <div class="integration-item">
-              <img src="images/corebanking-icon.png" alt="Core Banking" style="height: 40px;">
-              <p>Core Banking</p>
-            </div>
-            <div class="integration-item">
-              <img src="images/crm-icon.png" alt="CRM" style="height: 40px;">
-              <p>CRM Systems</p>
-            </div>
-            <div class="integration-item">
-              <img src="images/payment-icon.png" alt="Payment" style="height: 40px;">
-              <p>Payment Processors</p>
-            </div>
-            <div class="integration-item">
-              <img src="images/accounting-icon.png" alt="Accounting" style="height: 40px;">
-              <p>Accounting Software</p>
-            </div>
-          </div>
-
-          <div class="btn_block mt-5">
-            <a href="integrations.html" class="btn puprple_btn ml-0">See All Integrations</a>
-            <div class="btn_bottom"></div>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
-          <img src="images/integration-diagram.png" alt="Integration Diagram" class="img-fluid">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="row_am" style="padding: 100px 0; background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%); color: white;">
-    <div class="container text-center">
-      <div data-aos="fade-up" data-aos-duration="1500">
-        <h2>Ready to Transform Your Lending Business?</h2>
-        <p class="mt-3 mx-auto" style="max-width: 700px;">See how Roja can help you grow your portfolio while reducing risk. Our team will show you the platform and discuss your specific needs.</p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Our Team | Roja Careers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
         
-        <div class="d-flex justify-content-center mt-5">
-          <div class="btn_block mr-3">
-            <a href="freedemo.html" class="btn puprple_btn ml-0">Request Demo</a>
-            <div class="btn_bottom"></div>
-          </div>
-          <div class="btn_block white_btn">
-            <a href="contact.html" class="btn dark_btn">Contact Sales</a>
-            <div class="btn_bottom"></div>
-          </div>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4361ee;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .form-progress {
+            display: flex;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            color: #6c757d;
+            border-bottom: 3px solid #dee2e6;
+            position: relative;
+        }
+        
+        .progress-step.active {
+            color: #4361ee;
+            border-bottom: 3px solid #4361ee;
+        }
+        
+        .progress-step i {
+            margin-right: 8px;
+        }
+        
+        .form-section {
+            padding: 30px;
+            display: none;
+        }
+        
+        .form-section.active {
+            display: block;
+        }
+        
+        h2 {
+            color: #4361ee;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e63946;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #4361ee;
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-prev {
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .btn-prev:hover {
+            background: #e9ecef;
+        }
+        
+        .btn-next {
+            background: #4361ee;
+            color: white;
+        }
+        
+        .btn-next:hover {
+            background: #3a56d4;
+            transform: translateY(-2px);
+        }
+        
+        .btn-submit {
+            background: #2ec4b6;
+            color: white;
+        }
+        
+        .btn-submit:hover {
+            background: #29ab9d;
+            transform: translateY(-2px);
+        }
+        
+        .file-upload {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .file-upload-btn {
+            background: #f8f9fa;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px dashed #adb5bd;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .file-upload-btn:hover {
+            background: #e9ecef;
+        }
+        
+        .consent-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .consent-container input {
+            width: auto;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">ROJA</div>
+            <div class="tagline">Digital Lending Solutions</div>
+            <h1>Join Our Team</h1>
+            <p>Help shape the future of digital lending</p>
+        </header>
+        
+        <div class="form-container">
+            <div class="form-progress">
+                <div class="progress-step active"><i class="fas fa-user"></i> Personal</div>
+                <div class="progress-step"><i class="fas fa-briefcase"></i> Position</div>
+                <div class="progress-step"><i class="fas fa-star"></i> Experience</div>
+                <div class="progress-step"><i class="fas fa-info-circle"></i> Additional</div>
+            </div>
+            
+            <form id="career-form">
+                <!-- Personal Information Section -->
+                <div class="form-section active" id="personal-info">
+                    <h2>Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="fullname" class="required">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8901">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location" class="required">Location (City, Country)</label>
+                        <input type="text" id="location" name="location" required placeholder="New York, USA">
+                    </div>
+                    
+                    <div class="btn-container">
+                        <div></div> <!-- Empty div for spacing -->
+                        <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Position Details Section -->
+                <div class="form-section" id="position-details">
+                    <h2>Position Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="position" class="required">Position You're Applying For</label>
+                        <input type="text" id="position" name="position" required placeholder="e.g. Senior Developer">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department" class="required">Department</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select Department</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Product">Product</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Operations">Operations</option>
+                                <option value="Compliance">Compliance</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="work-type" class="required">Preferred Work Type</label>
+                            <select id="work-type" name="work-type" required>
+                                <option value="">Select Work Type</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Internship">Internship</option>
+                                <option value="Remote">Remote</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="start-date" class="required">Available Start Date</label>
+                        <input type="date" id="start-date" name="start-date" required>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Experience & Skills Section -->
+                <div class="form-section" id="experience-skills">
+                    <h2>Experience & Skills</h2>
+                    
+                    <div class="form-group">
+                        <label for="resume" class="required">Upload Resume/CV</label>
+                        <div class="file-upload">
+                            <input type="file" id="resume" name="resume" required style="display: none;">
+                            <div class="file-upload-btn" onclick="document.getElementById('resume').click()">
+                                <i class="fas fa-upload"></i> Choose File
+                            </div>
+                            <span id="file-name">No file chosen</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio/LinkedIn/GitHub (optional)</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience" class="required">Years of Relevant Experience</label>
+                            <select id="experience" name="experience" required>
+                                <option value="">Select Experience</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="2-5">2-5 years</option>
+                                <option value="5-10">5-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills" class="required">Key Skills</label>
+                        <textarea id="skills" name="skills" rows="3" required placeholder="List your key skills separated by commas"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cover-letter" class="required">Cover Letter</label>
+                        <textarea id="cover-letter" name="cover-letter" rows="5" required placeholder="Tell us why you'd like to join Roja and how you can contribute"></textarea>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Additional Information Section -->
+                <div class="form-section" id="additional-info">
+                    <h2>Additional Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="hear-about">How did you hear about us?</label>
+                        <select id="hear-about" name="hear-about">
+                            <option value="">Select Source</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Job Board">Job Board</option>
+                            <option value="LinkedIn">LinkedIn</option>
+                            <option value="Website">Website</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="salary">Expected Salary (optional)</label>
+                        <input type="text" id="salary" name="salary" placeholder="e.g. $80,000 - $90,000">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="work-authorization" class="required">Are you legally authorized to work in this country?</label>
+                            <select id="work-authorization" name="work-authorization" required>
+                                <option value="">Select Answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visa-sponsorship" class="required">Do you require visa sponsorship?</label>
+                            <select id="visa-sponsorship" name="visa-sponsorship" required>
+                                <option value="">Select Answer</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="consent-container">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent" class="required">I agree to the processing of my personal data for recruitment purposes</label>
+                    </div>
+                    
+                    <div class="btn-container">
+                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="submit" class="btn-submit">Submit Application</button>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
+        
+        <footer>
+            <p>© 2023 Roja Digital Lending. All rights reserved.</p>
+        </footer>
     </div>
-  </section>
 
-  <!-- Footer Section -->
-  <footer class="footer_section">
-    <!-- Your existing footer code -->
-  </footer>
-
-  <!-- Scripts -->
-  <!-- Jquery-js-Link -->
-  <script src="js/jquery.js"></script>
-  <!-- owl-js-Link -->
-  <script src="js/owl.carousel.min.js"></script>
-  <!-- bootstrap-js-Link -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="https://htmldemo.zcubethemes.com/bingle/js/swiper.min.js"></script>
-  <!-- aos-js-Link -->
-  <script src="js/aos.js"></script>
-  <!-- main-js-Link -->
-  <script src="js/main.js"></script>
-
-  <script>
-    // Initialize AOS animations
-    AOS.init({
-      duration: 1000,
-      once: true
-    });
-
-    // Counter animation for stats
-    $(document).ready(function(){
-      $('.stat-number').each(function () {
-        $(this).prop('Counter',0).animate({
-          Counter: $(this).text()
-        }, {
-          duration: 2000,
-          easing: 'swing',
-          step: function (now) {
-            $(this).text(Math.ceil(now));
-          }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // File upload name display
+            document.getElementById('resume').addEventListener('change', function(e) {
+                const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
+                document.getElementById('file-name').textContent = fileName;
+            });
+            
+            // Form navigation
+            const formSections = document.querySelectorAll('.form-section');
+            const progressSteps = document.querySelectorAll('.progress-step');
+            const nextButtons = document.querySelectorAll('.btn-next');
+            const prevButtons = document.querySelectorAll('.btn-prev');
+            let currentSection = 0;
+            
+            // Show current section
+            function showSection(index) {
+                formSections.forEach(section => section.classList.remove('active'));
+                formSections[index].classList.add('active');
+                
+                progressSteps.forEach(step => step.classList.remove('active'));
+                progressSteps[index].classList.add('active');
+                
+                currentSection = index;
+            }
+            
+            // Next button click
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (validateSection(currentSection)) {
+                        showSection(currentSection + 1);
+                    }
+                });
+            });
+            
+            // Previous button click
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    showSection(currentSection - 1);
+                });
+            });
+            
+            // Form validation for each section
+            function validateSection(sectionIndex) {
+                const currentFormSection = formSections[sectionIndex];
+                const requiredFields = currentFormSection.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.style.borderColor = '#e63946';
+                    } else {
+                        field.style.borderColor = '#ddd';
+                    }
+                });
+                
+                if (!isValid) {
+                    alert('Please fill in all required fields before proceeding.');
+                }
+                
+                return isValid;
+            }
+            
+            // Form submission
+            document.getElementById('career-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                if (validateSection(currentSection)) {
+                    alert('Thank you for your application! We will review your submission and get back to you soon.');
+                    // In a real application, you would submit the form data to a server here
+                }
+            });
         });
-      });
-    });
-  </script>
+    </script>
 </body>
 </html>
