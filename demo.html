@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | Roja Cash Advance Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7e22ce;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --success: #10b981;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-container {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+        }
+        
+        .info-side {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .input-with-icon {
+            position: relative;
+        }
+        
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        }
+        
+        button:hover {
+            background: var(--primary-dark);
+        }
+        
+        .benefits {
+            list-style: none;
+            margin-top: 30px;
+        }
+        
+        .benefits li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .benefits i {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            font-style: italic;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .client img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            .form-container, .info-side {
+                width: 100%;
+            }
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: var(--light);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .success-message i {
+            font-size: 3rem;
+            color: var(--success);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-coins"></i>
+                <span>Roja</span>
+            </div>
+            <p class="tagline">Launch Your Own Cash Advance App in Weeks, Not Months</p>
+        </header>
+        
+        <div class="content">
+            <div class="form-container">
+                <h1>Request a Quote</h1>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" placeholder="Enter your full name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-building"></i>
+                            <input type="text" id="company" placeholder="Enter your company name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lending-volume">Monthly Lending Volume</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-chart-line"></i>
+                            <select id="lending-volume" required>
+                                <option value="">Select an option</option>
+                                <option value="less-than-50k">Less than $50,000</option>
+                                <option value="50k-200k">$50,000 - $200,000</option>
+                                <option value="200k-500k">$200,000 - $500,000</option>
+                                <option value="500k-1m">$500,000 - $1M</option>
+                                <option value="over-1m">Over $1M</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Requirements</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-file-alt"></i>
+                            <textarea id="message" placeholder="Tell us about your specific needs and requirements"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Get Your Quote</button>
+                </form>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h2>Thank You!</h2>
+                    <p>We've received your information and will contact you within 24 hours with your customized quote.</p>
+                </div>
+            </div>
+            
+            <div class="info-side">
+                <h2>Why Choose Roja?</h2>
+                <ul class="benefits">
+                    <li>
+                        <i class="fas fa-rocket"></i>
+                        <div>
+                            <h3>Go to Market in Weeks</h3>
+                            <p>Not months. Our white-label solution gets you up and running quickly.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div>
+                            <h3>Reduce Development Costs</h3>
+                            <p>Save up to 60% compared to building from scratch.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h3>Compliance handled</h3>
+                            <p>We take care of regulatory requirements and updates.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-mobile-alt"></i>
+                        <div>
+                            <h3>Fully Customizable</h3>
+                            <p>Brand it as your own with custom features and design.</p>
+                        </div>
+                    </li>
+                </ul>
+                
+                <div class="testimonial">
+                    <p>"Roja's platform helped us launch our cash advance product in just three weeks. Their solution saved us over $100,000 in development costs."</p>
+                    <div class="client">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Client">
+                        <div>
+                            <strong>Michael Johnson</strong>
+                            <p>CEO, CapitalBoost</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server here
+            // For this example, we'll just show the success message
+            
+            document.getElementById('quoteForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // You could also reset the form after submission
+            // document.getElementById('quoteForm').reset();
+        });
+    </script>
+</body>
+</html>

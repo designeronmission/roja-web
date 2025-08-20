@@ -1,0 +1,20 @@
+Home, About, Features, Company, Blog / News, Request Demo  Login / Sign Up 
+
+Support Dropdown 
+API
+Help
+Docs
+Contact Us
+
+Solutions Dropdown:
+Use Case
+Industry
+Case Study
+
+Legal
+Terms and Conditions
+Privacy Policy
+Refund Policy
+Cancellation Policy
+Cookie Policy
+
