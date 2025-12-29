@@ -246,12 +246,12 @@
 
     .navbar-expand-lg .navbar-nav .nav-link.dark_btn {
         margin: 0;
-        background: #fe0303;
+        background: #e56772;
         color: var(--text-white);
     }
 
     .nav-item .btn_bottom {
-        border: 1px solid #fe0303   ;
+        border: 1px solid #e56772   ;
     }
 
     .navbar-expand-lg .navbar-nav .has_dropdown {
