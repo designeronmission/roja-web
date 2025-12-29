@@ -7865,3 +7865,10 @@ input:disabled+.toggle-slider:before {
         padding: 40px 20px;
     }
 }
+
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+   .choose_img img {
+        width: 100%;
+    }
+}
