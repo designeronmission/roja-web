@@ -3,519 +3,825 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Our Team | Roja Careers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>ROJA - Terms of Use</title>
     <style>
+        :root {
+            --light-yellow: #effaf1;
+            --primery: #cb503d;
+            --dark-black: #08100a;
+            --dark-greay: #9599ab;
+            --dark-more: #1b0e35;
+            --greay: #afafaf;
+            --text-greay: #848484;
+            --black: #000000;
+            --bg-white: #ffffff;
+            --text-white: #fff;
+            --red-color: #ff0000;
+            --light-greay: #dddfea;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333;
+            background-color: var(--light-yellow);
+            color: var(--dark-black);
             line-height: 1.6;
-            padding: 20px;
+        }
+
+        .Terms-of-use-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
             min-height: 100vh;
         }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+
+        /* Left Sidebar */
+        .Terms-of-use-sidebar {
+            width: 300px;
+            background-color: var(--bg-white);
+            border-right: 1px solid var(--light-greay);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+            z-index: 100;
         }
-        
-        header {
-            text-align: center;
-            padding: 30px 0;
-            margin-bottom: 30px;
+
+        .Terms-of-use-sidebar-header {
+            padding: 30px 25px 20px;
+            border-bottom: 1px solid var(--light-greay);
         }
-        
-        .logo {
-            font-size: 2.5rem;
+
+        .Terms-of-use-logo {
+            font-size: 28px;
             font-weight: 700;
-            color: #4361ee;
-            margin-bottom: 10px;
+            color: var(--primery);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .tagline {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 20px;
+
+        .Terms-of-use-logo i {
+            color: var(--primery);
         }
-        
-        h1 {
-            font-size: 2.2rem;
-            color: #333;
-            margin-bottom: 10px;
+
+        .Terms-of-use-sidebar-header p {
+            color: var(--text-greay);
+            margin-top: 8px;
+            font-size: 14px;
         }
-        
-        .form-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+
+        .Terms-of-use-nav {
+            padding: 20px 0;
+        }
+
+        .Terms-of-use-nav-item {
+            padding: 15px 25px;
+            border-left: 4px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .Terms-of-use-nav-item:hover {
+            background-color: var(--light-yellow);
+            border-left-color: var(--primery);
+        }
+
+        .Terms-of-use-nav-item.active {
+            background-color: var(--light-yellow);
+            border-left-color: var(--primery);
+            font-weight: 600;
+            color: var(--primery);
+        }
+
+        .Terms-of-use-nav-item i {
+            color: var(--dark-greay);
+            width: 20px;
+            text-align: center;
+        }
+
+        .Terms-of-use-nav-item.active i {
+            color: var(--primery);
+        }
+
+        .Terms-of-use-nav-item span {
+            font-size: 15px;
+        }
+
+        .Terms-ofuse-sidebar-footer {
+            padding: 25px;
+            border-top: 1px solid var(--light-greay);
+            margin-top: auto;
+            font-size: 13px;
+            color: var(--text-greay);
+        }
+
+        /* Main Content */
+        .Terms-of-use-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 40px 50px;
+            background-color: var(--bg-white);
+        }
+
+        .Terms-of-use-content-header {
             margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-greay);
         }
-        
-        .form-progress {
-            display: flex;
-            background: #f8f9fa;
-            padding: 20px;
+
+        .Terms-of-use-title {
+            font-size: 32px;
+            color: var(--dark-more);
+            margin-bottom: 10px;
         }
-        
-        .progress-step {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            font-weight: 600;
-            color: #6c757d;
-            border-bottom: 3px solid #dee2e6;
-            position: relative;
+
+        .Terms-of-use-subtitle {
+            color: var(--text-greay);
+            font-size: 16px;
         }
-        
-        .progress-step.active {
-            color: #4361ee;
-            border-bottom: 3px solid #4361ee;
+
+        .Terms-of-use-section {
+            margin-bottom: 50px;
+            scroll-margin-top: 30px;
         }
-        
-        .progress-step i {
-            margin-right: 8px;
-        }
-        
-        .form-section {
-            padding: 30px;
-            display: none;
-        }
-        
-        .form-section.active {
-            display: block;
-        }
-        
-        h2 {
-            color: #4361ee;
-            margin-bottom: 25px;
+
+        .Terms-of-use-section-title {
+            font-size: 24px;
+            color: var(--dark-more);
+            margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #eaeaea;
+            border-bottom: 2px solid var(--primery);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .form-group {
-            margin-bottom: 20px;
+
+        .Terms-of-use-section-title i {
+            color: var(--primery);
         }
-        
-        label {
-            display: block;
+
+        .Terms-of-use-section-content {
+            color: var(--dark-black);
+            font-size: 16px;
+        }
+
+        .Terms-of-use-section-content p {
+            margin-bottom: 15px;
+        }
+
+        .Terms-of-use-section-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .Terms-of-use-section-content li {
             margin-bottom: 8px;
-            font-weight: 600;
-            color: #444;
         }
-        
-        .required::after {
-            content: " *";
-            color: #e63946;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 14px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: #4361ee;
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-            margin-bottom: 0;
-        }
-        
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 30px;
-        }
-        
-        button {
-            padding: 14px 30px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .btn-prev {
-            background: #f8f9fa;
-            color: #333;
-        }
-        
-        .btn-prev:hover {
-            background: #e9ecef;
-        }
-        
-        .btn-next {
-            background: #4361ee;
-            color: white;
-        }
-        
-        .btn-next:hover {
-            background: #3a56d4;
-            transform: translateY(-2px);
-        }
-        
-        .btn-submit {
-            background: #2ec4b6;
-            color: white;
-        }
-        
-        .btn-submit:hover {
-            background: #29ab9d;
-            transform: translateY(-2px);
-        }
-        
-        .file-upload {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .file-upload-btn {
-            background: #f8f9fa;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            border: 1px dashed #adb5bd;
-            font-weight: 600;
-            color: #495057;
-        }
-        
-        .file-upload-btn:hover {
-            background: #e9ecef;
-        }
-        
-        .consent-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .consent-container input {
-            width: auto;
-        }
-        
-        footer {
-            text-align: center;
+
+        .highlight {
+            background-color: var(--light-yellow);
             padding: 20px;
-            color: #6c757d;
-            font-size: 0.9rem;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primery);
         }
-        
-        @media (max-width: 768px) {
-            .form-row {
-                flex-direction: column;
-                gap: 0;
+
+        .highlight-title {
+            font-weight: 600;
+            color: var(--primery);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .state-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid var(--dark-greay);
+        }
+
+        .state-title {
+            font-weight: 600;
+            color: var(--dark-more);
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            background-color: var(--light-yellow);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .contact-title {
+            font-size: 20px;
+            color: var(--dark-more);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark-black);
+        }
+
+        .contact-item i {
+            color: var(--primery);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primery);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(55, 158, 75, 0.3);
+            z-index: 99;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            background-color: var(--dark-more);
+            transform: translateY(-3px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .Terms-of-use-sidebar {
+                width: 250px;
             }
             
-            .btn-container {
+            .Terms-of-use-content {
+                margin-left: 250px;
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .Terms-of-use-container {
+                flex-direction: column;
+            }
+            
+            .Terms-of-use-sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                max-height: 70vh;
+            }
+            
+            .Terms-of-use-content {
+                margin-left: 0;
+            }
+            
+            .Terms-of-use-nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 10px;
+            }
+            
+            .Terms-of-use-nav-item {
+                flex: 1;
+                min-width: 150px;
+                border-left: none;
+                border-bottom: 3px solid transparent;
+                justify-content: center;
+                text-align: center;
+                padding: 12px 10px;
+            }
+            
+            .Terms-of-use-nav-item:hover,
+            .Terms-of-use-nav-item.active {
+                border-left: none;
+                border-bottom-color: var(--primery);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Terms-of-use-content {
+                padding: 20px;
+            }
+            
+            .Terms-of-use-title {
+                font-size: 26px;
+            }
+            
+            .Terms-of-use-section-title {
+                font-size: 20px;
+            }
+            
+            .contact-details {
                 flex-direction: column;
                 gap: 15px;
             }
-            
-            button {
-                width: 100%;
-            }
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-greay);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primery);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-more);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">ROJA</div>
-            <div class="tagline">Digital Lending Solutions</div>
-            <h1>Join Our Team</h1>
-            <p>Help shape the future of digital lending</p>
-        </header>
-        
-        <div class="form-container">
-            <div class="form-progress">
-                <div class="progress-step active"><i class="fas fa-user"></i> Personal</div>
-                <div class="progress-step"><i class="fas fa-briefcase"></i> Position</div>
-                <div class="progress-step"><i class="fas fa-star"></i> Experience</div>
-                <div class="progress-step"><i class="fas fa-info-circle"></i> Additional</div>
+    <div class="Terms-of-use-container">
+        <!-- Left Sidebar -->
+        <aside class="Terms-of-use-sidebar">
+            <div class="Terms-of-use-sidebar-header">
+                <div class="Terms-of-use-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>ROJA</span>
+                </div>
+                <p>Technology Platform Terms of Use</p>
             </div>
             
-            <form id="career-form">
-                <!-- Personal Information Section -->
-                <div class="form-section active" id="personal-info">
-                    <h2>Personal Information</h2>
-                    
-                    <div class="form-group">
-                        <label for="fullname" class="required">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" required placeholder="John Doe">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email" class="required">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="john.doe@example.com">
+            <nav class="Terms-of-use-nav">
+                <div class="Terms-of-use-nav-item active" data-section="about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>1. About ROJA</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="eligibility">
+                    <i class="fas fa-user-check"></i>
+                    <span>2. Eligibility</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="access">
+                    <i class="fas fa-laptop"></i>
+                    <span>3. Platform Access</span>
+                </div>
+                <div class="Terms-ofuse-nav-item" data-section="advice">
+                    <i class="fas fa-balance-scale"></i>
+                    <span>4. No Advice</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="third-party">
+                    <i class="fas fa-external-link-alt"></i>
+                    <span>5. Third-Party Services</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="property">
+                    <i class="fas fa-copyright"></i>
+                    <span>6. Intellectual Property</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="privacy">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>7. Privacy</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="disclaimers">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>8. Disclaimers</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="liability">
+                    <i class="fas fa-gavel"></i>
+                    <span>9. Limitation of Liability</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="indemnification">
+                    <i class="fas fa-handshake"></i>
+                    <span>10. Indemnification</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="termination">
+                    <i class="fas fa-ban"></i>
+                    <span>11. Suspension & Termination</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="modifications">
+                    <i class="fas fa-edit"></i>
+                    <span>12. Modifications</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="law">
+                    <i class="fas fa-balance-scale-left"></i>
+                    <span>13. Governing Law</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="us-states">
+                    <i class="fas fa-flag-usa"></i>
+                    <span>14. U.S. State-Specific Terms</span>
+                </div>
+                <div class="Terms-of-use-nav-item" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>15. Contact Information</span>
+                </div>
+            </nav>
+            
+            <div class="Terms-ofuse-sidebar-footer">
+                <p><i class="fas fa-calendar-alt"></i> Effective Date: [Insert Date]</p>
+                <p style="margin-top: 10px;"><i class="fas fa-sync-alt"></i> Last Updated: [Insert Date]</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="Terms-of-use-content">
+            <header class="Terms-of-use-content-header">
+                <h1 class="Terms-of-use-title">Terms of Use</h1>
+                <p class="Terms-of-use-subtitle">Please read these Terms of Use carefully before using the ROJA platform</p>
+            </header>
+
+            <section id="about" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-info-circle"></i>
+                    1. About ROJA
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>ROJA is an app-first technology platform that enables businesses to design, launch, and manage subscription-based and cash access programs.</p>
+                    <div class="highlight">
+                        <div class="highlight-title">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Important Notice
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" class="required">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+1 234 567 8901">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="location" class="required">Location (City, Country)</label>
-                        <input type="text" id="location" name="location" required placeholder="New York, USA">
-                    </div>
-                    
-                    <div class="btn-container">
-                        <div></div> <!-- Empty div for spacing -->
-                        <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                        <p>ROJA is not a lender and does not provide financial products directly. ROJA acts solely as a technology service provider facilitating connections between businesses and financial service providers.</p>
                     </div>
                 </div>
-                
-                <!-- Position Details Section -->
-                <div class="form-section" id="position-details">
-                    <h2>Position Details</h2>
+            </section>
+
+            <section id="eligibility" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-user-check"></i>
+                    2. Eligibility
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>Users must meet the following criteria to use the ROJA platform:</p>
+                    <ul>
+                        <li>Be at least 18 years old</li>
+                        <li>Have the legal capacity to enter into binding agreements</li>
+                        <li>Organizational users must have authority to bind their organization to these Terms</li>
+                    </ul>
+                    <p>By accessing or using the Platform, you represent and warrant that you meet all eligibility requirements.</p>
+                </div>
+            </section>
+
+            <section id="access" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-laptop"></i>
+                    3. Platform Access and Use
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>ROJA grants you a limited, non-exclusive, revocable right to access the Platform for lawful purposes only.</p>
+                    <p>The following activities are strictly prohibited:</p>
+                    <ul>
+                        <li>Misuse of the Platform or its resources</li>
+                        <li>Engaging in unlawful activities</li>
+                        <li>Interfering with system security or functionality</li>
+                        <li>Attempting to gain unauthorized access to any part of the Platform</li>
+                        <li>Using the Platform to harass, abuse, or harm others</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="advice" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-balance-scale"></i>
+                    4. No Financial or Legal Advice
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>ROJA does not provide financial, legal, or regulatory advice. All content and materials on the Platform are for informational purposes only.</p>
+                    <p>Users are responsible for obtaining independent professional advice regarding financial, legal, or regulatory matters before making any decisions based on information provided through the Platform.</p>
+                </div>
+            </section>
+
+            <section id="third-party" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    5. Third-Party Services
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>The Platform integrates with third-party services which are governed by their own terms and policies.</p>
+                    <p>ROJA is not responsible for:</p>
+                    <ul>
+                        <li>The content, accuracy, or practices of third-party services</li>
+                        <li>Any transactions or interactions between you and third-party providers</li>
+                        <li>Any damages or losses resulting from your use of third-party services</li>
+                    </ul>
+                    <p>You should review the terms and privacy policies of any third-party services you access through the Platform.</p>
+                </div>
+            </section>
+
+            <section id="property" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-copyright"></i>
+                    6. Intellectual Property
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>All Platform content and technology are owned by or licensed to ROJA and protected by intellectual property laws.</p>
+                    <p>You may not:</p>
+                    <ul>
+                        <li>Copy, modify, or create derivative works of the Platform</li>
+                        <li>Reverse engineer, decompile, or disassemble any part of the Platform</li>
+                        <li>Remove any copyright or proprietary notices</li>
+                        <li>Use ROJA's trademarks, logos, or branding without prior written consent</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="privacy" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-shield-alt"></i>
+                    7. Privacy
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>Use of the Platform is subject to ROJA's Privacy Policy, which describes how we collect, use, and protect your personal information.</p>
+                    <p>By using the Platform, you consent to the data practices described in the Privacy Policy, which is incorporated into these Terms by reference.</p>
+                </div>
+            </section>
+
+            <section id="disclaimers" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    8. Disclaimers
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>The Platform is provided on an 'as is' and 'as available' basis without warranties of any kind, either express or implied.</p>
+                    <p>ROJA disclaims all warranties, including but not limited to:</p>
+                    <ul>
+                        <li>Warranties of merchantability</li>
+                        <li>Fitness for a particular purpose</li>
+                        <li>Non-infringement</li>
+                        <li>Continuous or error-free operation</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="liability" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-gavel"></i>
+                    9. Limitation of Liability
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>ROJA's liability is limited to the maximum extent permitted by law.</p>
+                    <p>In no event shall ROJA be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+                    <ul>
+                        <li>Your access to or use of or inability to access or use the Platform</li>
+                        <li>Any conduct or content of any third party on the Platform</li>
+                        <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="indemnification" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-handshake"></i>
+                    10. Indemnification
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>You agree to indemnify, defend, and hold harmless ROJA and its affiliates from and against any and all claims, liabilities, damages, losses, and expenses, including reasonable attorneys' fees, arising out of or in any way connected with:</p>
+                    <ul>
+                        <li>Your access to or use of the Platform</li>
+                        <li>Your violation of these Terms</li>
+                        <li>Your violation of any applicable law or regulation</li>
+                        <li>Your infringement of any third party right</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="termination" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-ban"></i>
+                    11. Suspension and Termination
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>ROJA may suspend or terminate your access to the Platform:</p>
+                    <ul>
+                        <li>For violations of these Terms</li>
+                        <li>For suspicious or fraudulent activity</li>
+                        <li>For operational or security reasons</li>
+                        <li>At ROJA's sole discretion, with or without notice</li>
+                    </ul>
+                    <p>All provisions of these Terms which by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+                </div>
+            </section>
+
+            <section id="modifications" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-edit"></i>
+                    12. Modifications
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>ROJA may update these Terms at any time with notice via the website. The updated Terms will be effective as of the "Effective Date" displayed at the top of this page.</p>
+                    <p>Your continued use of the Platform after any changes constitutes your acceptance of the new Terms. It is your responsibility to review these Terms periodically for changes.</p>
+                </div>
+            </section>
+
+            <section id="law" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-balance-scale-left"></i>
+                    13. Governing Law
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>These Terms are governed by the laws of [Insert Governing State/Country], without regard to its conflict of law provisions.</p>
+                    <p>Any legal action or proceeding relating to your access to or use of the Platform shall be instituted in the state or federal courts located in [Insert Governing State/Country].</p>
+                </div>
+            </section>
+
+            <section id="us-states" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-flag-usa"></i>
+                    14. U.S. State-Specific Terms
+                </h2>
+                <div class="Terms-of-use-section-content">
+                    <p>This section applies to users located in certain U.S. states and supplements these Terms.</p>
                     
-                    <div class="form-group">
-                        <label for="position" class="required">Position You're Applying For</label>
-                        <input type="text" id="position" name="position" required placeholder="e.g. Senior Developer">
+                    <div class="state-section">
+                        <h3 class="state-title">14.1 California Residents</h3>
+                        <p>ROJA is a technology platform provider and not a lender. California Civil Code Section 1542 is waived to the extent permitted by law.</p>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="department" class="required">Department</label>
-                            <select id="department" name="department" required>
-                                <option value="">Select Department</option>
-                                <option value="Engineering">Engineering</option>
-                                <option value="Product">Product</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Sales">Sales</option>
-                                <option value="Operations">Operations</option>
-                                <option value="Compliance">Compliance</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="work-type" class="required">Preferred Work Type</label>
-                            <select id="work-type" name="work-type" required>
-                                <option value="">Select Work Type</option>
-                                <option value="Full-time">Full-time</option>
-                                <option value="Part-time">Part-time</option>
-                                <option value="Internship">Internship</option>
-                                <option value="Remote">Remote</option>
-                            </select>
-                        </div>
+                    <div class="state-section">
+                        <h3 class="state-title">14.2 New York Residents</h3>
+                        <p>ROJA does not engage in lending or credit decision-making. Nothing herein constitutes an offer of credit.</p>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="start-date" class="required">Available Start Date</label>
-                        <input type="date" id="start-date" name="start-date" required>
+                    <div class="state-section">
+                        <h3 class="state-title">14.3 Texas Residents</h3>
+                        <p>ROJA does not act as a lender, credit access business, or financial institution.</p>
                     </div>
                     
-                    <div class="btn-container">
-                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
-                        <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                    <div class="state-section">
+                        <h3 class="state-title">14.4 Florida Residents</h3>
+                        <p>ROJA does not provide money transmission or lending services.</p>
+                    </div>
+                    
+                    <div class="state-section">
+                        <h3 class="state-title">14.5 Virginia, Colorado, Connecticut, and Utah Residents</h3>
+                        <p>ROJA acts solely as a technology service provider; product terms are defined by third parties.</p>
+                    </div>
+                    
+                    <div class="state-section">
+                        <h3 class="state-title">14.6 Illinois and Other States</h3>
+                        <p>Users are responsible for compliance with applicable laws in their jurisdiction.</p>
+                    </div>
+                    
+                    <div class="state-section">
+                        <h3 class="state-title">14.7 No Consumer Lending Relationship</h3>
+                        <p>ROJA does not establish a lender-borrower or fiduciary relationship.</p>
+                    </div>
+                    
+                    <div class="state-section">
+                        <h3 class="state-title">14.8 Severability by Jurisdiction</h3>
+                        <p>Unenforceable provisions shall be limited without affecting remaining terms.</p>
                     </div>
                 </div>
-                
-                <!-- Experience & Skills Section -->
-                <div class="form-section" id="experience-skills">
-                    <h2>Experience & Skills</h2>
-                    
-                    <div class="form-group">
-                        <label for="resume" class="required">Upload Resume/CV</label>
-                        <div class="file-upload">
-                            <input type="file" id="resume" name="resume" required style="display: none;">
-                            <div class="file-upload-btn" onclick="document.getElementById('resume').click()">
-                                <i class="fas fa-upload"></i> Choose File
-                            </div>
-                            <span id="file-name">No file chosen</span>
+            </section>
+
+            <section id="contact" class="Terms-of-use-section">
+                <h2 class="Terms-of-use-section-title">
+                    <i class="fas fa-envelope"></i>
+                    15. Contact Information
+                </h2>
+                <div class="contact-info">
+                    <h3 class="contact-title">Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email: legal@yourdomain.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Website: www.yourdomain.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Support: Available through website contact form</span>
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="portfolio">Portfolio/LinkedIn/GitHub (optional)</label>
-                        <input type="url" id="portfolio" name="portfolio" placeholder="https://">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="experience" class="required">Years of Relevant Experience</label>
-                            <select id="experience" name="experience" required>
-                                <option value="">Select Experience</option>
-                                <option value="0-2">0-2 years</option>
-                                <option value="2-5">2-5 years</option>
-                                <option value="5-10">5-10 years</option>
-                                <option value="10+">10+ years</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="skills" class="required">Key Skills</label>
-                        <textarea id="skills" name="skills" rows="3" required placeholder="List your key skills separated by commas"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="cover-letter" class="required">Cover Letter</label>
-                        <textarea id="cover-letter" name="cover-letter" rows="5" required placeholder="Tell us why you'd like to join Roja and how you can contribute"></textarea>
-                    </div>
-                    
-                    <div class="btn-container">
-                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
-                        <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
-                    </div>
+                    <p style="margin-top: 15px; font-size: 14px;">For questions about these Terms or the ROJA platform, please contact us using the information above.</p>
                 </div>
-                
-                <!-- Additional Information Section -->
-                <div class="form-section" id="additional-info">
-                    <h2>Additional Information</h2>
-                    
-                    <div class="form-group">
-                        <label for="hear-about">How did you hear about us?</label>
-                        <select id="hear-about" name="hear-about">
-                            <option value="">Select Source</option>
-                            <option value="Referral">Referral</option>
-                            <option value="Job Board">Job Board</option>
-                            <option value="LinkedIn">LinkedIn</option>
-                            <option value="Website">Website</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="salary">Expected Salary (optional)</label>
-                        <input type="text" id="salary" name="salary" placeholder="e.g. $80,000 - $90,000">
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="work-authorization" class="required">Are you legally authorized to work in this country?</label>
-                            <select id="work-authorization" name="work-authorization" required>
-                                <option value="">Select Answer</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="visa-sponsorship" class="required">Do you require visa sponsorship?</label>
-                            <select id="visa-sponsorship" name="visa-sponsorship" required>
-                                <option value="">Select Answer</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="consent-container">
-                        <input type="checkbox" id="consent" name="consent" required>
-                        <label for="consent" class="required">I agree to the processing of my personal data for recruitment purposes</label>
-                    </div>
-                    
-                    <div class="btn-container">
-                        <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
-                        <button type="submit" class="btn-submit">Submit Application</button>
-                    </div>
-                </div>
-            </form>
+            </section>
+        </main>
+
+        <!-- Scroll to Top Button -->
+        <div class="scroll-indicator" id="scrollToTop">
+            <i class="fas fa-chevron-up"></i>
         </div>
-        
-        <footer>
-            <p>© 2023 Roja Digital Lending. All rights reserved.</p>
-        </footer>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // File upload name display
-            document.getElementById('resume').addEventListener('change', function(e) {
-                const fileName = e.target.files[0] ? e.target.files[0].name : 'No file chosen';
-                document.getElementById('file-name').textContent = fileName;
-            });
+            // Get all navigation items and sections
+            const navItems = document.querySelectorAll('.Terms-of-use-nav-item');
+            const sections = document.querySelectorAll('.Terms-of-use-section');
+            const scrollToTopBtn = document.getElementById('scrollToTop');
             
-            // Form navigation
-            const formSections = document.querySelectorAll('.form-section');
-            const progressSteps = document.querySelectorAll('.progress-step');
-            const nextButtons = document.querySelectorAll('.btn-next');
-            const prevButtons = document.querySelectorAll('.btn-prev');
-            let currentSection = 0;
-            
-            // Show current section
-            function showSection(index) {
-                formSections.forEach(section => section.classList.remove('active'));
-                formSections[index].classList.add('active');
-                
-                progressSteps.forEach(step => step.classList.remove('active'));
-                progressSteps[index].classList.add('active');
-                
-                currentSection = index;
-            }
-            
-            // Next button click
-            nextButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    if (validateSection(currentSection)) {
-                        showSection(currentSection + 1);
-                    }
+            // Set the first nav item as active initially
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Get the section id from data attribute
+                    const sectionId = this.getAttribute('data-section');
+                    
+                    // Scroll to the corresponding section
+                    document.getElementById(sectionId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
             
-            // Previous button click
-            prevButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    showSection(currentSection - 1);
-                });
-            });
-            
-            // Form validation for each section
-            function validateSection(sectionIndex) {
-                const currentFormSection = formSections[sectionIndex];
-                const requiredFields = currentFormSection.querySelectorAll('[required]');
-                let isValid = true;
+            // Update active nav item based on scroll position
+            function updateActiveNav() {
+                let currentSection = '';
                 
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.style.borderColor = '#e63946';
-                    } else {
-                        field.style.borderColor = '#ddd';
+                // Find which section is currently in view
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.clientHeight;
+                    const scrollPosition = window.scrollY;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.id;
                     }
                 });
                 
-                if (!isValid) {
-                    alert('Please fill in all required fields before proceeding.');
+                // Update active nav item
+                if (currentSection) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('data-section') === currentSection) {
+                            item.classList.add('active');
+                        }
+                    });
                 }
                 
-                return isValid;
+                // Show/hide scroll to top button
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.style.display = 'flex';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
             }
             
-            // Form submission
-            document.getElementById('career-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                if (validateSection(currentSection)) {
-                    alert('Thank you for your application! We will review your submission and get back to you soon.');
-                    // In a real application, you would submit the form data to a server here
+            // Scroll to top functionality
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Update active nav on scroll
+            window.addEventListener('scroll', updateActiveNav);
+            
+            // Initialize with first section in view
+            updateActiveNav();
+            
+            // Make sidebar sticky on scroll for larger screens
+            window.addEventListener('scroll', function() {
+                const sidebar = document.querySelector('.Terms-of-use-sidebar');
+                const content = document.querySelector('.Terms-of-use-content');
+                
+                if (window.innerWidth > 768) {
+                    const scrollPosition = window.scrollY;
+                    const sidebarHeight = sidebar.offsetHeight;
+                    const contentHeight = content.offsetHeight;
+                    
+                    if (scrollPosition > contentHeight - sidebarHeight - 100) {
+                        sidebar.style.position = 'absolute';
+                        sidebar.style.top = (contentHeight - sidebarHeight) + 'px';
+                    } else {
+                        sidebar.style.position = 'fixed';
+                        sidebar.style.top = '0';
+                    }
                 }
             });
         });
