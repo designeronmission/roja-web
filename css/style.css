@@ -4428,7 +4428,8 @@ label {
 
 .text h4 {
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .dashboard_analytics .analytic-box {
