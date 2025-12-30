@@ -754,6 +754,8 @@
     }
 
 
+
+
     .section_title h2 {
         letter-spacing: -1px;
         /*font-size: 35px !important;*/
@@ -1726,3 +1728,27 @@
         padding-left: 10px;
     }
 }
+
+
+
+@media (min-width: 700px) and (max-width: 780px) {
+
+.how_it_inner .steps_block .step{
+    margin-top: 230px;
+}
+
+        .progress-text{
+        display: none;
+    }
+
+    .white_btn{
+padding-top: 20px;
+    padding-bottom: 20px;
+    }
+
+}
+
+
+
+
+
