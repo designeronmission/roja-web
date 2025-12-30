@@ -5270,7 +5270,7 @@ footer h5 {
 }
 
 .py-20 {
-    padding-top: 5rem;
+    padding-top: 12rem;
     padding-bottom: 5rem;
 }
 
@@ -7921,6 +7921,26 @@ input:disabled+.toggle-slider:before {
     .cookie-buttons{
         display: flex;
     }
+    .py-20 {
+    padding-top: 6rem;
+}
+.h-w-imgs{
+    width: 100%;
+}
+
+.res-ord{
+    order: 2;
+}
+
+.use-cases-container {
+    margin-top: 100px;
+}
+
+ .faq-cont{
+        padding-top: 70px !important;
+    }
+
+
 }
 
 
@@ -7931,6 +7951,10 @@ input:disabled+.toggle-slider:before {
     .how_it_inner .steps_block .step{
         margin-top: 130px;
     }
+        .sidebar{
+        display: none;
+    }
+
 }
 
 
@@ -7953,4 +7977,11 @@ input:disabled+.toggle-slider:before {
 
     .slider_img img{
         width: 97%;
+    }
+
+
+
+
+    .faq-cont{
+        padding-top: 200px;
     }
