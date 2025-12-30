@@ -7918,6 +7918,9 @@ input:disabled+.toggle-slider:before {
         font-size: 30px;
         line-height: 1.6;
     }
+    .cookie-buttons{
+        display: flex;
+    }
 }
 
 
