@@ -573,7 +573,7 @@ header.fixed .navbar {
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
-    padding: 40px 12px;
+    padding: 40px 16px;
     font-weight: 600;
     transition: .4s all;
     color: var(--text-black);
@@ -1013,8 +1013,10 @@ header.fixed .navbar {
 }
 
 .owl-carousel .owl-item img {
-    max-width: 100%;
-    width: auto;
+       max-width: 100%;
+    width: 96%;
+    align-items: center;
+    text-align: center;
 }
 
 .hero_overlay {
@@ -2515,12 +2517,11 @@ footer .download_side .app_btn li a img {
 }
 
 .footer_bottom {
-    /* max-width: 1370px; */
     border-top: 1px solid #3d3d3d;
-    margin: 0 auto;
-    background-color: rgb(62 62 62 / 10%);
-    /* border-radius: 20px;*/
+    margin: 0px auto;
+    background-color: rgb(28 28 28);
     margin-top: 40px;
+    padding-top: 20px;
 }
 
 .footer_bottom .ft_inner {
@@ -7800,6 +7801,21 @@ input:disabled+.toggle-slider:before {
 }
 
 
+
+
+.footer-bottom{
+    display: flex;
+}
+
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+}
+
+
+
 @media (max-width: 576px) {
     .panel-body {
         padding: 15px;
@@ -7836,12 +7852,6 @@ input:disabled+.toggle-slider:before {
         width: 100%;
     }
 
-    .footer-section .footer-bottom {
-        display: grid;
-        justify-content: center;
-        text-align: center;
-    }
-
     .banner_sections .banner_text h1 {
         font-size: 30px;
     }
@@ -7865,6 +7875,22 @@ input:disabled+.toggle-slider:before {
     .form-common {
         padding: 40px 20px;
     }
+        .footer-section .footer-bottom {
+        display: grid;
+        justify-content: center;
+        text-align: center;
+    }
+
+       .left{
+        text-align: center !important;
+        order: 2;
+        padding-top: 15px;
+    }
+
+    .right{
+        text-align: center !important;
+        order: 1;
+    }
 }
 
 
@@ -7873,3 +7899,25 @@ input:disabled+.toggle-slider:before {
         width: 100%;
     }
 }
+
+
+
+    .footer-section .footer-bottom {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .left{
+        text-align: left;
+    }
+
+    .right{
+        text-align: right;
+    }
+
+
+
+    .slider_img img{
+        width: 97%;
+    }
