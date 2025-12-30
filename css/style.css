@@ -238,7 +238,7 @@ h3 {
 
 .btn_bottom {
     z-index: 1;
-    border: 1px solid #35b0f4;
+   /*  border: 1px solid #35b0f4; */
     border-radius: 100px;
     position: absolute;
     top: -8px;
@@ -255,9 +255,9 @@ h3 {
     color: var(--dark-black);
 }
 
-.white_btn .btn_bottom {
+/* .white_btn .btn_bottom {
     border-color: var(--bg-white);
-}
+} */
 
 .white_btn:hover {
     color: var(--black);
@@ -611,7 +611,7 @@ header.fixed .navbar {
 
 .nav-item .btn_bottom {
     z-index: 1;
-    border: 1px solid var(--bg-white);
+   /*  border: 1px solid var(--bg-white); */
     border-radius: 100px;
     position: absolute;
     top: -8px;
