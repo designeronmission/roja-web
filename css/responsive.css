@@ -1708,3 +1708,21 @@
         font-size: 25px;
     }
 }
+
+
+
+@media (min-width: 320px) and (max-width: 375px) {
+    .banner_section .app_btn li a {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+        .section_title h2 {
+        font-size: 27px;
+        line-height: 1.3;
+        padding-top: 15px;
+    }
+    .res-left{
+        text-align: left;
+        padding-left: 10px;
+    }
+}

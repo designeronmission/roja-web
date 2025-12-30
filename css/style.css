@@ -6397,7 +6397,7 @@ textarea {
     right: 20px;
     font-size: 3rem;
     font-weight: 800;
-    color: rgba(108, 99, 255, 0.08);
+    color: rgb(229 105 117 / 18%);
     line-height: 1;
 }
 
@@ -7894,9 +7894,12 @@ input:disabled+.toggle-slider:before {
 }
 
 
-@media (min-width: 1000px) and (max-width: 1200px) {
-   .choose_img img {
+@media (min-width: 1000px) and (max-width: 1400px) {
+      .choose_img img {
         width: 100%;
+    }
+    .how_it_inner .steps_block .step{
+        margin-top: 130px;
     }
 }
 
