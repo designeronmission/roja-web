@@ -7955,6 +7955,10 @@ input:disabled+.toggle-slider:before {
         display: none;
     }
 
+    .banner_section .banner_text{
+            margin-top: 0px;
+    }
+
 }
 
 
