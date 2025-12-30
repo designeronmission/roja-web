@@ -7939,6 +7939,9 @@ input:disabled+.toggle-slider:before {
  .faq-cont{
         padding-top: 70px !important;
     }
+        .item-about {
+        height: auto !important;
+    }
 
 
 }
