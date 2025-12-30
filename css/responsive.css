@@ -1808,4 +1808,8 @@
         display: none;
     }
 
+    .py-20{
+        padding-top: 6rem;
+    }
+
 }
