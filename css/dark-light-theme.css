@@ -1,0 +1,292 @@
+/* =====================================================
+   PRO DARK / LIGHT THEME – FINTECH SAAS
+   Overrides existing styles cleanly
+===================================================== */
+
+/* ======================
+   LIGHT THEME (DEFAULT)
+====================== */
+:root {
+  --bg-main: #ffffff;
+  --bg-secondary: #f1f7fb;
+  --card-bg: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+
+  --border-color: #e5e7eb;
+
+  --accent: #35b0f4;
+  --accent-dark: #0284c7;
+
+  --shadow-soft: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* ======================
+   DARK THEME (PRO)
+====================== */
+[data-theme="dark"] {
+  --bg-main: #020617;        /* Deep navy */
+  --bg-secondary: #020617;
+  --card-bg: #020617;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --border-color: #1e293b;
+
+  --accent: #38bdf8;
+  --accent-dark: #0ea5e9;
+
+  --shadow-soft: 0 30px 70px rgba(0,0,0,0.65);
+}
+
+/* ======================
+   GLOBAL RESET
+====================== */
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* ======================
+   HEADER
+====================== */
+header {
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] header {
+  background: rgba(2,6,23,0.9);
+  backdrop-filter: blur(14px);
+}
+
+/* ======================
+   HERO / BANNER (FIX BLUE)
+====================== */
+.banner_section {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .banner_section {
+  background:
+    radial-gradient(
+      70% 60% at 70% 20%,
+      rgba(56,189,248,0.15),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #020617 0%,
+      #020617 100%
+    ) !important;
+
+  color: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .banner_section * {
+  color: #f8fafc;
+}
+
+/* ======================
+   SECTIONS
+====================== */
+section {
+  background: var(--bg-main);
+}
+
+[data-theme="dark"] section {
+  background: var(--bg-main);
+}
+
+/* REMOVE ALL LIGHT STRIPS */
+[data-theme="dark"] .white_bg,
+[data-theme="dark"] .light_section,
+[data-theme="dark"] .bg-light {
+  background: #020617 !important;
+}
+
+/* ======================
+   CARDS / BLOCKS
+====================== */
+.card,
+.feature_box,
+.task_block,
+.review_block,
+.whychoose_box {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .feature_box,
+[data-theme="dark"] .task_block {
+  box-shadow:
+    0 40px 80px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* ======================
+   TEXT
+====================== */
+h1, h2, h3, h4, h5 {
+  color: var(--text-primary);
+}
+
+p, span, li {
+  color: var(--text-secondary);
+}
+
+/* ======================
+   BUTTONS (PRO GLOW)
+====================== */
+.btn,
+.app_btn a,
+button {
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-dark)
+  );
+  color: #020617;
+  border: none;
+  box-shadow: 0 15px 35px rgba(56,189,248,0.35);
+}
+
+.btn:hover,
+.app_btn a:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 25px rgba(56,189,248,0.6),
+    0 25px 60px rgba(14,165,233,0.45);
+}
+
+/* Secondary buttons */
+.btn_secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+/* ======================
+   INPUTS
+====================== */
+input,
+textarea,
+select {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* ======================
+   FOOTER
+====================== */
+footer {
+  background: var(--bg-main);
+  border-top: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] footer {
+  background: #020617;
+}
+
+/* ======================
+   ICONS
+====================== */
+svg,
+i {
+  fill: currentColor;
+  color: var(--accent);
+}
+
+/* ======================
+   SMOOTH TRANSITION
+====================== */
+* {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* ===============================
+   THEME SWITCH BUTTON (PRO)
+================================ */
+
+.theme-switch {
+  position: relative;
+  width: 54px;
+  height: 28px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e5e7eb, #cbd5e1);
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Toggle Knob */
+.theme-switch::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  transform: translateX(0);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Icons */
+.theme-switch .icon {
+  position: absolute;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.theme-switch .sun {
+  left: 5px;
+  color: #f59e0b;
+}
+
+.theme-switch .moon {
+  right: 7px;
+  color: #64748b;
+}
+
+/* ===============================
+   DARK MODE STATE
+================================ */
+
+[data-theme="dark"] .theme-switch {
+  background: linear-gradient(180deg, #020617, #020617);
+  border: 1px solid #1e293b;
+}
+
+[data-theme="dark"] .theme-switch::before {
+  transform: translateX(26px);
+  background: #020617;
+  box-shadow: 0 0 0 1px #1e293b, 0 6px 20px rgba(0,0,0,0.6);
+}
+
+[data-theme="dark"] .theme-switch .sun {
+  color: #64748b;
+}
+
+[data-theme="dark"] .theme-switch .moon {
+  color: #38bdf8;
+}

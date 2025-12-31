@@ -6168,7 +6168,7 @@ h6 {
 
 
 .about-pa {
-    width: 370px;
+    width: 500px;
     border: 2px solid #c2e9ff;
     background: #e3faff;
     padding: 15px;
@@ -7992,3 +7992,81 @@ input:disabled+.toggle-slider:before {
     .faq-cont{
         padding-top: 200px;
     }
+
+
+    .new-num{
+        height: 70px;
+    }
+
+    .new-p{
+        padding-top: 70px;
+    }
+
+
+
+
+    /* Basic bullet point styling */
+.faq_section .card-body ul {
+    margin: 15px 0 20px 0;
+    padding-left: 25px;
+    list-style-type: none;
+}
+
+.faq_section .card-body li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+    position: relative;
+    padding-left: 5px;
+}
+
+/* Solid circle bullet */
+.faq_section .card-body li:before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: #007bff; /* Your theme color */
+    border-radius: 50%;
+}
+
+/* Alternative: Chevron bullet */
+/*
+.faq_section .card-body li:before {
+    content: "›";
+    position: absolute;
+    left: -20px;
+    top: 0;
+    color: #007bff;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+*/
+
+/* Alternative: Dash bullet */
+/*
+.faq_section .card-body li:before {
+    content: "—";
+    position: absolute;
+    left: -20px;
+    top: 0;
+    color: #007bff;
+    font-weight: bold;
+}
+*/
+
+/* For better spacing in FAQ answers */
+.faq_section .card-body {
+    line-height: 1.7;
+}
+
+.faq_section .card-body p {
+    margin-bottom: 15px;
+}
+
+/* If you want to add some hover effect on list items */
+.faq_section .card-body li:hover {
+    color: #333;
+    transition: color 0.2s ease;
+}
