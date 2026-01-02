@@ -1,778 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA Use Cases</title>
+    <link rel="stylesheet" href="https://cdn.icofont.com/icofont/1.0.1/icofont.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --light-yellow: #effaf1;
+            --primery: #C6EFFE;
+            --dark-black: #08100a;
+            --dark-greay: #9599ab;
+            --dark-more: #1b0e35;
+            --greay: #afafaf;
+            --text-greay: #848484;
+            --black: #000000;
+            --bg-white: #ffffff;
+            --text-white: #fff;
+            --red-color: #ff0000;
+            --light-greay: #dddfea;
+            
+            /* Light theme specific variables */
+            --primary-light: #e6f7ff;
+            --secondary-light: #f0f9ff;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --border-light: #e5e7eb;
+            --card-bg: #ffffff;
+            --header-bg: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #C6EFFE 0%, #93c5fd 100%);
+            --gradient-light: linear-gradient(135deg, #f0f9ff 0%, #fef7ff 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --border-radius-lg: 20px;
+            --border-radius-md: 12px;
+            --border-radius-sm: 8px;
+        }
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roja | About Us</title>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- icofont-css-link -->
-  <link rel="stylesheet" href="css/icofont.min.css">
-  <!-- Owl-Carosal-Style-link -->
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <!-- Bootstrap-Style-link -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://htmldemo.zcubethemes.com/bingle/css/swiper.css">
-  
-  <!-- Aos-Style-link -->
-  <link rel="stylesheet" href="css/aos.css">
-  <!-- Coustome-Style-link -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css">
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: var(--dark-more);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(198, 239, 254, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(239, 250, 241, 0.1) 0%, transparent 30%);
+        }
 
+        .use-case-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        /* Header - Light & Airy */
+        .use-case-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 40px;
+            background: var(--gradient-light);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(40px);
+        }
+
+        .use-case-header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(40px);
+        }
+
+        .use-case-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--dark-more);
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.5px;
+        }
+
+        .use-case-header h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .use-case-header h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .use-case-header p {
+            color: var(--text-greay);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 400;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Modern Tab Navigation - Clean & Light */
+        .use-case-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .use-case-tabs {
+            display: inline-flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 6px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-tab-btn {
+            background: transparent;
+            border: none;
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-greay);
+            cursor: pointer;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-case-tab-btn i {
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .use-case-tab-btn:hover {
+            color: var(--dark-more);
+            background: rgba(198, 239, 254, 0.1);
+        }
+
+        .use-case-tab-btn.active {
+            color: var(--dark-more);
+        }
+
+        .use-case-tab-indicator {
+            position: absolute;
+            top: 6px;
+            height: calc(100% - 12px);
+            background: var(--card-bg);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            z-index: 0;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Modern Tab Content */
+        .use-case-tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .use-case-tab-content.active {
+            display: block;
+        }
+
+        .use-case-tab-title {
+            color: var(--dark-more);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .use-case-tab-title i {
+            background: var(--gradient-primary);
+            padding: 16px;
+            border-radius: var(--border-radius-md);
+            color: var(--dark-more);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Modern Grid Layout */
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Modern Card Design - Light & Clean */
+        .use-case-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 32px;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primery);
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: var(--gradient-light);
+            color: var(--dark-more);
+            font-size: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        .use-case-card:hover .use-case-card-icon {
+            background: var(--gradient-primary);
+            transform: scale(1.05) rotate(5deg);
+            color: var(--dark-more);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-card-title {
+            color: var(--dark-more);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .use-case-card-desc {
+            color: var(--text-greay);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* Modern Stats Section - Light Theme */
+        .use-case-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+            padding: 40px;
+            background: var(--gradient-light);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-stat {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .use-case-stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .use-case-stat-label {
+            color: var(--dark-greay);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Floating Elements - Light Theme Only */
+        .floating-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            filter: blur(60px);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 65%;
+            right: 8%;
+            animation-delay: 5s;
+            width: 350px;
+            height: 350px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .use-case-grid {
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .use-case-container {
+                padding: 30px 20px;
+            }
+
+            .use-case-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .use-case-header {
+                padding: 40px 30px;
+            }
+
+            .use-case-tab-title {
+                font-size: 1.8rem;
+            }
+
+            .use-case-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
+
+            .use-case-card {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .use-case-header h1 {
+                font-size: 2.3rem;
+            }
+
+            .use-case-header p {
+                font-size: 1.1rem;
+            }
+
+            .use-case-tabs {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .use-case-tab-btn {
+                justify-content: center;
+                padding: 16px 24px;
+            }
+
+            .use-case-tab-indicator {
+                display: none;
+            }
+
+            .use-case-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .use-case-tab-title {
+                font-size: 1.6rem;
+            }
+
+            .use-case-stats {
+                padding: 30px 20px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .use-case-container {
+                padding: 20px 15px;
+            }
+
+            .use-case-header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            .use-case-header h1 {
+                font-size: 1.9rem;
+            }
+
+            .use-case-tab-title {
+                font-size: 1.4rem;
+            }
+
+            .use-case-card {
+                padding: 24px;
+            }
+
+            .use-case-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            .use-case-card-title {
+                font-size: 1.3rem;
+            }
+
+            .use-case-stats {
+                grid-template-columns: 1fr;
+                padding: 25px 15px;
+            }
+
+            .use-case-stat {
+                padding: 24px;
+            }
+
+            .use-case-stat-number {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Additional Light Theme Enhancements */
+        .light-accent {
+            color: var(--accent-blue);
+        }
+
+        .light-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--gradient-primary);
+            color: var(--dark-more);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+    </style>
 </head>
-
 <body>
+    <!-- Floating background elements -->
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
 
-  <!-- Preloader -->
-  <div id="preloader">
-    <div id="loader"></div>
-  </div>
-
-
-  <!-- Header Start -->
-  <header>
-    <!-- container start -->
-    <div class="container">
-      <!-- navigation bar -->
-      <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="index.html">
-          <img src="images/roja.png" alt="Logo">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-            <!-- <i class="icofont-navigation-menu ico_menu"></i> -->
-            <span class="toggle-wrap">
-              <span class="toggle-bar"></span>
-            </span>
-          </span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="whitelabel.html">Platform</a></li>
-
-            <!-- Mega Menu: Organizations -->
-            <li class="nav-item has_dropdown mega_menu">
-              <a class="nav-link" href="#">For Organizations</a>
-              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-              <div class="sub_menu mega_menu_content meg-boxs">
-                <div class="col-lg-12 meg-head">Organizations</div>
-
-                <div class="col-lg-12 row mb-4">
-                  <div class="col-md-6 card-ones row">
-
-                    <div class="col-md-12 col-lg-6">
-                      <img src="images/mega/benefits.png" alt="Benefits" class="mega-images">
-                    </div>
-
-                    <div class="col-md-12 col-lg-6">
-                      <h6 class="mt-4 mb-2 text-center meg-h"><strong>Benefits</strong></h6>
-                      <p class="text-center meg-p">Why organizations choose Roja for earned-access capabilities.</p>
-
-                      <a href="benefits.html"><button class="meg-btn">Learn More</button></a>
-                    </div>
-
-
-                  </div>
-                  <div class="col-md-6 row m-2">
-                    <div class="col-md-12 col-lg-6"> <img src="images/mega/usecase.png" alt="Use Cases"
-                        class="mega-images"> </div>
-
-                    <div class="col-md-12 col-lg-6">
-                      <h6 class="mt-4 mb-2 text-center meg-h"><strong>Use Cases</strong></h6>
-                      <p class="text-center meg-p">Powerful solutions for every earned-access model.</p>
-                      <a href="usecase.html"><button class="meg-btn">Learn More</button></a>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </li>
-
-          <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-
-  <!-- Mega Menu: Company -->
-            <li class="nav-item has_dropdown mega_menu">
-              <a class="nav-link" href="#">Company</a>
-              <span class="drp_btn"><i class="icofont-rounded-down"></i></span>
-              <div class="sub_menu mega_menu_content meg-boxs">
-                <div class="col-lg-12 meg-head">Company</div>
-
-                <div class="col-lg-12 row mb-4">
-                  <div class="col-md-6 card-ones row">
-                    <div class="col-md-12 col-lg-6">
-                      <img src="images/mega/about.png" alt="About Us" class="mega-images">
-                    </div>
-
-                    <div class="col-md-12 col-lg-6">
-                      <h6 class="mt-4 mb-2 text-center meg-h"><strong>About Us</strong></h6>
-                      <p class="text-center meg-p">Discover who we are and our mission to empower organizations worldwide.</p>
-
-                      <a href="about.html"><button class="meg-btn">Learn More</button></a>
-                    </div>
-
-
-                  </div>
-                  <div class="col-md-6 row m-2">
-                    <div class="col-md-12 col-lg-6"> <img src="images/mega/contact.png" alt="Contact"
-                        class="mega-images"> </div>
-
-                    <div class="col-md-12 col-lg-6">
-                      <h6 class="mt-4 mb-2 text-center meg-h"><strong>Contact</strong></h6>
-                      <p class="text-center meg-p">Get in touch with our team for support, partnerships, or inquiries.
-                      </p>
-                      <a href="contact.html"><button class="meg-btn">Contact Us</button></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="nav-item">
-              <div class="btn_block">
-                <a class="nav-link dark_btn" href="request-demo.html">Request a Demo</a>
-                <div class="btn_bottom"></div>
-              </div>
-            </li>
-          </ul>
+    <div class="use-case-container">
+        <div class="use-case-header">
+            <div class="light-badge">FINANCIAL TECHNOLOGY</div>
+            <h1>ROJA <span>Use Cases</span></h1>
+            <p>Discover how ROJA transforms financial access for businesses and consumers with flexible, integrated solutions</p>
         </div>
-      </nav>
-      <!-- navigation end -->
-    </div>
-    <!-- container end -->
-  </header>
 
-
-
-  <!-- Page-wrapper-Start -->
-  <div class="page_wrapper">
-
-    <!-- About Us Section Start -->
-    <section class="about_us_section">
-      <div class="container">
-        <div class="section_title" data-aos="fade-up" data-aos-duration="1500">
-          <span class="title_badge">About us</span>
-          <h2>Empowering the Future of<br> <span> Earned-Access Technology</span> </h2>
-          <p>At Roja, we're transforming financial access through technology that makes earned-access programs faster, smarter, and more seamless.</p>
+        <div class="use-case-tabs-wrapper">
+            <div class="use-case-tabs">
+                <div class="use-case-tab-indicator" id="tab-indicator"></div>
+                <button class="use-case-tab-btn active" data-tab="business">
+                    <i class="icofont-company"></i>
+                    Business Solutions
+                </button>
+                <button class="use-case-tab-btn" data-tab="consumers">
+                    <i class="icofont-users-alt-3"></i>
+                    Consumer Benefits
+                </button>
+            </div>
         </div>
-      </div>
-    </section>
-    <!-- About Us Section End -->
 
-    <!-- Why Choose Us Section Start -->
-    <section class="why_choose row_am" data-aos="fade-in" data-aos-duration="1500">
-      <div class="why_choose_inner">
-        <div class="container">
-          <div class="section_title" data-aos="fade-up" data-aos-duration="1500">
-            <span class="title_badge">Impact You Can Measure</span>
-            <h2>Our Impact in the Earned-Access Industry</h2>
-            <p>The measurable difference we're making for organizations and users globally</p>
-          </div>
-          <div class="company_statistics">
-            <ul class="app_statstic" id="counter" data-aos="fade-in" data-aos-duration="1500">
-              
-              <li data-aos="fade-up" data-aos-duration="1500">
-                <div class="text">
-                  <p class="mt-0 pt-4">Empowering <br>Organizations</p>
+        <div class="use-case-tab-content active" id="business-tab">
+            <h2 class="use-case-tab-title">
+                <i class="icofont-chart-bar-graph"></i>
+                Enterprise Solutions for Modern Businesses
+            </h2>
+            
+            <div class="use-case-grid" id="business-grid">
+                <!-- Business use cases will be populated by JavaScript -->
+            </div>
+            
+            <div class="use-case-stats">
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">8</div>
+                    <div class="use-case-stat-label">Business Use Cases</div>
                 </div>
-              </li>
-
-              <li data-aos="fade-up" data-aos-duration="1500">
-                <div class="text">
-                  <p class="mt-0 pt-4">Faster <br> Implementation</p>
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">100%</div>
+                    <div class="use-case-stat-label">Brand Customization</div>
                 </div>
-              </li>
-
-              <li data-aos="fade-up" data-aos-duration="1500">
-                <div class="text">
-                  <p class="mt-0 pt-4">Lower <br> Development Costs</p>
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">4</div>
+                    <div class="use-case-stat-label">Platforms Supported</div>
                 </div>
-              </li>
-
-              <li data-aos="fade-up" data-aos-duration="1500">
-                <div class="text">
-                  <p class="mt-0 pt-4">Higher <br> User Satisfaction</p>
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">24/7</div>
+                    <div class="use-case-stat-label">Deployment</div>
                 </div>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-      </div>
-    </section>
-    <!-- Why Choose Us Section End -->
 
-    <!-- Our Mission Section -->
-    <div class="container mt-4">
-      <div class="row abt_text" data-aos="fade-up" data-aos-duration="1500">
-        <div class="col-md-5">
-          <span class="title_badge mb-2">What Is Roja</span>
-          <h2><span>The Technology Layer</span> Powering Earned Wage Access</h2>
-          <img src="images/dashboard.png" alt="Roja Dashboard" class="borrow-exp">
+        <div class="use-case-tab-content" id="consumers-tab">
+            <h2 class="use-case-tab-title">
+                <i class="icofont-user-suited"></i>
+                Financial Empowerment for Consumers
+            </h2>
+            
+            <div class="use-case-grid" id="consumers-grid">
+                <!-- Consumer use cases will be populated by JavaScript -->
+            </div>
+            
+            <div class="use-case-stats">
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">12</div>
+                    <div class="use-case-stat-label">Consumer Benefits</div>
+                </div>
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">24/7</div>
+                    <div class="use-case-stat-label">Accessibility</div>
+                </div>
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">0</div>
+                    <div class="use-case-stat-label">Overdraft Fees</div>
+                </div>
+                <div class="use-case-stat">
+                    <div class="use-case-stat-number">100%</div>
+                    <div class="use-case-stat-label">Mobile-First</div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-7">
-          <p><strong>Roja is not a consumer-facing app and not a financial product.</strong> Roja is the technology layer that powers Earned Wage Access programs for organizations that want to offer earned-access capabilities while retaining full brand ownership, operational control, and alignment with internal compliance frameworks.</p>
-          
-          <p>The platform is designed to support earned-access use cases across multiple operating models, jurisdictions, and partner structures—without dictating how programs must be branded or delivered.</p>
-
-          <p class="about-pa mt-4"><i class="icofont-check-circled" style="padding-right: 10px;"></i>Retain full brand ownership and control</p>
-          <p class="about-pa"><i class="icofont-check-circled" style="padding-right: 10px;"></i> Align with internal compliance frameworks</p>
-          <p class="about-pa"><i class="icofont-check-circled" style="padding-right: 10px;"></i> Support multiple operating models and jurisdictions</p>
-        </div>
-      </div>
     </div>
 
-    <!-- Our Solutions Section Start -->
-    <section class="our_value_section row_am">
-      <div class="container">
-        <div class="section_title" data-aos="fade-up" data-aos-duration="1500">
-          <span class="title_badge">Our Solutions</span>
-          <h2><span>White-Labeled by Design</span> Your Brand Comes First</h2>
-          <p class="mb-4">Roja is designed as a white-labeled technology platform that enables organizations to offer earned-access capabilities under their own brand.</p>
-        </div>
+    <script>
+        // Business Use Cases Data with Icofont icons
+        const businessUseCases = [
+            {
+                icon: "icofont-ui-cell-phone",
+                title: "Launching a Branded Financial App",
+                description: "ROJA enables businesses to launch a fully branded financial app across iOS, Android, Web, and PWA without building or maintaining complex infrastructure."
+            },
+            {
+                icon: "icofont-money-bag",
+                title: "Earned Wage Access Programs",
+                description: "Businesses can offer Earned Wage Access as a core app feature, allowing users to access earned income in a controlled, transparent, and app-native experience."
+            },
+            {
+                icon: "icofont-handshake-deal",
+                title: "Employer Benefit Programs",
+                description: "ROJA can be offered as a voluntary or sponsored benefit, helping employers improve employee satisfaction, retention, and financial confidence without modifying payroll systems."
+            },
+            {
+                icon: "icofont-people",
+                title: "Workforce Engagement Platforms",
+                description: "Companies with distributed, hourly, or shift-based workforces can use ROJA to increase engagement through daily app interaction, notifications, and real-time access visibility."
+            },
+            {
+                icon: "icofont-briefcase",
+                title: "Gig Economy & Contractor Platforms",
+                description: "ROJA supports platforms that serve gig workers, freelancers, or independent contractors by enabling flexible access aligned with earnings from completed work."
+            },
+            {
+                icon: "icofont-credit-card",
+                title: "Subscription-Based Financial Products",
+                description: "Businesses can monetize through recurring membership plans instead of transaction-based models, creating predictable revenue and stronger long-term user relationships."
+            },
+            {
+                icon: "icofont-puzzle",
+                title: "Embedded Financial Services",
+                description: "ROJA allows businesses to embed additional financial tools or third-party services directly into their app, creating a marketplace-style experience with diversified revenue streams."
+            },
+            {
+                icon: "icofont-gears",
+                title: "White-Label Platform for Fintech Operators",
+                description: "Fintech operators can use ROJA as a turnkey, white-label platform to launch multiple branded programs or products from a single infrastructure."
+            }
+        ];
 
-        <div class="col-lg-12 mt-4 row common-ab-card res-new">
-          <div class="item-about col-lg-4 mt-2 d-flex">
-            <div class="value_block">
-              <div class="icon mb-4">
-                <img src="images/icons/whitelabel.png" alt="White-Label Platform" class="icons-img">
-              </div>
-              <div class="text">
-                <h3>Brand Control</h3>
-                <p>Roja does not present itself to end users and does not control branding, customer relationships, or program positioning. These elements remain with the deploying organization.</p>
+        // Consumer Use Cases Data with Icofont icons
+        const consumerUseCases = [
+            {
+                icon: "icofont-clock-time",
+                title: "Early Access to Earned Pay",
+                description: "ROJA enables users to access a portion of their earned income before payday, helping them bridge timing gaps between work completed and pay received without disrupting their financial flow."
+            },
+            {
+                icon: "icofont-cart",
+                title: "Covering Everyday Expenses Between Paydays",
+                description: "Users rely on ROJA to manage routine expenses such as groceries, utilities, transportation, or childcare when timing doesn't align with their pay cycle."
+            },
+            {
+                icon: "icofont-ui-block",
+                title: "Avoiding Overdrafts and Late Fees",
+                description: "By providing timely access to available funds and smart notifications, ROJA helps users stay ahead of negative balances, declined transactions, and missed obligations."
+            },
+            {
+                icon: "icofont-chart-growth",
+                title: "Managing Cash Flow Volatility",
+                description: "For users with variable income—such as hourly workers, gig workers, or freelancers—ROJA offers flexibility and visibility that smooths out uneven cash flow."
+            },
+            {
+                icon: "icofont-ui-calendar",
+                title: "Subscription-Based Financial Access",
+                description: "Instead of pay-per-use charges, users gain ongoing access through simple membership plans, creating predictability and transparency in how the app is used."
+            },
+            {
+                icon: "icofont-shield",
+                title: "Emergency Expense Buffer",
+                description: "ROJA acts as a short-term financial safety net for unexpected expenses like car repairs, medical copays, or urgent household needs."
+            },
+            {
+                icon: "icofont-balance",
+                title: "Day-to-Day Financial Stability",
+                description: "Users engage with ROJA regularly to maintain balance awareness, track activity, and manage timing—supporting healthier financial habits over time."
+            },
+            {
+                icon: "icofont-smart-phone",
+                title: "Mobile-First Financial Management",
+                description: "With native iOS and Android apps, Web, and PWA access, users can manage their account, view activity, and receive updates anytime, anywhere."
+            },
+            {
+                icon: "icofont-refresh",
+                title: "Pay Cycle-Aligned Repayment",
+                description: "ROJA supports automated, predictable repayment aligned with income cycles, reducing stress and eliminating the need for manual follow-ups."
+            },
+            {
+                icon: "icofont-heart-beat",
+                title: "Financial Wellness & Embedded Services",
+                description: "ROJA can surface additional tools and services within the app—such as budgeting support, insights, or partner offerings—enhancing overall financial wellbeing."
+            },
+            {
+                icon: "icofont-building",
+                title: "Employer-Supported Programs",
+                description: "Businesses can offer ROJA as a benefit to employees, improving satisfaction, retention, and financial confidence without changing payroll systems."
+            },
+            {
+                icon: "icofont-truck-loaded",
+                title: "Gig & Platform Worker Support",
+                description: "ROJA adapts well to modern work models, enabling platforms to support workers who earn frequently but get paid on delayed schedules."
+            }
+        ];
 
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Present experience under your brand</p>
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Configure program settings and flows</p>
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Maintain direct user relationships</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="item-about col-lg-4 mt-2 d-flex">
-            <div class="value_block">
-              <div class="icon mb-4">
-                <img src="images/icons/risk-insights.png" alt="Built For" class="icons-img">
-              </div>
-              <div class="text">
-                <h3>Built For Organizations</h3>
-                <p>Roja is built for organizations that want to offer earned-access capabilities without developing and maintaining the underlying technology themselves.</p>
+        // DOM Elements
+        const businessGrid = document.getElementById('business-grid');
+        const consumerGrid = document.getElementById('consumers-grid');
+        const tabButtons = document.querySelectorAll('.use-case-tab-btn');
+        const tabContents = document.querySelectorAll('.use-case-tab-content');
+        const tabIndicator = document.getElementById('tab-indicator');
 
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Launch programs under your own brand</p>
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Reduce internal development complexity</p>
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Maintain control over program design</p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="item-about col-lg-4 mt-2 d-flex">
-            <div class="value_block">
-              <div class="icon mb-4">
-                <img src="images/icons/chirp.png" alt="Platform Works" class="icons-img">
-              </div>
-              <div class="text">
-                <h3>How It Works</h3>
-                <p>Roja provides a configurable technology framework that supports the end-to-end operation of Earned Wage Access programs.</p>
-
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Branded mobile and web experiences</p>
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Income and bank verification workflows</p>
-                <p><i class="icofont-check-circled" style="padding-right: 10px;"></i> Eligibility and access logic</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Our Solutions Section End -->
-
-    <!-- Our Technology Section -->
-    <section class="row_am whychoose_section mt-4">
-      <div class="inner_sec mb-4">
-        <div class="container">
-          <div class="section_title top_content mb-4" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">
-            <span class="title_badge mb-1">Our Technology</span>
-            <h2 class="mb-4">Built for Earned-Access Models & Enterprise-Grade Infrastructure</h2> 
-            <p class="h-p">Roja is designed to support earned-access programs across a variety of structures and deployment approaches with enterprise-grade infrastructure.</p>
-          </div>		    		
-          
-          <div class="row whychoose_dh">
-            <!-- left column -->
-            <div class="col-lg-6">
-              <!-- box 1 -->
-              <div class="whychoose_box mt-4">
-                <div class="choose_icon"><img src="images/icons/kyc.png" alt="Flexible Models"></div>
-                <div class="choose_text">
-                  <h6>Flexible Earned-Access Models</h6>
-                  <p>Roja is purpose-built to support a wide range of earned-access structures, including Earned Wage Access (EWA), no-cost access models, cash-flow-based access programs, and employer-sponsored or consumer-initiated earned access.</p>
+        // Function to create a light theme use case card
+        function createUseCaseCard(useCase) {
+            return `
+                <div class="use-case-card">
+                    <div class="use-case-card-icon">
+                        <i class="${useCase.icon}"></i>
+                    </div>
+                    <h3 class="use-case-card-title">${useCase.title}</h3>
+                    <p class="use-case-card-desc">${useCase.description}</p>
                 </div>
-              </div>
+            `;
+        }
 
-              <!-- box 2 -->
-              <div class="whychoose_box">
-                <div class="choose_icon"><img src="images/icons/Lending.png" alt="API Architecture"></div>
-                <div class="choose_text">
-                  <h6>API-First Architecture</h6>
-                  <p>Modular, API-driven components designed to integrate seamlessly with existing systems and operational processes. All components are configurable and built for flexibility.</p>
-                </div>
-              </div>
+        // Populate business use cases
+        businessUseCases.forEach(useCase => {
+            businessGrid.innerHTML += createUseCaseCard(useCase);
+        });
 
-              <!-- box 3 -->
-              <div class="whychoose_box">
-                <div class="choose_icon"><img src="images/icons/bank.png" alt="Security & Compliance"></div>
-                <div class="choose_text">
-                  <h6>Secure Data Handling & Compliance</h6>
-                  <p>Configurable compliance and disclosure controls with secure data handling and audit readiness built into the platform architecture.</p>
-                </div>
-              </div>
+        // Populate consumer use cases
+        consumerUseCases.forEach(useCase => {
+            consumerGrid.innerHTML += createUseCaseCard(useCase);
+        });
 
-              <!-- box 4 -->
-              <div class="whychoose_box">
-                <div class="choose_icon"><img src="images/icons/AuditReady.png" alt="Enterprise Scale"></div>
-                <div class="choose_text">
-                  <h6>Enterprise-Grade Reliability</h6>
-                  <p>Built to support enterprise operating environments where scalability, security, and reliability are essential. Designed to integrate into existing technology stacks without requiring system replacements.</p>
-                </div>
-              </div>
-            </div>
+        // Tab switching functionality
+        function updateTabIndicator(activeButton) {
+            const tabWidth = activeButton.offsetWidth;
+            const tabLeft = activeButton.offsetLeft;
+            
+            tabIndicator.style.width = `${tabWidth}px`;
+            tabIndicator.style.left = `${tabLeft}px`;
+        }
 
-            <!-- right column -->
-            <div class="col-lg-6">
-              <img src="images/Scale-Security.png" alt="Enterprise Infrastructure" class="h-w-img">
-              
-              <!-- Additional Technology Features -->
-              <div class="mt-4 pt-4">
-                <h5 class="mb-3">Core Platform Components</h5>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="tech-feature mb-3">
-                      <p class="mb-1"><i class="icofont-check-circled" style="color: #e56772; margin-right: 8px;"></i> Repayment & reconciliation tools</p>
-                    </div>
-                    <div class="tech-feature mb-3">
-                      <p class="mb-1"><i class="icofont-check-circled" style="color: #e56772; margin-right: 8px;"></i> Configurable program rules</p>
-                    </div>
-                    <div class="tech-feature mb-3">
-                      <p class="mb-1"><i class="icofont-check-circled" style="color: #e56772; margin-right: 8px;"></i> Workflow automation</p>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="tech-feature mb-3">
-                      <p class="mb-1"><i class="icofont-check-circled" style="color: #e56772; margin-right: 8px;"></i> Partner-agnostic integration</p>
-                    </div>
-                    <div class="tech-feature mb-3">
-                      <p class="mb-1"><i class="icofont-check-circled" style="color: #e56772; margin-right: 8px;"></i> Structured oversight tools</p>
-                    </div>
-                    <div class="tech-feature mb-3">
-                      <p class="mb-1"><i class="icofont-check-circled" style="color: #e56772; margin-right: 8px;"></i> Performance monitoring</p>
-                    </div>
-                  </div>
-                </div>
+        // Initialize tab indicator
+        const activeTab = document.querySelector('.use-case-tab-btn.active');
+        updateTabIndicator(activeTab);
+
+        // Add click event to tab buttons
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
                 
-                <div class="mt-4 pt-3" style="border-top: 1px solid #eee; padding-top: 20px;">
-                  <p class="mb-0" style="font-style: italic; color: #666;">
-                    "The platform is flexible by design, enabling partners to tailor program rules, eligibility logic, and user experiences to their specific operational and regulatory requirements."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>		
-      </div>
-    </section>
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Update tab indicator
+                updateTabIndicator(button);
+                
+                // Show corresponding content
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+            });
+        });
 
-    <!-- CTA Section -->
-    <section class="row_am download_app mb-4" style="padding-bottom: 90px;">
-      <div class="task_block" data-aos="fade-up" data-aos-duration="1500">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="task_text">
-              <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-                <span class="title_badge">Ready to Move Forward?</span>
-                <h2>Deploy Earned-Access Programs with Confidence</h2>
-                <p>
-                  Whether you're an established organization or a new entrant, Roja gives you the infrastructure, compliance alignment, and economics needed to compete in the next generation of earned-access solutions. Deploy efficiently while maintaining confidence in performance, controls, and oversight.
-                </p>
-              </div>
-              <div class="btn_block mr-2 mt-4">
-                <a href="request-demo.html" class="btn puprple_btn ml-0">Schedule a Demo</a>
-                <div class="btn_bottom"></div>
-              </div>
-              <div class="btn_block white_btn">
-                <a href="contact.html" class="btn puprple_btn ml-0">Speak With Our Team</a>
-                <div class="btn_bottom"></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="task_img" data-aos="fade-in" data-aos-duration="1500">
-              <div class="ct-img">
-                <img src="images/our_app 1.png" alt="Platform Demo">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        // Add hover effect to cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.use-case-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px)';
+                    this.style.boxShadow = 'var(--shadow-lg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'var(--shadow-sm)';
+                });
+            });
+        });
 
-    <!-- Footer Section -->
-    <footer class="white_text" data-aos="fade-in" data-aos-duration="1500">
-      <div class="footer_overlay"> <img src="images/overlay-bg3-reverse.svg" alt="img"> </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-6">
-            <div class="logo_side">
-              <div class="logo">
-                <a href="#">
-                  <img src="images/roja.png" alt="Logo">
-                </a>
-              </div>
-              <p>ROJA is a turnkey, app-based B2B technology platform designed for organizations and financial service providers to launch and manage subscription-based, no-cost advance and Earned Wage Access (EWA) products.</p>
-              <ul class="contact_info">
-                <li><a href="mailto:">support@roja.one</a></li>
-                <li><a href="tel: ">+1 (212) 456 7890</a></li>
-              </ul>
-              <ul class="social_media">
-                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 col-12">
-            <div class="links">
-              <h5>Quick Links</h5>
-              <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="whitelabel.html">Platform</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-6 col-12">
-            <div class="links">
-              <h5>Support</h5>
-              <ul>
-                <li><a href="faq.html"> FAQ</a></li>
-                <li><a href="contact.html"> Contact</a></li> 
-                <li><a href="cookiepolicy.html">Cookie Policy</a></li>
-                <li><a href="privacypolicy.html">Privacy policy</a></li>
-                <li><a href="termsofuse.html">Terms of Use</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="footer-section">
-          <div class="footer_bottom">
-            <div class="row">
-              <div class="col-12">
-                <div class="col-lg-12 footer-bottom row">
-                  <div class="left col-lg-6 col-sm-12">
-                    <p> © 2025 ROJA. All Rights Reserved</p>
-                  </div>
-                  <div class="right col-lg-6 col-sm-12">
-                    <i class="icofont-ui-settings" style="color: #ffffff;"></i> <a href="#" class="footer-link" id="update-preferences-link">Cookie Preferences</a>
-                  </div> 
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+        // Add responsive behavior for window resize
+        window.addEventListener('resize', () => {
+            const activeButton = document.querySelector('.use-case-tab-btn.active');
+            updateTabIndicator(activeButton);
+        });
 
-    <!-- go top button -->
-    <div class="go_top" id="Gotop">
-      <span><i class="icofont-arrow-up"></i></span>
-    </div>
+        // Add animation to stats when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
 
-    <!-- Video Model Start -->
-    <div class="modal fade youtube-video" id="myModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <button id="close-video" type="button" class="button btn btn-default text-right" data-dismiss="modal">
-            <i class="icofont-close-line-circled"></i>
-          </button>
-          <div class="modal-body">
-            <div id="video-container" class="video-container">
-              <iframe id="youtubevideo" width="640" height="360" allowfullscreen></iframe>
-            </div>
-          </div>
-          <div class="modal-footer">
-          </div>
-        </div>
-      </div>
-    </div>
+        // Observe all stats cards
+        document.querySelectorAll('.use-case-stat').forEach(stat => {
+            observer.observe(stat);
+        });
 
-    <!-- Consent Container -->
-    <div class="consent-container" id="consent-container">
-      <button class="close-all-btn" id="close-all-btn">
-        <i class="icofont-close"></i>
-      </button>
-      
-      <div class="progress-container">
-        <div class="progress">
-          <div class="progress-bar" id="consent-progress" style="width: 0%"></div>
-        </div>
-        <div class="progress-text" id="progress-text">Step 1 of 2</div>
-      </div>
-      
-      <div class="consent-panels row">
-        <div class="col-lg-12" id="disclaimer-panel">
-          <div class="panel">
-            <div class="panel-header">
-              <i class="panel-icon fas fa-exclamation-circle"></i>
-              <h5 class="mb-0 pop-head">Important Disclaimer</h5>
-            </div>
-            <div class="panel-body col-lg-12 row">
-              <div class="content-text col-lg-10">
-                <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial adviser.</span> The platform provides earned-access capabilities and operational tools only, it does not offer financial, investment, tax, or legal advice. Information is based on third-party data and may not be accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no guarantees regarding financial outcomes or third-party products or offers. For details, please see our <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy Policy</a>, and <a href="termsofuse.html" style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>  
-              </div>
-              <div class="panel-footer col-lg-2">
-                <button class="btn btn-custom btn-ok dis-btn" id="disclaimer-ok-btn">I Understand</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-12" id="cookie-panel" style="display: none;">
-          <div class="panel">
-            <div class="panel-header">
-              <i class="panel-icon fas fa-cookie-bite"></i>
-              <h5 class="mb-0 pop-head">Cookie Policy</h5>
-            </div>
-            <div class="panel-body col-lg-12 row">
-              <div class="content-text col-lg-9">
-                <p>We use cookies and similar technologies to make roja work, improve your experience, analyze usage, and deliver personalized ads. Some cookies are essential. Others support analytics and advertising. By clicking "Accept All," you agree to our use of cookies. You can manage your choices anytime in Cookie Settings or opt out of sale/sharing. For more details, see our <a href="cookiepolicy.html" style="color: #e56772; font-size:14px;">Cookie Policy</a> and <a href="privacypolicy.html" style="color: #e56772; font-size:14px;">Privacy Policy</a>.</p>
-              </div>
-              <div class="panel-footer col-lg-3">
-                <div class="cookie-buttons">
-                  <button class="btn btn-outline-primary reject-bt mr-2" id="reject-cookies-btn">Reject</button>
-                  <button class="btn btn-outline-primary reject-bt mr-2" id="customize-cookies-btn">Customize</button>
-                  <button class="btn btn-primary reject-bt" id="accept-cookies-btn">Accept</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cookie Options Modal -->
-    <div class="cookie-options-modal" id="cookie-options-modal">
-      <div class="cookie-options-content">
-        <div class="cookie-options-header">
-          <h5 class="mb-0">Customize Cookie Preferences</h5>
-          <button type="button" class="close-btn" id="close-options-modal">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-        <div class="cookie-options-body">
-          <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-          
-          <div class="cookie-categories">
-            <div class="cookie-category">
-              <div class="category-info">
-                <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
-                <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
-              </div>
-              <label class="toggle-switch">
-                <input type="checkbox" id="essential-cookies" checked disabled>
-                <span class="toggle-slider"></span>
-              </label>
-            </div>
+        // Add a subtle animation to the floating elements
+        window.addEventListener('mousemove', (e) => {
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
             
-            <div class="cookie-category">
-              <div class="category-info">
-                <div class="category-name">Analytics Cookies</div>
-                <div class="category-desc">Help us understand how visitors interact with our website.</div>
-              </div>
-              <label class="toggle-switch">
-                <input type="checkbox" id="analytics-cookies">
-                <span class="toggle-slider"></span>
-              </label>
-            </div>
-            
-            <div class="cookie-category">
-              <div class="category-info">
-                <div class="category-name">Operational Cookies</div>
-                <div class="category-desc">Used to enhance user experience and platform functionality.</div>
-              </div>
-              <label class="toggle-switch">
-                <input type="checkbox" id="operational-cookies">
-                <span class="toggle-slider"></span>
-              </label>
-            </div>
-          </div>
-          
-          <div class="d-flex justify-content-end mt-4">
-            <button class="btn btn-outline-primary mr-2" id="cancel-options-btn">Cancel</button>
-            <button class="btn btn-primary" id="save-options-btn">Save Preferences</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Jquery-js-Link -->
-  <script src="js/jquery.js"></script>
-  <!-- owl-js-Link -->
-  <script src="js/owl.carousel.min.js"></script>
-  <!-- bootstrap-js-Link -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="https://htmldemo.zcubethemes.com/bingle/js/swiper.min.js"></script>
-  <!-- aos-js-Link -->
-  <script src="js/aos.js"></script>
-  <!-- Typed Js Cdn -->
-  <script src='js/typed.min.js'></script>
-  <!-- main-js-Link -->
-  <script src="js/main.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Check if user has already given consent
-      const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
-      const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
-      
-      // If both are accepted, don't show the consent container initially
-      if (hasAcceptedDisclaimer && hasAcceptedCookies) {
-        document.getElementById('consent-container').style.display = 'none';
-      } else {
-        // Show the consent container
-        document.getElementById('consent-container').style.display = 'block';
-      }
-      
-      // Progress tracking
-      const progressBar = document.getElementById('consent-progress');
-      const progressText = document.getElementById('progress-text');
-      const disclaimerPanel = document.getElementById('disclaimer-panel');
-      const cookiePanel = document.getElementById('cookie-panel');
-      
-      // If disclaimer already accepted, show cookie panel directly
-      if (hasAcceptedDisclaimer) {
-        disclaimerPanel.style.display = 'none';
-        cookiePanel.style.display = 'block';
-        updateProgress(2);
-      } else {
-        updateProgress(1);
-      }
-      
-      // Update progress
-      function updateProgress(step) {
-        const percentage = (step / 2) * 100;
-        progressBar.style.width = `${percentage}%`;
-        progressText.textContent = `Step ${step} of 2`;
-      }
-      
-      // Function to close consent container
-      function closeConsentContainer() {
-        document.getElementById('consent-container').style.display = 'none';
-      }
-      
-      // Function to open consent container for preferences update
-      function openPreferencesUpdate() {
-        // Always show the cookie panel when updating preferences
-        disclaimerPanel.style.display = 'none';
-        cookiePanel.style.display = 'block';
-        updateProgress(2);
-        
-        // Show the consent container
-        document.getElementById('consent-container').style.display = 'block';
-      }
-      
-      // Close button functionality
-      document.getElementById('close-all-btn').addEventListener('click', function() {
-        closeConsentContainer();
-      });
-      
-      // Disclaimer OK button
-      document.getElementById('disclaimer-ok-btn').addEventListener('click', function() {
-        // Store acceptance in localStorage
-        localStorage.setItem('rojaDisclaimerAccepted', 'true');
-        
-        // Hide disclaimer and show cookie panel
-        disclaimerPanel.style.display = 'none';
-        cookiePanel.style.display = 'block';
-        updateProgress(2);
-      });
-      
-      // Cookie Accept button
-      document.getElementById('accept-cookies-btn').addEventListener('click', function() {
-        // Store cookie acceptance in localStorage
-        localStorage.setItem('rojaCookiesAccepted', 'true');
-        localStorage.setItem('rojaAnalyticsCookies', 'true');
-        localStorage.setItem('rojaOperationalCookies', 'true');
-        
-        // Close the consent container
-        closeConsentContainer();
-      });
-      
-      // Cookie Reject button
-      document.getElementById('reject-cookies-btn').addEventListener('click', function() {
-        // Store cookie rejection in localStorage
-        localStorage.setItem('rojaCookiesAccepted', 'true');
-        localStorage.setItem('rojaAnalyticsCookies', 'false');
-        localStorage.setItem('rojaOperationalCookies', 'false');
-        
-        // Close the consent container
-        closeConsentContainer();
-      });
-      
-      // Cookie Customize button
-      document.getElementById('customize-cookies-btn').addEventListener('click', function() {
-        // Show the cookie options modal
-        document.getElementById('cookie-options-modal').style.display = 'flex';
-        
-        // Load current preferences if available
-        const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
-        const operationalPref = localStorage.getItem('rojaOperationalCookies');
-        
-        if (analyticsPref !== null) {
-          document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
-        }
-        
-        if (operationalPref !== null) {
-          document.getElementById('operational-cookies').checked = operationalPref === 'true';
-        }
-      });
-      
-      // Close cookie options modal
-      document.getElementById('close-options-modal').addEventListener('click', function() {
-        document.getElementById('cookie-options-modal').style.display = 'none';
-      });
-      
-      document.getElementById('cancel-options-btn').addEventListener('click', function() {
-        document.getElementById('cookie-options-modal').style.display = 'none';
-      });
-      
-      // Save cookie options
-      document.getElementById('save-options-btn').addEventListener('click', function() {
-        const analyticsChecked = document.getElementById('analytics-cookies').checked;
-        const operationalChecked = document.getElementById('operational-cookies').checked;
-        
-        // Store preferences in localStorage
-        localStorage.setItem('rojaCookiesAccepted', 'true');
-        localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
-        localStorage.setItem('rojaOperationalCookies', operationalChecked.toString());
-        
-        // Close the modal and consent container
-        document.getElementById('cookie-options-modal').style.display = 'none';
-        closeConsentContainer();
-      });
-      
-      // Update preferences link in footer
-      document.getElementById('update-preferences-link').addEventListener('click', function(e) {
-        e.preventDefault();
-        openPreferencesUpdate();
-      });
-    });
-  </script>
-
+            document.querySelectorAll('.floating-element').forEach((el, index) => {
+                const speed = index * 0.5 + 1;
+                const x = (mouseX * 20 * speed) - 10;
+                const y = (mouseY * 20 * speed) - 10;
+                
+                el.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
 </body>
 </html>

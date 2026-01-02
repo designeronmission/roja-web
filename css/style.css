@@ -80,7 +80,27 @@
     --red-color: #ff0000;
     --light-greay: #dddfea;
 
+
+            --primary-light: #e6f7ff;
+            --secondary-light: #f0f9ff;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --border-light: #e5e7eb;
+            --card-bg: #ffffff;
+            --header-bg: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #C6EFFE 0%, #93c5fd 100%);
+            --gradient-light: linear-gradient(135deg, #f0f9ff 0%, #fef7ff 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+            --border-radius-lg: 20px;
+            --border-radius-md: 12px;
+            --border-radius-sm: 8px;
+
 }
+
+
 
 /* ------Common-Css------------- */
 /* 
@@ -4684,7 +4704,7 @@ padding-top: 20px;
     margin-bottom: 30px;
     display: flex;
     flex-wrap: unset;
-    max-width: 500px;
+        max-width: 600px;
     position: relative;
 
     -webkit-box-shadow: 0px 10px 19px -1px rgba(234, 230, 254, 1);
@@ -8070,3 +8090,525 @@ input:disabled+.toggle-slider:before {
     color: #333;
     transition: color 0.2s ease;
 }
+
+
+/* use case */
+
+
+        .use-case-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+
+        /* Header - Light & Airy */
+        .use-case-header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 40px;
+            background: var(--gradient-light);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(40px);
+        }
+
+        .use-case-header::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(40px);
+        }
+
+        .use-case-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--dark-more);
+            position: relative;
+            z-index: 2;
+            letter-spacing: -0.5px;
+        }
+
+        .use-case-header h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .use-case-header h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .use-case-header p {
+            color: var(--text-greay);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 400;
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Modern Tab Navigation - Clean & Light */
+        .use-case-tabs-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .use-case-tabs {
+            display: inline-flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 6px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-tab-btn {
+            background: transparent;
+            border: none;
+            padding: 18px 36px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark-greay);
+            cursor: pointer;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-case-tab-btn i {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .use-case-tab-btn:hover {
+            color: var(--dark-more);
+            background: rgba(198, 239, 254, 0.1);
+        }
+
+        .use-case-tab-btn.active {
+            color: var(--dark-more);
+            background: #bde5f1;
+        }
+
+        .use-case-tab-indicator {
+            position: absolute;
+            top: 6px;
+            height: calc(100% - 12px);
+            background: var(--card-bg);
+            border-radius: var(--border-radius-sm);
+            box-shadow: var(--shadow-md);
+            z-index: 0;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Modern Tab Content */
+        .use-case-tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .use-case-tab-content.active {
+            display: block;
+        }
+
+        .use-case-tab-title {
+            color: var(--dark-more);
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .use-case-tab-title i {
+            background: var(--gradient-primary);
+            padding: 16px;
+            border-radius: var(--border-radius-md);
+            color: var(--dark-more);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Modern Grid Layout */
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* Modern Card Design - Light & Clean */
+        .use-case-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-lg);
+            padding: 32px;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primery);
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--border-radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            background: var(--gradient-light);
+            color: var(--dark-more);
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        .use-case-card:hover .use-case-card-icon {
+            background: var(--gradient-primary);
+            transform: scale(1.05) rotate(5deg);
+            color: var(--dark-more);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-card-title {
+            color: var(--dark-more);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .use-case-card-desc {
+            color: var(--text-greay);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        /* Modern Stats Section - Light Theme */
+        .use-case-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+            padding: 40px;
+            background: var(--gradient-light);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-stat {
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-stat:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .use-case-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .use-case-stat-number {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .use-case-stat-label {
+            color: var(--dark-greay);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Floating Elements - Light Theme Only */
+        .floating-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.05;
+            filter: blur(60px);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 65%;
+            right: 8%;
+            animation-delay: 5s;
+            width: 350px;
+            height: 350px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .use-case-grid {
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .use-case-container {
+                padding: 30px 20px;
+            }
+
+            .use-case-header h1 {
+                font-size: 2.8rem;
+            }
+
+            .use-case-header {
+                padding: 40px 30px;
+            }
+
+            .use-case-tab-title {
+                font-size: 1.8rem;
+            }
+
+            .use-case-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 25px;
+            }
+
+            .use-case-card {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .use-case-header h1 {
+                font-size: 2.3rem;
+            }
+
+            .use-case-header p {
+                font-size: 1.1rem;
+            }
+
+            .use-case-tabs {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .use-case-tab-btn {
+                justify-content: center;
+                padding: 16px 24px;
+            }
+
+            .use-case-tab-indicator {
+                display: none;
+            }
+
+            .use-case-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .use-case-tab-title {
+                font-size: 1.6rem;
+            }
+
+            .use-case-stats {
+                padding: 30px 20px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .use-case-container {
+                padding: 20px 15px;
+            }
+
+            .use-case-header {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+            }
+
+            .use-case-header h1 {
+                font-size: 1.9rem;
+            }
+
+            .use-case-tab-title {
+                font-size: 1.4rem;
+            }
+
+            .use-case-card {
+                padding: 24px;
+            }
+
+            .use-case-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+
+            .use-case-card-title {
+                font-size: 1.3rem;
+            }
+
+            .use-case-stats {
+                grid-template-columns: 1fr;
+                padding: 25px 15px;
+            }
+
+            .use-case-stat {
+                padding: 24px;
+            }
+
+            .use-case-stat-number {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Additional Light Theme Enhancements */
+        .light-accent {
+            color: var(--accent-blue);
+        }
+
+        .light-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--gradient-primary);
+            color: var(--dark-more);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+
+
+
+        .span-box{
+                background-color: #e4f9ff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+        }
