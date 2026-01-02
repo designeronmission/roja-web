@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8">
@@ -21,8 +21,12 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Responsive-Style-link -->
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Dark Theme css -->
+  <link rel="stylesheet" href="css/dark-light-theme.css">
+
   <!-- Favicon -->
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 
 </head>
 
@@ -55,12 +59,19 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
 
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="whitelabel.html">Platform</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">How it Works</a></li>
-                <li class="nav-item"><a class="nav-link" href="usecase.html">Use Cases</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="whitelabel.html">Platform</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">How it Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="usecase.html">Use Cases</a></li>
+            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+
+            <button class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </button>
+
             <li class="nav-item">
               <div class="btn_block">
                 <a class="nav-link dark_btn" href="request-demo.html">Request a Demo</a>
@@ -115,25 +126,32 @@
       <div class="terms-content">
         <section id="what-are-cookies" class="terms-section">
           <h4>1. What Are Cookies and Similar Technologies?</h4>
-          <p>This Cookie Policy explains how Roja ("Company," "we," "our," or "us") uses cookies and similar technologies in the Roja mobile application (the "App"), website at rojaone.com (the "Site"), and related services (together, the "Services").</p>
-          
+          <p>This Cookie Policy explains how Roja ("Company," "we," "our," or "us") uses cookies and similar
+            technologies in the Roja mobile application (the "App"), website at rojaone.com (the "Site"), and related
+            services (together, the "Services").</p>
+
           <div class="highlight mt-3">
-            <h5>1.1 Cookies</h5>
-            <p>Cookies are small text files placed on your device by a website or app to store preferences, enable functionality, or track usage.</p>
+            <h5>1.1. Cookies</h5>
+            <p>Cookies are small text files placed on your device by a website or app to store preferences, enable
+              functionality, or track usage.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>1.2 SDKs and mobile identifiers</h5>
-            <p>In mobile apps, software development kits ("SDKs") and device identifiers (such as Apple's IDFA or Google's GAID) function similarly to cookies, enabling analytics and advertising.</p>
+            <h5>1.2. SDKs and mobile identifiers</h5>
+            <p>In mobile apps, software development kits ("SDKs") and device identifiers (such as Apple's IDFA or
+              Google's GAID) function similarly to cookies, enabling analytics and advertising.</p>
           </div>
 
           <div class="highlight mt-3">
             <h5>1.3 Other technologies</h5>
             <p>We may also use:</p>
             <ul>
-              <li><strong>Pixels or web beacons:</strong> tiny images embedded in emails or webpages to measure engagement.</li>
-              <li><strong>Local storage / session storage:</strong> browser or app-based storage of small data snippets.</li>
-              <li><strong>Fingerprinting technologies:</strong> methods of identifying a device/browser using technical characteristics (used only in compliance with law).</li>
+              <li><strong>Pixels or web beacons:</strong> tiny images embedded in emails or webpages to measure
+                engagement.</li>
+              <li><strong>Local storage / session storage:</strong> browser or app-based storage of small data snippets.
+              </li>
+              <li><strong>Fingerprinting technologies:</strong> methods of identifying a device/browser using technical
+                characteristics (used only in compliance with law).</li>
             </ul>
           </div>
         </section>
@@ -143,36 +161,36 @@
           <p>We categorize cookies and similar technologies as follows:</p>
 
           <div class="highlight mt-3">
-            <h5>2.1 Strictly Necessary Cookies</h5>
+            <h5>2.1. Strictly Necessary Cookies</h5>
             <p><strong>Essential for the operation of the Services.</strong><br>
-            Examples: authentication tokens, load balancing, fraud prevention.<br>
-            Cannot be disabled without impairing functionality.</p>
+              Examples: authentication tokens, load balancing, fraud prevention.<br>
+              Cannot be disabled without impairing functionality.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>2.2 Functional / Preference Cookies</h5>
+            <h5>2.2. Functional / Preference Cookies</h5>
             <p>Remember your choices (language, region, login state).<br>
-            Provide a more personalized user experience.</p>
+              Provide a more personalized user experience.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>2.3 Performance / Analytics Cookies</h5>
+            <h5>2.3. Performance / Analytics Cookies</h5>
             <p>Collect anonymous or pseudonymous usage data.<br>
-            Help us understand how users interact with the App and Site.<br>
-            Examples: Firebase Analytics, Google Analytics, Mixpanel.</p>
+              Help us understand how users interact with the App and Site.<br>
+              Examples: Firebase Analytics, Google Analytics, Mixpanel.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>2.4 Advertising / Targeting Cookies</h5>
+            <h5>2.4. Advertising / Targeting Cookies</h5>
             <p>Track user interactions across the App/Site and third-party platforms.<br>
-            Enable delivery of personalized ads and measurement of ad performance.<br>
-            Examples: Google Ads, Meta (Facebook/Instagram), affiliate tracking cookies.</p>
+              Enable delivery of personalized ads and measurement of ad performance.<br>
+              Examples: Google Ads, Meta (Facebook/Instagram), affiliate tracking cookies.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>2.5 Social Media Cookies</h5>
+            <h5>2.5. Social Media Cookies</h5>
             <p>Allow content sharing via social media platforms.<br>
-            May track your activity across multiple sites.</p>
+              May track your activity across multiple sites.</p>
           </div>
         </section>
 
@@ -192,103 +210,116 @@
 
         <section id="legal-basis" class="terms-section">
           <h4>4. Legal Basis for Use of Cookies</h4>
-          
+
           <div class="highlight mt-3">
-            <h5>4.1 U.S. users (CCPA/CPRA)</h5>
+            <h5>4.1. U.S. users (CCPA/CPRA)</h5>
             <p>Cookies may be considered "personal information."<br>
-            Sharing cookie data with ad networks may constitute "sale" or "sharing" under CPRA.<br>
-            You have the right to opt-out (see Section 7).</p>
+              Sharing cookie data with ad networks may constitute "sale" or "sharing" under CPRA.<br>
+              You have the right to opt-out (see Section 7).</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>4.2 Other state laws</h5>
-            <p>Virginia, Colorado, Connecticut, and Utah provide similar rights to opt out of targeted advertising or profiling. Roja honors these opt-out rights through the mechanisms described in Section 7.</p>
+            <h5>4.2. Other state laws</h5>
+            <p>Virginia, Colorado, Connecticut, and Utah provide similar rights to opt out of targeted advertising or
+              profiling. Roja honors these opt-out rights through the mechanisms described in Section 7.</p>
           </div>
         </section>
 
         <section id="third-party-cookies" class="terms-section">
           <h4>5. Third-Party Cookies</h4>
-          
+
           <div class="highlight mt-3">
-            <h5>5.1 Analytics providers</h5>
-            <p>Google Analytics, Firebase, and similar providers may set cookies or SDK identifiers to analyze user behavior.</p>
+            <h5>5.1. Analytics providers</h5>
+            <p>Google Analytics, Firebase, and similar providers may set cookies or SDK identifiers to analyze user
+              behavior.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>5.2 Advertising partners</h5>
-            <p>Ad networks (e.g., Google Ads, Meta Ads) may set cookies to deliver targeted ads and measure engagement.</p>
+            <h5>5.2. Advertising partners</h5>
+            <p>Ad networks (e.g., Google Ads, Meta Ads) may set cookies to deliver targeted ads and measure engagement.
+            </p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>5.3 Social media platforms</h5>
-            <p>If you use share buttons or social logins, social media companies may set cookies to track interactions.</p>
+            <h5>5.3. Social media platforms</h5>
+            <p>If you use share buttons or social logins, social media companies may set cookies to track interactions.
+            </p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>5.4 Connector providers</h5>
-            <p>Financial account connectors may use cookies or tokens for secure authentication and session management.</p>
+            <h5>5.4. Connector providers</h5>
+            <p>Financial account connectors may use cookies or tokens for secure authentication and session management.
+            </p>
           </div>
         </section>
 
         <section id="cookie-duration" class="terms-section">
           <h4>6. Cookie Duration</h4>
-          
+
           <div class="highlight mt-3">
-            <h5>6.1 Session cookies</h5>
+            <h5>6.1. Session cookies</h5>
             <p>Expire when you close your browser or log out of the App.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>6.2 Persistent cookies</h5>
-            <p>Remain on your device until they expire or are deleted manually. Durations range from a few days to two years, depending on purpose and provider.</p>
+            <h5>6.2. Persistent cookies</h5>
+            <p>Remain on your device until they expire or are deleted manually. Durations range from a few days to two
+              years, depending on purpose and provider.</p>
           </div>
         </section>
 
         <section id="your-choices" class="terms-section">
           <h4>7. Your Choices and Controls</h4>
-          
+
           <div class="highlight mt-3">
-            <h5>7.1 Opt-out (U.S. users)</h5>
-            <p>California residents can opt out of the "sale" or "sharing" of personal information by clicking the "Do Not Sell or Share My Personal Information" link available in the Site footer and App settings.<br>
-            Residents of other states with similar rights (Virginia, Colorado, Connecticut, Utah) can exercise equivalent opt-out choices via the same link.</p>
+            <h5>7.1. Opt-out (U.S. users)</h5>
+            <p>California residents can opt out of the "sale" or "sharing" of personal information by clicking the "Do
+              Not Sell or Share My Personal Information" link available in the Site footer and App settings.<br>
+              Residents of other states with similar rights (Virginia, Colorado, Connecticut, Utah) can exercise
+              equivalent opt-out choices via the same link.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>7.2 Browser/device controls</h5>
+            <h5>7.2. Browser/device controls</h5>
             <p>Most browsers allow you to block or delete cookies.<br>
-            Mobile devices (iOS/Android) allow you to limit ad tracking.</p>
+              Mobile devices (iOS/Android) allow you to limit ad tracking.</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>7.3 Impact of disabling cookies</h5>
+            <h5>7.3. Impact of disabling cookies</h5>
             <p>Disabling strictly necessary cookies may prevent use of some features.<br>
-            Disabling analytics or advertising cookies will not affect core functionality but may reduce personalization.</p>
+              Disabling analytics or advertising cookies will not affect core functionality but may reduce
+              personalization.</p>
           </div>
         </section>
 
         <section id="managing-sdks" class="terms-section">
           <h4>8. Managing SDKs in Mobile Apps</h4>
-          
+
           <div class="highlight mt-3">
-            <h5>8.1 In-app settings</h5>
-            <p>Roja provides controls to disable analytics or ad personalization in the App's privacy settings (where supported).</p>
+            <h5>8.1. In-app settings</h5>
+            <p>Roja provides controls to disable analytics or ad personalization in the App's privacy settings (where
+              supported).</p>
           </div>
 
           <div class="highlight mt-3">
-            <h5>8.2 Platform settings</h5>
+            <h5>8.2. Platform settings</h5>
             <p>On iOS, you may use "App Tracking Transparency" (ATT) to deny tracking.<br>
-            On Android, you may reset your GAID (Google Advertising ID) or limit ad personalization.</p>
+              On Android, you may reset your GAID (Google Advertising ID) or limit ad personalization.</p>
           </div>
         </section>
 
         <section id="do-not-track" class="terms-section">
           <h4>9. Do Not Track (DNT) Signals</h4>
-          <p>Our Site does not currently respond to browser "Do Not Track" signals, as no consistent industry standard has been adopted. We honor opt-out rights provided by California and other U.S. state laws through the mechanisms described in Section 7.</p>
+          <p>Our Site does not currently respond to browser "Do Not Track" signals, as no consistent industry standard
+            has been adopted. We honor opt-out rights provided by California and other U.S. state laws through the
+            mechanisms described in Section 7.</p>
         </section>
 
         <section id="updates-policy" class="terms-section">
           <h4>10. Updates to This Cookie Policy</h4>
-          <p>We may update this Policy from time to time to reflect changes in technology, regulation, or our practices. Material changes will be communicated via our Site, App, or email (if required).</p>
+          <p>We may update this Policy from time to time to reflect changes in technology, regulation, or our practices.
+            Material changes will be communicated via our Site, App, or email (if required).</p>
         </section>
 
         <section id="contact-information" class="terms-section">
@@ -304,7 +335,11 @@
 
   <!-- Footer-Section start -->
   <footer class="white_text" data-aos="fade-in" data-aos-duration="1500">
-    <div class="footer_overlay"> <img src="images/overlay-bg3-reverse.svg" alt="img"> </div>
+    <!-- Footer Overlay -->
+    <div class="footer_overlay">
+      <img src="images/overlay-bg3-reverse.svg" class="overlay-light" alt="overlay">
+      <img src="images/overlay-bg3-reverse-dark.svg" class="overlay-dark" alt="overlay">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-6">
@@ -314,7 +349,8 @@
                 <img src="images/roja.png" alt="Logo">
               </a>
             </div>
-         <p>ROJA is a turnkey, white-label Earned Wage Access (EWA) platform that enables organizations to launch fully branded earned-access experiences without building infrastructure from scratch.</p>
+            <p>ROJA is a turnkey, white-label Earned Wage Access (EWA) platform that enables organizations to launch
+              fully branded earned-access experiences without building infrastructure from scratch.</p>
             <ul class="contact_info">
               <li><a href="mailto:">support@roja.one</a></li>
               <li><a href="tel: ">+1 (212) 456 7890</a></li>
@@ -325,7 +361,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-12">
-     <div class="links">
+          <div class="links">
             <h5>Quick Links</h5>
             <ul>
               <li><a href="index.html">Home</a></li>
@@ -348,24 +384,25 @@
           </div>
         </div>
       </div>
-          <div class="footer-section">
-    <div class="footer_bottom">
-       <div class="row">
+      <div class="footer-section">
+        <div class="footer_bottom">
+          <div class="row">
             <div class="col-12">
-                <div class="col-lg-12 footer-bottom row">
-                    <div class="left col-lg-6 col-sm-12">
-                        <p> © 2025 ROJA. All Rights Reserved</p>
-                    </div>
-                     <div class="right col-lg-6 col-sm-12">
-                          <i class="icofont-ui-settings" style="color: #ffffff;"></i> <a href="#" class="footer-link" id="update-preferences-link">Cookie Preferences</a>
-                    </div> 
-                
+              <div class="col-lg-12 footer-bottom row">
+                <div class="left col-lg-6 col-sm-12">
+                  <p> © 2025 ROJA. All Rights Reserved</p>
                 </div>
-            </div>
-        </div>
+                <div class="right col-lg-6 col-sm-12">
+                  <i class="icofont-ui-settings" style="color: #ffffff;"></i> <a href="#" class="footer-link"
+                    id="update-preferences-link">Cookie Preferences</a>
+                </div>
 
-    </div>
-    </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </footer>
   <!-- Footer-Section end -->
@@ -395,126 +432,139 @@
   <!-- Video Model End -->
 
 
-  
+
   <div class="consent-container" id="consent-container">
-        <button class="close-all-btn" id="close-all-btn">
-            <i class="icofont-close"></i>
+    <button class="close-all-btn" id="close-all-btn">
+      <i class="icofont-close"></i>
+    </button>
+
+    <div class="progress-container">
+      <div class="progress">
+        <div class="progress-bar" id="consent-progress" style="width: 0%"></div>
+      </div>
+      <div class="progress-text" id="progress-text">Step 1 of 2</div>
+    </div>
+
+    <div class="consent-panels row">
+      <!-- Disclaimer Panel -->
+      <div class="col-lg-12" id="disclaimer-panel">
+        <div class="panel">
+          <div class="panel-header">
+            <i class="panel-icon fas fa-exclamation-circle"></i>
+            <h5 class="mb-0 pop-head">Important Disclaimer</h5>
+          </div>
+          <div class="panel-body col-lg-12 row">
+            <div class="content-text col-lg-10">
+              <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial
+                  adviser.</span> The App provides budgeting insights and educational tools only, it does not offer
+                financial, investment, tax, or legal advice.Information is based on third-party data and may not be
+                accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed
+                exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no
+                guarantees regarding financial outcomes or third-party products or offers. For details, please see our
+                <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy
+                  Policy</a>, and <a href="termsofuse.html"
+                  style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>
+
+            </div>
+
+            <div class="panel-footer col-lg-2">
+              <button class="btn btn-custom btn-ok dis-btn" id="disclaimer-ok-btn">I Understand</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Cookie Policy Panel -->
+      <div class="col-lg-12" id="cookie-panel" style="display: none;">
+        <div class="panel">
+          <div class="panel-header">
+            <i class="panel-icon fas fa-cookie-bite"></i>
+            <h5 class="mb-0 pop-head">Cookie Policy</h5>
+          </div>
+
+          <div class="panel-body col-lg-12 row">
+            <div class="content-text col-lg-9">
+              <p>We use cookies and similar technologies to make roja work, improve your experience, analyze usage, and
+                deliver personalized ads. Some cookies are essential. Others support analytics and advertising. By
+                clicking "Accept All," you agree to our use of cookies. You can manage your choices anytime in Cookie
+                Settings or opt out of sale/sharing. For more details, see our <a href="cookiepolicy.html"
+                  style="color: #e56772; font-size:14px;">Cookie Policy</a> and <a href="privacypolicy.html"
+                  style="color: #e56772; font-size:14px;">Privacy Policy</a>.</p>
+
+            </div>
+            <div class="panel-footer col-lg-3">
+              <div class="cookie-buttons">
+                <button class="btn btn-outline-primary reject-bt mr-2" id="reject-cookies-btn">Reject</button>
+                <button class="btn btn-outline-primary reject-bt mr-2" id="customize-cookies-btn">Customize</button>
+                <button class="btn btn-primary reject-bt" id="accept-cookies-btn">Accept</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Cookie Options Modal -->
+  <div class="cookie-options-modal" id="cookie-options-modal">
+    <div class="cookie-options-content">
+      <div class="cookie-options-header">
+        <h5 class="mb-0">Customize Cookie Preferences</h5>
+        <button type="button" class="close-btn" id="close-options-modal">
+          <i class="fas fa-times"></i>
         </button>
-        
-        <div class="progress-container">
-            <div class="progress">
-                <div class="progress-bar" id="consent-progress" style="width: 0%"></div>
+      </div>
+      <div class="cookie-options-body">
+        <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
+
+        <div class="cookie-categories">
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
+              <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
             </div>
-            <div class="progress-text" id="progress-text">Step 1 of 2</div>
-        </div>
-        
-        <div class="consent-panels row">
-            <!-- Disclaimer Panel -->
-            <div class="col-lg-12" id="disclaimer-panel">
-                <div class="panel">
-                    <div class="panel-header">
-                        <i class="panel-icon fas fa-exclamation-circle"></i>
-                        <h5 class="mb-0 pop-head">Important Disclaimer</h5>
-                    </div>
-                    <div class="panel-body col-lg-12 row">
-                        <div class="content-text col-lg-10">
-                           <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial adviser.</span> The App provides budgeting insights and educational tools only, it does not offer financial, investment, tax, or legal advice.Information is based on third-party data and may not be accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no guarantees regarding financial outcomes or third-party products or offers. For details, please see our <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy Policy</a>, and <a href="termsofuse.html" style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>  
+            <label class="toggle-switch">
+              <input type="checkbox" id="essential-cookies" checked disabled>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
 
-                        </div>
-
-                         <div class="panel-footer col-lg-2">
-                        <button class="btn btn-custom btn-ok dis-btn" id="disclaimer-ok-btn">I Understand</button>
-                    </div>
-
-                    </div>
-              
-                </div>
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Analytics Cookies</div>
+              <div class="category-desc">Help us understand how visitors interact with our website.</div>
             </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="analytics-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
 
-            <!-- Cookie Policy Panel -->
-            <div class="col-lg-12" id="cookie-panel" style="display: none;">
-            <div class="panel">
-                    <div class="panel-header">
-                        <i class="panel-icon fas fa-cookie-bite"></i>
-                        <h5 class="mb-0 pop-head">Cookie Policy</h5>
-                    </div>
-
-                    <div class="panel-body col-lg-12 row">
-                        <div class="content-text col-lg-9">
-                            <p>We use cookies and similar technologies to make roja work, improve your experience, analyze usage, and deliver personalized ads. Some cookies are essential. Others support analytics and advertising. By clicking "Accept All," you agree to our use of cookies. You can manage your choices anytime in Cookie Settings or opt out of sale/sharing. For more details, see our <a href="cookiepolicy.html" style="color: #e56772; font-size:14px;">Cookie Policy</a> and <a href="privacypolicy.html" style="color: #e56772; font-size:14px;">Privacy Policy</a>.</p>
-
-                        </div>
-                          <div class="panel-footer col-lg-3">
-                            <div class="cookie-buttons">
-                                <button class="btn btn-outline-primary reject-bt mr-2" id="reject-cookies-btn">Reject</button>
-                                <button class="btn btn-outline-primary reject-bt mr-2" id="customize-cookies-btn">Customize</button>
-                                <button class="btn btn-primary reject-bt" id="accept-cookies-btn">Accept</button>
-                            </div>
-                    </div>
-                    
-                    </div>
-                  
-                </div>
-
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Marketing Cookies</div>
+              <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
             </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
         </div>
 
+        <div class="d-flex justify-content-end mt-4">
+          <button class="btn btn-outline-primary mr-2" id="cancel-options-btn">Cancel</button>
+          <button class="btn btn-primary" id="save-options-btn">Save Preferences</button>
+        </div>
+      </div>
     </div>
-
-    <!-- Cookie Options Modal -->
-    <div class="cookie-options-modal" id="cookie-options-modal">
-        <div class="cookie-options-content">
-            <div class="cookie-options-header">
-                <h5 class="mb-0">Customize Cookie Preferences</h5>
-                <button type="button" class="close-btn" id="close-options-modal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="cookie-options-body">
-                <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-                
-                <div class="cookie-categories">
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
-                            <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="essential-cookies" checked disabled>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Analytics Cookies</div>
-                            <div class="category-desc">Help us understand how visitors interact with our website.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="analytics-cookies">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Marketing Cookies</div>
-                            <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="marketing-cookies">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-outline-primary mr-2" id="cancel-options-btn">Cancel</button>
-                    <button class="btn btn-primary" id="save-options-btn">Save Preferences</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 
 
 
@@ -532,231 +582,234 @@
   <!-- main-js-Link -->
   <script src="js/main.js"></script>
 
+  <!-- Dark Theme js -->
+  <script src="js/dark.js"></script>
 
-  
-    <script>
-      
-       document.addEventListener('DOMContentLoaded', function() {
-            const cookieConsent = document.getElementById('cookieConsent');
-            const acceptAllBtn = document.getElementById('acceptAll');
-            const saveSettingsBtn = document.getElementById('saveSettings');
-            const rejectAllBtn = document.getElementById('rejectAll');
-            const analyticsCookies = document.getElementById('analyticsCookies');
-            const marketingCookies = document.getElementById('marketingCookies');
 
-            // Check if consent was already given
-            if (!localStorage.getItem('cookieConsent')) {
-                // Show the popup after a short delay
-                setTimeout(function() {
-                    cookieConsent.classList.add('active');
-                }, 1000);
-            }
-            // Accept All button
-            acceptAllBtn.addEventListener('click', function() {
-                // Set all cookies to accepted
-                localStorage.setItem('cookieConsent', 'all');
-                localStorage.setItem('analyticsCookies', 'true');
-                localStorage.setItem('marketingCookies', 'true');
-                hidePopup();
-                setCookies(true, true); // Implement your actual cookie setting function
-            });
-            
-            // Save Settings button
-            saveSettingsBtn.addEventListener('click', function() {
-                // Save the current toggle states
-                localStorage.setItem('cookieConsent', 'custom');
-                localStorage.setItem('analyticsCookies', analyticsCookies.checked.toString());
-                localStorage.setItem('marketingCookies', marketingCookies.checked.toString());
-                hidePopup();
-                setCookies(analyticsCookies.checked, marketingCookies.checked);
-            });
-            
-            // Reject All button
-            rejectAllBtn.addEventListener('click', function() {
-                // Only keep essential cookies
-                localStorage.setItem('cookieConsent', 'essential');
-                localStorage.setItem('analyticsCookies', 'false');
-                localStorage.setItem('marketingCookies', 'false');
-                hidePopup();
-                setCookies(false, false);
-            });
-            
-            function hidePopup() {
-                cookieConsent.classList.remove('active');
-                // Optional: Remove from DOM after animation completes
-                setTimeout(() => {
-                    cookieConsent.style.display = 'none';
-                }, 400);
-            }
-            
-            // Function to actually set the cookies (replace with your implementation)
-            function setCookies(analytics, marketing) {
-                console.log('Setting cookies - Analytics:', analytics, 'Marketing:', marketing);
-                // Here you would implement your actual cookie setting logic
-                // For example:
-                 if (analytics) { setAnalyticsCookies(); }
-                 if (marketing) { setMarketingCookies(); }
-            }
-            
-            // Load saved preferences (optional - if you want to reflect them in the UI)
-            function loadPreferences() {
-                const savedAnalytics = localStorage.getItem('analyticsCookies');
-                const savedMarketing = localStorage.getItem('marketingCookies');
-                
-                if (savedAnalytics !== null) {
-                    analyticsCookies.checked = savedAnalytics === 'true';
-                }
-                if (savedMarketing !== null) {
-                    marketingCookies.checked = savedMarketing === 'true';
-                }
-            }
-            
-            loadPreferences();
-        });
 
-        
-   document.addEventListener('DOMContentLoaded', function() {
-            // Check if user has already given consent
-            const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
-            const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
-            
-            // If both are accepted, don't show the consent container initially
-            if (hasAcceptedDisclaimer && hasAcceptedCookies) {
-                document.getElementById('consent-container').style.display = 'none';
-            } else {
-                // Show the consent container
-                document.getElementById('consent-container').style.display = 'block';
-            }
-            
-            // Progress tracking
-            const progressBar = document.getElementById('consent-progress');
-            const progressText = document.getElementById('progress-text');
-            const disclaimerPanel = document.getElementById('disclaimer-panel');
-            const cookiePanel = document.getElementById('cookie-panel');
-            
-            // If disclaimer already accepted, show cookie panel directly
-            if (hasAcceptedDisclaimer) {
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-            } else {
-                updateProgress(1);
-            }
-            
-            // Update progress
-            function updateProgress(step) {
-                const percentage = (step / 2) * 100;
-                progressBar.style.width = `${percentage}%`;
-                progressText.textContent = `Step ${step} of 2`;
-            }
-            
-            // Function to close consent container
-            function closeConsentContainer() {
-                document.getElementById('consent-container').style.display = 'none';
-            }
-            
-            // Function to open consent container for preferences update
-            function openPreferencesUpdate() {
-                // Always show the cookie panel when updating preferences
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-                
-                // Show the consent container
-                document.getElementById('consent-container').style.display = 'block';
-            }
-            
-            // Close button functionality
-            document.getElementById('close-all-btn').addEventListener('click', function() {
-                closeConsentContainer();
-            });
-            
-            // Disclaimer OK button
-            document.getElementById('disclaimer-ok-btn').addEventListener('click', function() {
-                // Store acceptance in localStorage
-                localStorage.setItem('rojaDisclaimerAccepted', 'true');
-                
-                // Hide disclaimer and show cookie panel
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-            });
-            
-            // Cookie Accept button
-            document.getElementById('accept-cookies-btn').addEventListener('click', function() {
-                // Store cookie acceptance in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', 'true');
-                localStorage.setItem('rojaMarketingCookies', 'true');
-                
-                // Close the consent container
-                closeConsentContainer();
-            });
-            
-            // Cookie Reject button
-            document.getElementById('reject-cookies-btn').addEventListener('click', function() {
-                // Store cookie rejection in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', 'false');
-                localStorage.setItem('rojaMarketingCookies', 'false');
-                
-                // Close the consent container
-                closeConsentContainer();
-            });
-            
-            
-            // Cookie Customize button
-            document.getElementById('customize-cookies-btn').addEventListener('click', function() {
-                // Show the cookie options modal
-                document.getElementById('cookie-options-modal').style.display = 'flex';
-                
-                // Load current preferences if available
-                const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
-                const marketingPref = localStorage.getItem('rojaMarketingCookies');
-                
-                if (analyticsPref !== null) {
-                    document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
-                }
-                
-                if (marketingPref !== null) {
-                    document.getElementById('marketing-cookies').checked = marketingPref === 'true';
-                }
-            });
-            
-            // Close cookie options modal
-            document.getElementById('close-options-modal').addEventListener('click', function() {
-                document.getElementById('cookie-options-modal').style.display = 'none';
-            });
-            
-            document.getElementById('cancel-options-btn').addEventListener('click', function() {
-                document.getElementById('cookie-options-modal').style.display = 'none';
-            });
-            
-            // Save cookie options
-            document.getElementById('save-options-btn').addEventListener('click', function() {
-                const analyticsChecked = document.getElementById('analytics-cookies').checked;
-                const marketingChecked = document.getElementById('marketing-cookies').checked;
-                
-                // Store preferences in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
-                localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
-                
-                // Close the modal and consent container
-                document.getElementById('cookie-options-modal').style.display = 'none';
-                closeConsentContainer();
-            });
-            
-            // Update preferences link in footer
-            document.getElementById('update-preferences-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                openPreferencesUpdate();
-            });
-        });
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const cookieConsent = document.getElementById('cookieConsent');
+      const acceptAllBtn = document.getElementById('acceptAll');
+      const saveSettingsBtn = document.getElementById('saveSettings');
+      const rejectAllBtn = document.getElementById('rejectAll');
+      const analyticsCookies = document.getElementById('analyticsCookies');
+      const marketingCookies = document.getElementById('marketingCookies');
+
+      // Check if consent was already given
+      if (!localStorage.getItem('cookieConsent')) {
+        // Show the popup after a short delay
+        setTimeout(function () {
+          cookieConsent.classList.add('active');
+        }, 1000);
+      }
+      // Accept All button
+      acceptAllBtn.addEventListener('click', function () {
+        // Set all cookies to accepted
+        localStorage.setItem('cookieConsent', 'all');
+        localStorage.setItem('analyticsCookies', 'true');
+        localStorage.setItem('marketingCookies', 'true');
+        hidePopup();
+        setCookies(true, true); // Implement your actual cookie setting function
+      });
+
+      // Save Settings button
+      saveSettingsBtn.addEventListener('click', function () {
+        // Save the current toggle states
+        localStorage.setItem('cookieConsent', 'custom');
+        localStorage.setItem('analyticsCookies', analyticsCookies.checked.toString());
+        localStorage.setItem('marketingCookies', marketingCookies.checked.toString());
+        hidePopup();
+        setCookies(analyticsCookies.checked, marketingCookies.checked);
+      });
+
+      // Reject All button
+      rejectAllBtn.addEventListener('click', function () {
+        // Only keep essential cookies
+        localStorage.setItem('cookieConsent', 'essential');
+        localStorage.setItem('analyticsCookies', 'false');
+        localStorage.setItem('marketingCookies', 'false');
+        hidePopup();
+        setCookies(false, false);
+      });
+
+      function hidePopup() {
+        cookieConsent.classList.remove('active');
+        // Optional: Remove from DOM after animation completes
+        setTimeout(() => {
+          cookieConsent.style.display = 'none';
+        }, 400);
+      }
+
+      // Function to actually set the cookies (replace with your implementation)
+      function setCookies(analytics, marketing) {
+        console.log('Setting cookies - Analytics:', analytics, 'Marketing:', marketing);
+        // Here you would implement your actual cookie setting logic
+        // For example:
+        if (analytics) { setAnalyticsCookies(); }
+        if (marketing) { setMarketingCookies(); }
+      }
+
+      // Load saved preferences (optional - if you want to reflect them in the UI)
+      function loadPreferences() {
+        const savedAnalytics = localStorage.getItem('analyticsCookies');
+        const savedMarketing = localStorage.getItem('marketingCookies');
+
+        if (savedAnalytics !== null) {
+          analyticsCookies.checked = savedAnalytics === 'true';
+        }
+        if (savedMarketing !== null) {
+          marketingCookies.checked = savedMarketing === 'true';
+        }
+      }
+
+      loadPreferences();
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Check if user has already given consent
+      const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
+      const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
+
+      // If both are accepted, don't show the consent container initially
+      if (hasAcceptedDisclaimer && hasAcceptedCookies) {
+        document.getElementById('consent-container').style.display = 'none';
+      } else {
+        // Show the consent container
+        document.getElementById('consent-container').style.display = 'block';
+      }
+
+      // Progress tracking
+      const progressBar = document.getElementById('consent-progress');
+      const progressText = document.getElementById('progress-text');
+      const disclaimerPanel = document.getElementById('disclaimer-panel');
+      const cookiePanel = document.getElementById('cookie-panel');
+
+      // If disclaimer already accepted, show cookie panel directly
+      if (hasAcceptedDisclaimer) {
+        disclaimerPanel.style.display = 'none';
+        cookiePanel.style.display = 'block';
+        updateProgress(2);
+      } else {
+        updateProgress(1);
+      }
+
+      // Update progress
+      function updateProgress(step) {
+        const percentage = (step / 2) * 100;
+        progressBar.style.width = `${percentage}%`;
+        progressText.textContent = `Step ${step} of 2`;
+      }
+
+      // Function to close consent container
+      function closeConsentContainer() {
+        document.getElementById('consent-container').style.display = 'none';
+      }
+
+      // Function to open consent container for preferences update
+      function openPreferencesUpdate() {
+        // Always show the cookie panel when updating preferences
+        disclaimerPanel.style.display = 'none';
+        cookiePanel.style.display = 'block';
+        updateProgress(2);
+
+        // Show the consent container
+        document.getElementById('consent-container').style.display = 'block';
+      }
+
+      // Close button functionality
+      document.getElementById('close-all-btn').addEventListener('click', function () {
+        closeConsentContainer();
+      });
+
+      // Disclaimer OK button
+      document.getElementById('disclaimer-ok-btn').addEventListener('click', function () {
+        // Store acceptance in localStorage
+        localStorage.setItem('rojaDisclaimerAccepted', 'true');
+
+        // Hide disclaimer and show cookie panel
+        disclaimerPanel.style.display = 'none';
+        cookiePanel.style.display = 'block';
+        updateProgress(2);
+      });
+
+      // Cookie Accept button
+      document.getElementById('accept-cookies-btn').addEventListener('click', function () {
+        // Store cookie acceptance in localStorage
+        localStorage.setItem('rojaCookiesAccepted', 'true');
+        localStorage.setItem('rojaAnalyticsCookies', 'true');
+        localStorage.setItem('rojaMarketingCookies', 'true');
+
+        // Close the consent container
+        closeConsentContainer();
+      });
+
+      // Cookie Reject button
+      document.getElementById('reject-cookies-btn').addEventListener('click', function () {
+        // Store cookie rejection in localStorage
+        localStorage.setItem('rojaCookiesAccepted', 'true');
+        localStorage.setItem('rojaAnalyticsCookies', 'false');
+        localStorage.setItem('rojaMarketingCookies', 'false');
+
+        // Close the consent container
+        closeConsentContainer();
+      });
+
+
+      // Cookie Customize button
+      document.getElementById('customize-cookies-btn').addEventListener('click', function () {
+        // Show the cookie options modal
+        document.getElementById('cookie-options-modal').style.display = 'flex';
+
+        // Load current preferences if available
+        const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
+        const marketingPref = localStorage.getItem('rojaMarketingCookies');
+
+        if (analyticsPref !== null) {
+          document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
+        }
+
+        if (marketingPref !== null) {
+          document.getElementById('marketing-cookies').checked = marketingPref === 'true';
+        }
+      });
+
+      // Close cookie options modal
+      document.getElementById('close-options-modal').addEventListener('click', function () {
+        document.getElementById('cookie-options-modal').style.display = 'none';
+      });
+
+      document.getElementById('cancel-options-btn').addEventListener('click', function () {
+        document.getElementById('cookie-options-modal').style.display = 'none';
+      });
+
+      // Save cookie options
+      document.getElementById('save-options-btn').addEventListener('click', function () {
+        const analyticsChecked = document.getElementById('analytics-cookies').checked;
+        const marketingChecked = document.getElementById('marketing-cookies').checked;
+
+        // Store preferences in localStorage
+        localStorage.setItem('rojaCookiesAccepted', 'true');
+        localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
+        localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
+
+        // Close the modal and consent container
+        document.getElementById('cookie-options-modal').style.display = 'none';
+        closeConsentContainer();
+      });
+
+      // Update preferences link in footer
+      document.getElementById('update-preferences-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        openPreferencesUpdate();
+      });
+    });
 
   </script>
 
-  
+
 </body>
 
 </html>

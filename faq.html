@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 
 <head>
   <meta charset="UTF-8">
@@ -19,6 +20,8 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Responsive-Style-link -->
   <link rel="stylesheet" href="css/responsive.css">
+  <!-- Dark Theme css -->
+  <link rel="stylesheet" href="css/dark-light-theme.css">
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 </head>
@@ -50,12 +53,16 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="whitelabel.html">Platform</a></li>
-                <li class="nav-item"><a class="nav-link" href="about.html">How it Works</a></li>
-                <li class="nav-item"><a class="nav-link" href="usecase.html">Use Cases</a></li>
-                <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="whitelabel.html">Platform</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">How it Works</a></li>
+            <li class="nav-item"><a class="nav-link" href="usecase.html">Use Cases</a></li>
+            <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <button class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </button>
 
             <li class="nav-item">
               <div class="btn_block">
@@ -72,473 +79,473 @@
   </header>
 
 
-<div class="section_title container mt-0 faq-cont" data-aos="fade-up" data-aos-duration="1500">
-  <span class="title_badge">FAQ</span>
-  <h2>Frequently Asked <span>Questions</span></h2>
-  <p>Welcome to the ROJA FAQ page. Here you'll find answers to the most common questions across key areas of our platform.</p>
-  <div class="container">
-    <div style="position: relative; max-width: 650px; margin-bottom: 1rem;margin: 0 auto;">
-      <input type="text" id="faqSearch" placeholder="Search FAQ..." onkeyup="filterFAQs()"
-        style=" width: 100%;padding: 8px 35px 8px 10px; font-size: 1rem; border: 1px solid #ccc; border-radius: 40px; box-sizing: border-box; height: 60px; margin-top: 30px;" />
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round"
-        style="width: 18px; height: 18px; position: absolute; top: 67%; right: 10px; transform: translateY(-50%); pointer-events: none;">
-        <circle cx="11" cy="11" r="7"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
+  <div class="section_title container mt-0 faq-cont" data-aos="fade-up" data-aos-duration="1500">
+    <span class="title_badge">FAQ</span>
+    <h2>Frequently Asked <span>Questions</span></h2>
+    <p>Welcome to the ROJA FAQ page. Here you'll find answers to the most common questions across key areas of our
+      platform.</p>
+    <div class="container">
+      <div style="position: relative; max-width: 650px; margin-bottom: 1rem;margin: 0 auto;">
+        <input type="text" id="faqSearch" placeholder="Search FAQ..." onkeyup="filterFAQs()"
+          style=" width: 100%;padding: 8px 35px 8px 30px; font-size: 1rem; border: 2px solid #ccc; border-radius: 40px; box-sizing: border-box; height: 60px; margin-top: 30px;" />
+
+        <i class="icofont-search"
+          style="width: 18px; height: 18px; position: absolute; top: 67%; right: 30px; transform: translateY(-50%); pointer-events: none;"></i>
+
+
+
+
+      </div>
     </div>
   </div>
-</div>
 
-<section class="row_am faq_section" id="faqsec">
-  <div class="container">
-    <div class="faq_blocks aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500">
-      <div class="accordion" id="accordionExample">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="text">
-              <h4>General Overview</h4>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingOne">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
-                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    What is Roja?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
+  <section class="row_am faq_section" id="faqsec">
+    <div class="container">
+      <div class="faq_blocks aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500">
+        <div class="accordion" id="accordionExample">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="text">
+                <h4>General Overview</h4>
               </div>
-              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja is a white-labeled Earned Wage Access (EWA) technology platform that enables
-                  organizations to offer earned-access experiences under their own brand.
-                  Roja provides the technology and operational tooling required to launch and manage
-                  earned-access programs while allowing partners to retain full control over branding,
-                  customer relationships, program structure, and operational decisions.
+              <div class="card">
+                <div class="card-header" id="headingOne">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      What is Roja?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja is a white-labeled Earned Wage Access (EWA) technology platform that enables
+                    organizations to offer earned-access experiences under their own brand.
+                    Roja provides the technology and operational tooling required to launch and manage
+                    earned-access programs while allowing partners to retain full control over branding,
+                    customer relationships, program structure, and operational decisions.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Is Roja a consumer app?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    No.<br>
+                    Roja is not a consumer-facing application.<br>
+                    Roja operates as a background technology platform. End users interact only with the
+                    partner's branded mobile or web experience, not with Roja directly.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingThree">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Does Roja provide funds or operate a financial product?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                  <div class="card-body">
+                    No.<br>
+                    Roja does not provide funds and does not operate a financial product.<br>
+                    Roja supplies technology, workflows, and integrations that support earned-access
+                    programs. All funding arrangements, program economics, and operational decisions are
+                    determined and managed by the partner.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingfour">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+                      Is Roja a lender?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
+                  <div class="card-body">
+                    No.<br>
+                    Roja is not a lender and does not originate, underwrite, or offer financial products.<br>
+                    Roja functions solely as a technology provider supporting earned-access programs
+                    through software, integrations, and configurable workflows.
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Is Roja a consumer app?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                  No.<br>
-                  Roja is not a consumer-facing application.<br>
-                  Roja operates as a background technology platform. End users interact only with the
-                  partner's branded mobile or web experience, not with Roja directly.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Does Roja provide funds or operate a financial product?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  No.<br>
-                  Roja does not provide funds and does not operate a financial product.<br>
-                  Roja supplies technology, workflows, and integrations that support earned-access
-                  programs. All funding arrangements, program economics, and operational decisions are
-                  determined and managed by the partner.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingfour">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                    Is Roja a lender?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
-                <div class="card-body">
-                  No.<br>
-                  Roja is not a lender and does not originate, underwrite, or offer financial products.<br>
-                  Roja functions solely as a technology provider supporting earned-access programs
-                  through software, integrations, and configurable workflows.
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-12">
-            <div class="text">
-              <h4>Program Features & Technology</h4>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingfive">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
-                    What types of earned-access programs does Roja support?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
+            <div class="col-md-12">
+              <div class="text">
+                <h4>Program Features & Technology</h4>
               </div>
-              <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja is designed to support a range of earned-access structures, including:
-                  <ul>
-                    <li>Earned Wage Access (EWA)</li>
-                    <li>No-cost access models</li>
-                    <li>Cash-flow-based access programs</li>
-                    <li>Employer-sponsored earned-access experiences</li>
-                    <li>Consumer-initiated earned-access programs</li>
-                  </ul>
-                  Programs are configurable to align with each partner's operating model, policies, and
-                  applicable requirements.
+              <div class="card">
+                <div class="card-header" id="headingfive">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+                      What types of earned-access programs does Roja support?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja is designed to support a range of earned-access structures, including:
+                    <ul>
+                      <li>Earned Wage Access (EWA)</li>
+                      <li>No-cost access models</li>
+                      <li>Cash-flow-based access programs</li>
+                      <li>Employer-sponsored earned-access experiences</li>
+                      <li>Consumer-initiated earned-access programs</li>
+                    </ul>
+                    Programs are configurable to align with each partner's operating model, policies, and
+                    applicable requirements.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingsix">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
+                      How does white-labeling work?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja is fully white-labeled.<br>
+                    This means:
+                    <ul>
+                      <li>The experience is branded entirely as your own</li>
+                      <li>You control naming, messaging, and disclosures</li>
+                      <li>End users engage directly with your brand</li>
+                      <li>Roja remains unseen as the underlying technology layer</li>
+                    </ul>
+                    Roja does not appear in user-facing branding or communications unless explicitly
+                    chosen by the partner.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingseven">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
+                      Does Roja integrate with existing systems?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseseven" class="collapse" aria-labelledby="headingseven" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Yes.<br>
+                    Roja is designed to integrate with existing systems and providers, including:
+                    <ul>
+                      <li>Payroll or income data sources</li>
+                      <li>Bank and account verification tools</li>
+                      <li>Internal servicing, CRM, or management systems</li>
+                    </ul>
+                    The platform is LMS-agnostic and API-first, allowing it to fit into a wide range of
+                    technology environments.
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingsix">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
-                    How does white-labeling work?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja is fully white-labeled.<br>
-                  This means:
-                  <ul>
-                    <li>The experience is branded entirely as your own</li>
-                    <li>You control naming, messaging, and disclosures</li>
-                    <li>End users engage directly with your brand</li>
-                    <li>Roja remains unseen as the underlying technology layer</li>
-                  </ul>
-                  Roja does not appear in user-facing branding or communications unless explicitly
-                  chosen by the partner.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingseven">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                    Does Roja integrate with existing systems?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseseven" class="collapse" aria-labelledby="headingseven"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Yes.<br>
-                  Roja is designed to integrate with existing systems and providers, including:
-                  <ul>
-                    <li>Payroll or income data sources</li>
-                    <li>Bank and account verification tools</li>
-                    <li>Internal servicing, CRM, or management systems</li>
-                  </ul>
-                  The platform is LMS-agnostic and API-first, allowing it to fit into a wide range of
-                  technology environments.
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-12">
-            <div class="text">
-              <h4>Operations & Control</h4>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingeight">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
-                    Who owns the customer relationship?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
+            <div class="col-md-12">
+              <div class="text">
+                <h4>Operations & Control</h4>
               </div>
-              <div id="collapseeight" class="collapse" aria-labelledby="headingeight"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  The partner does.<br>
-                  Organizations deploying Roja retain full ownership of the customer relationship,
-                  including branding, communications, support, and program management. Roja does not
-                  market to, onboard, or directly communicate with end users.
+              <div class="card">
+                <div class="card-header" id="headingeight">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
+                      Who owns the customer relationship?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseeight" class="collapse" aria-labelledby="headingeight" data-parent="#accordionExample">
+                  <div class="card-body">
+                    The partner does.<br>
+                    Organizations deploying Roja retain full ownership of the customer relationship,
+                    including branding, communications, support, and program management. Roja does not
+                    market to, onboard, or directly communicate with end users.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingnine">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsenine" aria-expanded="false" aria-controls="collapsenine">
+                      How is eligibility for earned access determined?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsenine" class="collapse" aria-labelledby="headingnine" data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja provides configurable eligibility and access logic defined by the partner.<br>
+                    Eligibility parameters may include, but are not limited to:
+                    <ul>
+                      <li>Income or payroll data</li>
+                      <li>Bank account activity</li>
+                      <li>Program rules established by the partner</li>
+                    </ul>
+                    All eligibility criteria and thresholds are controlled by the organization using the platform.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingten">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseten" aria-expanded="false" aria-controls="collapseten">
+                      Does Roja make decisions on access amounts or limits?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseten" class="collapse" aria-labelledby="headingten" data-parent="#accordionExample">
+                  <div class="card-body">
+                    No.<br>
+                    Roja does not make independent decisions regarding access amounts, limits, or
+                    frequency.<br>
+                    The platform executes rules and logic configured by the partner based on their defined
+                    program structure.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingeleven">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseeleven" aria-expanded="false" aria-controls="collapseeleven">
+                      How does repayment or reconciliation work?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseeleven" class="collapse" aria-labelledby="headingeleven"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja provides tools that support reconciliation and repayment workflows based on
+                    partner-defined program structures.<br>
+                    Timing, methods, and logic are fully configurable and controlled by the partner to align
+                    with their operational model.
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingnine">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsenine" aria-expanded="false" aria-controls="collapsenine">
-                    How is eligibility for earned access determined?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapsenine" class="collapse" aria-labelledby="headingnine" data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja provides configurable eligibility and access logic defined by the partner.<br>
-                  Eligibility parameters may include, but are not limited to:
-                  <ul>
-                    <li>Income or payroll data</li>
-                    <li>Bank account activity</li>
-                    <li>Program rules established by the partner</li>
-                  </ul>
-                  All eligibility criteria and thresholds are controlled by the organization using the platform.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingten">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseten" aria-expanded="false" aria-controls="collapseten">
-                    Does Roja make decisions on access amounts or limits?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseten" class="collapse" aria-labelledby="headingten" data-parent="#accordionExample">
-                <div class="card-body">
-                  No.<br>
-                  Roja does not make independent decisions regarding access amounts, limits, or
-                  frequency.<br>
-                  The platform executes rules and logic configured by the partner based on their defined
-                  program structure.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingeleven">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseeleven" aria-expanded="false" aria-controls="collapseeleven">
-                    How does repayment or reconciliation work?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseeleven" class="collapse" aria-labelledby="headingeleven"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja provides tools that support reconciliation and repayment workflows based on
-                  partner-defined program structures.<br>
-                  Timing, methods, and logic are fully configurable and controlled by the partner to align
-                  with their operational model.
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-12">
-            <div class="text">
-              <h4>Compliance & Legal</h4>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingtwelve">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsetwelve" aria-expanded="false" aria-controls="collapsetwelve">
-                    How does Roja approach compliance?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
+            <div class="col-md-12">
+              <div class="text">
+                <h4>Compliance & Legal</h4>
               </div>
-              <div id="collapsetwelve" class="collapse" aria-labelledby="headingtwelve"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja is built with configurability, transparency, and audit readiness in mind.<br>
-                  The platform enables partners to:
-                  <ul>
-                    <li>Configure disclosures and user flows</li>
-                    <li>Define program rules and eligibility logic</li>
-                    <li>Maintain reporting and activity records</li>
-                    <li>Support internal reviews and audits</li>
-                  </ul>
-                  Each partner remains responsible for ensuring their earned-access program complies
-                  with applicable laws, regulations, and internal policies.
+              <div class="card">
+                <div class="card-header" id="headingtwelve">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsetwelve" aria-expanded="false" aria-controls="collapsetwelve">
+                      How does Roja approach compliance?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsetwelve" class="collapse" aria-labelledby="headingtwelve"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja is built with configurability, transparency, and audit readiness in mind.<br>
+                    The platform enables partners to:
+                    <ul>
+                      <li>Configure disclosures and user flows</li>
+                      <li>Define program rules and eligibility logic</li>
+                      <li>Maintain reporting and activity records</li>
+                      <li>Support internal reviews and audits</li>
+                    </ul>
+                    Each partner remains responsible for ensuring their earned-access program complies
+                    with applicable laws, regulations, and internal policies.
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-header" id="headingthirteen">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsethirteen" aria-expanded="false" aria-controls="collapsethirteen">
+                      Does Roja provide compliance advice or regulatory determinations?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsethirteen" class="collapse" aria-labelledby="headingthirteen"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    No.<br>
+                    Roja does not provide legal or regulatory advice.<br>
+                    The platform provides technical capabilities that partners can configure to align with
+                    their compliance approach and professional guidance.
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" id="headingthirteen">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsethirteen" aria-expanded="false" aria-controls="collapsethirteen">
-                    Does Roja provide compliance advice or regulatory determinations?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapsethirteen" class="collapse" aria-labelledby="headingthirteen"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  No.<br>
-                  Roja does not provide legal or regulatory advice.<br>
-                  The platform provides technical capabilities that partners can configure to align with
-                  their compliance approach and professional guidance.
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-12">
-            <div class="text">
-              <h4>Audience & Implementation</h4>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingfourteen">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsefourteen" aria-expanded="false" aria-controls="collapsefourteen">
-                    Who is Roja designed for?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
+            <div class="col-md-12">
+              <div class="text">
+                <h4>Audience & Implementation</h4>
               </div>
-              <div id="collapsefourteen" class="collapse" aria-labelledby="headingfourteen"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Roja is designed for organizations that want to offer earned-access programs under
-                  their own brand, including:
-                  <ul>
-                    <li>Financial service providers</li>
-                    <li>Licensed operators</li>
-                    <li>Employers and employer platforms</li>
-                    <li>Consumer finance or workforce platforms</li>
-                  </ul>
-                  The platform is intended for organizations seeking flexibility, control, and faster
-                  deployment without building technology internally.
+              <div class="card">
+                <div class="card-header" id="headingfourteen">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsefourteen" aria-expanded="false" aria-controls="collapsefourteen">
+                      Who is Roja designed for?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsefourteen" class="collapse" aria-labelledby="headingfourteen"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Roja is designed for organizations that want to offer earned-access programs under
+                    their own brand, including:
+                    <ul>
+                      <li>Financial service providers</li>
+                      <li>Licensed operators</li>
+                      <li>Employers and employer platforms</li>
+                      <li>Consumer finance or workforce platforms</li>
+                    </ul>
+                    The platform is intended for organizations seeking flexibility, control, and faster
+                    deployment without building technology internally.
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingfifteen">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsefifteen" aria-expanded="false" aria-controls="collapsefifteen">
-                    How quickly can a program be launched?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapsefifteen" class="collapse" aria-labelledby="headingfifteen"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Because Roja is a turnkey platform, partners can typically deploy programs faster than
-                  building an internal solution.<br>
-                  Deployment timelines depend on factors such as integrations, configuration complexity,
-                  branding requirements, and internal readiness.
+              <div class="card">
+                <div class="card-header" id="headingfifteen">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsefifteen" aria-expanded="false" aria-controls="collapsefifteen">
+                      How quickly can a program be launched?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsefifteen" class="collapse" aria-labelledby="headingfifteen"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Because Roja is a turnkey platform, partners can typically deploy programs faster than
+                    building an internal solution.<br>
+                    Deployment timelines depend on factors such as integrations, configuration complexity,
+                    branding requirements, and internal readiness.
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingsixteen">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapsesixteen" aria-expanded="false" aria-controls="collapsesixteen">
-                    Can Roja support multiple programs or regions?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapsesixteen" class="collapse" aria-labelledby="headingsixteen"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Yes.<br>
-                  Roja supports configurable program rules and workflows, allowing organizations to
-                  operate multiple earned-access programs or variations as needed.
+              <div class="card">
+                <div class="card-header" id="headingsixteen">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapsesixteen" aria-expanded="false" aria-controls="collapsesixteen">
+                      Can Roja support multiple programs or regions?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapsesixteen" class="collapse" aria-labelledby="headingsixteen"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Yes.<br>
+                    Roja supports configurable program rules and workflows, allowing organizations to
+                    operate multiple earned-access programs or variations as needed.
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="card">
-              <div class="card-header" id="headingseventeen">
-                <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
-                    data-target="#collapseseventeen" aria-expanded="false" aria-controls="collapseseventeen">
-                    How do organizations get started with Roja?
-                    <span class="icons">
-                      <i class="icofont-plus"></i>
-                      <i class="icofont-minus"></i>
-                    </span>
-                  </button>
-                </h2>
-              </div>
-              <div id="collapseseventeen" class="collapse" aria-labelledby="headingseventeen"
-                data-parent="#accordionExample">
-                <div class="card-body">
-                  Organizations interested in deploying Roja can contact the team to discuss program
-                  objectives, branding requirements, and integration needs. Initial discussions focus on fit,
-                  configuration, and deployment approach.
+              <div class="card">
+                <div class="card-header" id="headingseventeen">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                      data-target="#collapseseventeen" aria-expanded="false" aria-controls="collapseseventeen">
+                      How do organizations get started with Roja?
+                      <span class="icons">
+                        <i class="icofont-plus"></i>
+                        <i class="icofont-minus"></i>
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseseventeen" class="collapse" aria-labelledby="headingseventeen"
+                  data-parent="#accordionExample">
+                  <div class="card-body">
+                    Organizations interested in deploying Roja can contact the team to discuss program
+                    objectives, branding requirements, and integration needs. Initial discussions focus on fit,
+                    configuration, and deployment approach.
+                  </div>
                 </div>
               </div>
             </div>
@@ -546,8 +553,7 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   <section class="contact_form row_am mt-0" data-aos="fade-in" data-aos-duration="1500">
@@ -615,19 +621,24 @@
 
   <br><br><br>
 
-<!-- Footer-Section start -->
+  <!-- Footer-Section start -->
   <footer class="white_text" data-aos="fade-in" data-aos-duration="1500">
-    <div class="footer_overlay"> <img src="images/overlay-bg3-reverse.svg" alt="img"> </div>
+           <!-- Footer Overlay -->
+        <div class="footer_overlay">
+            <img src="images/overlay-bg3-reverse.svg" class="overlay-light" alt="overlay">
+            <img src="images/overlay-bg3-reverse-dark.svg" class="overlay-dark" alt="overlay">
+        </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-6">
           <div class="logo_side">
             <div class="logo">
               <a href="#">
-                 <img src="images/roja.png" alt="Logo">
+                <img src="images/roja.png" alt="Logo">
               </a>
             </div>
-         <p>ROJA is a turnkey, white-label Earned Wage Access (EWA) platform that enables organizations to launch fully branded earned-access experiences without building infrastructure from scratch.</p>
+            <p>ROJA is a turnkey, white-label Earned Wage Access (EWA) platform that enables organizations to launch
+              fully branded earned-access experiences without building infrastructure from scratch.</p>
             <ul class="contact_info">
               <li><a href="mailto:">support@roja.one</a></li>
               <li><a href="tel: ">+1 (212) 456 7890</a></li>
@@ -638,7 +649,7 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-12">
-     <div class="links">
+          <div class="links">
             <h5>Quick Links</h5>
             <ul>
               <li><a href="index.html">Home</a></li>
@@ -653,7 +664,7 @@
             <h5>Support</h5>
             <ul>
               <li><a href="faq.html"> FAQ</a></li>
-              <li><a href="contact.html"> Contact</a></li> 
+              <li><a href="contact.html"> Contact</a></li>
               <li><a href="cookiepolicy.html">Cookie Policy</a></li>
               <li><a href="privacypolicy.html">Privacy policy</a></li>
               <li><a href="termsofuse.html">Terms of Use</a></li>
@@ -664,24 +675,25 @@
 
 
       </div>
-                  <div class="footer-section">
-    <div class="footer_bottom">
-       <div class="row">
+      <div class="footer-section">
+        <div class="footer_bottom">
+          <div class="row">
             <div class="col-12">
-                <div class="col-lg-12 footer-bottom row">
-                    <div class="left col-lg-6 col-sm-12">
-                        <p> © 2025 ROJA. All Rights Reserved</p>
-                    </div>
-                     <div class="right col-lg-6 col-sm-12">
-                          <i class="icofont-ui-settings" style="color: #ffffff;"></i> <a href="#" class="footer-link" id="update-preferences-link">Cookie Preferences</a>
-                    </div> 
-                
+              <div class="col-lg-12 footer-bottom row">
+                <div class="left col-lg-6 col-sm-12">
+                  <p> © 2025 ROJA. All Rights Reserved</p>
                 </div>
-            </div>
-        </div>
+                <div class="right col-lg-6 col-sm-12">
+                  <i class="icofont-ui-settings" style="color: #ffffff;"></i> <a href="#" class="footer-link"
+                    id="update-preferences-link">Cookie Preferences</a>
+                </div>
 
-    </div>
-    </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
   </footer>
@@ -715,124 +727,137 @@
 
 
   <div class="consent-container" id="consent-container">
-        <button class="close-all-btn" id="close-all-btn">
-            <i class="icofont-close"></i>
+    <button class="close-all-btn" id="close-all-btn">
+      <i class="icofont-close"></i>
+    </button>
+
+    <div class="progress-container">
+      <div class="progress">
+        <div class="progress-bar" id="consent-progress" style="width: 0%"></div>
+      </div>
+      <div class="progress-text" id="progress-text">Step 1 of 2</div>
+    </div>
+
+    <div class="consent-panels row">
+      <!-- Disclaimer Panel -->
+      <div class="col-lg-12" id="disclaimer-panel">
+        <div class="panel">
+          <div class="panel-header">
+            <i class="panel-icon fas fa-exclamation-circle"></i>
+            <h5 class="mb-0 pop-head">Important Disclaimer</h5>
+          </div>
+          <div class="panel-body col-lg-12 row">
+            <div class="content-text col-lg-10">
+              <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial
+                  adviser.</span> The App provides budgeting insights and educational tools only, it does not offer
+                financial, investment, tax, or legal advice.Information is based on third-party data and may not be
+                accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed
+                exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no
+                guarantees regarding financial outcomes or third-party products or offers. For details, please see our
+                <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy
+                  Policy</a>, and <a href="termsofuse.html"
+                  style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>
+
+            </div>
+
+            <div class="panel-footer col-lg-2">
+              <button class="btn btn-custom btn-ok dis-btn" id="disclaimer-ok-btn">I Understand</button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Cookie Policy Panel -->
+      <div class="col-lg-12" id="cookie-panel" style="display: none;">
+        <div class="panel">
+          <div class="panel-header">
+            <i class="panel-icon fas fa-cookie-bite"></i>
+            <h5 class="mb-0 pop-head">Cookie Policy</h5>
+          </div>
+
+          <div class="panel-body col-lg-12 row">
+            <div class="content-text col-lg-9">
+              <p>We use cookies and similar technologies to make roja work, improve your experience, analyze usage, and
+                deliver personalized ads. Some cookies are essential. Others support analytics and advertising. By
+                clicking "Accept All," you agree to our use of cookies. You can manage your choices anytime in Cookie
+                Settings or opt out of sale/sharing. For more details, see our <a href="cookiepolicy.html"
+                  style="color: #e56772; font-size:14px;">Cookie Policy</a> and <a href="privacypolicy.html"
+                  style="color: #e56772; font-size:14px;">Privacy Policy</a>.</p>
+
+            </div>
+            <div class="panel-footer col-lg-3">
+              <div class="cookie-buttons">
+                <button class="btn btn-outline-primary reject-bt mr-2" id="reject-cookies-btn">Reject</button>
+                <button class="btn btn-outline-primary reject-bt mr-2" id="customize-cookies-btn">Customize</button>
+                <button class="btn btn-primary reject-bt" id="accept-cookies-btn">Accept</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Cookie Options Modal -->
+  <div class="cookie-options-modal" id="cookie-options-modal">
+    <div class="cookie-options-content">
+      <div class="cookie-options-header">
+        <h5 class="mb-0">Customize Cookie Preferences</h5>
+        <button type="button" class="close-btn" id="close-options-modal">
+          <i class="fas fa-times"></i>
         </button>
-        
-        <div class="progress-container">
-            <div class="progress">
-                <div class="progress-bar" id="consent-progress" style="width: 0%"></div>
+      </div>
+      <div class="cookie-options-body">
+        <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
+
+        <div class="cookie-categories">
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
+              <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
             </div>
-            <div class="progress-text" id="progress-text">Step 1 of 2</div>
-        </div>
-        
-        <div class="consent-panels row">
-            <!-- Disclaimer Panel -->
-            <div class="col-lg-12" id="disclaimer-panel">
-                <div class="panel">
-                    <div class="panel-header">
-                        <i class="panel-icon fas fa-exclamation-circle"></i>
-                        <h5 class="mb-0 pop-head">Important Disclaimer</h5>
-                    </div>
-                    <div class="panel-body col-lg-12 row">
-                        <div class="content-text col-lg-10">
-                           <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial adviser.</span> The App provides budgeting insights and educational tools only, it does not offer financial, investment, tax, or legal advice.Information is based on third-party data and may not be accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no guarantees regarding financial outcomes or third-party products or offers. For details, please see our <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy Policy</a>, and <a href="termsofuse.html" style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>  
+            <label class="toggle-switch">
+              <input type="checkbox" id="essential-cookies" checked disabled>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
 
-                        </div>
-
-                         <div class="panel-footer col-lg-2">
-                        <button class="btn btn-custom btn-ok dis-btn" id="disclaimer-ok-btn">I Understand</button>
-                    </div>
-
-                    </div>
-              
-                </div>
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Analytics Cookies</div>
+              <div class="category-desc">Help us understand how visitors interact with our website.</div>
             </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="analytics-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
 
-            <!-- Cookie Policy Panel -->
-            <div class="col-lg-12" id="cookie-panel" style="display: none;">
-            <div class="panel">
-                    <div class="panel-header">
-                        <i class="panel-icon fas fa-cookie-bite"></i>
-                        <h5 class="mb-0 pop-head">Cookie Policy</h5>
-                    </div>
-
-                    <div class="panel-body col-lg-12 row">
-                        <div class="content-text col-lg-9">
-                            <p>We use cookies and similar technologies to make roja work, improve your experience, analyze usage, and deliver personalized ads. Some cookies are essential. Others support analytics and advertising. By clicking "Accept All," you agree to our use of cookies. You can manage your choices anytime in Cookie Settings or opt out of sale/sharing. For more details, see our <a href="cookiepolicy.html" style="color: #e56772; font-size:14px;">Cookie Policy</a> and <a href="privacypolicy.html" style="color: #e56772; font-size:14px;">Privacy Policy</a>.</p>
-
-                        </div>
-                          <div class="panel-footer col-lg-3">
-                            <div class="cookie-buttons">
-                                <button class="btn btn-outline-primary reject-bt mr-2" id="reject-cookies-btn">Reject</button>
-                                <button class="btn btn-outline-primary reject-bt mr-2" id="customize-cookies-btn">Customize</button>
-                                <button class="btn btn-primary reject-bt" id="accept-cookies-btn">Accept</button>
-                            </div>
-                    </div>
-                    
-                    </div>
-                  
-                </div>
-
+          <div class="cookie-category">
+            <div class="category-info">
+              <div class="category-name">Marketing Cookies</div>
+              <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
             </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="marketing-cookies">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
         </div>
 
+        <div class="d-flex justify-content-end mt-4">
+          <button class="btn btn-outline-primary mr-2" id="cancel-options-btn">Cancel</button>
+          <button class="btn btn-primary" id="save-options-btn">Save Preferences</button>
+        </div>
+      </div>
     </div>
-
-    <!-- Cookie Options Modal -->
-    <div class="cookie-options-modal" id="cookie-options-modal">
-        <div class="cookie-options-content">
-            <div class="cookie-options-header">
-                <h5 class="mb-0">Customize Cookie Preferences</h5>
-                <button type="button" class="close-btn" id="close-options-modal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="cookie-options-body">
-                <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-                
-                <div class="cookie-categories">
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
-                            <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="essential-cookies" checked disabled>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Analytics Cookies</div>
-                            <div class="category-desc">Help us understand how visitors interact with our website.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="analytics-cookies">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Marketing Cookies</div>
-                            <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="marketing-cookies">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-outline-primary mr-2" id="cancel-options-btn">Cancel</button>
-                    <button class="btn btn-primary" id="save-options-btn">Save Preferences</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 
 
 
@@ -852,226 +877,229 @@
   <script src='js/typed.min.js'></script>
   <!-- main-js-Link -->
   <script src="js/main.js"></script>
-  
-    <script>
-      
-       document.addEventListener('DOMContentLoaded', function() {
-            const cookieConsent = document.getElementById('cookieConsent');
-            const acceptAllBtn = document.getElementById('acceptAll');
-            const saveSettingsBtn = document.getElementById('saveSettings');
-            const rejectAllBtn = document.getElementById('rejectAll');
-            const analyticsCookies = document.getElementById('analyticsCookies');
-            const marketingCookies = document.getElementById('marketingCookies');
 
-            // Check if consent was already given
-            if (!localStorage.getItem('cookieConsent')) {
-                // Show the popup after a short delay
-                setTimeout(function() {
-                    cookieConsent.classList.add('active');
-                }, 1000);
-            }
-            // Accept All button
-            acceptAllBtn.addEventListener('click', function() {
-                // Set all cookies to accepted
-                localStorage.setItem('cookieConsent', 'all');
-                localStorage.setItem('analyticsCookies', 'true');
-                localStorage.setItem('marketingCookies', 'true');
-                hidePopup();
-                setCookies(true, true); // Implement your actual cookie setting function
-            });
-            
-            // Save Settings button
-            saveSettingsBtn.addEventListener('click', function() {
-                // Save the current toggle states
-                localStorage.setItem('cookieConsent', 'custom');
-                localStorage.setItem('analyticsCookies', analyticsCookies.checked.toString());
-                localStorage.setItem('marketingCookies', marketingCookies.checked.toString());
-                hidePopup();
-                setCookies(analyticsCookies.checked, marketingCookies.checked);
-            });
-            
-            // Reject All button
-            rejectAllBtn.addEventListener('click', function() {
-                // Only keep essential cookies
-                localStorage.setItem('cookieConsent', 'essential');
-                localStorage.setItem('analyticsCookies', 'false');
-                localStorage.setItem('marketingCookies', 'false');
-                hidePopup();
-                setCookies(false, false);
-            });
-            
-            function hidePopup() {
-                cookieConsent.classList.remove('active');
-                // Optional: Remove from DOM after animation completes
-                setTimeout(() => {
-                    cookieConsent.style.display = 'none';
-                }, 400);
-            }
-            
-            // Function to actually set the cookies (replace with your implementation)
-            function setCookies(analytics, marketing) {
-                console.log('Setting cookies - Analytics:', analytics, 'Marketing:', marketing);
-                // Here you would implement your actual cookie setting logic
-                // For example:
-                 if (analytics) { setAnalyticsCookies(); }
-                 if (marketing) { setMarketingCookies(); }
-            }
-            
-            // Load saved preferences (optional - if you want to reflect them in the UI)
-            function loadPreferences() {
-                const savedAnalytics = localStorage.getItem('analyticsCookies');
-                const savedMarketing = localStorage.getItem('marketingCookies');
-                
-                if (savedAnalytics !== null) {
-                    analyticsCookies.checked = savedAnalytics === 'true';
-                }
-                if (savedMarketing !== null) {
-                    marketingCookies.checked = savedMarketing === 'true';
-                }
-            }
-            
-            loadPreferences();
-        });
+  <!-- Dark Theme js -->
+  <script src="js/dark.js"></script>
 
-        
-   document.addEventListener('DOMContentLoaded', function() {
-            // Check if user has already given consent
-            const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
-            const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
-            
-            // If both are accepted, don't show the consent container initially
-            if (hasAcceptedDisclaimer && hasAcceptedCookies) {
-                document.getElementById('consent-container').style.display = 'none';
-            } else {
-                // Show the consent container
-                document.getElementById('consent-container').style.display = 'block';
-            }
-            
-            // Progress tracking
-            const progressBar = document.getElementById('consent-progress');
-            const progressText = document.getElementById('progress-text');
-            const disclaimerPanel = document.getElementById('disclaimer-panel');
-            const cookiePanel = document.getElementById('cookie-panel');
-            
-            // If disclaimer already accepted, show cookie panel directly
-            if (hasAcceptedDisclaimer) {
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-            } else {
-                updateProgress(1);
-            }
-            
-            // Update progress
-            function updateProgress(step) {
-                const percentage = (step / 2) * 100;
-                progressBar.style.width = `${percentage}%`;
-                progressText.textContent = `Step ${step} of 2`;
-            }
-            
-            // Function to close consent container
-            function closeConsentContainer() {
-                document.getElementById('consent-container').style.display = 'none';
-            }
-            
-            // Function to open consent container for preferences update
-            function openPreferencesUpdate() {
-                // Always show the cookie panel when updating preferences
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-                
-                // Show the consent container
-                document.getElementById('consent-container').style.display = 'block';
-            }
-            
-            // Close button functionality
-            document.getElementById('close-all-btn').addEventListener('click', function() {
-                closeConsentContainer();
-            });
-            
-            // Disclaimer OK button
-            document.getElementById('disclaimer-ok-btn').addEventListener('click', function() {
-                // Store acceptance in localStorage
-                localStorage.setItem('rojaDisclaimerAccepted', 'true');
-                
-                // Hide disclaimer and show cookie panel
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-            });
-            
-            // Cookie Accept button
-            document.getElementById('accept-cookies-btn').addEventListener('click', function() {
-                // Store cookie acceptance in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', 'true');
-                localStorage.setItem('rojaMarketingCookies', 'true');
-                
-                // Close the consent container
-                closeConsentContainer();
-            });
-            
-            // Cookie Reject button
-            document.getElementById('reject-cookies-btn').addEventListener('click', function() {
-                // Store cookie rejection in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', 'false');
-                localStorage.setItem('rojaMarketingCookies', 'false');
-                
-                // Close the consent container
-                closeConsentContainer();
-            });
-            
-            
-            // Cookie Customize button
-            document.getElementById('customize-cookies-btn').addEventListener('click', function() {
-                // Show the cookie options modal
-                document.getElementById('cookie-options-modal').style.display = 'flex';
-                
-                // Load current preferences if available
-                const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
-                const marketingPref = localStorage.getItem('rojaMarketingCookies');
-                
-                if (analyticsPref !== null) {
-                    document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
-                }
-                
-                if (marketingPref !== null) {
-                    document.getElementById('marketing-cookies').checked = marketingPref === 'true';
-                }
-            });
-            
-            // Close cookie options modal
-            document.getElementById('close-options-modal').addEventListener('click', function() {
-                document.getElementById('cookie-options-modal').style.display = 'none';
-            });
-            
-            document.getElementById('cancel-options-btn').addEventListener('click', function() {
-                document.getElementById('cookie-options-modal').style.display = 'none';
-            });
-            
-            // Save cookie options
-            document.getElementById('save-options-btn').addEventListener('click', function() {
-                const analyticsChecked = document.getElementById('analytics-cookies').checked;
-                const marketingChecked = document.getElementById('marketing-cookies').checked;
-                
-                // Store preferences in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
-                localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
-                
-                // Close the modal and consent container
-                document.getElementById('cookie-options-modal').style.display = 'none';
-                closeConsentContainer();
-            });
-            
-            // Update preferences link in footer
-            document.getElementById('update-preferences-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                openPreferencesUpdate();
-            });
-        });
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const cookieConsent = document.getElementById('cookieConsent');
+      const acceptAllBtn = document.getElementById('acceptAll');
+      const saveSettingsBtn = document.getElementById('saveSettings');
+      const rejectAllBtn = document.getElementById('rejectAll');
+      const analyticsCookies = document.getElementById('analyticsCookies');
+      const marketingCookies = document.getElementById('marketingCookies');
+
+      // Check if consent was already given
+      if (!localStorage.getItem('cookieConsent')) {
+        // Show the popup after a short delay
+        setTimeout(function () {
+          cookieConsent.classList.add('active');
+        }, 1000);
+      }
+      // Accept All button
+      acceptAllBtn.addEventListener('click', function () {
+        // Set all cookies to accepted
+        localStorage.setItem('cookieConsent', 'all');
+        localStorage.setItem('analyticsCookies', 'true');
+        localStorage.setItem('marketingCookies', 'true');
+        hidePopup();
+        setCookies(true, true); // Implement your actual cookie setting function
+      });
+
+      // Save Settings button
+      saveSettingsBtn.addEventListener('click', function () {
+        // Save the current toggle states
+        localStorage.setItem('cookieConsent', 'custom');
+        localStorage.setItem('analyticsCookies', analyticsCookies.checked.toString());
+        localStorage.setItem('marketingCookies', marketingCookies.checked.toString());
+        hidePopup();
+        setCookies(analyticsCookies.checked, marketingCookies.checked);
+      });
+
+      // Reject All button
+      rejectAllBtn.addEventListener('click', function () {
+        // Only keep essential cookies
+        localStorage.setItem('cookieConsent', 'essential');
+        localStorage.setItem('analyticsCookies', 'false');
+        localStorage.setItem('marketingCookies', 'false');
+        hidePopup();
+        setCookies(false, false);
+      });
+
+      function hidePopup() {
+        cookieConsent.classList.remove('active');
+        // Optional: Remove from DOM after animation completes
+        setTimeout(() => {
+          cookieConsent.style.display = 'none';
+        }, 400);
+      }
+
+      // Function to actually set the cookies (replace with your implementation)
+      function setCookies(analytics, marketing) {
+        console.log('Setting cookies - Analytics:', analytics, 'Marketing:', marketing);
+        // Here you would implement your actual cookie setting logic
+        // For example:
+        if (analytics) { setAnalyticsCookies(); }
+        if (marketing) { setMarketingCookies(); }
+      }
+
+      // Load saved preferences (optional - if you want to reflect them in the UI)
+      function loadPreferences() {
+        const savedAnalytics = localStorage.getItem('analyticsCookies');
+        const savedMarketing = localStorage.getItem('marketingCookies');
+
+        if (savedAnalytics !== null) {
+          analyticsCookies.checked = savedAnalytics === 'true';
+        }
+        if (savedMarketing !== null) {
+          marketingCookies.checked = savedMarketing === 'true';
+        }
+      }
+
+      loadPreferences();
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Check if user has already given consent
+      const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
+      const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
+
+      // If both are accepted, don't show the consent container initially
+      if (hasAcceptedDisclaimer && hasAcceptedCookies) {
+        document.getElementById('consent-container').style.display = 'none';
+      } else {
+        // Show the consent container
+        document.getElementById('consent-container').style.display = 'block';
+      }
+
+      // Progress tracking
+      const progressBar = document.getElementById('consent-progress');
+      const progressText = document.getElementById('progress-text');
+      const disclaimerPanel = document.getElementById('disclaimer-panel');
+      const cookiePanel = document.getElementById('cookie-panel');
+
+      // If disclaimer already accepted, show cookie panel directly
+      if (hasAcceptedDisclaimer) {
+        disclaimerPanel.style.display = 'none';
+        cookiePanel.style.display = 'block';
+        updateProgress(2);
+      } else {
+        updateProgress(1);
+      }
+
+      // Update progress
+      function updateProgress(step) {
+        const percentage = (step / 2) * 100;
+        progressBar.style.width = `${percentage}%`;
+        progressText.textContent = `Step ${step} of 2`;
+      }
+
+      // Function to close consent container
+      function closeConsentContainer() {
+        document.getElementById('consent-container').style.display = 'none';
+      }
+
+      // Function to open consent container for preferences update
+      function openPreferencesUpdate() {
+        // Always show the cookie panel when updating preferences
+        disclaimerPanel.style.display = 'none';
+        cookiePanel.style.display = 'block';
+        updateProgress(2);
+
+        // Show the consent container
+        document.getElementById('consent-container').style.display = 'block';
+      }
+
+      // Close button functionality
+      document.getElementById('close-all-btn').addEventListener('click', function () {
+        closeConsentContainer();
+      });
+
+      // Disclaimer OK button
+      document.getElementById('disclaimer-ok-btn').addEventListener('click', function () {
+        // Store acceptance in localStorage
+        localStorage.setItem('rojaDisclaimerAccepted', 'true');
+
+        // Hide disclaimer and show cookie panel
+        disclaimerPanel.style.display = 'none';
+        cookiePanel.style.display = 'block';
+        updateProgress(2);
+      });
+
+      // Cookie Accept button
+      document.getElementById('accept-cookies-btn').addEventListener('click', function () {
+        // Store cookie acceptance in localStorage
+        localStorage.setItem('rojaCookiesAccepted', 'true');
+        localStorage.setItem('rojaAnalyticsCookies', 'true');
+        localStorage.setItem('rojaMarketingCookies', 'true');
+
+        // Close the consent container
+        closeConsentContainer();
+      });
+
+      // Cookie Reject button
+      document.getElementById('reject-cookies-btn').addEventListener('click', function () {
+        // Store cookie rejection in localStorage
+        localStorage.setItem('rojaCookiesAccepted', 'true');
+        localStorage.setItem('rojaAnalyticsCookies', 'false');
+        localStorage.setItem('rojaMarketingCookies', 'false');
+
+        // Close the consent container
+        closeConsentContainer();
+      });
+
+
+      // Cookie Customize button
+      document.getElementById('customize-cookies-btn').addEventListener('click', function () {
+        // Show the cookie options modal
+        document.getElementById('cookie-options-modal').style.display = 'flex';
+
+        // Load current preferences if available
+        const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
+        const marketingPref = localStorage.getItem('rojaMarketingCookies');
+
+        if (analyticsPref !== null) {
+          document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
+        }
+
+        if (marketingPref !== null) {
+          document.getElementById('marketing-cookies').checked = marketingPref === 'true';
+        }
+      });
+
+      // Close cookie options modal
+      document.getElementById('close-options-modal').addEventListener('click', function () {
+        document.getElementById('cookie-options-modal').style.display = 'none';
+      });
+
+      document.getElementById('cancel-options-btn').addEventListener('click', function () {
+        document.getElementById('cookie-options-modal').style.display = 'none';
+      });
+
+      // Save cookie options
+      document.getElementById('save-options-btn').addEventListener('click', function () {
+        const analyticsChecked = document.getElementById('analytics-cookies').checked;
+        const marketingChecked = document.getElementById('marketing-cookies').checked;
+
+        // Store preferences in localStorage
+        localStorage.setItem('rojaCookiesAccepted', 'true');
+        localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
+        localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
+
+        // Close the modal and consent container
+        document.getElementById('cookie-options-modal').style.display = 'none';
+        closeConsentContainer();
+      });
+
+      // Update preferences link in footer
+      document.getElementById('update-preferences-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        openPreferencesUpdate();
+      });
+    });
 
   </script>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 
 <head>
 
@@ -22,6 +23,10 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Responsive-Style-link -->
   <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Dark Theme css -->
+  <link rel="stylesheet" href="css/dark-light-theme.css">
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 
@@ -64,6 +69,11 @@
             <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
+            <button class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </button>
+
             <li class="nav-item">
               <div class="btn_block">
                 <a class="nav-link dark_btn" href="request-demo.html">Request a Demo</a>
@@ -92,10 +102,11 @@
         <h2> Custom-Branded Platform for Seamless<br> <span>Access & Exceptional Experiences </span> </h2>
       </div>
 
-      <p class="text-xl md:text-4xl mb-8 max-w-4xl mx-auto"> Launch a fully branded, secure, and scalable financial app—without the complexity of building from scratch.
-ROJA empowers businesses to offer Earned Wage Access alongside seamless fund availability, smooth
-transactions, and intuitive, personalized experiences. With native iOS and Android apps, Web, and PWA built
-in, ROJA lets you go to market faster, operate with confidence, and grow under your own brand.</p>
+      <p class="text-xl md:text-4xl mb-8 max-w-4xl mx-auto"> Launch a fully branded, secure, and scalable financial
+        app—without the complexity of building from scratch.
+        ROJA empowers businesses to offer Earned Wage Access alongside seamless fund availability, smooth
+        transactions, and intuitive, personalized experiences. With native iOS and Android apps, Web, and PWA built
+        in, ROJA lets you go to market faster, operate with confidence, and grow under your own brand.</p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
         <button
@@ -244,32 +255,12 @@ in, ROJA lets you go to market faster, operate with confidence, and grow under y
                   platform activity in real time.</p>
               </div>
             </div>
-
-            <div class="whychoose_box">
-              <div class="choose_icon"><img src="images/icons/User Consent.png" alt="image"></div>
-              <div class="choose_text">
-                <h6>Subscription Management</h6>
-                <p>Flexible membership plans with recurring billing, upgrades, downgrades, pauses, and
-automated retries.</p>
-              </div>
-            </div>
-
-
-              <div class="whychoose_box">
-              <div class="choose_icon"><img src="images/icons/Earned Access Workflows.png" alt="image"></div>
-              <div class="choose_text">
-                <h6>Earned Access Workflows</h6>
-                <p>Controlled access to available funds using transparent, rule-based experiences—no
-interest constructs.</p>
-              </div>
-            </div>
-
           </div>
 
         </div>
 
 
-          <div class="row whychoose_dh">
+        <div class="row whychoose_dh">
 
           <!-- left colom -->
           <div class="col-lg-6">
@@ -279,7 +270,7 @@ interest constructs.</p>
               <div class="choose_text">
                 <h6>Smart Repayment Scheduling</h6>
                 <p> Automated, user-friendly repayment timing aligned with income patterns and supported
-by reminders.</p>
+                  by reminders.</p>
               </div>
             </div>
 
@@ -289,7 +280,7 @@ by reminders.</p>
               <div class="choose_text">
                 <h6>Bank Connectivity</h6>
                 <p>Secure account verification and transaction insights to support eligibility, access
-controls, and repayments.</p>
+                  controls, and repayments.</p>
               </div>
             </div>
 
@@ -311,7 +302,46 @@ controls, and repayments.</p>
               </div>
             </div>
 
+          </div>
+                    <!-- right colom -->
+          <div class="col-lg-6">
+            <img src="images/key-features-2.png" alt="images" class="h-w-img">
+          </div>
+
+        </div>
+
+
+                  <!-- row start -->
+        <div class="row whychoose_dh">
+
+          <!-- right colom -->
+          <div class="col-lg-6">
+                 <img src="images/key-features-1.png" alt="images" class="h-w-imgs">
+          </div>
+
+          <!-- left colom -->
+          <div class="col-lg-6">
+
             <div class="whychoose_box">
+              <div class="choose_icon"><img src="images/icons/User Consent.png" alt="image"></div>
+              <div class="choose_text">
+                <h6>Subscription Management</h6>
+                <p>Flexible membership plans with recurring billing, upgrades, downgrades, pauses, and
+                  automated retries.</p>
+              </div>
+            </div>
+
+
+            <div class="whychoose_box">
+              <div class="choose_icon"><img src="images/icons/Earned Access Workflows.png" alt="image"></div>
+              <div class="choose_text">
+                <h6>Earned Access Workflows</h6>
+                <p>Controlled access to available funds using transparent, rule-based experiences—no
+                  interest constructs.</p>
+              </div>
+            </div>
+
+                        <div class="whychoose_box">
               <div class="choose_icon"><img src="images/icons/api-first-platform.png" alt="image"></div>
               <div class="choose_text">
                 <h6>API-First Platform</h6>
@@ -328,7 +358,7 @@ controls, and repayments.</p>
             </div>
 
 
-              <div class="whychoose_box">
+            <div class="whychoose_box">
               <div class="choose_icon"><img src="images/icons/Scalable Infrastructure.png" alt="image"></div>
               <div class="choose_text">
                 <h6>Scalable Infrastructure</h6>
@@ -336,15 +366,16 @@ controls, and repayments.</p>
               </div>
             </div>
 
-          </div>
 
-          
-          <!-- right colom -->
-          <div class="col-lg-6">
-            <img src="images/key-features-1.png" alt="images" class="h-w-imgs">
+
+
+
           </div>
 
         </div>
+
+
+
       </div>
     </div>
 
@@ -365,11 +396,10 @@ controls, and repayments.</p>
           <div class="task_text">
             <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
               <span class="title_badge">Ready to Move Forward?</span>
-              <h2>Move Beyond Legacy Lending Technology
+              <h2>One Platform. Every Experience. Fully Branded.
               </h2>
               <p>
-                Whether you're an established lender or a new fintech entrant, ROJA gives you the infrastructure,
-                compliance alignment, and economics needed to compete in the next generation of consumer finance.
+               ROJA is a feature-rich, app-first financial platform that helps businesses deliver seamless access, real-time transactions, and personalized financial experiences across mobile and web—without building infrastructure from scratch. From earned wage access to subscriptions and financial wellness tools, ROJA brings together the features today’s users expect—under your brand.
               </p>
             </div>
             <!-- app buttons -->
@@ -403,7 +433,11 @@ controls, and repayments.</p>
 
   <!-- Footer-Section start -->
   <footer class="white_text" data-aos="fade-in" data-aos-duration="1500">
-    <div class="footer_overlay"> <img src="images/overlay-bg3-reverse.svg" alt="img"> </div>
+    <!-- Footer Overlay -->
+    <div class="footer_overlay">
+      <img src="images/overlay-bg3-reverse.svg" class="overlay-light" alt="overlay">
+      <img src="images/overlay-bg3-reverse-dark.svg" class="overlay-dark" alt="overlay">
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-6">
@@ -644,6 +678,11 @@ controls, and repayments.</p>
   <script src='js/typed.min.js'></script>
   <!-- main-js-Link -->
   <script src="js/main.js"></script>
+
+
+  <!-- Dark Theme js -->
+  <script src="js/dark.js"></script>
+
 
 
   <script>

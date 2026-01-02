@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
 
@@ -22,8 +22,14 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- Responsive-Style-link -->
   <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Dark Theme css -->
+  <link rel="stylesheet" href="css/dark-light-theme.css">
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+
+
 
 </head>
 
@@ -64,6 +70,11 @@
                 <li class="nav-item"><a class="nav-link" href="usecase.html">Use Cases</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                 <button class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+              <span class="icon sun">☀️</span>
+              <span class="icon moon">🌙</span>
+            </button>
 
             <li class="nav-item">
               <div class="btn_block">
@@ -166,7 +177,11 @@
 
   <!-- Footer-Section start -->
   <footer class="white_text" data-aos="fade-in" data-aos-duration="1500">
-    <div class="footer_overlay"> <img src="images/overlay-bg3-reverse.svg" alt="img"> </div>
+               <!-- Footer Overlay -->
+        <div class="footer_overlay">
+            <img src="images/overlay-bg3-reverse.svg" class="overlay-light" alt="overlay">
+            <img src="images/overlay-bg3-reverse-dark.svg" class="overlay-dark" alt="overlay">
+        </div>
     <div class="container">
       <div class="row">
         <div class="col-md-12 col-lg-6">
@@ -402,6 +417,10 @@
   <script src='js/typed.min.js'></script>
   <!-- main-js-Link -->
   <script src="js/main.js"></script>
+
+
+      <!-- Dark Theme js -->
+  <script src="js/dark.js"></script>
 
     <script>
       

@@ -2540,7 +2540,7 @@ footer .download_side .app_btn li a img {
 .footer_bottom {
     border-top: 1px solid #3d3d3d;
     margin: 0px auto;
-    background-color: rgb(28 28 28);
+    /* background-color: rgb(28 28 28);  */
     margin-top: 40px;
     padding-top: 20px;
 }
@@ -3260,7 +3260,7 @@ footer .download_side .app_btn li a img {
     margin: 0 auto;
     background: #E9F5FF;
     background-repeat: repeat;
-    padding: 0 150px;
+    padding: 50px 150px;
     position: sticky;
     z-index: 99;
     border-radius: 30px;
@@ -6812,10 +6812,11 @@ textarea:focus {
     flex: 1;
     position: sticky;
     top: 100px;
+
     height: fit-content;
     background: white;
     border-radius: 15px;
-    padding: 25px;
+    padding: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
@@ -6922,6 +6923,7 @@ textarea:focus {
 .sidebar-content {
     background: white;
     border-radius: 8px;
+    padding: 20px 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border-color);
 }
@@ -7963,6 +7965,10 @@ input:disabled+.toggle-slider:before {
         height: auto !important;
     }
 
+    .theme-switch{
+margin: 10px;
+    }
+
 
 }
 
@@ -8612,3 +8618,12 @@ input:disabled+.toggle-slider:before {
     border-radius: 5px;
     font-weight: 600;
         }
+
+
+
+        .mb-41{
+            margin-bottom: 100px;
+        }
+
+
+
