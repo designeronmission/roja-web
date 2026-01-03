@@ -804,3 +804,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 });
+
+
+
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+
+// Load saved theme or default to dark
+const savedTheme = localStorage.getItem('theme') || 'dark';
+root.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const current = root.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+});
