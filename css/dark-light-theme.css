@@ -1111,6 +1111,15 @@ color: #ffffff;
 [data-theme="dark"] .theme-switch{
   margin: 10px;
 }
+
+[data-theme="dark"] .cookie-options-body{
+  padding: 10px;
+}
+[data-theme="dark"] .cookie-category{
+      padding: 20px 20px;
+    margin-bottom: 10px;
+}
+
 }
 
 
