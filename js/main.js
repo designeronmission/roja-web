@@ -458,3 +458,89 @@ AOS.init();
 
 
 
+
+      // Load reCAPTCHA v3
+  function loadReCaptcha() {
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_V3_SITE_KEY';
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    loadReCaptcha();
+    
+    const form = document.getElementById('techSupportForm');
+    const submitBtn = document.getElementById('submitBtn');
+    
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.querySelector('.submit-text').classList.add('d-none');
+      submitBtn.querySelector('.spinner-border').classList.remove('d-none');
+      
+      try {
+        // Execute reCAPTCHA v3
+        const token = await grecaptcha.execute('YOUR_RECAPTCHA_V3_SITE_KEY', {action: 'submit'});
+        document.getElementById('g-recaptcha-response').value = token;
+        
+        // Here you would normally submit to your backend
+        // For demo, simulate API call
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Success feedback
+        showAlert('success', 'Request submitted successfully! Our technical team will contact you shortly.');
+        form.reset();
+        
+      } catch (error) {
+        showAlert('danger', 'Error submitting form. Please try again or contact support directly.');
+        console.error('Form submission error:', error);
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        submitBtn.querySelector('.submit-text').classList.remove('d-none');
+        submitBtn.querySelector('.spinner-border').classList.add('d-none');
+      }
+    });
+    
+    // Form validation feedback
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('blur', function() {
+        if (this.value.trim() !== '') {
+          this.classList.add('is-valid');
+          this.classList.remove('is-invalid');
+        }
+      });
+      
+      input.addEventListener('invalid', function() {
+        this.classList.add('is-invalid');
+      });
+    });
+  });
+  
+  function showAlert(type, message) {
+    // Remove existing alerts
+    const existingAlert = document.querySelector('.alert');
+    if (existingAlert) existingAlert.remove();
+    
+    // Create new alert
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} alert-dismissible fade show mt-4`;
+    alertDiv.innerHTML = `
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    // Insert after form
+    form.parentNode.insertBefore(alertDiv, form.nextSibling);
+    
+    // Auto-dismiss after 5 seconds
+    setTimeout(() => {
+      alertDiv.classList.remove('show');
+      setTimeout(() => alertDiv.remove(), 150);
+    }, 5000);
+  }

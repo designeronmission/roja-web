@@ -127,20 +127,19 @@
               </div>
             </div>
 
-            <div class="col-md-12">
-              <div class="form-group">
-                <label> Monthly Lending Volume <span class="red">*</span></label>
-                              <div class="input-with-icon">
-                <i class="fas fa-chart-line"></i>
-                <select id="lending-volume" required>
-                  <option value="">Select an option</option>
-                  <option value="less-than-50k">Less than $20,000</option>
-                  <option value="over-1m">Over $20,000</option>
-                </select>
-              </div>
-              </div>
-
-            </div>
+      <div class="col-md-12">
+  <div class="form-group">
+    <label>Monthly Credit Volume <span class="red">*</span></label>
+    <div class="input-with-icon">
+      <select id="lending-volume" required>
+        <option value="">Select an option</option>
+        <option value="less-than-50k">Less than $20,000</option>
+        <option value="over-1m">Over $20,000</option>
+      </select>
+      <i class="icofont-simple-down"></i>
+    </div>
+  </div>
+</div>
 
 
 
@@ -151,15 +150,8 @@
               </div>
             </div>
             <div class="col-md-8">
-              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-              <!--NOTE THE ACTION IS POINTING TO form-data.com-->
-              <form action="https://api.form-data.com/f/bqtxth46icif4r4ot1p5qn" method="post">
-
-
-                <div class="g-recaptcha mt-4" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-
-                <div class="help-block with-errors"></div>
+             <div id="recaptcha-container"></div>
+              <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
             </div>
             <div class="col-md-4 text-right">
               <div class="btn_block mt-4">
@@ -303,7 +295,7 @@
                     </div>
                     <div class="panel-body col-lg-12 row">
                         <div class="content-text col-lg-10">
-                           <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial adviser.</span> The App provides budgeting insights and educational tools only, it does not offer financial, investment, tax, or legal advice.Information is based on third-party data and may not be accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no guarantees regarding financial outcomes or third-party products or offers. For details, please see our <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy Policy</a>, and <a href="termsofuse.html" style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>  
+                           <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial adviser.</span> The App provides budgeting insights and educational tools only, it does not offer financial, investment, tax, or legal advice. Information is based on third-party data and may not be accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no guarantees regarding financial outcomes or third-party products or offers. For details, please see our <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy Policy</a>, and <a href="termsofuse.html" style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>  
 
                         </div>
 

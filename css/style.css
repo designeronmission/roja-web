@@ -1620,7 +1620,7 @@ iframe#youtubevideo {
 
 .how_it_section .title_badge {
     background-color: var(--bg-white);
-    color: #35B0F4;
+    color: #000;
 }
 
 .how_it_inner {
@@ -4100,14 +4100,6 @@ footer .download_side .app_btn li a img {
 
 .contact_form form .form-group textarea.form-control {
     min-height: 135px;
-}
-
-.contact_form form .form-group select {
-    appearance: none;
-    background-image: url("../images/rounded-down.svg");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    background-size: 10px;
 }
 
 .contact_form form .puprple_btn {
@@ -8627,3 +8619,31 @@ margin: 10px;
 
 
 
+
+
+
+        .input-with-icon {
+  position: relative;
+}
+
+.input-with-icon i {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-with-icon select {
+  width: 100%;
+  padding-right: 40px; /* Add padding to prevent text overlapping with icon */
+  appearance: none; /* Remove default browser dropdown arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* For Internet Explorer */
+.input-with-icon select::-ms-expand {
+  display: none;
+}

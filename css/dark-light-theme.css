@@ -199,13 +199,23 @@ footer {
 }
 
 /* ======================
-   ICONS
+   ICONS – DARK THEME
 ====================== */
-svg,
-i {
+[data-theme="dark"] svg,
+[data-theme="dark"] i {
   fill: currentColor;
-  color: white;
+  color: #ffffff;
 }
+
+/* ======================
+   ICONS – LIGHT THEME
+====================== */
+[data-theme="light"] svg,
+[data-theme="light"] i {
+  fill: currentColor;
+  color: #020617;
+}
+
 
 /* ======================
    SMOOTH TRANSITION
@@ -565,12 +575,12 @@ i {
 }
 
 [data-theme="dark"] .use-case-tab-btn.active {
-  color: #020617;
+  color: #ffffff;
   font-weight: 600;
 }
 
 [data-theme="dark"] .use-case-tab-btn.active i {
-  color: #020617;
+  color: #ffffff;
 }
 
 
@@ -578,13 +588,24 @@ i {
 [data-theme="dark"] .use-case-tab-indicator {
   background: linear-gradient(
     135deg,
-    #38bdf8,
-    #0ea5e9
+    rgba(139, 92, 246, 0.35),
+    rgba(59, 181, 246, 0.35)
   );
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+
   box-shadow:
-    0 0 25px rgba(56,189,248,0.6),
-    0 10px 40px rgba(14,165,233,0.5);
+    0 8px 30px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 0 18px rgba(92, 192, 246, 0.35);
+
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 
 
@@ -1052,15 +1073,424 @@ i {
 
 
 
-.navbar-toggler {
-    background-color: transparent !important;
-    background: transparent !important;
+/* DARK THEME */
+[data-theme="dark"] .toggle-bar::before,
+[data-theme="dark"] .toggle-bar::after {
+  background: #ffffff;
 }
 
-.navbar-toggler-icon{
-  color: white;
+[data-theme="dark"] .toggle-bar {
+  border-top: 4px solid #ffffff;
 }
 
-.toggle-bar::before, .toggle-bar::after{
-  color: white;
+/* LIGHT THEME */
+[data-theme="light"] .toggle-bar::before,
+[data-theme="light"] .toggle-bar::after {
+  background: #040404;
+}
+
+
+[data-theme="dark"] .navbar-expand-lg .navbar-nav .nav-link{
+color: #ffffff;
+}
+
+
+[data-theme="dark"] .span-box{
+  background-color: #50505036;
+  color: var(--text-secondary);
+
+}
+
+
+
+@media screen and (min-width:320px) and (max-width:790px) {
+[data-theme="dark"]  .navbar-expand-lg .navbar-nav{
+        background-color: #50505036;
+}
+
+[data-theme="dark"] .theme-switch{
+  margin: 10px;
+}
+}
+
+
+
+
+
+/* =====================================
+   CONSENT CONTAINER – DARK THEME
+===================================== */
+
+[data-theme="dark"] .consent-container {
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  color: #e5e7eb;
+}
+
+/* Close button */
+[data-theme="dark"] .close-all-btn {
+  background: transparent;
+  color: #cbd5f5;
+  border: none;
+}
+
+[data-theme="dark"] .close-all-btn:hover {
+  color: #ffffff;
+}
+
+/* =====================================
+   PROGRESS BAR
+===================================== */
+
+[data-theme="dark"] .progress {
+  background: #020617;
+}
+
+[data-theme="dark"] .progress-bar {
+  background: #e56772;
+}
+
+[data-theme="dark"] .progress-text {
+  color: #94a3b8;
+}
+
+/* =====================================
+   PANELS
+===================================== */
+
+[data-theme="dark"] .panel {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+}
+
+[data-theme="dark"] .panel-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .panel-icon {
+  color: #e56772;
+}
+
+[data-theme="dark"] .pop-head {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .panel-body {
+  color: #cbd5f5;
+}
+
+/* Links */
+[data-theme="dark"] .panel-body a {
+  color: #e56772;
+}
+
+[data-theme="dark"] .panel-body a:hover {
+  color: #f07c86;
+}
+
+/* =====================================
+   BUTTONS (NO BOOTSTRAP BLUE)
+===================================== */
+
+[data-theme="dark"] .btn-primary {
+  background: #e56772 !important;
+  border-color: #e56772 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: #f07c86 !important;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+  background: transparent !important;
+  border-color: #e56772 !important;
+  color: #e56772 !important;
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+  background: #e56772 !important;
+  color: #ffffff !important;
+}
+
+/* =====================================
+   COOKIE OPTIONS MODAL
+===================================== */
+
+[data-theme="dark"] .cookie-options-modal {
+  background: rgba(0,0,0,0.7);
+}
+
+[data-theme="dark"] .cookie-options-content {
+  background: #0f172a;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  color: #e5e7eb;
+}
+
+[data-theme="dark"] .cookie-options-header {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .cookie-options-header h5 {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .close-btn {
+  background: transparent;
+  border: none;
+  color: #cbd5f5;
+}
+
+[data-theme="dark"] .close-btn:hover {
+  color: #ffffff;
+}
+
+/* =====================================
+   COOKIE CATEGORIES
+===================================== */
+
+[data-theme="dark"] .cookie-category {
+  background: #020617;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+[data-theme="dark"] .category-name {
+  color: #ffffff;
+}
+
+[data-theme="dark"] .category-desc {
+  color: #94a3b8;
+}
+
+/* =====================================
+   TOGGLE SWITCHES
+===================================== */
+
+[data-theme="dark"] .toggle-switch {
+  position: relative;
+}
+
+[data-theme="dark"] .toggle-slider {
+  background: #1e293b;
+}
+
+[data-theme="dark"] .toggle-switch input:checked + .toggle-slider {
+  background: #e56772;
+}
+
+[data-theme="dark"] .toggle-slider::before {
+  background: #ffffff;
+}
+
+/* Disabled */
+[data-theme="dark"] .toggle-switch input:disabled + .toggle-slider {
+  opacity: 0.5;
+}
+
+/* =====================================
+   FOOTER BUTTON ROW
+===================================== */
+
+[data-theme="dark"] .cookie-buttons {
+  gap: 8px;
+}
+
+
+[data-theme="dark"]  .panel-footer{
+    background: #0f172a;
+    border-top: 1px solid #0f172a;
+}
+
+
+
+/* =====================================
+   CONSENT CONTAINER – LIGHT THEME
+===================================== */
+
+.consent-container {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  color: #1e293b;
+}
+
+/* Close button */
+.close-all-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+}
+
+.close-all-btn:hover {
+  color: #020617;
+}
+
+/* =====================================
+   PROGRESS BAR
+===================================== */
+
+.progress {
+  background: #e5e7eb;
+}
+
+.progress-bar {
+  background: #e56772;
+}
+
+.progress-text {
+  color: #475569;
+}
+
+/* =====================================
+   PANELS
+===================================== */
+
+.panel {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+}
+
+.panel-header {
+  background: transparent;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-icon {
+  color: #e56772;
+}
+
+.pop-head {
+  color: #020617;
+}
+
+.panel-body {
+  color: #334155;
+}
+
+/* Links */
+.panel-body a {
+  color: #e56772;
+  font-weight: 600;
+}
+
+.panel-body a:hover {
+  color: #d4545f;
+}
+
+/* =====================================
+   BUTTONS (OVERRIDE BOOTSTRAP BLUE)
+===================================== */
+
+.btn-primary {
+  background: #e56772 !important;
+  border-color: #e56772 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background: #d4545f !important;
+}
+
+.btn-outline-primary {
+  background: transparent !important;
+  border-color: #e56772 !important;
+  color: #e56772 !important;
+}
+
+.btn-outline-primary:hover {
+  background: #e56772 !important;
+  color: #ffffff !important;
+}
+
+/* =====================================
+   COOKIE OPTIONS MODAL
+===================================== */
+
+.cookie-options-modal {
+  background: rgba(0,0,0,0.4);
+}
+
+.cookie-options-content {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  color: #1e293b;
+}
+
+.cookie-options-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cookie-options-header h5 {
+  color: #020617;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+}
+
+.close-btn:hover {
+  color: #020617;
+}
+
+/* =====================================
+   COOKIE CATEGORIES
+===================================== */
+
+.cookie-category {
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.category-name {
+  color: #020617;
+}
+
+.category-desc {
+  color: #64748b;
+}
+
+/* =====================================
+   TOGGLE SWITCHES
+===================================== */
+
+.toggle-slider {
+  background: #cbd5e1;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: #e56772;
+}
+
+.toggle-slider::before {
+  background: #ffffff;
+}
+
+/* Disabled */
+.toggle-switch input:disabled + .toggle-slider {
+  opacity: 0.6;
+}
+
+/* =====================================
+   FOOTER BUTTON ROW
+===================================== */
+
+.cookie-buttons {
+  gap: 8px;
 }
