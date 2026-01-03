@@ -1759,6 +1759,9 @@
         text-align: left;
         padding-left: 10px;
     }
+    .contact_form .section_title{
+        margin-top: 50px !important;
+    }
 }
 
 
@@ -1819,4 +1822,63 @@
         padding-top: 6rem;
     }
 
+}
+
+
+
+
+
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  /* Disclaimer Panel Button Fix */
+  #disclaimer-panel .panel-footer {
+    width: 100% !important;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #disclaimer-panel .dis-btn {
+    width: 200px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Cookie Panel Buttons Fix */
+  .cookie-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .cookie-buttons button {
+    width: 100%;
+    margin: 0 !important;
+    padding: 12px 20px;
+  }
+  
+  /* Adjust layout for 2-column to single column */
+  #cookie-panel .content-text {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  
+  #cookie-panel .panel-footer {
+    width: 100% !important;
+  }
+  
+  /* Cookie Modal Buttons Fix */
+  .cookie-options-modal .d-flex.justify-content-end {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cookie-options-modal .btn {
+    width: 100%;
+    margin: 0 !important;
+  }
+  
+  .cookie-options-modal .mr-2 {
+    margin-right: 0 !important;
+  }
 }

@@ -1535,3 +1535,14 @@ color: #ffffff;
   opacity: 0.6;
   transition: all 0.25s ease;
 }
+
+
+
+[data-theme="dark"]  .captcha-text{
+    color: #ffffff !important; 
+}
+
+
+[data-theme="light"]  .captcha-text{
+    color: #000000 !important; 
+}
