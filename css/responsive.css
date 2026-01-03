@@ -51,6 +51,13 @@
     .interface_section .screen_slider {
         min-height: 600px;
     }
+
+    .contact_form .section_title {
+        margin-top: 100px;
+    }
+    .progress-text{
+        display: none;
+    }
 }
 
 
@@ -134,7 +141,7 @@
     }
 
     .go_top {
-        bottom: 30px;
+        bottom: 110px;
     }
 
     .go_top:hover {
@@ -864,7 +871,7 @@
 
     /* go top button section */
     .go_top {
-        bottom: 30px;
+        bottom: 110px;
         z-index: 999;
     }
 
@@ -1140,9 +1147,9 @@
     }
 
     footer .contact_info {
-        justify-content: center;
+        justify-content: left;
         flex-direction: column;
-        align-items: center;
+        align-items: left;
     }
 
     footer .contact_info li:not(:last-child)::after {
@@ -1155,7 +1162,7 @@
 
     footer .social_media,
     footer .download_side .app_btn {
-        justify-content: center;
+        justify-content: left;
         align-items: center;
     }
 

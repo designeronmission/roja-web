@@ -29,6 +29,9 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 
+    <!-- Add reCAPTCHA script BEFORE your custom scripts -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et"></script>
+
 
 
 </head>
@@ -149,8 +152,14 @@
               </div>
             </div>
             <div class="col-md-8">
-             <div id="recaptcha-container"></div>
-              <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                                          <div class="form-group">
+                        <div class="captcha-info">
+                            <small class="text-muted">This site is protected by reCAPTCHA and the Google 
+                                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
+                            </small>
+                        </div>
+                    </div>
             </div>
             <div class="col-md-4 text-right">
               <div class="btn_block mt-4">

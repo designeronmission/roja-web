@@ -23,6 +23,9 @@
   <link rel="stylesheet" href="css/dark-light-theme.css">
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+
+    <!-- Add reCAPTCHA script BEFORE your custom scripts -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et"></script>
 </head>
 
 <body>
@@ -591,7 +594,7 @@
                   <option value="">Compliance</option>
                   <option value="">Operations</option>
                 </select>
-                 <i class="icofont-simple-down"></i>
+                 <!-- <i class="icofont-simple-down"></i> -->
               </div>
             </div>
             <div class="col-md-12">
@@ -601,10 +604,14 @@
               </div>
             </div>
             <div class="col-md-8">
-              <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-              <form action="https://api.form-data.com/f/bqtxth46icif4r4ot1p5qn" method="post">
-                <div class="g-recaptcha mt-4" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-                <div class="help-block with-errors"></div>
+                              <div class="form-group">
+                        <div class="captcha-info">
+                            <small class="text-muted">This site is protected by reCAPTCHA and the Google 
+                                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
+                            </small>
+                        </div>
+                    </div>
             </div>
             <div class="col-md-4 text-right">
               <div class="btn_block mt-4">

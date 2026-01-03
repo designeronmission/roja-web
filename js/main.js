@@ -544,3 +544,263 @@ AOS.init();
       setTimeout(() => alertDiv.remove(), 150);
     }, 5000);
   }
+
+
+    // Complete contact form JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Form elements
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    const formAlert = document.getElementById('formAlert');
+    
+    // Validation patterns
+    const patterns = {
+        name: /^[a-zA-Z\s]{2,100}$/,
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        phone: /^[\+]?[1-9][\d\s\-\(\)]{8,20}$/,
+        message: /^.{10,2000}$/
+    };
+    
+    // Initialize form
+    function initForm() {
+        // Add input listeners for real-time validation
+        setupInputListeners();
+        
+        // Handle form submission
+        contactForm.addEventListener('submit', handleSubmit);
+    }
+    
+    // Setup input listeners
+    function setupInputListeners() {
+        const inputs = contactForm.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                clearError(this);
+            });
+            
+            input.addEventListener('blur', function() {
+                validateField(this);
+            });
+        });
+    }
+    
+    // Clear error for a field
+    function clearError(field) {
+        field.classList.remove('is-invalid');
+        const errorElement = document.getElementById(field.id + 'Error');
+        if (errorElement) {
+            errorElement.style.display = 'none';
+        }
+    }
+    
+    // Validate a single field
+    function validateField(field) {
+        const value = field.value.trim();
+        let isValid = true;
+        
+        switch(field.id) {
+            case 'name':
+                isValid = patterns.name.test(value);
+                break;
+            case 'email':
+                isValid = patterns.email.test(value);
+                break;
+            case 'phone':
+                const cleanPhone = value.replace(/[\s\-\(\)]/g, '');
+                isValid = patterns.phone.test(cleanPhone);
+                break;
+            case 'subject':
+                isValid = value !== '';
+                break;
+            case 'message':
+                isValid = patterns.message.test(value);
+                break;
+        }
+        
+        if (!isValid) {
+            field.classList.add('is-invalid');
+            const errorElement = document.getElementById(field.id + 'Error');
+            if (errorElement) {
+                errorElement.style.display = 'block';
+            }
+        }
+        
+        return isValid;
+    }
+    
+    // Validate entire form
+    function validateForm() {
+        let isValid = true;
+        const fields = ['name', 'email', 'phone', 'subject', 'message'];
+        
+        fields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field && !validateField(field)) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
+    }
+    
+    // Show alert message
+    function showAlert(message, type) {
+        const alertTypes = {
+            'success': 'alert-success',
+            'danger': 'alert-danger',
+            'warning': 'alert-warning',
+            'info': 'alert-info'
+        };
+        
+        formAlert.textContent = message;
+        formAlert.className = `alert ${alertTypes[type] || 'alert-info'}`;
+        formAlert.style.display = 'block';
+        
+        // Auto-hide success messages
+        if (type === 'success') {
+            setTimeout(() => {
+                formAlert.style.display = 'none';
+            }, 5000);
+        }
+    }
+    
+    // Hide alert
+    function hideAlert() {
+        formAlert.style.display = 'none';
+    }
+    
+    // Get reCAPTCHA token
+    async function getRecaptchaToken() {
+        return new Promise((resolve, reject) => {
+            // Check if grecaptcha is loaded
+            if (typeof grecaptcha === 'undefined') {
+                reject(new Error('reCAPTCHA not loaded'));
+                return;
+            }
+            
+            grecaptcha.ready(function() {
+                grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', {
+                    action: 'contact_submit'
+                }).then(function(token) {
+                    resolve(token);
+                }).catch(function(error) {
+                    reject(new Error('reCAPTCHA failed: ' + error));
+                });
+            });
+        });
+    }
+    
+    // Submit form data
+    async function submitFormData(formData) {
+        try {
+            const response = await fetch('contact-form-handler.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            // Check if response is OK
+            if (!response.ok) {
+                throw new Error(`Server returned ${response.status}`);
+            }
+            
+            const result = await response.json();
+            return result;
+            
+        } catch (error) {
+            console.error('Fetch error:', error);
+            throw error;
+        }
+    }
+    
+    // Handle form submission
+    async function handleSubmit(e) {
+        e.preventDefault();
+        
+        // Hide any previous alerts
+        hideAlert();
+        
+        // Validate form
+        if (!validateForm()) {
+            showAlert('Please fix the errors in the form before submitting.', 'warning');
+            return;
+        }
+        
+        // Start loading state
+        startLoading();
+        
+        try {
+            // Get reCAPTCHA token
+            const recaptchaToken = await getRecaptchaToken();
+            
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('name', document.getElementById('name').value.trim());
+            formData.append('email', document.getElementById('email').value.trim());
+            formData.append('phone', document.getElementById('phone').value.trim());
+            formData.append('subject', document.getElementById('subject').value);
+            formData.append('message', document.getElementById('message').value.trim());
+            formData.append('g-recaptcha-response', recaptchaToken);
+            
+            // Submit to server
+            const result = await submitFormData(formData);
+            
+            if (result.success) {
+                // Success
+                showAlert(result.message, 'success');
+                contactForm.reset();
+            } else {
+                // Server-side error
+                showAlert(result.message, 'danger');
+            }
+            
+        } catch (error) {
+            // Network or other errors
+            console.error('Submission error:', error);
+            
+            let errorMessage = 'An error occurred. Please try again.';
+            if (error.message.includes('Network') || error.message.includes('Failed to fetch')) {
+                errorMessage = 'Network error. Please check your internet connection.';
+            } else if (error.message.includes('reCAPTCHA')) {
+                errorMessage = 'Security verification failed. Please refresh the page and try again.';
+            }
+            
+            showAlert(errorMessage, 'danger');
+        } finally {
+            // End loading state
+            endLoading();
+        }
+    }
+    
+    // Start loading state
+    function startLoading() {
+        submitBtn.disabled = true;
+        submitText.textContent = 'Processing...';
+        submitSpinner.style.display = 'inline-block';
+    }
+    
+    // End loading state
+    function endLoading() {
+        submitBtn.disabled = false;
+        submitText.textContent = 'Submit';
+        submitSpinner.style.display = 'none';
+    }
+    
+    // Initialize the form
+    initForm();
+    
+    // Debug helper: Log form state
+    window.debugForm = function() {
+        console.log('Form state:', {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        });
+    };
+});

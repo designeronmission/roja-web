@@ -30,6 +30,9 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 
+  <!-- Add reCAPTCHA script BEFORE your custom scripts -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et"></script>
+
 </head>
 
 <body>
@@ -98,6 +101,9 @@
         </div>
         
         <form id="contactForm" data-aos="fade-up" data-aos-duration="1500">
+            <!-- Hidden reCAPTCHA token field -->
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -146,12 +152,18 @@
                     <div id="formAlert" class="alert" style="display: none;"></div>
                 </div>
                 
-                <div class="col-md-8">
-                    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-                    <div class="g-recaptcha mt-4" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-                    <div class="invalid-feedback" id="captchaError">Please complete the reCAPTCHA verification</div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="captcha-info">
+                            <small class="text-muted">This site is protected by reCAPTCHA and the Google 
+                                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
+                            </small>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 text-right">
+                
+                <div class="col-md-12 text-right">
                     <div class="btn_block mt-4">
                         <button type="submit" class="btn puprple_btn ml-0" id="submitBtn">
                             <span id="submitText" class="submit-bt">Submit</span>
@@ -164,6 +176,7 @@
         </form>
     </div>
 </section>
+<!-- Contact Form Section End -->
 
 
   <!-- Footer-Section start -->
@@ -189,7 +202,7 @@
               <li><a href="tel: ">+1 (212) 456 7890</a></li>
             </ul>
             <ul class="social_media">
-              <li><a href="#"><i class="icofont-linkedin"></i> </a> </li>
+              <li><a href="#"><i class="icofont-linkedin" style="color: #ffffff;"></i></a></li>
             </ul>
           </div>
         </div>
@@ -423,8 +436,6 @@
     <!-- Dark Theme js -->
   <script src="js/dark.js"></script>
 
-
-
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -647,216 +658,6 @@
 
   </script>
 
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const submitText = document.getElementById('submitText');
-    const submitSpinner = document.getElementById('submitSpinner');
-    const formAlert = document.getElementById('formAlert');
-    
-    // Validation functions
-    function validateName(name) {
-        return name.trim().length >= 2;
-    }
-    
-    function validateEmail(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-    
-    function validatePhone(phone) {
-        // Simple phone validation - accepts various formats
-        const re = /^[\+]?[1-9][\d]{0,15}$/;
-        const digits = phone.replace(/\D/g, '');
-        return re.test(digits) && digits.length >= 10;
-    }
-    
-    function validateMessage(message) {
-        return message.trim().length >= 10;
-    }
-    
-    function validateCaptcha() {
-        return grecaptcha && grecaptcha.getResponse().length > 0;
-    }
-    
-    function showError(fieldId, errorId, message) {
-        const field = document.getElementById(fieldId);
-        const error = document.getElementById(errorId);
-        
-        field.classList.add('is-invalid');
-        field.classList.remove('is-valid');
-        error.textContent = message;
-    }
-    
-    function showSuccess(fieldId) {
-        const field = document.getElementById(fieldId);
-        field.classList.remove('is-invalid');
-        field.classList.add('is-valid');
-    }
-    
-    function showAlert(message, type) {
-        formAlert.textContent = message;
-        formAlert.className = `alert alert-${type}`;
-        formAlert.style.display = 'block';
-        
-        // Scroll to alert
-        formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Auto hide after 5 seconds
-        setTimeout(() => {
-            formAlert.style.display = 'none';
-        }, 5000);
-    }
-    
-    // Real-time validation
-    document.getElementById('name').addEventListener('blur', function() {
-        if (validateName(this.value)) {
-            showSuccess('name');
-        } else {
-            showError('name', 'nameError', 'Please enter a valid name (min 2 characters)');
-        }
-    });
-    
-    document.getElementById('email').addEventListener('blur', function() {
-        if (validateEmail(this.value)) {
-            showSuccess('email');
-        } else {
-            showError('email', 'emailError', 'Please enter a valid email address');
-        }
-    });
-    
-    document.getElementById('phone').addEventListener('blur', function() {
-        if (validatePhone(this.value)) {
-            showSuccess('phone');
-        } else {
-            showError('phone', 'phoneError', 'Please enter a valid cell phone number (min 10 digits)');
-        }
-    });
-    
-    document.getElementById('message').addEventListener('blur', function() {
-        if (validateMessage(this.value)) {
-            showSuccess('message');
-        } else {
-            showError('message', 'messageError', 'Please enter at least 10 characters');
-        }
-    });
-    
-    // Form submission
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        // Validate all fields
-        let isValid = true;
-        
-        // Validate name
-        const name = document.getElementById('name').value;
-        if (!validateName(name)) {
-            showError('name', 'nameError', 'Please enter a valid name (min 2 characters)');
-            isValid = false;
-        }
-        
-        // Validate email
-        const email = document.getElementById('email').value;
-        if (!validateEmail(email)) {
-            showError('email', 'emailError', 'Please enter a valid email address');
-            isValid = false;
-        }
-        
-        // Validate phone
-        const phone = document.getElementById('phone').value;
-        if (!validatePhone(phone)) {
-            showError('phone', 'phoneError', 'Please enter a valid phone number (min 10 digits)');
-            isValid = false;
-        }
-        
-        // Validate subject
-        const subject = document.getElementById('subject').value;
-        if (!subject) {
-            showError('subject', 'subjectError', 'Please select a subject');
-            isValid = false;
-        }
-        
-        // Validate message
-        const message = document.getElementById('message').value;
-        if (!validateMessage(message)) {
-            showError('message', 'messageError', 'Please enter at least 10 characters');
-            isValid = false;
-        }
-        
-        // Validate reCAPTCHA
-        if (!validateCaptcha()) {
-            showError('g-recaptcha', 'captchaError', 'Please complete the reCAPTCHA verification');
-            isValid = false;
-        }
-        
-        if (!isValid) {
-            showAlert('Please fix the errors in the form', 'danger');
-            return;
-        }
-        
-        // Disable submit button and show spinner
-        submitBtn.disabled = true;
-        submitText.textContent = 'Sending...';
-        submitSpinner.style.display = 'inline-block';
-        
-        try {
-            // Prepare form data
-            const formData = {
-                name: name,
-                email: email,
-                phone: phone,
-                subject: subject,
-                message: message,
-                'g-recaptcha-response': grecaptcha.getResponse()
-            };
-            
-            // Here you would normally send the data to your server
-            // For demo purposes, we'll simulate an API call
-            console.log('Form data:', formData);
-            
-            // Simulate API call delay
-            await new Promise(resolve => setTimeout(resolve, 1500));
-            
-            // Show success message
-            showAlert('Your message has been sent successfully!', 'success');
-            
-            // Reset reCAPTCHA
-            grecaptcha.reset();
-            
-            // Redirect to thank you page after 2 seconds
-            setTimeout(() => {
-                window.location.href = 'thank-you.html';
-            }, 2000);
-            
-            // Optionally: Reset form (if you don't want to redirect immediately)
-            // contactForm.reset();
-            // document.querySelectorAll('.form-control').forEach(el => el.classList.remove('is-valid'));
-            
-        } catch (error) {
-            console.error('Error:', error);
-            showAlert('There was an error sending your message. Please try again.', 'danger');
-            
-            // Re-enable submit button
-            submitBtn.disabled = false;
-            submitText.textContent = 'Submit';
-            submitSpinner.style.display = 'none';
-        }
-    });
-    
-    // Handle form reset
-    contactForm.addEventListener('reset', function() {
-        document.querySelectorAll('.form-control').forEach(el => {
-            el.classList.remove('is-valid', 'is-invalid');
-        });
-        if (grecaptcha) {
-            grecaptcha.reset();
-        }
-    });
-});
-</script>
 
 </body>
 
