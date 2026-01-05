@@ -23,12 +23,12 @@
   <!-- Aos-Style-link -->
   <link rel="stylesheet" href="css/aos.css?version=1">
   <!-- Coustome-Style-link -->
-  <link rel="stylesheet" href="css/style.css?version=2">
+  <link rel="stylesheet" href="css/style.css?version=3">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=2">
+  <link rel="stylesheet" href="css/responsive.css?version=3">
 
     <!-- Dark Theme css -->
-  <link rel="stylesheet" href="css/dark-light-theme.css?version=2">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=3">
 
 
   <!-- Favicon -->
@@ -132,9 +132,8 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>Subject <span class="red">*</span></label>
-                        <select class="form-control" id="subject" name="subject" required>
-                            <option value="">Others</option>
+                        <label>Enquiry Category <span class="red">*</span></label>
+                        <select class="form-control" id="subject" name="Inquiry Category" required>
                             <option value="General">General</option>
                             <option value="Product & Technology">Product & Technology</option>
                             <option value="Compliance">Compliance</option>
@@ -438,7 +437,6 @@
   <script src="js/main.js?version=2"></script>
 
   <!-- Dark Theme js -->
-
   <script src="js/dark.js?version=2"></script>
 
   <script>
@@ -662,6 +660,48 @@
     });
 
   </script>
+
+
+<script>
+
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const phoneInput = document.getElementById('phone');
+  const messageInput = document.getElementById('message');
+
+  document.querySelectorAll('.form-control').forEach(el => {
+    el.classList.remove('is-invalid');
+  });
+
+  let isValid = true;
+  const invalidate = id => {
+    document.getElementById(id).classList.add('is-invalid');
+    isValid = false;
+  };
+
+  if (!nameInput.value.trim()) invalidate('name');
+  if (!emailInput.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) invalidate('email');
+  if (!phoneInput.value.match(/^[0-9+\-\s]{7,15}$/)) invalidate('phone');
+  if (!messageInput.value.trim()) invalidate('message');
+
+  if (!isValid) return;
+
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitSpinner').style.display = 'inline-block';
+
+  grecaptcha.ready(function () {
+    grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', { action: 'submit' })
+      .then(function (token) {
+        document.getElementById('g-recaptcha-response').value = token;
+        window.location.href = 'thank-you.html';
+      });
+  });
+});
+
+</script>
 
 
 </body>

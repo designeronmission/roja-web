@@ -1,97 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You | Roja</title>
-  
-  <!-- Add your CSS links here (same as contact.html) -->
-  <link rel="stylesheet" href="css/icofont.min.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
-  
+  <title>Roja | Contact</title>
+
+  <!-- icofont-css-link -->
+  <link rel="stylesheet" href="css/icofont.min.css?version=1">
+  <!-- Owl-Carosal-Style-link -->
+  <link rel="stylesheet" href="css/owl.carousel.min.css?version=1">
+  <!-- Bootstrap-Style-link -->
+  <link rel="stylesheet" href="css/bootstrap.min.css?version=1">
+  <link rel="stylesheet" href="https://htmldemo.zcubethemes.com/bingle/css/swiper.css?version=1">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Aos-Style-link -->
+  <link rel="stylesheet" href="css/aos.css?version=1">
+  <!-- Coustome-Style-link -->
+  <link rel="stylesheet" href="css/style.css?version=2">
+  <!-- Responsive-Style-link -->
+  <link rel="stylesheet" href="css/responsive.css?version=2">
+
+  <!-- Light Theme css (renamed from dark-light-theme.css) -->
+  <link rel="stylesheet" href="css/light-theme.css?version=2">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
+
+  <!-- Add reCAPTCHA script BEFORE your custom scripts -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et"></script>
+
+  <!-- Custom Styles -->
   <style>
-    .thank-you-section {
+    :root {
+      /* Light theme colors */
+      --primary-color: #35b0f4;
+      --primary-dark: #40b8f8;
+      --secondary-color: #4a6fa5;
+      --light-bg: #f8f9fa;
+      --light-card: #ffffff;
+      --light-text: #333333;
+      --light-text-secondary: #666666;
+      --light-border: #eaeaea;
+      --light-shadow: rgba(0, 0, 0, 0.08);
+      --light-hover-shadow: rgba(0, 0, 0, 0.12);
+      
+      /* Dark theme colors (for toggle functionality) */
+      --dark-bg: #121212;
+      --dark-card: #1e1e1e;
+      --dark-text: #ffffff;
+      --dark-text-secondary: #b0b0b0;
+      --dark-border: #2a2a2a;
+      --dark-shadow: rgba(0, 0, 0, 0.2);
+      
+      /* Common */
+      --border-radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--light-text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--light-card);
+      border: 1px solid var(--light-border);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--light-shadow);
+      transition: var(--transition);
     }
-    
-    .thank-you-card {
-      background: white;
-      border-radius: 20px;
-      padding: 50px;
-      max-width: 600px;
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--light-hover-shadow);
+    }
+
+    .theme-toggle i {
+      font-size: 1.5rem;
+      color: var(--light-text);
+    }
+
+    /* Main container */
+    .thank-you-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
       width: 100%;
+    }
+    
+    /* Confirmation Card */
+    .confirmation-card {
+      background: var(--light-card);
+      border-radius: var(--border-radius);
+      padding: 3rem 2rem;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 600px;
+      margin: 2rem auto 3rem;
+      box-shadow: 0 10px 30px var(--light-shadow);
+      border: 1px solid var(--light-border);
+      transition: var(--transition);
     }
     
-    .thank-you-icon {
-      font-size: 80px;
-      color: #667eea;
-      margin-bottom: 30px;
+    .confirmation-card:hover {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
     }
     
-    .thank-you-card h1 {
-      color: #333;
-      margin-bottom: 20px;
-      font-weight: 700;
+    .confirmation-icon {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, var(--primary-color), #009dd1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 2rem;
+      font-size: 3.5rem;
+      color: white;
+      box-shadow: 0 8px 20px rgba(103, 177, 229, 0.3);
     }
     
-    .thank-you-card p {
-      color: #666;
-      font-size: 18px;
+    .confirmation-card h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--light-text);
+    }
+    
+    .confirmation-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--primary-color), #8adeff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .confirmation-card p {
+      font-size: 1.2rem;
       line-height: 1.6;
-      margin-bottom: 30px;
+      margin-bottom: 2rem;
+      color: var(--light-text-secondary);
     }
     
-    .btn-home {
-      background: #667eea;
+    /* Next Steps Section */
+    .next-steps {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 3rem;
+    }
+    
+    .next-steps h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: var(--light-text);
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .step-card {
+      background: var(--light-card);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--light-border);
+      box-shadow: 0 5px 15px var(--light-shadow);
+    }
+    
+    .step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    }
+    
+    .step-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .step-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--light-text);
+    }
+    
+    .step-card p {
+      font-size: 0.95rem;
+      color: var(--light-text-secondary);
+    }
+    
+    /* Action Buttons */
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .btn-primary-custom {
+      background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
       color: white;
-      padding: 12px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: 600;
-      transition: all 0.3s ease;
       border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 5px 15px rgba(103, 193, 229, 0.3);
     }
     
-    .btn-home:hover {
-      background: #5a67d8;
+    .btn-primary-custom:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(103, 210, 229, 0.4);
       color: white;
       text-decoration: none;
+    }
+    
+    .btn-outline-custom {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-outline-custom:hover {
+      background: rgba(229, 103, 114, 0.1);
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    /* Contact Info */
+    .contact-info {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--light-border);
+      width: 100%;
+      max-width: 600px;
+    }
+    
+    .contact-info p {
+      margin-bottom: 0.5rem;
+      color: var(--light-text-secondary);
+    }
+    
+    .contact-email {
+      color: var(--primary-color);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    
+    .contact-email:hover {
+      text-decoration: underline;
+    }
+    
+    /* Animation for entry */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+    
+    .delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .delay-2 { animation-delay: 0.3s; opacity: 0; }
+    .delay-3 { animation-delay: 0.5s; opacity: 0; }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 45px;
+        height: 45px;
+      }
+      
+      .confirmation-card {
+        padding: 2rem 1.5rem;
+        margin: 1rem auto 2rem;
+      }
+      
+      .confirmation-card h1 {
+        font-size: 2rem;
+      }
+      
+      .confirmation-card h2 {
+        font-size: 1.8rem;
+      }
+      
+      .confirmation-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 2.8rem;
+      }
+      
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn-primary-custom, .btn-outline-custom {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+    
+    /* Footer */
+    .thank-you-footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--light-text-secondary);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--light-border);
+      width: 100%;
+      background: var(--light-card);
+    }
+    
+    .thank-you-footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    
+    .thank-you-footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Dark theme styles */
+    [data-theme="dark"] body {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    
+    [data-theme="dark"] .confirmation-card,
+    [data-theme="dark"] .step-card {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+      box-shadow: 0 10px 30px var(--dark-shadow);
+    }
+    
+    [data-theme="dark"] .confirmation-card p,
+    [data-theme="dark"] .step-card p,
+    [data-theme="dark"] .contact-info p,
+    [data-theme="dark"] .next-steps h2,
+    [data-theme="dark"] .step-card h3 {
+      color: var(--dark-text-secondary);
+    }
+    
+    [data-theme="dark"] .confirmation-card h1,
+    [data-theme="dark"] .next-steps h2 {
+      color: var(--dark-text);
+    }
+    
+    [data-theme="dark"] .theme-toggle {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    [data-theme="dark"] .theme-toggle i {
+      color: var(--dark-text);
+    }
+    
+    [data-theme="dark"] .thank-you-footer {
+      background: var(--dark-card);
+      border-color: var(--dark-border);
+      color: var(--dark-text-secondary);
+    }
+    
+    [data-theme="dark"] .contact-info {
+      border-color: var(--dark-border);
     }
   </style>
 </head>
 <body>
-  <div class="thank-you-section">
-    <div class="thank-you-card" data-aos="fade-up">
-      <div class="thank-you-icon">
-        <i class="icofont-check-alt"></i>
-      </div>
-      <h1>Thank You!</h1>
-      <p>We've received your message and our team will get back to you within 24 hours.</p>
-      <p>In the meantime, feel free to explore more about our platform and solutions.</p>
-      <a href="index.html" class="btn-home">Back to Home</a>
-    </div>
-  </div>
+  <!-- Theme Toggle Button 
+  <div class="theme-toggle" id="theme-toggle" title="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+  </div>-->
 
-  <!-- Optional: Add AOS animation -->
-  <link rel="stylesheet" href="css/aos.css">
+  <div class="thank-you-container">
+    <!-- Main Confirmation Card -->
+    <div class="confirmation-card fade-in-up">
+      <div class="confirmation-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h1>Thank You! 🎉</h1>
+      <h2>Your Enquiry Has Been Received</h2>
+      <p>We've successfully received your enquiry. Our financial experts at Roja will review your information and contact you within 24-48 hours to discuss how we can help you achieve your financial goals.</p>
+      
+      <div class="action-buttons">
+        <a href="index.html" class="btn-primary-custom">
+          <i class="fas fa-home"></i> Back to Homepage
+        </a>
+      </div>
+    </div>
+    
+
+  </div>
+  
+  <!-- Your existing consent container (kept from original) -->
+  <div class="consent-container" id="consent-container" style="display: none;">
+    <!-- Your existing consent HTML here -->
+  </div>
+  
+  <!-- Jquery-js-Link -->
+  <script src="js/jquery.js"></script>
+  <!-- owl-js-Link -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- bootstrap-js-Link -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://htmldemo.zcubethemes.com/bingle/js/swiper.min.js"></script>
+  <!-- aos-js-Link -->
   <script src="js/aos.js"></script>
+  <!-- Typed Js Cdn -->
+  <script src='js/typed.min.js'></script>
+  <!-- main-js-Link -->
+  <script src="js/main.js?version=2"></script>
+
+  <!-- Custom JavaScript for theme toggle -->
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Initialize theme
+    function initTheme() {
+      const savedTheme = localStorage.getItem('rojaTheme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcon(savedTheme);
+    }
+    
+    // Update theme icon based on current theme
+    function updateThemeIcon(theme) {
+      if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+        themeToggle.title = 'Switch to light mode';
+      } else {
+        themeIcon.className = 'fas fa-moon';
+        themeToggle.title = 'Switch to dark mode';
+      }
+    }
+    
+    // Toggle theme
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('rojaTheme', newTheme);
+      updateThemeIcon(newTheme);
+    }
+    
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+      initTheme();
+      
+      // Add event listener to theme toggle
+      themeToggle.addEventListener('click', toggleTheme);
+      
+      // Add interactive effects to buttons
+      const buttons = document.querySelectorAll('.btn-primary-custom, .btn-outline-custom');
+      buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-3px)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+      
+      // Add hover effect to step cards
+      const stepCards = document.querySelectorAll('.step-card');
+      stepCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+      
+      // Check if consent container should be shown
+      const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
+      const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
+      
+      if (!hasAcceptedDisclaimer || !hasAcceptedCookies) {
+        // Show consent container with delay
+        setTimeout(() => {
+          const consentContainer = document.getElementById('consent-container');
+          if (consentContainer) {
+            consentContainer.style.display = 'block';
+          }
+        }, 1500);
+      }
     });
   </script>
 </body>

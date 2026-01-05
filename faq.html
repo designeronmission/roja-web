@@ -21,12 +21,12 @@
   <!-- Aos-Style-link -->
   <link rel="stylesheet" href="css/aos.css?version=1">
   <!-- Coustome-Style-link -->
-  <link rel="stylesheet" href="css/style.css?version=2">
+  <link rel="stylesheet" href="css/style.css?version=3">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=2">
+  <link rel="stylesheet" href="css/responsive.css?version=3">
 
     <!-- Dark Theme css -->
-  <link rel="stylesheet" href="css/dark-light-theme.css?version=2">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=3">
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 
@@ -571,61 +571,78 @@
           <h2>Technical Support</h2>
           <p>For specific questions about your software setup, integration, or technical issues:</p>
         </div>
-        <form data-aos="fade-up" data-aos-duration="1500">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Name <span class="red">*</span></label>
-                <input type="text" class="form-control" placeholder="Full Name" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>E-Mail <span class="red">*</span></label>
-                <input type="email" class="form-control" placeholder="Enter your e-mail address" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Cell Phone Number <span class="red">*</span></label>
-                <input type="email" class="form-control" placeholder="Enter your Cell Phone Number" required>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Subject <span class="red">*</span></label>
-                <select class="form-control">
-                  <option value="">General</option>
-                  <option value="">Product & Technology</option>
-                  <option value="">Compliance</option>
-                  <option value="">Operations</option>
-                </select>
-                 <!-- <i class="icofont-simple-down"></i> -->
-              </div>
-            </div>
-            <div class="col-md-12">
-              <label>Technical Question </label>
-              <div class="form-group">
-                <textarea class="form-control" placeholder="Tell us about your specific requirements"></textarea>
-              </div>
-            </div>
-            <div class="col-md-8">
-                              <div class="form-group">
-                    <div class="captcha-info">
+              <form id="contactForm" data-aos="fade-up" data-aos-duration="1500">
+            <!-- Hidden reCAPTCHA token field -->
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Name <span class="red">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                        <div class="invalid-feedback" id="nameError">Please enter your full name</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>E-Mail <span class="red">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your e-mail address" required>
+                        <div class="invalid-feedback" id="emailError">Please enter a valid e-mail address</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Cell Phone Number <span class="red">*</span></label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your Cell Phone Number" required>
+                        <div class="invalid-feedback" id="phoneError">Please enter a valid phone number</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Enquiry Category <span class="red">*</span></label>
+                        <select class="form-control" id="subject" name="Inquiry Category" required>
+                            <option value="General">General</option>
+                            <option value="Product & Technology">Product & Technology</option>
+                            <option value="Compliance">Compliance</option>
+                            <option value="Operations">Operations</option>
+                        </select>
+                        <div class="invalid-feedback" id="subjectError">Please select a subject</div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label>Technical Question <span class="red">*</span></label>
+                    <div class="form-group">
+                        <textarea class="form-control" id="message" name="message" placeholder="Tell us about your specific requirements" rows="5" required></textarea>
+                        <div class="invalid-feedback" id="messageError">Tell us about your specific requirements</div>
+                    </div>
+                </div>
+                
+                <!-- Form submission status -->
+                <div class="col-md-12">
+                    <div id="formAlert" class="alert" style="display: none;"></div>
+                </div>
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="captcha-info">
                             <small class="text-muted captcha-text">This site is protected by reCAPTCHA and the Google 
                                 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and
                                 <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
                             </small>
                         </div>
                     </div>
+                </div>
+                
+                <div class="col-md-12 text-right">
+                    <div class="btn_block mt-4">
+                        <button type="submit" class="btn puprple_btn ml-0" id="submitBtn">
+                            <span class="submit-bt" style="color: black;">Submit</span>
+                            <span id="submitSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+                        </button>
+                        <div class="btn_bottom"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4 text-right">
-              <div class="btn_block mt-4">
-                <button class="btn puprple_btn ml-0">Submit</button>
-                <div class="btn_bottom"></div>
-              </div>
-            </div>
-          </div>
         </form>
       </div>
     </div>
@@ -1115,6 +1132,75 @@
     });
 
   </script>
+
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Get fields
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const phoneInput = document.getElementById('phone');
+  const subjectInput = document.getElementById('subject');
+  const messageInput = document.getElementById('message');
+
+  // Reset validation states
+  document.querySelectorAll('.form-control').forEach(el => {
+    el.classList.remove('is-invalid');
+  });
+
+  let isValid = true;
+
+  function invalidate(input) {
+    input.classList.add('is-invalid');
+    isValid = false;
+  }
+
+  // Name
+  if (!nameInput.value.trim()) {
+    invalidate(nameInput);
+  }
+
+  // Email
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(emailInput.value.trim())) {
+    invalidate(emailInput);
+  }
+
+  // Phone
+  const phoneRegex = /^[0-9+\-\s]{7,15}$/;
+  if (!phoneRegex.test(phoneInput.value.trim())) {
+    invalidate(phoneInput);
+  }
+
+  // Subject
+  if (!subjectInput.value) {
+    invalidate(subjectInput);
+  }
+
+  // Message
+  if (!messageInput.value.trim()) {
+    invalidate(messageInput);
+  }
+
+  // Stop if invalid
+  if (!isValid) return;
+
+  /* ===============================
+     ✅ FORM IS VALID
+     Add captcha / submit logic here
+     =============================== */
+
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitSpinner').style.display = 'inline-block';
+
+  // Example: redirect (replace with captcha/backend)
+  setTimeout(() => {
+    window.location.href = 'thank-you.html';
+  }, 800);
+});
+</script>
 
 
 </body>
