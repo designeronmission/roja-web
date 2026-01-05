@@ -28,7 +28,7 @@
     }
 
     .banner_section {
-        padding-bottom: 130px;
+        padding-bottom: 230px;
     }
 
     .download_app .task_block {
@@ -836,6 +836,7 @@
 
     .banner_section .app_btn li a {
         padding: 10px 20px;
+        font-size: 12px;
     }
 
     .banner_section .app_btn li a img {
@@ -1746,7 +1747,7 @@
 @media (min-width: 320px) and (max-width: 375px) {
     .banner_section .app_btn li a {
         padding: 10px 15px;
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .section_title h2 {

@@ -119,6 +119,8 @@ body {
     background-color: var(--bg-white);
 }
 
+
+
 .page_wrapper {
     width: 100%;
     overflow-x: hidden;
@@ -161,6 +163,14 @@ h3 {
 .white_text h3 {
     color: var(--text-black);
 
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 @media screen and (min-width:1200px) {
@@ -4617,8 +4627,7 @@ label {
     }
 
     .container {
-        padding-left: 10px;
-        padding-right: 10px;
+        --bs-gutter-x: 20px;
     }
 
     .progress-text{

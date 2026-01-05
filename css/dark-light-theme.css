@@ -342,7 +342,7 @@ footer {
    TASK BLOCKS (STACKED CARDS)
 ------------------------------------------ */
 [data-theme="dark"] .task_block {
-  background: #020617 !important;
+  background: #0f172a !important;
   border: 1px solid #1e293b;
   box-shadow:
     0 40px 80px rgba(0,0,0,0.6),
@@ -504,7 +504,7 @@ footer {
 
 /* Inner container */
 [data-theme="dark"] .why_choose_inner {
-  background: #000000 !important;
+  background: #0f172a !important;
 }
 
 /* Remove inherited light gradients */
@@ -1540,4 +1540,19 @@ color: #ffffff;
 
 [data-theme="light"]  .captcha-text{
     color: #000000 !important; 
+}
+
+
+
+[data-theme="dark"] .h-p{
+  color: #a2a2a2;
+}
+
+
+[data-theme="dark"]  .content-text p{
+      color: #e5e7eb;
+}
+
+[data-theme="light"] .content-text p{
+    color: #414141;
 }
