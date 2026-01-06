@@ -1550,11 +1550,11 @@ color: #ffffff;
 }
 
 
-[data-theme="dark"]  .content-text p .country-code{
+[data-theme="dark"]  .content-text p{
       color: #e5e7eb;
 }
 
-[data-theme="light"] .content-text p .country-code{
+[data-theme="light"] .content-text p {
     color: #414141;
 }
 
@@ -1567,4 +1567,15 @@ color: #ffffff;
 
 [data-theme="dark"]  .content-text p{
      background: #020617;
+}
+
+
+
+
+[data-theme="dark"]  .country-code{
+      color: #e5e7eb;
+}
+
+[data-theme="light"] .country-code {
+    color: #414141;
 }
