@@ -23,19 +23,25 @@
   <!-- Aos-Style-link -->
   <link rel="stylesheet" href="css/aos.css?version=1">
   <!-- Coustome-Style-link -->
-  <link rel="stylesheet" href="css/style.css?version=3">
+   <link rel="stylesheet" href="css/style.css?version=4">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=3">
+  <link rel="stylesheet" href="css/responsive.css?version=4">
 
     <!-- Dark Theme css -->
-  <link rel="stylesheet" href="css/dark-light-theme.css?version=3">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=4">
+
+          <!-- cookie Theme css -->
+  <link rel="stylesheet" href="css/cookie.css">
+
+
+
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
 
     <!-- Add reCAPTCHA script BEFORE your custom scripts -->
   <script src="https://www.google.com/recaptcha/api.js?render=6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et"></script>
 
-
+ 
 
 </head>
 
@@ -129,17 +135,40 @@
                     <div class="form-group">
                         <label>Company Name <span class="red">*</span></label>
                         <input type="text" class="form-control" id="company" name="company" placeholder="Enter your Company Name" required>
-                        <div class="invalid-feedback" id="phoneError">Please enter your company name</div>
+                        <div class="invalid-feedback" id="nameError">Please enter your company name</div>
                     </div>
                 </div>
 
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Cell Phone Number <span class="red">*</span></label>
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your Cell Phone Number" required>
-                        <div class="invalid-feedback" id="phoneError">Please enter a valid phone number</div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Cell Phone Number <span class="red">*</span></label>
+
+              <div class="phone-input-group">
+                <div class="input-group">
+                  <!-- Flag dropdown with search -->
+                  <div class="input-group-prepend">
+                    <div class="dropdown flag-dropdown">
+                      <a class="btn btn-outline-secondary" type="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="https://flagcdn.com/w20/us.png" alt="US" class="flag">
+                        <span class="country-code">+1</span>
+                    </a>
                     </div>
+                  </div>
+
+                  <!-- Phone number input -->
+                  <input type="tel" class="form-control phone-input" id="phone" name="phone"
+                    placeholder="(212) 098-6543" pattern="^\(\d{3}\) \d{3}-\d{4}$" required>
                 </div>
+
+                <!-- Validation feedback -->
+                <div class="invalid-feedback" id="phoneError">
+                  Please enter a valid 10-digit cell phone number
+                </div>
+                <small class="form-text text-muted">Format: (XXX) XXX-XXXX</small>
+              </div>
+            </div>
+          </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
@@ -300,126 +329,113 @@
   </div>
   <!-- Page-wrapper-End -->
 
-
-  <div class="consent-container" id="consent-container">
-        <button class="close-all-btn" id="close-all-btn">
-            <i class="icofont-close"></i>
-        </button>
-        
-        <div class="progress-container">
-            <div class="progress">
-                <div class="progress-bar" id="consent-progress" style="width: 0%"></div>
-            </div>
-            <div class="progress-text" id="progress-text">Step 1 of 2</div>
+<!-- Simplified Cookie Consent Container -->
+<div class="consent-container" id="consent-container" style="margin-left: auto;">
+  <div class="consent-content">
+    <button class="consent-close-btn" id="close-all-btn">
+      <i class="icofont-close"></i>
+    </button>
+    
+    <!-- Step 1: Disclaimer -->
+    <div class="consent-step" id="disclaimer-panel">
+      <div class="step-content-wrapper">
+        <div class="step-icon">
+          <i class="icofont-exclamation-circle"></i>
         </div>
-        
-        <div class="consent-panels row">
-            <!-- Disclaimer Panel -->
-            <div class="col-lg-12" id="disclaimer-panel">
-                <div class="panel">
-                    <div class="panel-header">
-                        <i class="panel-icon fas fa-exclamation-circle"></i>
-                        <h5 class="mb-0 pop-head">Important Disclaimer</h5>
-                    </div>
-                    <div class="panel-body col-lg-12 row">
-                        <div class="content-text col-lg-10">
-                           <p><span class="">Roja is a financial technology platform, not a bank, broker, or financial adviser.</span> The App provides budgeting insights and educational tools only, it does not offer financial, investment, tax, or legal advice. Information is based on third-party data and may not be accurate, complete, or current. Roja targets U.S. users only, and all disclaimers are governed exclusively by U.S. law. All use of the Services is at your own risk and provided "as is." Roja makes no guarantees regarding financial outcomes or third-party products or offers. For details, please see our <a href="privacypolicy.html" style="color: #e56772; font-size:14px; font-weight: 600;">Privacy Policy</a>, and <a href="termsofuse.html" style="color: #e56772; font-size:14px; font-weight: 600;">Terms of Service</a>.</p>  
-
-                        </div>
-
-                         <div class="panel-footer col-lg-2">
-                           <button class="btn btn-primary reject-bt btn-ok dis-btn" id="disclaimer-ok-btn">I Understand</button>
-                    </div>
-
-                    </div>
-              
-                </div>
-            </div>
-
-            <!-- Cookie Policy Panel -->
-            <div class="col-lg-12" id="cookie-panel" style="display: none;">
-            <div class="panel">
-                    <div class="panel-header">
-                        <i class="panel-icon fas fa-cookie-bite"></i>
-                        <h5 class="mb-0 pop-head">Cookie Policy</h5>
-                    </div>
-
-                    <div class="panel-body col-lg-12 row">
-                        <div class="content-text col-lg-9">
-                            <p>We use cookies and similar technologies to make roja work, improve your experience, analyze usage, and deliver personalized ads. Some cookies are essential. Others support analytics and advertising. By clicking "Accept All," you agree to our use of cookies. You can manage your choices anytime in Cookie Settings or opt out of sale/sharing. For more details, see our <a href="cookiepolicy.html" style="color: #e56772; font-size:14px;">Cookie Policy</a> and <a href="privacypolicy.html" style="color: #e56772; font-size:14px;">Privacy Policy</a>.</p>
-
-                        </div>
-                          <div class="panel-footer col-lg-3">
-                            <div class="cookie-buttons">
-                                <button class="btn btn-outline-primary reject-bt mr-2" id="reject-cookies-btn">Reject</button>
-                                <button class="btn btn-outline-primary reject-bt mr-2" id="customize-cookies-btn">Customize</button>
-                                <button class="btn btn-primary reject-bt" id="accept-cookies-btn">Accept</button>
-                            </div>
-                    </div>
-                    
-                    </div>
-                  
-                </div>
-
-            </div>
+        <div class="step-content">
+          <h5>Important Disclaimer</h5>
+          <p>Roja is a financial technology platform, not a bank, broker, or financial adviser. The App provides budgeting insights and educational tools only. <a href="privacypolicy.html">Privacy Policy</a>, <a href="termsofuse.html">Terms of Service</a>.</p>
         </div>
-
+      </div>
+      <div class="step-actions">
+        <button class="btn btn-primary btn-small" id="disclaimer-ok-btn">I Understand</button>
+      </div>
     </div>
-
-    <!-- Cookie Options Modal -->
-    <div class="cookie-options-modal" id="cookie-options-modal">
-        <div class="cookie-options-content">
-            <div class="cookie-options-header">
-                <h5 class="mb-0">Customize Cookie Preferences</h5>
-                <button type="button" class="close-btn" id="close-options-modal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="cookie-options-body">
-                <p>Manage your cookie preferences below. You can enable or disable different types of cookies we use.</p>
-                
-                <div class="cookie-categories">
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Essential Cookies <span class="text-muted">(Always Active)</span></div>
-                            <div class="category-desc">Required for the website to function properly. These cannot be disabled.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="essential-cookies" checked disabled>
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Analytics Cookies</div>
-                            <div class="category-desc">Help us understand how visitors interact with our website.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="analytics-cookies">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    
-                    <div class="cookie-category">
-                        <div class="category-info">
-                            <div class="category-name">Marketing Cookies</div>
-                            <div class="category-desc">Used to track visitors across websites for advertising purposes.</div>
-                        </div>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="marketing-cookies">
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="d-flex justify-content-end mt-4">
-                    <button class="btn btn-outline-primary mr-2" id="cancel-options-btn">Cancel</button>
-                    <button class="btn btn-primary" id="save-options-btn">Save Preferences</button>
-                </div>
-            </div>
+    
+    <!-- Step 2: Cookie Consent -->
+    <div class="consent-step" id="cookie-panel" style="display: none;">
+      <div class="step-content-wrapper">
+        <div class="step-icon">
+          <i class="icofont-cookie"></i>
         </div>
+        <div class="step-content">
+          <h5>Cookie Preferences</h5>
+          <p>We use cookies to improve your experience. You can customize your preferences below.</p>
+        </div>
+      </div>
+      <div class="step-actions">
+        <div class="cookie-buttons">
+          <button class="btn btn-outline btn-small" id="reject-cookies-btn">Reject All</button>
+          <button class="btn btn-outline btn-small" id="customize-cookies-btn">Customize</button>
+          <button class="btn btn-primary btn-small" id="accept-cookies-btn">Accept All</button>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- Simplified Cookie Options Modal -->
+<div class="cookie-modal" id="cookie-options-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5>Cookie Preferences</h5>
+      <button class="modal-close-btn" id="close-options-modal">
+        <i class="icofont-close"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-content-wrapper">
+        <div class="modal-text">
+          <p class="modal-description">We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. You can manage your preferences below:</p>
+        </div>
+        <div class="modal-options">
+          <div class="cookie-option">
+            <div class="option-content">
+              <span class="option-title">Essential Cookies</span>
+              <small class="option-desc">Required for basic site functionality. Cannot be disabled.</small>
+            </div>
+            <div class="option-action">
+              <label class="toggle">
+                <input type="checkbox" id="essential-cookies" checked disabled>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="cookie-option">
+            <div class="option-content">
+              <span class="option-title">Analytics Cookies</span>
+              <small class="option-desc">Help us understand how visitors interact with our website.</small>
+            </div>
+            <div class="option-action">
+              <label class="toggle">
+                <input type="checkbox" id="analytics-cookies">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="cookie-option">
+            <div class="option-content">
+              <span class="option-title">Marketing Cookies</span>
+              <small class="option-desc">Used to deliver personalized advertisements.</small>
+            </div>
+            <div class="option-action">
+              <label class="toggle">
+                <input type="checkbox" id="marketing-cookies">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-small" id="cancel-options-btn">Cancel</button>
+        <button class="btn btn-primary btn-small" id="save-options-btn">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -440,297 +456,614 @@
 
   <!-- Dark Theme js -->
 
-  <script src="js/dark.js?version=2"></script>
+  <script src="js/dark.js?version=3"></script>
 
-    <script>
-      
-       document.addEventListener('DOMContentLoaded', function() {
-            const cookieConsent = document.getElementById('cookieConsent');
-            const acceptAllBtn = document.getElementById('acceptAll');
-            const saveSettingsBtn = document.getElementById('saveSettings');
-            const rejectAllBtn = document.getElementById('rejectAll');
-            const analyticsCookies = document.getElementById('analyticsCookies');
-            const marketingCookies = document.getElementById('marketingCookies');
+     <script>
+ // Simplified Cookie Consent functionality
+document.addEventListener('DOMContentLoaded', function () {
+  // Elements
+  const consentContainer = document.getElementById('consent-container');
+  const closeBtn = document.getElementById('close-all-btn');
+  const disclaimerPanel = document.getElementById('disclaimer-panel');
+  const cookiePanel = document.getElementById('cookie-panel');
+  const disclaimerOkBtn = document.getElementById('disclaimer-ok-btn');
+  const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+  const rejectCookiesBtn = document.getElementById('reject-cookies-btn');
+  const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
+  const cookieModal = document.getElementById('cookie-options-modal');
+  const closeOptionsBtn = document.getElementById('close-options-modal');
+  const cancelOptionsBtn = document.getElementById('cancel-options-btn');
+  const saveOptionsBtn = document.getElementById('save-options-btn');
 
-            // Check if consent was already given
-            if (!localStorage.getItem('cookieConsent')) {
-                // Show the popup after a short delay
-                setTimeout(function() {
-                    cookieConsent.classList.add('active');
-                }, 1000);
-            }
-            // Accept All button
-            acceptAllBtn.addEventListener('click', function() {
-                // Set all cookies to accepted
-                localStorage.setItem('cookieConsent', 'all');
-                localStorage.setItem('analyticsCookies', 'true');
-                localStorage.setItem('marketingCookies', 'true');
-                hidePopup();
-                setCookies(true, true); // Implement your actual cookie setting function
-            });
-            
-            // Save Settings button
-            saveSettingsBtn.addEventListener('click', function() {
-                // Save the current toggle states
-                localStorage.setItem('cookieConsent', 'custom');
-                localStorage.setItem('analyticsCookies', analyticsCookies.checked.toString());
-                localStorage.setItem('marketingCookies', marketingCookies.checked.toString());
-                hidePopup();
-                setCookies(analyticsCookies.checked, marketingCookies.checked);
-            });
-            
-            // Reject All button
-            rejectAllBtn.addEventListener('click', function() {
-                // Only keep essential cookies
-                localStorage.setItem('cookieConsent', 'essential');
-                localStorage.setItem('analyticsCookies', 'false');
-                localStorage.setItem('marketingCookies', 'false');
-                hidePopup();
-                setCookies(false, false);
-            });
-            
-            function hidePopup() {
-                cookieConsent.classList.remove('active');
-                // Optional: Remove from DOM after animation completes
-                setTimeout(() => {
-                    cookieConsent.style.display = 'none';
-                }, 400);
-            }
-            
-            // Function to actually set the cookies (replace with your implementation)
-            function setCookies(analytics, marketing) {
-                console.log('Setting cookies - Analytics:', analytics, 'Marketing:', marketing);
-                // Here you would implement your actual cookie setting logic
-                // For example:
-                 if (analytics) { setAnalyticsCookies(); }
-                 if (marketing) { setMarketingCookies(); }
-            }
-            
-            // Load saved preferences (optional - if you want to reflect them in the UI)
-            function loadPreferences() {
-                const savedAnalytics = localStorage.getItem('analyticsCookies');
-                const savedMarketing = localStorage.getItem('marketingCookies');
-                
-                if (savedAnalytics !== null) {
-                    analyticsCookies.checked = savedAnalytics === 'true';
-                }
-                if (savedMarketing !== null) {
-                    marketingCookies.checked = savedMarketing === 'true';
-                }
-            }
-            
-            loadPreferences();
-        });
+  // Check existing preferences
+  const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
+  const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
 
+  // Initialize
+  if (!hasAcceptedDisclaimer || !hasAcceptedCookies) {
+    consentContainer.style.display = 'block';
+    if (hasAcceptedDisclaimer) {
+      disclaimerPanel.style.display = 'none';
+      cookiePanel.style.display = 'flex';
+    }
+  }
 
-   document.addEventListener('DOMContentLoaded', function() {
-            // Check if user has already given consent
-            const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
-            const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
-            
-            // If both are accepted, don't show the consent container initially
-            if (hasAcceptedDisclaimer && hasAcceptedCookies) {
-                document.getElementById('consent-container').style.display = 'none';
-            } else {
-                // Show the consent container
-                document.getElementById('consent-container').style.display = 'block';
-            }
-            
-            // Progress tracking
-            const progressBar = document.getElementById('consent-progress');
-            const progressText = document.getElementById('progress-text');
-            const disclaimerPanel = document.getElementById('disclaimer-panel');
-            const cookiePanel = document.getElementById('cookie-panel');
-            
-            // If disclaimer already accepted, show cookie panel directly
-            if (hasAcceptedDisclaimer) {
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-            } else {
-                updateProgress(1);
-            }
-            
-            // Update progress
-            function updateProgress(step) {
-                const percentage = (step / 2) * 100;
-                progressBar.style.width = `${percentage}%`;
-                progressText.textContent = `Step ${step} of 2`;
-            }
-            
-            // Function to close consent container
-            function closeConsentContainer() {
-                document.getElementById('consent-container').style.display = 'none';
-            }
-            
-            // Function to open consent container for preferences update
-            function openPreferencesUpdate() {
-                // Always show the cookie panel when updating preferences
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-                
-                // Show the consent container
-                document.getElementById('consent-container').style.display = 'block';
-            }
-            
-            // Close button functionality
-            document.getElementById('close-all-btn').addEventListener('click', function() {
-                closeConsentContainer();
-            });
-            
-            // Disclaimer OK button
-            document.getElementById('disclaimer-ok-btn').addEventListener('click', function() {
-                // Store acceptance in localStorage
-                localStorage.setItem('rojaDisclaimerAccepted', 'true');
-                
-                // Hide disclaimer and show cookie panel
-                disclaimerPanel.style.display = 'none';
-                cookiePanel.style.display = 'block';
-                updateProgress(2);
-            });
-            
-            // Cookie Accept button
-            document.getElementById('accept-cookies-btn').addEventListener('click', function() {
-                // Store cookie acceptance in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', 'true');
-                localStorage.setItem('rojaMarketingCookies', 'true');
-                
-                // Close the consent container
-                closeConsentContainer();
-            });
-            
-            // Cookie Reject button
-            document.getElementById('reject-cookies-btn').addEventListener('click', function() {
-                // Store cookie rejection in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', 'false');
-                localStorage.setItem('rojaMarketingCookies', 'false');
-                
-                // Close the consent container
-                closeConsentContainer();
-            });
-            
-            
-            // Cookie Customize button
-            document.getElementById('customize-cookies-btn').addEventListener('click', function() {
-                // Show the cookie options modal
-                document.getElementById('cookie-options-modal').style.display = 'flex';
-                
-                // Load current preferences if available
-                const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
-                const marketingPref = localStorage.getItem('rojaMarketingCookies');
-                
-                if (analyticsPref !== null) {
-                    document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
-                }
-                
-                if (marketingPref !== null) {
-                    document.getElementById('marketing-cookies').checked = marketingPref === 'true';
-                }
-            });
-            
-            // Close cookie options modal
-            document.getElementById('close-options-modal').addEventListener('click', function() {
-                document.getElementById('cookie-options-modal').style.display = 'none';
-            });
-            
-            document.getElementById('cancel-options-btn').addEventListener('click', function() {
-                document.getElementById('cookie-options-modal').style.display = 'none';
-            });
-            
-            // Save cookie options
-            document.getElementById('save-options-btn').addEventListener('click', function() {
-                const analyticsChecked = document.getElementById('analytics-cookies').checked;
-                const marketingChecked = document.getElementById('marketing-cookies').checked;
-                
-                // Store preferences in localStorage
-                localStorage.setItem('rojaCookiesAccepted', 'true');
-                localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
-                localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
-                
-                // Close the modal and consent container
-                document.getElementById('cookie-options-modal').style.display = 'none';
-                closeConsentContainer();
-            });
-            
-            // Update preferences link in footer
-            document.getElementById('update-preferences-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                openPreferencesUpdate();
-            });
-        });
+  // Close consent container
+  function closeConsent() {
+    consentContainer.style.display = 'none';
+  }
 
+  // Open preferences update
+  function openPreferencesUpdate() {
+    disclaimerPanel.style.display = 'none';
+    cookiePanel.style.display = 'flex';
+    consentContainer.style.display = 'block';
+  }
+
+  // Event Listeners
+  closeBtn.addEventListener('click', closeConsent);
+
+  disclaimerOkBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaDisclaimerAccepted', 'true');
+    disclaimerPanel.style.display = 'none';
+    cookiePanel.style.display = 'flex';
+  });
+
+  acceptCookiesBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', 'true');
+    localStorage.setItem('rojaMarketingCookies', 'true');
+    closeConsent();
+  });
+
+  rejectCookiesBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', 'false');
+    localStorage.setItem('rojaMarketingCookies', 'false');
+    closeConsent();
+  });
+
+  customizeCookiesBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'flex';
+    
+    // Load current preferences
+    const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
+    const marketingPref = localStorage.getItem('rojaMarketingCookies');
+    
+    if (analyticsPref !== null) {
+      document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
+    }
+    if (marketingPref !== null) {
+      document.getElementById('marketing-cookies').checked = marketingPref === 'true';
+    }
+  });
+
+  closeOptionsBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'none';
+  });
+
+  cancelOptionsBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'none';
+  });
+
+  saveOptionsBtn.addEventListener('click', function() {
+    const analyticsChecked = document.getElementById('analytics-cookies').checked;
+    const marketingChecked = document.getElementById('marketing-cookies').checked;
+    
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
+    localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
+    
+    cookieModal.style.display = 'none';
+    closeConsent();
+  });
+
+  // Update preferences link
+  document.getElementById('update-preferences-link')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    openPreferencesUpdate();
+  });
+
+  // Close modal when clicking outside
+  cookieModal.addEventListener('click', function(e) {
+    if (e.target === cookieModal) {
+      cookieModal.style.display = 'none';
+    }
+  });
+});
   </script>
 
 
+
 <script>
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+    // Phone number validation, formatting, and country selection
+    document.addEventListener('DOMContentLoaded', function () {
+      const phoneInput = document.getElementById('phone');
+      const countryCodeSpan = document.querySelector('.country-code');
+      const flagImg = document.querySelector('.flag-dropdown .flag');
+      const countrySearch = document.getElementById('countrySearch');
+      const countryItems = document.querySelectorAll('.country-list .dropdown-item');
+      
+      // Default to US
+      let currentCountryCode = '+1';
+      let currentCountry = 'US';
+      
+      // Initialize phone validation
+      validatePhoneNumber();
+      
+      // Country selection
+      countryItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+          e.preventDefault();
+          const code = this.getAttribute('data-code');
+          const country = this.getAttribute('data-country');
+          
+          currentCountryCode = code;
+          currentCountry = country;
+          
+          // Update flag and code
+          flagImg.src = `https://flagcdn.com/w20/${country.toLowerCase()}.png`;
+          flagImg.alt = country;
+          countryCodeSpan.textContent = code;
+          
+          // Set active state
+          countryItems.forEach(i => i.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Clear and focus input
+          phoneInput.value = '';
+          phoneInput.focus();
+          
+          // Update validation message based on country
+          updatePhoneValidationMessage();
+        });
+      });
+      
+      // Country search
+      if (countrySearch) {
+        countrySearch.addEventListener('input', function () {
+          const searchTerm = this.value.toLowerCase();
+          countryItems.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchTerm) ? 'flex' : 'none';
+          });
+        });
+      }
+      
+      // Format phone number based on country
+      phoneInput.addEventListener('input', function (e) {
+        formatPhoneNumber();
+      });
+      
+      // Validate on blur
+      phoneInput.addEventListener('blur', function () {
+        validatePhoneNumber();
+      });
+      
+      // Real-time validation while typing
+      phoneInput.addEventListener('keyup', function () {
+        validatePhoneNumber();
+      });
+      
+      function formatPhoneNumber() {
+        const digitsOnly = phoneInput.value.replace(/\D/g, '');
+        let formattedNumber = '';
+        
+        if (currentCountryCode === '+1') {
+          // US/Canada format: (XXX) XXX-XXXX
+          if (digitsOnly.length > 10) {
+            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
+            return;
+          }
+          
+          if (digitsOnly.length === 0) {
+            formattedNumber = '';
+          } else if (digitsOnly.length <= 3) {
+            formattedNumber = `(${digitsOnly}`;
+          } else if (digitsOnly.length <= 6) {
+            formattedNumber = `(${digitsOnly.substring(0, 3)}) ${digitsOnly.substring(3)}`;
+          } else {
+            formattedNumber = `(${digitsOnly.substring(0, 3)}) ${digitsOnly.substring(3, 6)}-${digitsOnly.substring(6, 10)}`;
+          }
+        } else if (currentCountryCode === '+44') {
+          // UK format: XXXX XXXXXX or XXXXX XXXXXX
+          if (digitsOnly.length > 11) {
+            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
+            return;
+          }
+          
+          if (digitsOnly.length <= 4) {
+            formattedNumber = digitsOnly;
+          } else if (digitsOnly.length <= 7) {
+            formattedNumber = `${digitsOnly.substring(0, 4)} ${digitsOnly.substring(4)}`;
+          } else {
+            formattedNumber = `${digitsOnly.substring(0, 5)} ${digitsOnly.substring(5)}`;
+          }
+        } else if (currentCountryCode === '+91') {
+          // India format: XXXXX XXXXX
+          if (digitsOnly.length > 10) {
+            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
+            return;
+          }
+          
+          if (digitsOnly.length <= 5) {
+            formattedNumber = digitsOnly;
+          } else {
+            formattedNumber = `${digitsOnly.substring(0, 5)} ${digitsOnly.substring(5)}`;
+          }
+        } else {
+          // Default format for other countries
+          if (digitsOnly.length > 15) {
+            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
+            return;
+          }
+          formattedNumber = digitsOnly;
+        }
+        
+        phoneInput.value = formattedNumber;
+      }
+      
+      function validatePhoneNumber() {
+        const phoneError = document.getElementById('phoneError');
+        const inputGroup = phoneInput.closest('.input-group');
+        
+        // Get only digits from the input
+        const digitsOnly = phoneInput.value.replace(/\D/g, '');
+        let isValid = false;
+        let errorMessage = '';
+        
+        // Validate based on country
+        if (currentCountryCode === '+1') {
+          // US/Canada: 10 digits
+          if (digitsOnly.length === 10) {
+            isValid = true;
+          } else if (digitsOnly.length > 0) {
+            errorMessage = 'Please enter a valid 10-digit phone number';
+          }
+        } else if (currentCountryCode === '+44') {
+          // UK: 10-11 digits
+          if (digitsOnly.length >= 10 && digitsOnly.length <= 11) {
+            isValid = true;
+          } else if (digitsOnly.length > 0) {
+            errorMessage = 'Please enter a valid UK phone number (10-11 digits)';
+          }
+        } else if (currentCountryCode === '+91') {
+          // India: 10 digits
+          if (digitsOnly.length === 10) {
+            isValid = true;
+          } else if (digitsOnly.length > 0) {
+            errorMessage = 'Please enter a valid 10-digit Indian phone number';
+          }
+        } else {
+          // Other countries: 5-15 digits
+          if (digitsOnly.length >= 5 && digitsOnly.length <= 15) {
+            isValid = true;
+          } else if (digitsOnly.length > 0) {
+            errorMessage = 'Please enter a valid phone number (5-15 digits)';
+          }
+        }
+        
+        // Apply styling
+        if (digitsOnly.length === 0) {
+          // Empty - reset styling
+          phoneInput.classList.remove('is-valid', 'is-invalid');
+          if (inputGroup) {
+            inputGroup.style.borderColor = '#ced4da';
+          }
+          phoneError.style.display = 'none';
+        } else if (isValid) {
+          // Valid - show green border
+          phoneInput.classList.remove('is-invalid');
+          phoneInput.classList.add('is-valid');
+          if (inputGroup) {
+            inputGroup.style.borderColor = '#28a745';
+          }
+          phoneError.style.display = 'none';
+        } else {
+          // Invalid - show red border
+          phoneInput.classList.remove('is-valid');
+          phoneInput.classList.add('is-invalid');
+          if (inputGroup) {
+            inputGroup.style.borderColor = '#dc3545';
+          }
+          phoneError.textContent = errorMessage || 'Please enter a valid phone number';
+          phoneError.style.display = 'block';
+        }
+        
+        return isValid;
+      }
+      
+      function updatePhoneValidationMessage() {
+        const phoneError = document.getElementById('phoneError');
+        
+        switch(currentCountryCode) {
+          case '+1':
+            phoneError.textContent = 'Please enter a valid 10-digit phone number';
+            break;
+          case '+44':
+            phoneError.textContent = 'Please enter a valid UK phone number (10-11 digits)';
+            break;
+          case '+91':
+            phoneError.textContent = 'Please enter a valid 10-digit Indian phone number';
+            break;
+          default:
+            phoneError.textContent = 'Please enter a valid phone number (5-15 digits)';
+        }
+      }
+    });
+    
+    // Form submission with proper validation
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
 
-  // Get fields
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const phoneInput = document.getElementById('phone');
-  const subjectInput = document.getElementById('subject');
-  const messageInput = document.getElementById('message');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const companyInput = document.getElementById('company');
+      const phoneInput = document.getElementById('phone');
+      const subjectInput = document.getElementById('subject');
+      const messageInput = document.getElementById('message');
+      const formAlert = document.getElementById('formAlert');
 
-  // Reset validation states
-  document.querySelectorAll('.form-control').forEach(el => {
-    el.classList.remove('is-invalid');
-  });
+      // Clear previous errors
+      document.querySelectorAll('.form-control').forEach(el => {
+        el.classList.remove('is-invalid');
+      });
+      formAlert.style.display = 'none';
 
-  let isValid = true;
+      let isValid = true;
+      const errorFields = [];
 
-  function invalidate(input) {
-    input.classList.add('is-invalid');
-    isValid = false;
-  }
+      function invalidate(id, message = '') {
+        const element = document.getElementById(id);
+        if (element) {
+          element.classList.add('is-invalid');
+          const errorElement = document.getElementById(id + 'Error');
+          if (errorElement && message) {
+            errorElement.textContent = message;
+          }
+        }
+        isValid = false;
+        errorFields.push(id);
+      }
 
-  // Name
-  if (!nameInput.value.trim()) {
-    invalidate(nameInput);
-  }
+      // Name validation
+      if (!nameInput.value.trim()) {
+        invalidate('name', 'Please enter your full name');
+      } else if (nameInput.value.trim().length < 2) {
+        invalidate('name', 'Name must be at least 2 characters');
+      }
 
-  // Email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailInput.value.trim())) {
-    invalidate(emailInput);
-  }
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim()) {
+        invalidate('email', 'Please enter your email address');
+      } else if (!emailRegex.test(emailInput.value)) {
+        invalidate('email', 'Please enter a valid email address');
+      }
 
-  // Phone
-  const phoneRegex = /^[0-9+\-\s]{7,15}$/;
-  if (!phoneRegex.test(phoneInput.value.trim())) {
-    invalidate(phoneInput);
-  }
+      // Company validation
+      if (!companyInput.value.trim()) {
+        invalidate('company', 'Please enter your company name');
+      } else if (companyInput.value.trim().length < 2) {
+        invalidate('company', 'Company name must be at least 2 characters');
+      }
 
-  // Subject
-  if (!subjectInput.value) {
-    invalidate(subjectInput);
-  }
+      // Phone validation
+      const digitsOnly = phoneInput.value.replace(/\D/g, '');
+      const countryCode = document.querySelector('.country-code').textContent;
+      
+      let phoneValid = false;
+      if (countryCode === '+1') {
+        phoneValid = digitsOnly.length === 10;
+      } else if (countryCode === '+44') {
+        phoneValid = digitsOnly.length >= 10 && digitsOnly.length <= 11;
+      } else if (countryCode === '+91') {
+        phoneValid = digitsOnly.length === 10;
+      } else {
+        phoneValid = digitsOnly.length >= 5 && digitsOnly.length <= 15;
+      }
+      
+      if (!phoneInput.value.trim()) {
+        invalidate('phone', 'Please enter your phone number');
+      } else if (!phoneValid) {
+        const phoneError = document.getElementById('phoneError');
+        invalidate('phone', phoneError.textContent);
+      }
 
-  // Message
-  if (!messageInput.value.trim()) {
-    invalidate(messageInput);
-  }
+      // Subject validation
+      if (!subjectInput.value) {
+        invalidate('subject', 'Please select your monthly credit volume');
+      }
 
-  // Stop if invalid
-  if (!isValid) return;
+      // Message validation
+      if (!messageInput.value.trim()) {
+        invalidate('message', 'Please tell us about your specific requirements');
+      } else if (messageInput.value.trim().length < 10) {
+        invalidate('message', 'Please provide more details (minimum 10 characters)');
+      }
 
-  /* ===============================
-     ✅ FORM IS VALID
-     Add captcha / submit logic here
-     =============================== */
+      if (!isValid) {
+        // Show error message at the top
+        formAlert.className = 'alert alert-danger';
+        formAlert.innerHTML = '<strong>Please fix the following errors:</strong><br>' + 
+          errorFields.map(field => {
+            switch(field) {
+              case 'name': return '• Full Name';
+              case 'email': return '• Email Address';
+              case 'company': return '• Company Name';
+              case 'phone': return '• Phone Number';
+              case 'subject': return '• Monthly Credit Volume';
+              case 'message': return '• Technical Question';
+              default: return '';
+            }
+          }).filter(Boolean).join('<br>');
+        formAlert.style.display = 'block';
+        
+        // Scroll to first error
+        const firstError = document.querySelector('.is-invalid');
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstError.focus();
+        }
+        return;
+      }
 
-  document.getElementById('submitBtn').disabled = true;
-  document.getElementById('submitSpinner').style.display = 'inline-block';
+      // Disable submit button and show spinner
+      const submitBtn = document.getElementById('submitBtn');
+      const submitSpinner = document.getElementById('submitSpinner');
+      const submitText = submitBtn.querySelector('.submit-bt');
+      const originalText = submitText.textContent;
+      
+      submitBtn.disabled = true;
+      submitSpinner.style.display = 'inline-block';
+      submitText.textContent = 'Submitting...';
 
-  // Example: redirect (replace with captcha/backend)
-  setTimeout(() => {
-    window.location.href = 'thank-you.html';
-  }, 800);
-});
+      // Show success message
+      formAlert.className = 'alert alert-success';
+      formAlert.textContent = 'Submitting your request...';
+      formAlert.style.display = 'block';
+
+      // reCAPTCHA v3 verification
+      grecaptcha.ready(function () {
+        grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', { action: 'submit' })
+          .then(function (token) {
+            // Set the token in the hidden field
+            document.getElementById('g-recaptcha-response').value = token;
+            
+            // Prepare form data
+            const formData = {
+              name: nameInput.value.trim(),
+              email: emailInput.value.trim(),
+              company: companyInput.value.trim(),
+              phone: phoneInput.value,
+              countryCode: document.querySelector('.country-code').textContent,
+              country: document.querySelector('.flag').alt,
+              monthlyCreditVolume: subjectInput.value,
+              message: messageInput.value.trim(),
+              'g-recaptcha-response': token,
+              timestamp: new Date().toISOString()
+            };
+            
+            // Here you would send the data to your backend
+            // Example using fetch:
+            /*
+            fetch('/submit-contact-form', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                // Show success and redirect or clear form
+                formAlert.className = 'alert alert-success';
+                formAlert.innerHTML = '<strong>Success!</strong> Thank you for your inquiry. We will contact you soon.';
+                formAlert.style.display = 'block';
+                
+                // Reset form after successful submission
+                setTimeout(() => {
+                  document.getElementById('contactForm').reset();
+                  formAlert.style.display = 'none';
+                  // Reset phone country to default
+                  document.querySelector('.country-code').textContent = '+1';
+                  document.querySelector('.flag').src = 'https://flagcdn.com/w20/us.png';
+                  document.querySelector('.flag').alt = 'US';
+                }, 3000);
+              } else {
+                throw new Error(data.message || 'Submission failed');
+              }
+            })
+            .catch(error => {
+              showError(error.message);
+            })
+            .finally(() => {
+              resetSubmitButton();
+            });
+            */
+            
+            // For demo purposes - simulate successful submission after 2 seconds
+            setTimeout(() => {
+              formAlert.className = 'alert alert-success';
+              formAlert.innerHTML = '<strong>Success!</strong> Thank you for your inquiry. We will contact you soon.';
+              formAlert.style.display = 'block';
+              
+              // Scroll to success message
+              formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              
+              // Reset form after successful submission
+              setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                formAlert.style.display = 'none';
+                // Reset phone country to default
+                document.querySelector('.country-code').textContent = '+1';
+                document.querySelector('.flag').src = 'https://flagcdn.com/w20/us.png';
+                document.querySelector('.flag').alt = 'US';
+              }, 3000);
+              
+              resetSubmitButton();
+            }, 1500);
+            
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA error:', error);
+            showError('Captcha verification failed. Please try again.');
+            resetSubmitButton();
+          });
+      });
+
+      function showError(message) {
+        formAlert.className = 'alert alert-danger';
+        formAlert.innerHTML = `<strong>Error:</strong> ${message}`;
+        formAlert.style.display = 'block';
+        formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      
+      function resetSubmitButton() {
+        submitBtn.disabled = false;
+        submitSpinner.style.display = 'none';
+        submitText.textContent = originalText;
+      }
+    });
+    
+    // Add input event listeners for real-time validation
+    document.getElementById('name').addEventListener('input', function() {
+      if (this.value.trim().length >= 2) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+      } else {
+        this.classList.remove('is-valid');
+      }
+    });
+    
+    document.getElementById('email').addEventListener('input', function() {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailRegex.test(this.value)) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+      } else {
+        this.classList.remove('is-valid');
+      }
+    });
+    
+    document.getElementById('company').addEventListener('input', function() {
+      if (this.value.trim().length >= 2) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+      } else {
+        this.classList.remove('is-valid');
+      }
+    });
+    
+    document.getElementById('message').addEventListener('input', function() {
+      if (this.value.trim().length >= 10) {
+        this.classList.remove('is-invalid');
+        this.classList.add('is-valid');
+      } else {
+        this.classList.remove('is-valid');
+      }
+    });
 </script>
 
 </body>

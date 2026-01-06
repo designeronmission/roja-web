@@ -230,6 +230,12 @@
         padding-bottom: 80px;
     }
 
+    
+        .ab-banner{
+        padding-top: 170px;
+        padding-bottom: 200px;
+    }
+
 
 
     .banner_section .app_btn,
@@ -1686,6 +1692,11 @@
 
     .banner_section {
         padding-bottom: 60px;
+    }
+
+        .ab-banner{
+        padding-top: 170px;
+        padding-bottom: 200px;
     }
 
     .banner_section .banner_text h1 {

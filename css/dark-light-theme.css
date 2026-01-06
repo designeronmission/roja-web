@@ -91,6 +91,7 @@ header {
   color: #f8fafc;
 }
 
+
 /* ======================
    SECTIONS
 ====================== */
@@ -1549,10 +1550,21 @@ color: #ffffff;
 }
 
 
-[data-theme="dark"]  .content-text p{
+[data-theme="dark"]  .content-text p .country-code{
       color: #e5e7eb;
 }
 
-[data-theme="light"] .content-text p{
+[data-theme="light"] .content-text p .country-code{
     color: #414141;
+}
+
+
+
+[data-theme="light"] .flag-dropdown .btn{
+      background: #ffffff;
+}
+
+
+[data-theme="dark"]  .content-text p{
+     background: #020617;
 }
