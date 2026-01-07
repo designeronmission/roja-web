@@ -109,10 +109,12 @@ if(!$mail->send()) {
 		'success' => false,
 		'message' => 'Message could not be sent.'
 	]);
+	exit;
 } else {
 	echo json_encode([
 		'success' => true,
 		'message' => 'Message has been sent.'
 	]);
+	exit;
 }
 }
