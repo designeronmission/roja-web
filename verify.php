@@ -107,6 +107,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
+header('Content-Type: application/json; charset=utf-8');
+error_reporting(0); // :fire: prevent PHP warnings breaking JSON
   
 require 'vendor/autoload.php';
 $https = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://";
