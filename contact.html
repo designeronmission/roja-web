@@ -803,14 +803,20 @@ document.addEventListener('DOMContentLoaded', function () {
               method: 'POST',
               body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                window.location.href = 'thank-you-contact.html';
-              } else {
-                throw new Error(data.message || 'Submission failed');
-              }
-            })
+            .then(response => response.text()) // :point_left: read raw text
+.then(text => {
+  try {
+    const data = JSON.parse(text);
+    if (data.success) {
+      window.location.href = 'thank-you-contact.html';
+    } else {
+      throw new Error(data.message || 'Submission failed');
+    }
+  } catch (e) {
+    console.error('Invalid JSON:', text);
+    throw new Error('Server returned invalid response');
+  }
+})
             .catch(error => {
               showError(error.message);
             });
