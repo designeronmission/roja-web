@@ -812,7 +812,7 @@ document.addEventListener('DOMContentLoaded', function () {
               }
             })
             .catch(error => {
-             /*  showError(error.message); */
+              showError(error.message);
             });
             
             
@@ -820,7 +820,7 @@ document.addEventListener('DOMContentLoaded', function () {
           })
           .catch((error) => {
             console.error('reCAPTCHA error:', error);
-        /*     showError('Captcha verification failed. Please try again.'); */
+            showError('Captcha verification failed. Please try again.');
           });
       });
 
