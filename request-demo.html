@@ -120,21 +120,21 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Name <span class="red">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
                         <div class="invalid-feedback" id="nameError">Please enter your full name</div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>E-Mail <span class="red">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your e-mail address" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter your e-mail address" >
                         <div class="invalid-feedback" id="emailError">Please enter a valid e-mail address</div>
                     </div>
                 </div>
                              <div class="col-md-6">
                     <div class="form-group">
                         <label>Company Name <span class="red">*</span></label>
-                        <input type="text" class="form-control" id="company" name="company" placeholder="Enter your Company Name" required>
+                        <input type="text" class="form-control" id="company" name="company" placeholder="Enter your Company Name">
                         <div class="invalid-feedback" id="nameError">Please enter your company name</div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
 
                   <!-- Phone number input -->
                   <input type="tel" class="form-control phone-input" id="phone" name="phone"
-                    placeholder="(000) 000-0000" pattern="^\(\d{3}\) \d{3}-\d{4}$" required>
+                    placeholder="(000) 000-0000" pattern="^\(\d{3}\) \d{3}-\d{4}$">
                 </div>
 
                 <!-- Validation feedback -->
@@ -170,21 +170,10 @@
             </div>
           </div>
 
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Monthly Credit Volume  <span class="red">*</span></label>
-                        <select class="form-control" id="subject" name="Inquiry Category" required>
-                            <option value="less">Less then $20,000</option>
-                            <option value="over">Over $20,000</option>
-                        </select>
-                        <div class="invalid-feedback" id="subjectError">Please select a the credit volume</div>
-                    </div>
-                </div>
-
                    <div class="col-md-12">
-                    <label>Technical Question <span class="red">*</span></label>
+                      <label>Project Description <span class="red">*</span></label>
                     <div class="form-group">
-                        <textarea class="form-control" id="message" name="message" placeholder="Tell us about your specific requirements" rows="5" required></textarea>
+                        <textarea class="form-control" id="message" name="message" placeholder="Tell us about your specific requirements" rows="5"></textarea>
                         <div class="invalid-feedback" id="messageError">Tell us about your specific requirements</div>
                     </div>
                 </div>
@@ -458,300 +447,68 @@
 
   <script src="js/dark.js?version=3"></script>
 
-     <script>
- // Simplified Cookie Consent functionality
-document.addEventListener('DOMContentLoaded', function () {
-  // Elements
-  const consentContainer = document.getElementById('consent-container');
-  const closeBtn = document.getElementById('close-all-btn');
-  const disclaimerPanel = document.getElementById('disclaimer-panel');
-  const cookiePanel = document.getElementById('cookie-panel');
-  const disclaimerOkBtn = document.getElementById('disclaimer-ok-btn');
-  const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
-  const rejectCookiesBtn = document.getElementById('reject-cookies-btn');
-  const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
-  const cookieModal = document.getElementById('cookie-options-modal');
-  const closeOptionsBtn = document.getElementById('close-options-modal');
-  const cancelOptionsBtn = document.getElementById('cancel-options-btn');
-  const saveOptionsBtn = document.getElementById('save-options-btn');
-
-  // Check existing preferences
-  const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
-  const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
-
-  // Initialize
-  if (!hasAcceptedDisclaimer || !hasAcceptedCookies) {
-    consentContainer.style.display = 'block';
-    if (hasAcceptedDisclaimer) {
-      disclaimerPanel.style.display = 'none';
-      cookiePanel.style.display = 'flex';
-    }
-  }
-
-  // Close consent container
-  function closeConsent() {
-    consentContainer.style.display = 'none';
-  }
-
-  // Open preferences update
-  function openPreferencesUpdate() {
-    disclaimerPanel.style.display = 'none';
-    cookiePanel.style.display = 'flex';
-    consentContainer.style.display = 'block';
-  }
-
-  // Event Listeners
-  closeBtn.addEventListener('click', closeConsent);
-
-  disclaimerOkBtn.addEventListener('click', function() {
-    localStorage.setItem('rojaDisclaimerAccepted', 'true');
-    disclaimerPanel.style.display = 'none';
-    cookiePanel.style.display = 'flex';
-  });
-
-  acceptCookiesBtn.addEventListener('click', function() {
-    localStorage.setItem('rojaCookiesAccepted', 'true');
-    localStorage.setItem('rojaAnalyticsCookies', 'true');
-    localStorage.setItem('rojaMarketingCookies', 'true');
-    closeConsent();
-  });
-
-  rejectCookiesBtn.addEventListener('click', function() {
-    localStorage.setItem('rojaCookiesAccepted', 'true');
-    localStorage.setItem('rojaAnalyticsCookies', 'false');
-    localStorage.setItem('rojaMarketingCookies', 'false');
-    closeConsent();
-  });
-
-  customizeCookiesBtn.addEventListener('click', function() {
-    cookieModal.style.display = 'flex';
-    
-    // Load current preferences
-    const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
-    const marketingPref = localStorage.getItem('rojaMarketingCookies');
-    
-    if (analyticsPref !== null) {
-      document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
-    }
-    if (marketingPref !== null) {
-      document.getElementById('marketing-cookies').checked = marketingPref === 'true';
-    }
-  });
-
-  closeOptionsBtn.addEventListener('click', function() {
-    cookieModal.style.display = 'none';
-  });
-
-  cancelOptionsBtn.addEventListener('click', function() {
-    cookieModal.style.display = 'none';
-  });
-
-  saveOptionsBtn.addEventListener('click', function() {
-    const analyticsChecked = document.getElementById('analytics-cookies').checked;
-    const marketingChecked = document.getElementById('marketing-cookies').checked;
-    
-    localStorage.setItem('rojaCookiesAccepted', 'true');
-    localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
-    localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
-    
-    cookieModal.style.display = 'none';
-    closeConsent();
-  });
-
-  // Update preferences link
-  document.getElementById('update-preferences-link')?.addEventListener('click', function(e) {
-    e.preventDefault();
-    openPreferencesUpdate();
-  });
-
-  // Close modal when clicking outside
-  cookieModal.addEventListener('click', function(e) {
-    if (e.target === cookieModal) {
-      cookieModal.style.display = 'none';
-    }
-  });
-});
-  </script>
-
-
-
 <script>
-    // Phone number validation, formatting, and country selection
+    // Phone number validation and formatting
     document.addEventListener('DOMContentLoaded', function () {
       const phoneInput = document.getElementById('phone');
-      const countryCodeSpan = document.querySelector('.country-code');
-      const flagImg = document.querySelector('.flag-dropdown .flag');
-      const countrySearch = document.getElementById('countrySearch');
-      const countryItems = document.querySelectorAll('.country-list .dropdown-item');
+      const phoneError = document.getElementById('phoneError');
+      let phoneHasBeenTouched = false;
       
-      // Default to US
-      let currentCountryCode = '+1';
-      let currentCountry = 'US';
+      // Remove browser validation attributes temporarily
+      phoneInput.removeAttribute('required');
+      phoneInput.removeAttribute('pattern');
       
-      // Initialize phone validation
-      validatePhoneNumber();
-      
-      // Country selection
-      countryItems.forEach(item => {
-        item.addEventListener('click', function (e) {
-          e.preventDefault();
-          const code = this.getAttribute('data-code');
-          const country = this.getAttribute('data-country');
-          
-          currentCountryCode = code;
-          currentCountry = country;
-          
-          // Update flag and code
-          flagImg.src = `https://flagcdn.com/w20/${country.toLowerCase()}.png`;
-          flagImg.alt = country;
-          countryCodeSpan.textContent = code;
-          
-          // Set active state
-          countryItems.forEach(i => i.classList.remove('active'));
-          this.classList.add('active');
-          
-          // Clear and focus input
-          phoneInput.value = '';
-          phoneInput.focus();
-          
-          // Update validation message based on country
-          updatePhoneValidationMessage();
-        });
+      // Track when user interacts with phone field
+      phoneInput.addEventListener('focus', function() {
+        phoneHasBeenTouched = true;
       });
       
-      // Country search
-      if (countrySearch) {
-        countrySearch.addEventListener('input', function () {
-          const searchTerm = this.value.toLowerCase();
-          countryItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(searchTerm) ? 'flex' : 'none';
-          });
-        });
-      }
-      
-      // Format phone number based on country
-      phoneInput.addEventListener('input', function (e) {
-        formatPhoneNumber();
-      });
-      
-      // Validate on blur
-      phoneInput.addEventListener('blur', function () {
-        validatePhoneNumber();
-      });
-      
-      // Real-time validation while typing
-      phoneInput.addEventListener('keyup', function () {
-        validatePhoneNumber();
-      });
-      
-      function formatPhoneNumber() {
-        const digitsOnly = phoneInput.value.replace(/\D/g, '');
-        let formattedNumber = '';
+      // Format phone number as user types
+      phoneInput.addEventListener('input', function() {
+        phoneHasBeenTouched = true;
         
-        if (currentCountryCode === '+1') {
-          // US/Canada format: (XXX) XXX-XXXX
-          if (digitsOnly.length > 10) {
-            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
-            return;
-          }
-          
-          if (digitsOnly.length === 0) {
-            formattedNumber = '';
-          } else if (digitsOnly.length <= 3) {
-            formattedNumber = `(${digitsOnly}`;
-          } else if (digitsOnly.length <= 6) {
-            formattedNumber = `(${digitsOnly.substring(0, 3)}) ${digitsOnly.substring(3)}`;
-          } else {
-            formattedNumber = `(${digitsOnly.substring(0, 3)}) ${digitsOnly.substring(3, 6)}-${digitsOnly.substring(6, 10)}`;
-          }
-        } else if (currentCountryCode === '+44') {
-          // UK format: XXXX XXXXXX or XXXXX XXXXXX
-          if (digitsOnly.length > 11) {
-            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
-            return;
-          }
-          
-          if (digitsOnly.length <= 4) {
-            formattedNumber = digitsOnly;
-          } else if (digitsOnly.length <= 7) {
-            formattedNumber = `${digitsOnly.substring(0, 4)} ${digitsOnly.substring(4)}`;
-          } else {
-            formattedNumber = `${digitsOnly.substring(0, 5)} ${digitsOnly.substring(5)}`;
-          }
-        } else if (currentCountryCode === '+91') {
-          // India format: XXXXX XXXXX
-          if (digitsOnly.length > 10) {
-            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
-            return;
-          }
-          
-          if (digitsOnly.length <= 5) {
-            formattedNumber = digitsOnly;
-          } else {
-            formattedNumber = `${digitsOnly.substring(0, 5)} ${digitsOnly.substring(5)}`;
-          }
-        } else {
-          // Default format for other countries
-          if (digitsOnly.length > 15) {
-            phoneInput.value = phoneInput.value.substring(0, phoneInput.value.length - 1);
-            return;
-          }
-          formattedNumber = digitsOnly;
+        // Remove all non-digit characters
+        let value = this.value.replace(/\D/g, '');
+        
+        // Limit to 10 digits (US phone number)
+        if (value.length > 10) {
+          value = value.substring(0, 10);
         }
         
-        phoneInput.value = formattedNumber;
-      }
+        // Format based on length
+        if (value.length === 0) {
+          this.value = '';
+        } else if (value.length <= 3) {
+          this.value = `(${value}`;
+        } else if (value.length <= 6) {
+          this.value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
+        } else {
+          this.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6, 10)}`;
+        }
+        
+        // Only validate if user has interacted with the field
+        if (phoneHasBeenTouched) {
+          validatePhoneNumber();
+        }
+      });
+      
+      // Validate on blur only if user has interacted
+      phoneInput.addEventListener('blur', function () {
+        if (phoneHasBeenTouched) {
+          validatePhoneNumber();
+        }
+      });
       
       function validatePhoneNumber() {
+        const phoneInput = document.getElementById('phone');
         const phoneError = document.getElementById('phoneError');
         const inputGroup = phoneInput.closest('.input-group');
         
         // Get only digits from the input
         const digitsOnly = phoneInput.value.replace(/\D/g, '');
-        let isValid = false;
-        let errorMessage = '';
         
-        // Validate based on country
-        if (currentCountryCode === '+1') {
-          // US/Canada: 10 digits
-          if (digitsOnly.length === 10) {
-            isValid = true;
-          } else if (digitsOnly.length > 0) {
-            errorMessage = 'Please enter a valid 10-digit phone number';
-          }
-        } else if (currentCountryCode === '+44') {
-          // UK: 10-11 digits
-          if (digitsOnly.length >= 10 && digitsOnly.length <= 11) {
-            isValid = true;
-          } else if (digitsOnly.length > 0) {
-            errorMessage = 'Please enter a valid UK phone number (10-11 digits)';
-          }
-        } else if (currentCountryCode === '+91') {
-          // India: 10 digits
-          if (digitsOnly.length === 10) {
-            isValid = true;
-          } else if (digitsOnly.length > 0) {
-            errorMessage = 'Please enter a valid 10-digit Indian phone number';
-          }
-        } else {
-          // Other countries: 5-15 digits
-          if (digitsOnly.length >= 5 && digitsOnly.length <= 15) {
-            isValid = true;
-          } else if (digitsOnly.length > 0) {
-            errorMessage = 'Please enter a valid phone number (5-15 digits)';
-          }
-        }
-        
-        // Apply styling
-        if (digitsOnly.length === 0) {
-          // Empty - reset styling
-          phoneInput.classList.remove('is-valid', 'is-invalid');
-          if (inputGroup) {
-            inputGroup.style.borderColor = '#ced4da';
-          }
-          phoneError.style.display = 'none';
-        } else if (isValid) {
+        // Check if we have exactly 10 digits
+        if (digitsOnly.length === 10) {
           // Valid - show green border
           phoneInput.classList.remove('is-invalid');
           phoneInput.classList.add('is-valid');
@@ -759,6 +516,7 @@ document.addEventListener('DOMContentLoaded', function () {
             inputGroup.style.borderColor = '#28a745';
           }
           phoneError.style.display = 'none';
+          return true;
         } else {
           // Invalid - show red border
           phoneInput.classList.remove('is-valid');
@@ -766,144 +524,177 @@ document.addEventListener('DOMContentLoaded', function () {
           if (inputGroup) {
             inputGroup.style.borderColor = '#dc3545';
           }
-          phoneError.textContent = errorMessage || 'Please enter a valid phone number';
           phoneError.style.display = 'block';
+          return false;
         }
-        
-        return isValid;
       }
       
-      function updatePhoneValidationMessage() {
-        const phoneError = document.getElementById('phoneError');
-        
-        switch(currentCountryCode) {
-          case '+1':
-            phoneError.textContent = 'Please enter a valid 10-digit phone number';
-            break;
-          case '+44':
-            phoneError.textContent = 'Please enter a valid UK phone number (10-11 digits)';
-            break;
-          case '+91':
-            phoneError.textContent = 'Please enter a valid 10-digit Indian phone number';
-            break;
-          default:
-            phoneError.textContent = 'Please enter a valid phone number (5-15 digits)';
-        }
+      // Don't validate on page load - leave it neutral
+      phoneInput.classList.remove('is-invalid', 'is-valid');
+      phoneError.style.display = 'none';
+      
+      // Also clear any input group border styling
+      const inputGroup = phoneInput.closest('.input-group');
+      if (inputGroup) {
+        inputGroup.style.borderColor = '';
       }
     });
     
-    // Form submission with proper validation
+    // Form submission with proper validation for ALL fields
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
+      e.stopPropagation();
 
+      // Get all form elements
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
       const companyInput = document.getElementById('company');
       const phoneInput = document.getElementById('phone');
-      const subjectInput = document.getElementById('subject');
       const messageInput = document.getElementById('message');
       const formAlert = document.getElementById('formAlert');
+      
+      // Get all error elements
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const companyError = document.getElementById('companyError') || { style: { display: 'none' }, textContent: '' };
+      const phoneError = document.getElementById('phoneError');
+      const messageError = document.getElementById('messageError');
 
-      // Clear previous errors
-      document.querySelectorAll('.form-control').forEach(el => {
-        el.classList.remove('is-invalid');
+      // Clear previous validation states
+      [nameInput, emailInput, companyInput, phoneInput, messageInput].forEach(el => {
+        if (el) el.classList.remove('is-invalid', 'is-valid');
       });
+      
+      // Also clear phone input group border
+      const phoneInputGroup = phoneInput.closest('.input-group');
+      if (phoneInputGroup) {
+        phoneInputGroup.style.borderColor = '';
+      }
+      
+      // Hide all error messages initially
+      [nameError, emailError, companyError, phoneError, messageError].forEach(error => {
+        if (error && error.style) error.style.display = 'none';
+      });
+      
       formAlert.style.display = 'none';
 
       let isValid = true;
-      const errorFields = [];
-
-      function invalidate(id, message = '') {
-        const element = document.getElementById(id);
-        if (element) {
-          element.classList.add('is-invalid');
-          const errorElement = document.getElementById(id + 'Error');
-          if (errorElement && message) {
-            errorElement.textContent = message;
-          }
-        }
-        isValid = false;
-        errorFields.push(id);
-      }
+      let firstErrorField = null;
 
       // Name validation
       if (!nameInput.value.trim()) {
-        invalidate('name', 'Please enter your full name');
+        nameInput.classList.add('is-invalid');
+        if (nameError) nameError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = nameInput;
       } else if (nameInput.value.trim().length < 2) {
-        invalidate('name', 'Name must be at least 2 characters');
+        nameInput.classList.add('is-invalid');
+        if (nameError) {
+          nameError.textContent = 'Name must be at least 2 characters';
+          nameError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = nameInput;
       }
 
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailInput.value.trim()) {
-        invalidate('email', 'Please enter your email address');
+        emailInput.classList.add('is-invalid');
+        if (emailError) {
+          emailError.textContent = 'Please enter your email address';
+          emailError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = emailInput;
       } else if (!emailRegex.test(emailInput.value)) {
-        invalidate('email', 'Please enter a valid email address');
+        emailInput.classList.add('is-invalid');
+        if (emailError) {
+          emailError.textContent = 'Please enter a valid email address';
+          emailError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = emailInput;
       }
 
       // Company validation
       if (!companyInput.value.trim()) {
-        invalidate('company', 'Please enter your company name');
+        companyInput.classList.add('is-invalid');
+        // Create or update company error message
+        if (companyError.textContent) {
+          companyError.textContent = 'Please enter your company name';
+          companyError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = companyInput;
       } else if (companyInput.value.trim().length < 2) {
-        invalidate('company', 'Company name must be at least 2 characters');
+        companyInput.classList.add('is-invalid');
+        if (companyError.textContent) {
+          companyError.textContent = 'Company name must be at least 2 characters';
+          companyError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = companyInput;
       }
 
-      // Phone validation
+      // Phone validation - must have exactly 10 digits
       const digitsOnly = phoneInput.value.replace(/\D/g, '');
-      const countryCode = document.querySelector('.country-code').textContent;
-      
-      let phoneValid = false;
-      if (countryCode === '+1') {
-        phoneValid = digitsOnly.length === 10;
-      } else if (countryCode === '+44') {
-        phoneValid = digitsOnly.length >= 10 && digitsOnly.length <= 11;
-      } else if (countryCode === '+91') {
-        phoneValid = digitsOnly.length === 10;
-      } else {
-        phoneValid = digitsOnly.length >= 5 && digitsOnly.length <= 15;
-      }
-      
       if (!phoneInput.value.trim()) {
-        invalidate('phone', 'Please enter your phone number');
-      } else if (!phoneValid) {
-        const phoneError = document.getElementById('phoneError');
-        invalidate('phone', phoneError.textContent);
-      }
-
-      // Subject validation
-      if (!subjectInput.value) {
-        invalidate('subject', 'Please select your monthly credit volume');
+        phoneInput.classList.add('is-invalid');
+        if (phoneError) {
+          phoneError.textContent = 'Please enter your phone number';
+          phoneError.style.display = 'block';
+        }
+        if (phoneInputGroup) {
+          phoneInputGroup.style.borderColor = '#dc3545';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = phoneInput;
+      } else if (digitsOnly.length !== 10) {
+        phoneInput.classList.add('is-invalid');
+        if (phoneError) {
+          phoneError.textContent = 'Please enter a valid 10-digit phone number';
+          phoneError.style.display = 'block';
+        }
+        if (phoneInputGroup) {
+          phoneInputGroup.style.borderColor = '#dc3545';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = phoneInput;
       }
 
       // Message validation
       if (!messageInput.value.trim()) {
-        invalidate('message', 'Please tell us about your specific requirements');
+        messageInput.classList.add('is-invalid');
+        if (messageError) {
+          messageError.textContent = 'Tell us about your specific requirements';
+          messageError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = messageInput;
       } else if (messageInput.value.trim().length < 10) {
-        invalidate('message', 'Please provide more details (minimum 10 characters)');
+        messageInput.classList.add('is-invalid');
+        if (messageError) {
+          messageError.textContent = 'Please provide more details (minimum 10 characters)';
+          messageError.style.display = 'block';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = messageInput;
       }
 
       if (!isValid) {
         // Show error message at the top
         formAlert.className = 'alert alert-danger';
-        formAlert.innerHTML = '<strong>Please fix the following errors:</strong><br>' + 
-          errorFields.map(field => {
-            switch(field) {
-              case 'name': return '• Full Name';
-              case 'email': return '• Email Address';
-              case 'company': return '• Company Name';
-              case 'phone': return '• Phone Number';
-              case 'subject': return '• Monthly Credit Volume';
-              case 'message': return '• Technical Question';
-              default: return '';
-            }
-          }).filter(Boolean).join('<br>');
+        formAlert.innerHTML = '<strong>Error!</strong> Please fill in all required fields correctly.';
         formAlert.style.display = 'block';
         
-        // Scroll to first error
-        const firstError = document.querySelector('.is-invalid');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          firstError.focus();
+        // Scroll to first error field
+        if (firstErrorField) {
+          firstErrorField.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+          firstErrorField.focus();
         }
         return;
       }
@@ -912,14 +703,13 @@ document.addEventListener('DOMContentLoaded', function () {
       const submitBtn = document.getElementById('submitBtn');
       const submitSpinner = document.getElementById('submitSpinner');
       const submitText = submitBtn.querySelector('.submit-bt');
-      const originalText = submitText.textContent;
       
       submitBtn.disabled = true;
       submitSpinner.style.display = 'inline-block';
       submitText.textContent = 'Submitting...';
 
-      // Show success message
-      formAlert.className = 'alert alert-success';
+      // Show submitting message
+      formAlert.className = 'alert alert-info';
       formAlert.textContent = 'Submitting your request...';
       formAlert.style.display = 'block';
 
@@ -931,137 +721,344 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('g-recaptcha-response').value = token;
             
             // Prepare form data
-            const formData = {
-              name: nameInput.value.trim(),
-              email: emailInput.value.trim(),
-              company: companyInput.value.trim(),
-              phone: phoneInput.value,
-              countryCode: document.querySelector('.country-code').textContent,
-              country: document.querySelector('.flag').alt,
-              monthlyCreditVolume: subjectInput.value,
-              message: messageInput.value.trim(),
-              'g-recaptcha-response': token,
-              timestamp: new Date().toISOString()
-            };
+            const formData = new FormData();
+            formData.append('name', nameInput.value.trim());
+            formData.append('email', emailInput.value.trim());
+            formData.append('company', companyInput.value.trim());
+            formData.append('phone', phoneInput.value);
+            formData.append('message', messageInput.value.trim());
+            formData.append('g-recaptcha-response', token);
             
             // Here you would send the data to your backend
-            // Example using fetch:
-            /*
-            fetch('/submit-contact-form', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-              if (data.success) {
-                // Show success and redirect or clear form
-                formAlert.className = 'alert alert-success';
-                formAlert.innerHTML = '<strong>Success!</strong> Thank you for your inquiry. We will contact you soon.';
-                formAlert.style.display = 'block';
-                
-                // Reset form after successful submission
-                setTimeout(() => {
-                  document.getElementById('contactForm').reset();
-                  formAlert.style.display = 'none';
-                  // Reset phone country to default
-                  document.querySelector('.country-code').textContent = '+1';
-                  document.querySelector('.flag').src = 'https://flagcdn.com/w20/us.png';
-                  document.querySelector('.flag').alt = 'US';
-                }, 3000);
-              } else {
-                throw new Error(data.message || 'Submission failed');
-              }
-            })
-            .catch(error => {
-              showError(error.message);
-            })
-            .finally(() => {
-              resetSubmitButton();
-            });
-            */
-            
-            // For demo purposes - simulate successful submission after 2 seconds
+            // For now, simulate successful submission
             setTimeout(() => {
-              formAlert.className = 'alert alert-success';
-              formAlert.innerHTML = '<strong>Success!</strong> Thank you for your inquiry. We will contact you soon.';
-              formAlert.style.display = 'block';
-              
-              // Scroll to success message
-              formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              
-              // Reset form after successful submission
-              setTimeout(() => {
-                document.getElementById('contactForm').reset();
-                formAlert.style.display = 'none';
-                // Reset phone country to default
-                document.querySelector('.country-code').textContent = '+1';
-                document.querySelector('.flag').src = 'https://flagcdn.com/w20/us.png';
-                document.querySelector('.flag').alt = 'US';
-              }, 3000);
-              
-              resetSubmitButton();
+              window.location.href = 'thank-you.html';
             }, 1500);
             
           })
           .catch((error) => {
             console.error('reCAPTCHA error:', error);
             showError('Captcha verification failed. Please try again.');
-            resetSubmitButton();
           });
       });
 
       function showError(message) {
         formAlert.className = 'alert alert-danger';
-        formAlert.innerHTML = `<strong>Error:</strong> ${message}`;
+        formAlert.innerHTML = `<strong>Error!</strong> ${message}`;
         formAlert.style.display = 'block';
-        formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      
-      function resetSubmitButton() {
+        
+        // Re-enable submit button
         submitBtn.disabled = false;
         submitSpinner.style.display = 'none';
-        submitText.textContent = originalText;
+        submitText.textContent = 'Submit';
+        
+        // Scroll to error
+        formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+</script>
+
+
+
+<script>
+    // Phone number validation and formatting
+    document.addEventListener('DOMContentLoaded', function () {
+      const phoneInput = document.getElementById('phone');
+      const phoneError = document.getElementById('phoneError');
+      let phoneHasBeenTouched = false;
+      
+      // Track when user interacts with phone field
+      phoneInput.addEventListener('focus', function() {
+        phoneHasBeenTouched = true;
+      });
+      
+      // Format phone number as user types
+      phoneInput.addEventListener('input', function() {
+        phoneHasBeenTouched = true;
+        
+        // Remove all non-digit characters
+        let value = this.value.replace(/\D/g, '');
+        
+        // Limit to 10 digits (US phone number)
+        if (value.length > 10) {
+          value = value.substring(0, 10);
+        }
+        
+        // Format based on length
+        if (value.length === 0) {
+          this.value = '';
+        } else if (value.length <= 3) {
+          this.value = `(${value}`;
+        } else if (value.length <= 6) {
+          this.value = `(${value.substring(0, 3)}) ${value.substring(3)}`;
+        } else {
+          this.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6, 10)}`;
+        }
+        
+        // Only validate if user has interacted with the field
+        if (phoneHasBeenTouched) {
+          validatePhoneNumber();
+        }
+      });
+      
+      // Validate on blur only if user has interacted
+      phoneInput.addEventListener('blur', function () {
+        if (phoneHasBeenTouched) {
+          validatePhoneNumber();
+        }
+      });
+      
+      function validatePhoneNumber() {
+        const phoneInput = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+        const inputGroup = phoneInput.closest('.input-group');
+        
+        // Get only digits from the input
+        const digitsOnly = phoneInput.value.replace(/\D/g, '');
+        
+        // Check if we have exactly 10 digits
+        if (digitsOnly.length === 10) {
+          // Valid - show green border
+          phoneInput.classList.remove('is-invalid');
+          phoneInput.classList.add('is-valid');
+          if (inputGroup) {
+            inputGroup.style.borderColor = '#28a745';
+          }
+          phoneError.style.display = 'none';
+          return true;
+        } else {
+          // Invalid - show red border
+          phoneInput.classList.remove('is-valid');
+          phoneInput.classList.add('is-invalid');
+          if (inputGroup) {
+            inputGroup.style.borderColor = '#dc3545';
+          }
+          phoneError.style.display = 'block';
+          return false;
+        }
+      }
+      
+      // Don't validate on page load - leave it neutral
+      phoneInput.classList.remove('is-invalid', 'is-valid');
+      phoneError.style.display = 'none';
+      
+      // Also clear any input group border styling
+      const inputGroup = phoneInput.closest('.input-group');
+      if (inputGroup) {
+        inputGroup.style.borderColor = '';
       }
     });
     
-    // Add input event listeners for real-time validation
-    document.getElementById('name').addEventListener('input', function() {
-      if (this.value.trim().length >= 2) {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-      } else {
-        this.classList.remove('is-valid');
+    // Form submission with proper validation for ALL fields
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Get all form elements
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const companyInput = document.getElementById('company');
+      const phoneInput = document.getElementById('phone');
+      const messageInput = document.getElementById('message');
+      const formAlert = document.getElementById('formAlert');
+      
+      // Get all error elements
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const messageError = document.getElementById('messageError');
+
+      // Clear previous validation states
+      [nameInput, emailInput, companyInput, phoneInput, messageInput].forEach(el => {
+        if (el) el.classList.remove('is-invalid', 'is-valid');
+      });
+      
+      // Also clear phone input group border
+      const phoneInputGroup = phoneInput.closest('.input-group');
+      if (phoneInputGroup) {
+        phoneInputGroup.style.borderColor = '';
       }
-    });
-    
-    document.getElementById('email').addEventListener('input', function() {
+      
+      // Hide all error messages initially
+      [nameError, emailError, phoneError, messageError].forEach(error => {
+        if (error) error.style.display = 'none';
+      });
+      
+      formAlert.style.display = 'none';
+
+      let isValid = true;
+      let firstErrorField = null;
+
+      // Name validation
+      if (!nameInput.value.trim()) {
+        nameInput.classList.add('is-invalid');
+        nameError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = nameInput;
+      } else if (nameInput.value.trim().length < 2) {
+        nameInput.classList.add('is-invalid');
+        nameError.textContent = 'Name must be at least 2 characters';
+        nameError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = nameInput;
+      }
+
+      // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (emailRegex.test(this.value)) {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-      } else {
-        this.classList.remove('is-valid');
+      if (!emailInput.value.trim()) {
+        emailInput.classList.add('is-invalid');
+        emailError.textContent = 'Please enter your email address';
+        emailError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = emailInput;
+      } else if (!emailRegex.test(emailInput.value)) {
+        emailInput.classList.add('is-invalid');
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = emailInput;
       }
-    });
-    
-    document.getElementById('company').addEventListener('input', function() {
-      if (this.value.trim().length >= 2) {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-      } else {
-        this.classList.remove('is-valid');
+
+      // Company validation - Note: You need to add error element for company
+      if (!companyInput.value.trim()) {
+        companyInput.classList.add('is-invalid');
+        // Since there's no companyError element, we'll show in formAlert
+        isValid = false;
+        if (!firstErrorField) firstErrorField = companyInput;
+      } else if (companyInput.value.trim().length < 2) {
+        companyInput.classList.add('is-invalid');
+        isValid = false;
+        if (!firstErrorField) firstErrorField = companyInput;
       }
-    });
-    
-    document.getElementById('message').addEventListener('input', function() {
-      if (this.value.trim().length >= 10) {
-        this.classList.remove('is-invalid');
-        this.classList.add('is-valid');
-      } else {
-        this.classList.remove('is-valid');
+
+      // Phone validation - must have exactly 10 digits
+      const digitsOnly = phoneInput.value.replace(/\D/g, '');
+      if (!phoneInput.value.trim()) {
+        phoneInput.classList.add('is-invalid');
+        phoneError.textContent = 'Please enter your phone number';
+        phoneError.style.display = 'block';
+        if (phoneInputGroup) {
+          phoneInputGroup.style.borderColor = '#dc3545';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = phoneInput;
+      } else if (digitsOnly.length !== 10) {
+        phoneInput.classList.add('is-invalid');
+        phoneError.textContent = 'Please enter a valid 10-digit phone number';
+        phoneError.style.display = 'block';
+        if (phoneInputGroup) {
+          phoneInputGroup.style.borderColor = '#dc3545';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = phoneInput;
+      }
+
+      // Message validation
+      if (!messageInput.value.trim()) {
+        messageInput.classList.add('is-invalid');
+        messageError.textContent = 'Tell us about your specific requirements';
+        messageError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = messageInput;
+      } else if (messageInput.value.trim().length < 10) {
+        messageInput.classList.add('is-invalid');
+        messageError.textContent = 'Please provide more details (minimum 10 characters)';
+        messageError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = messageInput;
+      }
+
+      if (!isValid) {
+        // Show error message at the top
+        formAlert.className = 'alert alert-danger';
+        formAlert.innerHTML = '<strong>Error!</strong> Please fill in all required fields correctly.';
+        formAlert.style.display = 'block';
+        
+        // Scroll to first error field
+        if (firstErrorField) {
+          firstErrorField.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+          firstErrorField.focus();
+        }
+        return;
+      }
+
+      // Disable submit button and show spinner
+      const submitBtn = document.getElementById('submitBtn');
+      const submitSpinner = document.getElementById('submitSpinner');
+      const submitText = submitBtn.querySelector('.submit-bt');
+      
+      submitBtn.disabled = true;
+      submitSpinner.style.display = 'inline-block';
+      submitText.textContent = 'Submitting...';
+
+      // Show submitting message
+      formAlert.className = 'alert alert-info';
+      formAlert.textContent = 'Submitting your request...';
+      formAlert.style.display = 'block';
+
+      // reCAPTCHA v3 verification
+      grecaptcha.ready(function () {
+        grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', { action: 'submit' })
+          .then(function (token) {
+            // Set the token in the hidden field
+            document.getElementById('g-recaptcha-response').value = token;
+            
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('name', nameInput.value.trim());
+            formData.append('email', emailInput.value.trim());
+            formData.append('company', companyInput.value.trim());
+            formData.append('phone', phoneInput.value);
+            formData.append('message', messageInput.value.trim());
+            formData.append('g-recaptcha-response', token);
+            
+            // Here you would send the data to your backend
+            // Example using fetch:
+            /*
+            fetch('/submit-request-demo', {
+              method: 'POST',
+              body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                window.location.href = 'thank-you.html';
+              } else {
+                throw new Error(data.message || 'Submission failed');
+              }
+            })
+            .catch(error => {
+              showError(error.message);
+            });
+            */
+            
+            // For now, simulate successful submission
+            setTimeout(() => {
+              window.location.href = 'thank-you.html';
+            }, 1500);
+            
+          })
+          .catch((error) => {
+            console.error('reCAPTCHA error:', error);
+            showError('Captcha verification failed. Please try again.');
+          });
+      });
+
+      function showError(message) {
+        formAlert.className = 'alert alert-danger';
+        formAlert.innerHTML = `<strong>Error!</strong> ${message}`;
+        formAlert.style.display = 'block';
+        
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitSpinner.style.display = 'none';
+        submitText.textContent = 'Submit';
+        
+        // Scroll to error
+        formAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
 </script>

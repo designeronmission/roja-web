@@ -8767,7 +8767,8 @@ margin: 10px;
     /* Responsive adjustments */
     @media (max-width: 768px) {
       .flag-dropdown .btn {
-        padding: 0.5rem;
+        padding: 12px;
+        border: none;
       }
 
       .country-code {

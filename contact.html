@@ -115,7 +115,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Name <span class="red">*</span></label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Full Name">
               <div class="invalid-feedback" id="nameError">Please enter your full name</div>
             </div>
           </div>
@@ -123,7 +123,7 @@
             <div class="form-group">
               <label>E-Mail <span class="red">*</span></label>
               <input type="email" class="form-control" id="email" name="email" placeholder="Enter your e-mail address"
-                required>
+                >
               <div class="invalid-feedback" id="emailError">Please enter a valid e-mail address</div>
             </div>
           </div>
@@ -146,7 +146,7 @@
 
                   <!-- Phone number input -->
                   <input type="tel" class="form-control phone-input" id="phone" name="phone"
-                    placeholder="(000) 000-0000" pattern="^\(\d{3}\) \d{3}-\d{4}$" required>
+                    placeholder="(000) 000-0000" pattern="^\(\d{3}\) \d{3}-\d{4}$">
                 </div>
 
                 <!-- Validation feedback -->
@@ -161,7 +161,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label>Enquiry Category <span class="red">*</span></label>
-              <select class="form-control" id="subject" name="Inquiry Category" required>
+              <select class="form-control" id="subject" name="Inquiry Category">
                 <option value="General">General</option>
                 <option value="Product & Technology">Product & Technology</option>
                 <option value="Compliance">Compliance</option>
@@ -559,14 +559,20 @@ document.addEventListener('DOMContentLoaded', function () {
   </script>
 
 
-
- <script>
+<script>
     // Phone number validation and formatting
     document.addEventListener('DOMContentLoaded', function () {
       const phoneInput = document.getElementById('phone');
+      const phoneError = document.getElementById('phoneError');
+      let phoneHasBeenTouched = false;
       
-      // Format phone number to US format as user types
-      phoneInput.addEventListener('input', function (e) {
+      // Track when user interacts with phone field
+      phoneInput.addEventListener('focus', function() {
+        phoneHasBeenTouched = true;
+      });
+      
+      phoneInput.addEventListener('input', function() {
+        phoneHasBeenTouched = true;
         // Remove all non-digit characters
         let value = this.value.replace(/\D/g, '');
         
@@ -585,16 +591,18 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
           this.value = `(${value.substring(0, 3)}) ${value.substring(3, 6)}-${value.substring(6, 10)}`;
         }
+        
+        // Only validate if user has interacted with the field
+        if (phoneHasBeenTouched) {
+          validatePhoneNumber();
+        }
       });
       
-      // Validate on blur
+      // Validate on blur only if user has interacted
       phoneInput.addEventListener('blur', function () {
-        validatePhoneNumber();
-      });
-      
-      // Real-time validation while typing
-      phoneInput.addEventListener('keyup', function () {
-        validatePhoneNumber();
+        if (phoneHasBeenTouched) {
+          validatePhoneNumber();
+        }
       });
       
       function validatePhoneNumber() {
@@ -615,7 +623,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
           phoneError.style.display = 'none';
           return true;
-        } else if (digitsOnly.length > 0) {
+        } else {
           // Invalid - show red border
           phoneInput.classList.remove('is-valid');
           phoneInput.classList.add('is-invalid');
@@ -624,95 +632,144 @@ document.addEventListener('DOMContentLoaded', function () {
           }
           phoneError.style.display = 'block';
           return false;
-        } else {
-          // Empty - reset styling
-          phoneInput.classList.remove('is-valid', 'is-invalid');
-          if (inputGroup) {
-            inputGroup.style.borderColor = '#ced4da';
-          }
-          phoneError.style.display = 'none';
-          return false;
         }
       }
       
-      // Initialize validation on page load
-      validatePhoneNumber();
+      // Don't validate on page load - leave it neutral
+      // Reset any initial validation states
+      phoneInput.classList.remove('is-invalid', 'is-valid');
+      phoneError.style.display = 'none';
+      
+      // Also clear any input group border styling
+      const inputGroup = phoneInput.closest('.input-group');
+      if (inputGroup) {
+        inputGroup.style.borderColor = '';
+      }
     });
     
-    // Form submission with proper validation
+    // Form submission with proper validation for ALL fields
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault();
+      e.stopPropagation();
 
+      // Get all form elements
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
       const phoneInput = document.getElementById('phone');
       const subjectInput = document.getElementById('subject');
       const messageInput = document.getElementById('message');
       const formAlert = document.getElementById('formAlert');
+      
+      // Get all error elements
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const subjectError = document.getElementById('subjectError');
+      const messageError = document.getElementById('messageError');
 
-      // Clear previous errors
+      // Clear previous validation states (remove is-valid too)
       document.querySelectorAll('.form-control').forEach(el => {
-        el.classList.remove('is-invalid');
+        el.classList.remove('is-invalid', 'is-valid');
       });
+      
+      // Also clear phone input group border
+      const phoneInputGroup = phoneInput.closest('.input-group');
+      if (phoneInputGroup) {
+        phoneInputGroup.style.borderColor = '';
+      }
+      
+      // Hide all error messages initially
+      [nameError, emailError, phoneError, subjectError, messageError].forEach(error => {
+        if (error) error.style.display = 'none';
+      });
+      
       formAlert.style.display = 'none';
 
       let isValid = true;
-
-      function invalidate(id, message = '') {
-        const element = document.getElementById(id);
-        if (element) {
-          element.classList.add('is-invalid');
-          const errorElement = document.getElementById(id + 'Error');
-          if (errorElement && message) {
-            errorElement.textContent = message;
-          }
-        }
-        isValid = false;
-      }
+      let firstErrorField = null;
 
       // Name validation
       if (!nameInput.value.trim()) {
-        invalidate('name', 'Please enter your full name');
+        nameInput.classList.add('is-invalid');
+        nameError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = nameInput;
       }
 
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailInput.value.trim()) {
-        invalidate('email', 'Please enter your email address');
+        emailInput.classList.add('is-invalid');
+        emailError.textContent = 'Please enter your email address';
+        emailError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = emailInput;
       } else if (!emailRegex.test(emailInput.value)) {
-        invalidate('email', 'Please enter a valid email address');
+        emailInput.classList.add('is-invalid');
+        emailError.textContent = 'Please enter a valid email address';
+        emailError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = emailInput;
       }
 
       // Phone validation - must have exactly 10 digits
       const digitsOnly = phoneInput.value.replace(/\D/g, '');
       if (!phoneInput.value.trim()) {
-        invalidate('phone', 'Please enter your phone number');
+        phoneInput.classList.add('is-invalid');
+        phoneError.textContent = 'Please enter your phone number';
+        phoneError.style.display = 'block';
+        if (phoneInputGroup) {
+          phoneInputGroup.style.borderColor = '#dc3545';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = phoneInput;
       } else if (digitsOnly.length !== 10) {
-        invalidate('phone', 'Please enter a valid 10-digit phone number');
+        phoneInput.classList.add('is-invalid');
+        phoneError.textContent = 'Please enter a valid 10-digit phone number';
+        phoneError.style.display = 'block';
+        if (phoneInputGroup) {
+          phoneInputGroup.style.borderColor = '#dc3545';
+        }
+        isValid = false;
+        if (!firstErrorField) firstErrorField = phoneInput;
       }
 
       // Subject validation
-      if (!subjectInput.value) {
-        invalidate('subject', 'Please select an enquiry category');
+      if (!subjectInput.value || subjectInput.value === '') {
+        subjectInput.classList.add('is-invalid');
+        subjectError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = subjectInput;
       }
 
       // Message validation
       if (!messageInput.value.trim()) {
-        invalidate('message', 'Please describe your question or issue');
+        messageInput.classList.add('is-invalid');
+        messageError.textContent = 'Please describe your question or issue';
+        messageError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = messageInput;
       } else if (messageInput.value.trim().length < 10) {
-        invalidate('message', 'Please provide more details (minimum 10 characters)');
+        messageInput.classList.add('is-invalid');
+        messageError.textContent = 'Please provide more details (minimum 10 characters)';
+        messageError.style.display = 'block';
+        isValid = false;
+        if (!firstErrorField) firstErrorField = messageInput;
       }
 
       if (!isValid) {
         // Show error message at the top
         formAlert.className = 'alert alert-danger';
-        formAlert.textContent = 'Please fix the errors in the form before submitting.';
+        formAlert.innerHTML = '<strong>Error!</strong> Please fill in all required fields correctly.';
         formAlert.style.display = 'block';
         
-        // Scroll to first error
-        const firstError = document.querySelector('.is-invalid');
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Scroll to first error field
+        if (firstErrorField) {
+          firstErrorField.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+          firstErrorField.focus();
         }
         return;
       }
@@ -762,7 +819,7 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // For now, simulate successful submission
             setTimeout(() => {
-              window.location.href = 'thank-you.html';
+              window.location.href = 'thank-you-contact.html';
             }, 1500);
             
           })
@@ -774,7 +831,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       function showError(message) {
         formAlert.className = 'alert alert-danger';
-        formAlert.textContent = message;
+        formAlert.innerHTML = `<strong>Error!</strong> ${message}`;
         formAlert.style.display = 'block';
         
         // Re-enable submit button
