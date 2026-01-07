@@ -642,7 +642,7 @@
       if (!phoneInput.value.trim()) {
         phoneInput.classList.add('is-invalid');
         if (phoneError) {
-          phoneError.textContent = 'Please enter your phone number';
+          phoneError.textContent = 'Please enter your cell phone number';
           phoneError.style.display = 'block';
         }
         if (phoneInputGroup) {
@@ -653,7 +653,7 @@
       } else if (digitsOnly.length !== 10) {
         phoneInput.classList.add('is-invalid');
         if (phoneError) {
-          phoneError.textContent = 'Please enter a valid 10-digit phone number';
+          phoneError.textContent = 'Please enter a valid 10-digit cell phone number';
           phoneError.style.display = 'block';
         }
         if (phoneInputGroup) {

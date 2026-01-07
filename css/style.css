@@ -8695,9 +8695,6 @@ margin: 10px;
       margin-right: 0px;
     }
 
-    .flag-dropdown .btn:hover {
-      background: #e9ecef;
-    }
 
     .flag-dropdown .btn:focus {
       box-shadow: none;
