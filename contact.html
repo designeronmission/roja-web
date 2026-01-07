@@ -799,15 +799,14 @@ document.addEventListener('DOMContentLoaded', function () {
             
             // Here you would send the data to your backend
             // Example using fetch:
-            /*
-            fetch('/submit-contact-form', {
+            fetch('verify.php', {
               method: 'POST',
               body: formData
             })
             .then(response => response.json())
             .then(data => {
-              if (data.success) {
-                window.location.href = 'thank-you.html';
+                if (data.success) {
+                window.location.href = 'thank-you-contact.html';
               } else {
                 throw new Error(data.message || 'Submission failed');
               }
@@ -815,12 +814,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .catch(error => {
               showError(error.message);
             });
-            */
             
-            // For now, simulate successful submission
-            setTimeout(() => {
-              window.location.href = 'thank-you-contact.html';
-            }, 1500);
+            
             
           })
           .catch((error) => {

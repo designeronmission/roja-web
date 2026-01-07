@@ -1017,8 +1017,7 @@
             
             // Here you would send the data to your backend
             // Example using fetch:
-            /*
-            fetch('/submit-request-demo', {
+            fetch('request_demo.php', {
               method: 'POST',
               body: formData
             })
@@ -1032,13 +1031,7 @@
             })
             .catch(error => {
               showError(error.message);
-            });
-            */
-            
-            // For now, simulate successful submission
-            setTimeout(() => {
-              window.location.href = 'thank-you.html';
-            }, 1500);
+            })
             
           })
           .catch((error) => {
