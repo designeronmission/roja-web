@@ -1151,6 +1151,11 @@ color: #ffffff;
   margin: 10px;
 }
 
+[data-theme="light"] .theme-switch{
+  margin: 10px;
+}
+
+
 [data-theme="dark"] .cookie-options-body{
   padding: 10px;
 }
@@ -1627,4 +1632,15 @@ color: #ffffff;
 
 [data-theme="dark"] .owl-stage-outer{
   background: #121212 !important;
+}
+
+
+
+[data-theme="light"] .task_block{
+  padding: 20px;
+}
+
+
+[data-theme="dark"] .task_block{
+  padding: 20px;
 }
