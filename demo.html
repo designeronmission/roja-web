@@ -2,40 +2,1769 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>reCAPTCHA v3 Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Cash Run - 3D Financial Runner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ======================
+           LIGHT THEME (DEFAULT)
+        ====================== */
+        :root {
+          --bg-main: #ffffff;
+          --bg-secondary: linear-gradient(308deg, #D2F7FF 10%, #abd6e5 100%);
+          --card-bg: #ffffff;
+          --text-primary: #0f172a;
+          --text-secondary: #475569;
+          --border-color: #e5e7eb;
+          --accent: #35b0f4;
+          --accent-dark: #0284c7;
+          --shadow-soft: 0 12px 30px rgba(0,0,0,0.08);
+          --danger: #ef4444;
+          --success: #10b981;
+          --warning: #f59e0b;
+          --purple: #8b5cf6;
+        }
 
-    <!-- Load reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
+        /* ======================
+           DARK THEME (PRO)
+        ====================== */
+        [data-theme="dark"] {
+          --bg-main: #020617;
+          --bg-secondary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+          --card-bg: #1e293b;
+          --text-primary: #f8fafc;
+          --text-secondary: #94a3b8;
+          --border-color: #334155;
+          --accent: #38bdf8;
+          --accent-dark: #0ea5e9;
+          --shadow-soft: 0 30px 70px rgba(0,0,0,0.65);
+          --danger: #f87171;
+          --success: #34d399;
+          --warning: #fbbf24;
+          --purple: #a78bfa;
+        }
+
+        /* ======================
+           GLOBAL RESET
+        ====================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--bg-secondary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ======================
+           HEADER STYLES
+        ====================== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-shadow: 0 2px 10px rgba(53, 176, 244, 0.3);
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            width: 60px;
+            height: 32px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--accent);
+            top: 2px;
+            left: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        [data-theme="dark"] .theme-toggle::before {
+            transform: translateX(28px);
+        }
+
+        .theme-toggle i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .theme-toggle .fa-sun {
+            left: 8px;
+            color: #f59e0b;
+        }
+
+        .theme-toggle .fa-moon {
+            right: 8px;
+            color: #94a3b8;
+        }
+
+        /* ======================
+           GAME CONTAINER
+        ====================== */
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (min-width: 1024px) {
+            .game-container {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .game-info {
+            flex: 1;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+        }
+
+        .game-canvas-container {
+            flex: 2;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            max-width: 900px;
+            height: 600px;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 1023px) {
+            .game-canvas-container {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .game-canvas-container {
+                height: 400px;
+            }
+        }
+
+        /* ======================
+           3D GAME CANVAS
+        ====================== */
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: linear-gradient(180deg, #a5d8ff 0%, #74c0fc 50%, #4dabf7 100%);
+        }
+
+        [data-theme="dark"] #gameCanvas {
+            background: linear-gradient(180deg, #0c4a6e 0%, #075985 50%, #0369a1 100%);
+        }
+
+        /* ======================
+           GAME CONTROLS
+        ====================== */
+        .game-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255,255,255,0.1) 100%);
+            padding: 20px 15px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .stat-item.savings::before {
+            background: var(--success);
+        }
+
+        .stat-item.debt::before {
+            background: var(--danger);
+        }
+
+        .stat-item.time::before {
+            background: var(--accent);
+        }
+
+        .stat-item i {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.2));
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .savings i { color: var(--success); }
+        .debt i { color: var(--danger); }
+        .time i { color: var(--accent); }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        button {
+            padding: 16px 28px;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: white;
+            box-shadow: 0 8px 20px rgba(53, 176, 244, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(53, 176, 244, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--border-color) 100%);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ======================
+           GAME MESSAGES
+        ====================== */
+        .game-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .game-message.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .game-message h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        .game-message p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: #e5e7eb;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        .final-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .final-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            min-width: 150px;
+        }
+
+        .final-stat i {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px currentColor);
+        }
+
+        .final-stat .value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .final-stat .label {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* ======================
+           INSTRUCTIONS
+        ====================== */
+        .instructions {
+            margin-top: 30px;
+            background: linear-gradient(135deg, var(--card-bg) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-color);
+        }
+
+        .instructions h3 {
+            margin-bottom: 20px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+        }
+
+        .instruction-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .instruction-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .instruction-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .instruction-item i {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+        }
+
+        .collect i {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.4) 100%);
+            color: var(--success);
+        }
+
+        .avoid i {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(239, 68, 68, 0.4) 100%);
+            color: var(--danger);
+        }
+
+        .controls-instruction i {
+            background: linear-gradient(135deg, rgba(53, 176, 244, 0.2) 0%, rgba(53, 176, 244, 0.4) 100%);
+            color: var(--accent);
+        }
+
+        .instruction-item div {
+            flex: 1;
+        }
+
+        .instruction-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .instruction-item div div {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ======================
+           FOOTER
+        ====================== */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        footer p:first-child {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* ======================
+           MOBILE CONTROLS
+        ====================== */
+        .mobile-controls {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 50;
+        }
+
+        @media (max-width: 767px) {
+            .mobile-controls {
+                display: flex;
+            }
+        }
+
+        .mobile-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(53, 176, 244, 0.8) 0%, rgba(2, 132, 199, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-btn:active {
+            transform: scale(0.95);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ======================
+           ANIMATIONS
+        ====================== */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .bounce {
+            animation: bounce 1s infinite;
+        }
+
+        /* ======================
+           POWER-UP EFFECTS
+        ====================== */
+        .power-up-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .power-up {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ======================
+           SCORE POPUPS
+        ====================== */
+        .score-popup {
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 20;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            animation: floatUp 1s ease-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-running"></i>
+                <div>
+                    <div>404 Cash Run</div>
+                    <div style="font-size: 0.9rem; color: var(--text-secondary); font-weight: normal;">3D Financial Runner</div>
+                </div>
+            </div>
+            <div class="header-controls">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+        </header>
 
-<form id="contactForm" action="verify.php" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
+        <main class="game-container">
+            <div class="game-info">
+                <h2 style="margin-bottom: 10px; color: var(--accent);">Financial Fitness Runner</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 25px;">Avoid debt traps and collect savings in this 60-second 3D financial challenge!</p>
+                
+                <div class="game-controls">
+                    <div class="stats">
+                        <div class="stat-item savings">
+                            <i class="fas fa-coins"></i>
+                            <div class="stat-value" id="savingsCount">0</div>
+                            <div class="stat-label">Savings</div>
+                        </div>
+                        <div class="stat-item debt">
+                            <i class="fas fa-skull-crossbones"></i>
+                            <div class="stat-value" id="debtCount">0</div>
+                            <div class="stat-label">Debt Traps</div>
+                        </div>
+                        <div class="stat-item time">
+                            <i class="fas fa-clock"></i>
+                            <div class="stat-value" id="timeLeft">60</div>
+                            <div class="stat-label">Seconds</div>
+                        </div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="startBtn" class="btn-primary">
+                            <i class="fas fa-play"></i> Start Game
+                        </button>
+                        <button id="resetBtn" class="btn-secondary" disabled>
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
 
-    <!-- Token will be placed here -->
-    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
+                <div class="instructions">
+                    <h3><i class="fas fa-gamepad"></i> How to Play</h3>
+                    <div class="instruction-items">
+                        <div class="instruction-item collect">
+                            <i class="fas fa-coins"></i>
+                            <div>
+                                <strong>Collect Savings</strong>
+                                <div>💰 +1, 💵 +2, 🏦 +3 points</div>
+                            </div>
+                        </div>
+                        <div class="instruction-item avoid">
+                            <i class="fas fa-ban"></i>
+                            <div>
+                                <strong>Avoid Debt Traps</strong>
+                                <div>📱 Impulse Buy, 💳 EMI, ⏰ Late Fee</div>
+                            </div>
+                        </div>
+                        <div class="instruction-item controls-instruction">
+                            <i class="fas fa-gamepad"></i>
+                            <div>
+                                <strong>Controls</strong>
+                                <div>Spacebar / Up Arrow / Tap to jump</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <button type="button" onclick="submitForm()">Submit</button>
+            <div class="game-canvas-container">
+                <canvas id="gameCanvas"></canvas>
+                
+                <!-- Power-up Indicators -->
+                <div class="power-up-indicator" id="speedBoostIndicator" style="display: none;">
+                    <div class="power-up" title="Speed Boost Active">
+                        <i class="fas fa-bolt" style="color: #fbbf24;"></i>
+                    </div>
+                </div>
+                
+                <div class="game-message" id="startMessage">
+                    <h2>404 Cash Run 🏃‍♂️💰</h2>
+                    <p>Get ready to run through a 3D financial landscape! Collect savings and avoid debt traps for 60 seconds to maximize your financial fitness score.</p>
+                    <button id="startFromMessageBtn" class="btn-primary pulse" style="margin-top: 30px; padding: 18px 40px;">
+                        <i class="fas fa-play"></i> Start Running
+                    </button>
+                </div>
+                
+                <div class="game-message" id="endMessage">
+                    <h2>Game Over!</h2>
+                    <p id="endMessageText">Looks like you're good at avoiding bad financial paths.</p>
+                    
+                    <div class="final-stats">
+                        <div class="final-stat">
+                            <i class="fas fa-coins" style="color: #34d399;"></i>
+                            <div class="value" id="finalSavings">0</div>
+                            <div class="label">Savings Collected</div>
+                        </div>
+                        <div class="final-stat">
+                            <i class="fas fa-skull-crossbones" style="color: #f87171;"></i>
+                            <div class="value" id="finalDebt">0</div>
+                            <div class="label">Debt Traps Hit</div>
+                        </div>
+                        <div class="final-stat">
+                            <i class="fas fa-trophy" style="color: #fbbf24;"></i>
+                            <div class="value" id="finalScore">0</div>
+                            <div class="label">Total Score</div>
+                        </div>
+                    </div>
+                    
+                    <button id="playAgainBtn" class="btn-primary">
+                        <i class="fas fa-redo"></i> Play Again
+                    </button>
+                </div>
+                
+                <div class="mobile-controls">
+                    <div class="mobile-btn" id="mobileJumpBtn">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
 
-<script>
-function submitForm() {
-    grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function (token) {
-        document.getElementById('recaptcha_token').value = token;
-        document.getElementById('contactForm').submit();
-    });
-}
-</script>
+        <footer>
+            <p>404 Cash Run - A 3D financial literacy game. Collect savings (💰) and avoid debt traps (❌).</p>
+            <p>Made with 💰 by Financial Fitness Team | Use Spacebar/Up Arrow to jump</p>
+        </footer>
+    </div>
 
-</form>
-
-<script>
-    grecaptcha.ready(function () {
-        grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', { action: 'submit' }).then(function (token) {
-            document.getElementById('recaptcha_token').value = token;
+    <script>
+        // DOM Elements
+        const gameCanvas = document.getElementById('gameCanvas');
+        const ctx = gameCanvas.getContext('2d');
+        const startBtn = document.getElementById('startBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const startFromMessageBtn = document.getElementById('startFromMessageBtn');
+        const playAgainBtn = document.getElementById('playAgainBtn');
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileJumpBtn = document.getElementById('mobileJumpBtn');
+        const speedBoostIndicator = document.getElementById('speedBoostIndicator');
+        
+        // Game stats elements
+        const savingsCountEl = document.getElementById('savingsCount');
+        const debtCountEl = document.getElementById('debtCount');
+        const timeLeftEl = document.getElementById('timeLeft');
+        const finalSavingsEl = document.getElementById('finalSavings');
+        const finalDebtEl = document.getElementById('finalDebt');
+        const finalScoreEl = document.getElementById('finalScore');
+        const endMessageTextEl = document.getElementById('endMessageText');
+        
+        // Game message containers
+        const startMessage = document.getElementById('startMessage');
+        const endMessage = document.getElementById('endMessage');
+        
+        // Game variables
+        let gameRunning = false;
+        let gameTime = 60;
+        let savingsCollected = 0;
+        let debtTrapsHit = 0;
+        let totalScore = 0;
+        let animationFrameId = null;
+        let lastTime = 0;
+        let gameSpeed = 4;
+        let speedBoostActive = false;
+        let speedBoostEndTime = 0;
+        let scorePopups = [];
+        
+        // 3D Player object with enhanced properties
+        const player = {
+            x: 150,
+            y: 0,
+            width: 60,
+            height: 90,
+            velocityY: 0,
+            gravity: 0.6,
+            jumpStrength: -15,
+            isJumping: false,
+            color: '#35b0f4',
+            shadowOffset: 10,
+            // 3D face properties
+            faceColor: '#1e40af',
+            eyeColor: '#ffffff',
+            pupilColor: '#0f172a',
+            // Animation properties
+            rotation: 0,
+            scale: 1,
+            runCycle: 0
+        };
+        
+        // Ground and background elements
+        let groundY;
+        let clouds = [];
+        let buildings = [];
+        
+        // Game objects arrays
+        let savingsItems = [];
+        let debtTraps = [];
+        
+        // Initialize canvas size
+        function initCanvas() {
+            const container = gameCanvas.parentElement;
+            gameCanvas.width = container.clientWidth;
+            gameCanvas.height = container.clientHeight;
+            
+            // Set ground level based on canvas height
+            groundY = gameCanvas.height - 120;
+            player.y = groundY - player.height;
+            
+            // Initialize background elements
+            initBackground();
+        }
+        
+        // Initialize background elements
+        function initBackground() {
+            clouds = [];
+            buildings = [];
+            
+            // Create clouds
+            for (let i = 0; i < 8; i++) {
+                clouds.push({
+                    x: Math.random() * gameCanvas.width,
+                    y: Math.random() * (gameCanvas.height / 3),
+                    width: 80 + Math.random() * 100,
+                    height: 40 + Math.random() * 40,
+                    speed: 0.5 + Math.random() * 1,
+                    color: 'rgba(255, 255, 255, 0.8)'
+                });
+            }
+            
+            // Create buildings (3D perspective)
+            for (let i = 0; i < 10; i++) {
+                const buildingHeight = 100 + Math.random() * 200;
+                buildings.push({
+                    x: i * 250,
+                    y: groundY - buildingHeight,
+                    width: 120 + Math.random() * 80,
+                    height: buildingHeight,
+                    color: i % 2 === 0 ? '#1e3a8a' : '#1e40af',
+                    depthColor: i % 2 === 0 ? '#172554' : '#1e3a8a',
+                    speed: 1 + Math.random() * 0.5
+                });
+            }
+        }
+        
+        // Create new savings item with 3D effect
+        function createSavings() {
+            const types = [
+                { emoji: '💰', value: 1, color: '#10b981', size: 45, depth: 8, glow: true },
+                { emoji: '💵', value: 2, color: '#059669', size: 55, depth: 10, glow: true },
+                { emoji: '🏦', value: 3, color: '#047857', size: 65, depth: 12, glow: true }
+            ];
+            
+            const type = types[Math.floor(Math.random() * types.length)];
+            const yPos = groundY - type.size - Math.random() * 150;
+            
+            return {
+                x: gameCanvas.width + 50,
+                y: yPos,
+                width: type.size,
+                height: type.size,
+                depth: type.depth,
+                emoji: type.emoji,
+                value: type.value,
+                color: type.color,
+                depthColor: '#065f46',
+                speed: gameSpeed + Math.random() * 1.5,
+                glow: type.glow,
+                rotation: 0,
+                spinSpeed: 0.02 + Math.random() * 0.03
+            };
+        }
+        
+        // Create new debt trap with 3D effect
+        function createDebtTrap() {
+            const types = [
+                { emoji: '📱', name: 'Impulse Buy', color: '#ef4444', depth: 10 },
+                { emoji: '💳', name: 'EMI', color: '#dc2626', depth: 12 },
+                { emoji: '⏰', name: 'Late Fee', color: '#b91c1c', depth: 8 }
+            ];
+            
+            const type = types[Math.floor(Math.random() * types.length)];
+            const size = 55 + Math.random() * 20;
+            const yPos = groundY - size - Math.random() * 200;
+            
+            return {
+                x: gameCanvas.width + 50,
+                y: yPos,
+                width: size,
+                height: size,
+                depth: type.depth,
+                emoji: type.emoji,
+                name: type.name,
+                color: type.color,
+                depthColor: '#7f1d1d',
+                speed: gameSpeed + Math.random() * 2,
+                rotation: 0,
+                spinSpeed: 0.01 + Math.random() * 0.02
+            };
+        }
+        
+        // Draw 3D cube
+        function draw3DCube(x, y, width, height, depth, frontColor, sideColor) {
+            // Draw side (for 3D effect)
+            ctx.fillStyle = sideColor;
+            ctx.fillRect(x + depth, y + depth, width, height);
+            
+            // Draw top (for 3D effect)
+            ctx.fillStyle = sideColor;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + depth, y + depth);
+            ctx.lineTo(x + depth + width, y + depth);
+            ctx.lineTo(x + width, y);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Draw front face
+            ctx.fillStyle = frontColor;
+            ctx.fillRect(x, y, width, height);
+        }
+        
+        // Draw 3D player character
+        function drawPlayer() {
+            const centerX = player.x + player.width / 2;
+            const centerY = player.y + player.height / 2;
+            
+            // Save context for transformations
+            ctx.save();
+            
+            // Apply player animation transformations
+            ctx.translate(centerX, centerY);
+            
+            // Add running animation rotation
+            if (gameRunning) {
+                player.runCycle += 0.1;
+                const runTilt = Math.sin(player.runCycle) * 3;
+                ctx.rotate(runTilt * Math.PI / 180);
+            }
+            
+            // Scale for jump effect
+            if (player.isJumping) {
+                player.scale = 0.95;
+            } else {
+                player.scale = 1 + Math.sin(player.runCycle * 2) * 0.03;
+            }
+            ctx.scale(player.scale, player.scale);
+            
+            // Translate back
+            ctx.translate(-centerX, -centerY);
+            
+            // Draw player shadow
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.fillRect(
+                player.x + player.shadowOffset, 
+                player.y + player.shadowOffset, 
+                player.width, 
+                player.height
+            );
+            
+            // Draw 3D player body
+            draw3DCube(
+                player.x, 
+                player.y, 
+                player.width, 
+                player.height, 
+                10, 
+                player.color, 
+                '#1e40af'
+            );
+            
+            // Draw player face (3D effect)
+            const faceX = player.x + player.width * 0.2;
+            const faceY = player.y + player.height * 0.2;
+            const faceWidth = player.width * 0.6;
+            const faceHeight = player.height * 0.4;
+            
+            draw3DCube(
+                faceX, 
+                faceY, 
+                faceWidth, 
+                faceHeight, 
+                5, 
+                player.faceColor, 
+                '#0f172a'
+            );
+            
+            // Draw eyes
+            const leftEyeX = faceX + faceWidth * 0.3;
+            const rightEyeX = faceX + faceWidth * 0.7;
+            const eyeY = faceY + faceHeight * 0.4;
+            const eyeSize = faceWidth * 0.15;
+            
+            // Left eye
+            ctx.fillStyle = player.eyeColor;
+            ctx.beginPath();
+            ctx.arc(leftEyeX, eyeY, eyeSize, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = player.pupilColor;
+            ctx.beginPath();
+            ctx.arc(leftEyeX, eyeY, eyeSize * 0.5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Right eye
+            ctx.fillStyle = player.eyeColor;
+            ctx.beginPath();
+            ctx.arc(rightEyeX, eyeY, eyeSize, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = player.pupilColor;
+            ctx.beginPath();
+            ctx.arc(rightEyeX, eyeY, eyeSize * 0.5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw emoji overlay
+            ctx.font = `${player.width * 0.6}px Arial`;
+            ctx.fillText('🏃‍♂️', player.x + player.width * 0.2, player.y + player.height * 0.85);
+            
+            ctx.restore();
+        }
+        
+        // Draw savings item with 3D effect
+        function drawSavings(saving) {
+            saving.rotation += saving.spinSpeed;
+            
+            // Draw shadow
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+            ctx.fillRect(
+                saving.x + saving.depth, 
+                saving.y + saving.depth, 
+                saving.width, 
+                saving.height
+            );
+            
+            // Draw 3D cube
+            draw3DCube(
+                saving.x, 
+                saving.y, 
+                saving.width, 
+                saving.height, 
+                saving.depth, 
+                saving.color, 
+                saving.depthColor
+            );
+            
+            // Draw glowing effect
+            if (saving.glow) {
+                ctx.save();
+                ctx.globalAlpha = 0.5 + 0.5 * Math.sin(saving.rotation * 2);
+                
+                ctx.shadowColor = saving.color;
+                ctx.shadowBlur = 15;
+                ctx.fillStyle = saving.color;
+                ctx.fillRect(
+                    saving.x - 5, 
+                    saving.y - 5, 
+                    saving.width + 10, 
+                    saving.height + 10
+                );
+                
+                ctx.restore();
+            }
+            
+            // Draw emoji with rotation
+            ctx.save();
+            ctx.translate(
+                saving.x + saving.width / 2, 
+                saving.y + saving.height / 2
+            );
+            ctx.rotate(saving.rotation);
+            ctx.font = `${saving.width * 0.7}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(saving.emoji, 0, 0);
+            ctx.restore();
+            
+            // Draw value indicator
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(`+${saving.value}`, saving.x + saving.width / 2, saving.y - 10);
+        }
+        
+        // Draw debt trap with 3D effect
+        function drawDebtTrap(trap) {
+            trap.rotation += trap.spinSpeed;
+            
+            // Draw shadow
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+            ctx.fillRect(
+                trap.x + trap.depth, 
+                trap.y + trap.depth, 
+                trap.width, 
+                trap.height
+            );
+            
+            // Draw 3D cube
+            draw3DCube(
+                trap.x, 
+                trap.y, 
+                trap.width, 
+                trap.height, 
+                trap.depth, 
+                trap.color, 
+                trap.depthColor
+            );
+            
+            // Draw warning effect
+            ctx.save();
+            ctx.globalAlpha = 0.3 + 0.7 * Math.sin(trap.rotation * 4);
+            
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(
+                trap.x - 3, 
+                trap.y - 3, 
+                trap.width + 6, 
+                trap.height + 6
+            );
+            
+            ctx.restore();
+            
+            // Draw emoji with rotation
+            ctx.save();
+            ctx.translate(
+                trap.x + trap.width / 2, 
+                trap.y + trap.height / 2
+            );
+            ctx.rotate(trap.rotation);
+            ctx.font = `${trap.width * 0.7}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(trap.emoji, 0, 0);
+            ctx.restore();
+            
+            // Draw name
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 14px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText(trap.name, trap.x + trap.width / 2, trap.y - 15);
+        }
+        
+        // Draw clouds
+        function drawClouds() {
+            clouds.forEach(cloud => {
+                ctx.fillStyle = cloud.color;
+                ctx.beginPath();
+                ctx.ellipse(cloud.x, cloud.y, cloud.width / 2, cloud.height / 2, 0, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Inner puff
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+                ctx.beginPath();
+                ctx.ellipse(cloud.x - cloud.width * 0.2, cloud.y, cloud.width * 0.3, cloud.height * 0.6, 0, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+        
+        // Draw buildings with 3D perspective
+        function drawBuildings() {
+            buildings.forEach(building => {
+                // Draw building shadow
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.fillRect(
+                    building.x + 15, 
+                    building.y + 15, 
+                    building.width, 
+                    building.height
+                );
+                
+                // Draw 3D building
+                draw3DCube(
+                    building.x, 
+                    building.y, 
+                    building.width, 
+                    building.height, 
+                    15, 
+                    building.color, 
+                    building.depthColor
+                );
+                
+                // Draw windows
+                const windowWidth = 10;
+                const windowHeight = 15;
+                const windowSpacing = 20;
+                
+                for (let row = 0; row < 5; row++) {
+                    for (let col = 0; col < 3; col++) {
+                        const windowX = building.x + 20 + col * (windowWidth + windowSpacing);
+                        const windowY = building.y + 20 + row * (windowHeight + windowSpacing);
+                        
+                        // Randomly light some windows
+                        const isLit = Math.random() > 0.5;
+                        ctx.fillStyle = isLit ? '#fbbf24' : '#334155';
+                        ctx.fillRect(windowX, windowY, windowWidth, windowHeight);
+                        
+                        // Window reflection
+                        if (isLit) {
+                            ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                            ctx.fillRect(windowX + 2, windowY + 2, 3, 3);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Draw ground with 3D perspective
+        function drawGround() {
+            // Draw ground shadow
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+            ctx.fillRect(0, groundY + 10, gameCanvas.width, gameCanvas.height - groundY);
+            
+            // Draw 3D ground
+            ctx.fillStyle = '#0f766e';
+            ctx.fillRect(0, groundY, gameCanvas.width, gameCanvas.height - groundY);
+            
+            // Draw ground texture (stripes for 3D effect)
+            ctx.strokeStyle = '#0d9488';
+            ctx.lineWidth = 2;
+            
+            for (let i = 0; i < gameCanvas.width; i += 30) {
+                ctx.beginPath();
+                ctx.moveTo(i, groundY);
+                ctx.lineTo(i + 15, groundY + 15);
+                ctx.stroke();
+            }
+            
+            // Draw ground top (for 3D effect)
+            ctx.fillStyle = '#14b8a6';
+            ctx.fillRect(0, groundY, gameCanvas.width, 10);
+        }
+        
+        // Create score popup
+        function createScorePopup(x, y, text, color) {
+            scorePopups.push({
+                x: x,
+                y: y,
+                text: text,
+                color: color,
+                life: 60,
+                velocityY: -2
+            });
+        }
+        
+        // Draw score popups
+        function drawScorePopups() {
+            for (let i = scorePopups.length - 1; i >= 0; i--) {
+                const popup = scorePopups[i];
+                
+                ctx.fillStyle = popup.color;
+                ctx.font = `bold ${20 + (60 - popup.life) * 0.3}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(popup.text, popup.x, popup.y);
+                
+                // Update popup position and life
+                popup.y += popup.velocityY;
+                popup.life--;
+                popup.velocityY *= 0.95;
+                
+                // Remove dead popups
+                if (popup.life <= 0) {
+                    scorePopups.splice(i, 1);
+                }
+            }
+        }
+        
+        // Check collision between two rectangles
+        function checkCollision(rect1, rect2) {
+            return rect1.x < rect2.x + rect2.width &&
+                   rect1.x + rect1.width > rect2.x &&
+                   rect1.y < rect2.y + rect2.height &&
+                   rect1.y + rect1.height > rect2.y;
+        }
+        
+        // Update game state
+        function updateGame(timestamp) {
+            if (!gameRunning) return;
+            
+            // Calculate delta time for consistent speed
+            const deltaTime = timestamp - lastTime || 0;
+            lastTime = timestamp;
+            
+            // Update player
+            player.velocityY += player.gravity;
+            player.y += player.velocityY;
+            
+            // Keep player on ground
+            if (player.y > groundY - player.height) {
+                player.y = groundY - player.height;
+                player.velocityY = 0;
+                player.isJumping = false;
+            }
+            
+            // Update clouds
+            clouds.forEach(cloud => {
+                cloud.x -= cloud.speed;
+                if (cloud.x + cloud.width < 0) {
+                    cloud.x = gameCanvas.width;
+                    cloud.y = Math.random() * (gameCanvas.height / 3);
+                }
+            });
+            
+            // Update buildings
+            buildings.forEach(building => {
+                building.x -= building.speed;
+                if (building.x + building.width < 0) {
+                    building.x = gameCanvas.width;
+                    building.y = groundY - (100 + Math.random() * 200);
+                }
+            });
+            
+            // Update savings items
+            for (let i = savingsItems.length - 1; i >= 0; i--) {
+                const saving = savingsItems[i];
+                saving.x -= saving.speed;
+                
+                // Check collision with player
+                if (checkCollision(player, saving)) {
+                    savingsCollected += saving.value;
+                    totalScore += saving.value * 10;
+                    savingsCountEl.textContent = savingsCollected;
+                    
+                    // Create score popup
+                    createScorePopup(
+                        saving.x + saving.width / 2,
+                        saving.y,
+                        `+${saving.value * 10}`,
+                        '#10b981'
+                    );
+                    
+                    savingsItems.splice(i, 1);
+                    
+                    // Chance to activate speed boost
+                    if (saving.value === 3 && Math.random() > 0.7) {
+                        activateSpeedBoost();
+                    }
+                    
+                    continue;
+                }
+                
+                // Remove if off screen
+                if (saving.x + saving.width < 0) {
+                    savingsItems.splice(i, 1);
+                }
+            }
+            
+            // Update debt traps
+            for (let i = debtTraps.length - 1; i >= 0; i--) {
+                const trap = debtTraps[i];
+                trap.x -= trap.speed;
+                
+                // Check collision with player
+                if (checkCollision(player, trap)) {
+                    debtTrapsHit++;
+                    debtCountEl.textContent = debtTrapsHit;
+                    totalScore = Math.max(0, totalScore - 20);
+                    
+                    // Create score popup
+                    createScorePopup(
+                        trap.x + trap.width / 2,
+                        trap.y,
+                        '-20',
+                        '#ef4444'
+                    );
+                    
+                    debtTraps.splice(i, 1);
+                    continue;
+                }
+                
+                // Remove if off screen
+                if (trap.x + trap.width < 0) {
+                    debtTraps.splice(i, 1);
+                }
+            }
+            
+            // Spawn new items randomly
+            if (Math.random() < 0.03) {
+                savingsItems.push(createSavings());
+            }
+            
+            if (Math.random() < 0.02) {
+                debtTraps.push(createDebtTrap());
+            }
+            
+            // Update speed boost
+            if (speedBoostActive && Date.now() > speedBoostEndTime) {
+                speedBoostActive = false;
+                gameSpeed = Math.max(4, gameSpeed - 2);
+                speedBoostIndicator.style.display = 'none';
+            }
+            
+            // Gradually increase difficulty
+            if (gameTime < 45 && gameSpeed < 7 && !speedBoostActive) {
+                gameSpeed += 0.001;
+            } else if (gameTime < 30 && gameSpeed < 9 && !speedBoostActive) {
+                gameSpeed += 0.002;
+            } else if (gameTime < 15 && gameSpeed < 11 && !speedBoostActive) {
+                gameSpeed += 0.003;
+            }
+            
+            // Draw everything
+            drawGame();
+            
+            // Continue animation
+            if (gameRunning) {
+                animationFrameId = requestAnimationFrame(updateGame);
+            }
+        }
+        
+        // Activate speed boost power-up
+        function activateSpeedBoost() {
+            speedBoostActive = true;
+            speedBoostEndTime = Date.now() + 5000; // 5 seconds
+            gameSpeed += 2;
+            speedBoostIndicator.style.display = 'flex';
+        }
+        
+        // Draw game elements
+        function drawGame() {
+            // Clear canvas with gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, gameCanvas.height);
+            gradient.addColorStop(0, '#a5d8ff');
+            gradient.addColorStop(0.5, '#74c0fc');
+            gradient.addColorStop(1, '#4dabf7');
+            
+            if (document.documentElement.getAttribute('data-theme') === 'dark') {
+                gradient.addColorStop(0, '#0c4a6e');
+                gradient.addColorStop(0.5, '#075985');
+                gradient.addColorStop(1, '#0369a1');
+            }
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+            
+            // Draw clouds
+            drawClouds();
+            
+            // Draw buildings
+            drawBuildings();
+            
+            // Draw ground
+            drawGround();
+            
+            // Draw savings items
+            savingsItems.forEach(drawSavings);
+            
+            // Draw debt traps
+            debtTraps.forEach(drawDebtTrap);
+            
+            // Draw player
+            drawPlayer();
+            
+            // Draw score popups
+            drawScorePopups();
+            
+            // Draw game info overlay
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+            ctx.fillRect(10, 10, 220, 100);
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 18px Arial';
+            ctx.fillText(`Time: ${Math.ceil(gameTime)}s`, 25, 40);
+            ctx.fillText(`Savings: ${savingsCollected}`, 25, 70);
+            ctx.fillText(`Debt Traps: ${debtTrapsHit}`, 25, 100);
+            ctx.fillText(`Score: ${totalScore}`, 25, 130);
+            
+            // Draw speed boost indicator if active
+            if (speedBoostActive) {
+                const timeLeft = Math.ceil((speedBoostEndTime - Date.now()) / 1000);
+                ctx.fillStyle = 'rgba(251, 191, 36, 0.8)';
+                ctx.fillRect(gameCanvas.width - 150, 20, 140, 40);
+                ctx.fillStyle = '#000000';
+                ctx.font = 'bold 16px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(`SPEED BOOST: ${timeLeft}s`, gameCanvas.width - 80, 45);
+            }
+        }
+        
+        // Start the game
+        function startGame() {
+            if (gameRunning) return;
+            
+            // Reset game state
+            gameRunning = true;
+            gameTime = 60;
+            savingsCollected = 0;
+            debtTrapsHit = 0;
+            totalScore = 0;
+            gameSpeed = 4;
+            scorePopups = [];
+            
+            // Reset player position
+            player.y = groundY - player.height;
+            player.velocityY = 0;
+            player.isJumping = false;
+            player.runCycle = 0;
+            
+            // Clear game objects
+            savingsItems = [];
+            debtTraps = [];
+            
+            // Update UI
+            savingsCountEl.textContent = savingsCollected;
+            debtCountEl.textContent = debtTrapsHit;
+            timeLeftEl.textContent = gameTime;
+            
+            startBtn.disabled = true;
+            resetBtn.disabled = false;
+            startMessage.classList.remove('active');
+            endMessage.classList.remove('active');
+            speedBoostIndicator.style.display = 'none';
+            
+            // Start game timer
+            const timer = setInterval(() => {
+                if (!gameRunning) {
+                    clearInterval(timer);
+                    return;
+                }
+                
+                gameTime -= 1;
+                timeLeftEl.textContent = gameTime;
+                
+                if (gameTime <= 0) {
+                    endGame();
+                    clearInterval(timer);
+                }
+            }, 1000);
+            
+            // Start game loop
+            lastTime = 0;
+            animationFrameId = requestAnimationFrame(updateGame);
+        }
+        
+        // End the game
+        function endGame() {
+            gameRunning = false;
+            speedBoostActive = false;
+            
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            
+            // Calculate final score
+            totalScore += savingsCollected * 10;
+            totalScore -= debtTrapsHit * 20;
+            totalScore = Math.max(0, totalScore);
+            
+            // Update final stats
+            finalSavingsEl.textContent = savingsCollected;
+            finalDebtEl.textContent = debtTrapsHit;
+            finalScoreEl.textContent = totalScore;
+            
+            // Custom message based on performance
+            if (debtTrapsHit === 0 && savingsCollected > 20) {
+                endMessageTextEl.textContent = "EXCELLENT! You're a financial wizard! Perfectly avoided all debt traps!";
+            } else if (debtTrapsHit <= 2 && savingsCollected > 15) {
+                endMessageTextEl.textContent = "GREAT JOB! You're excellent at avoiding bad financial paths.";
+            } else if (debtTrapsHit <= 4 && savingsCollected > 10) {
+                endMessageTextEl.textContent = "GOOD WORK! You avoided most debt traps. Keep practicing!";
+            } else if (debtTrapsHit <= 6) {
+                endMessageTextEl.textContent = "NOT BAD! You have potential but need to avoid more debt traps.";
+            } else {
+                endMessageTextEl.textContent = "BE CAREFUL! You hit too many debt traps. Focus on avoiding them!";
+            }
+            
+            // Show end message
+            endMessage.classList.add('active');
+            startBtn.disabled = false;
+        }
+        
+        // Reset the game
+        function resetGame() {
+            gameRunning = false;
+            speedBoostActive = false;
+            
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            
+            // Reset game state
+            gameTime = 60;
+            savingsCollected = 0;
+            debtTrapsHit = 0;
+            totalScore = 0;
+            gameSpeed = 4;
+            scorePopups = [];
+            
+            // Reset player position
+            player.y = groundY - player.height;
+            player.velocityY = 0;
+            player.isJumping = false;
+            player.runCycle = 0;
+            
+            // Clear game objects
+            savingsItems = [];
+            debtTraps = [];
+            
+            // Update UI
+            savingsCountEl.textContent = savingsCollected;
+            debtCountEl.textContent = debtTrapsHit;
+            timeLeftEl.textContent = gameTime;
+            
+            startBtn.disabled = false;
+            resetBtn.disabled = true;
+            startMessage.classList.add('active');
+            endMessage.classList.remove('active');
+            speedBoostIndicator.style.display = 'none';
+            
+            // Redraw static game screen
+            drawGame();
+        }
+        
+        // Jump function
+        function jump() {
+            if (player.isJumping) return;
+            
+            player.velocityY = player.jumpStrength;
+            player.isJumping = true;
+            
+            // Add visual feedback
+            player.scale = 0.9;
+            setTimeout(() => {
+                if (gameRunning) player.scale = 1;
+            }, 100);
+        }
+        
+        // Event Listeners
+        startBtn.addEventListener('click', startGame);
+        startFromMessageBtn.addEventListener('click', startGame);
+        resetBtn.addEventListener('click', resetGame);
+        playAgainBtn.addEventListener('click', startGame);
+        
+        // Keyboard controls
+        document.addEventListener('keydown', (e) => {
+            if ((e.code === 'Space' || e.code === 'ArrowUp') && gameRunning) {
+                jump();
+                e.preventDefault();
+            }
         });
-    });
-</script>
-
+        
+        // Mobile jump button
+        mobileJumpBtn.addEventListener('touchstart', (e) => {
+            if (gameRunning) {
+                jump();
+                e.preventDefault();
+            }
+        });
+        
+        mobileJumpBtn.addEventListener('click', () => {
+            if (gameRunning) {
+                jump();
+            }
+        });
+        
+        // Theme toggle
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            // Update player color based on theme
+            player.color = newTheme === 'dark' ? '#38bdf8' : '#35b0f4';
+            player.faceColor = newTheme === 'dark' ? '#1e40af' : '#1e3a8a';
+            
+            // Redraw game if not running
+            if (!gameRunning) {
+                drawGame();
+            }
+        });
+        
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            initCanvas();
+            initBackground();
+            
+            // Redraw game if not running
+            if (!gameRunning) {
+                drawGame();
+            }
+        });
+        
+        // Initialize the game
+        initCanvas();
+        initBackground();
+        
+        // Show start message initially
+        startMessage.classList.add('active');
+        drawGame();
+    </script>
 </body>
 </html>
