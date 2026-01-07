@@ -472,6 +472,37 @@ footer {
 
 
 
+/* Default (dark) */
+.mocks-dark {
+  display: block;
+}
+
+.mocks-light {
+  display: none;
+}
+
+[data-theme="dark"] .mocks-dark {
+  display: block !important;
+}
+
+[data-theme="dark"] .mocks-light {
+  display: none !important;
+}
+
+[data-theme="light"] .mocks-dark {
+  display: none !important;
+}
+
+[data-theme="light"] .mocks-light {
+  display: block !important;
+}
+
+
+
+
+
+
+
 .span-box{
    /*  background-color: rgb(255 255 255 / 11%); */
     backdrop-filter: blur(14px);
@@ -1578,4 +1609,22 @@ color: #ffffff;
 
 [data-theme="light"] .country-code {
     color: #414141;
+}
+
+[data-theme="light"] .banner_section .banner_slider::before{
+  background: #ffffff;
+}
+
+[data-theme="dark"] .banner_section .banner_slider::before{
+  background: #020618;
+}
+
+
+
+[data-theme="light"] .owl-stage-outer{
+   background: #c9eff9 !important;
+}
+
+[data-theme="dark"] .owl-stage-outer{
+  background: #121212 !important;
 }

@@ -1638,7 +1638,7 @@ iframe#youtubevideo {
     max-width: 1370px;
     margin: 0 auto;
     /* background-color: #E9F5FF; */
-    background-color: #E9F5FF;
+   /*  background-color: #E9F5FF; */
     padding: 100px 0;
     border-radius: 20px;
     overflow: hidden;
@@ -8783,3 +8783,8 @@ margin: 10px;
     top: 95px !important;
   }
 }
+
+
+
+
+
