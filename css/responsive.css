@@ -1846,6 +1846,15 @@
 
 
 
+@media (min-width: 1200px) and (max-width: 1400px) {
+    header .container {
+        max-width: 1150px;
+    }
+
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 1100px;
+    }
+}
 
 
 
