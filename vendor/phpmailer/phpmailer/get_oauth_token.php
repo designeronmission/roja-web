@@ -46,7 +46,31 @@ use Stevenmaguire\OAuth2\Client\Provider\Microsoft;
 if (!isset($_GET['code']) && !isset($_GET['provider'])) {
 ?>
 <html>
-<body>Select Provider:<br/>
+<body>
+
+     <noscript>
+        <div style="
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 983403489248;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        ">
+            ⚠️ JavaScript is disabled in your browser. 
+            Some features may not work properly.
+            <a href="https://www.enable-javascript.com/" 
+               target="_blank" 
+               style="color: #ffe66d; text-decoration: underline; margin-left: 10px;">
+                How to enable JavaScript
+            </a>
+        </div>
+    </noscript>Select Provider:<br/>
 <a href='?provider=Google'>Google</a><br/>
 <a href='?provider=Yahoo'>Yahoo</a><br/>
 <a href='?provider=Microsoft'>Microsoft/Outlook/Hotmail/Live/Office365</a><br/>
