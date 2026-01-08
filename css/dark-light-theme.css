@@ -1223,12 +1223,31 @@ footer {
 
     .left{
         text-align: center;
+        order: 2;
+        padding-top: 15px;
     }
 
     .right{
         text-align: center;
+        order: 1;
     }
 
+
+}
+
+
+
+@media screen and (min-width:470px) and (max-width:690px) {
+ .left{
+        text-align: center;
+        order: 2;
+        padding-top: 15px;
+    }
+
+    .right{
+        text-align: center;
+        order: 1;
+    }
 
 }
 
