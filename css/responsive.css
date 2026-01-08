@@ -1781,7 +1781,7 @@
 @media (min-width: 700px) and (max-width: 780px) {
 
     .how_it_inner .steps_block .step {
-        margin-top: 230px;
+        margin-top: 150px;
     }
 
     .progress-text {
@@ -1894,3 +1894,10 @@
     margin-right: 0 !important;
   }
 }
+
+/* 
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 870px;
+    }
+} */

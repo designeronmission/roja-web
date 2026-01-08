@@ -6,7 +6,7 @@ $https = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://";
 $baseurl = ($_SERVER['HTTP_HOST'] == 'localhost:88' || $_SERVER['HTTP_HOST'] == '192.168.1.121:88') ?  "http://".$_SERVER['HTTP_HOST']."/roja_website/" : $https."www.roja.one/website/";
 $apiurl = ($_SERVER['HTTP_HOST'] == 'localhost:88' || $_SERVER['HTTP_HOST'] == '192.168.1.121:88') ? "http://192.168.1.121:3500/api/" :  $https."www.roja.one/server/api/";
 define('BASE_URL', $baseurl);
-echo $apiurl = $apiurl;
+$apiurl = $apiurl;
 
 function contactRequest($data){
 	global $apiurl;
@@ -17,15 +17,31 @@ function contactRequest($data){
 	$data['device'] = $device;
 	$data['platform'] = $platform;
 	$data['ip'] = $_SERVER['REMOTE_ADDR'];
-	print_r($data);
 	$ch = curl_init($apiurl.'website/webenquiryform');
 	curl_setopt($ch, CURLOPT_POST, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
 	$response_json = curl_exec($ch);
-	print_r($response_json);
 	curl_close($ch);
-	return json_decode($response_json, true);
+	return $response_json;
+}
+
+function demoRequest($data){
+	global $apiurl;
+	$browser= getBrowser();
+	$device= getDevice();
+	$platform=getPlatform();
+	$data['browser'] = $browser;
+	$data['device'] = $device;
+	$data['platform'] = $platform;
+	$data['ip'] = $_SERVER['REMOTE_ADDR'];
+	$ch = curl_init($apiurl.'website/requestdemoform');
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+	$response_json = curl_exec($ch);
+	curl_close($ch);
+	return $response_json;
 }
 
 function getBrowser() {
