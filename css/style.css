@@ -2425,6 +2425,7 @@ footer a {
 
 .footer_overlay img {
     width: 100%;
+    padding-bottom: 10px;
 }
 
 footer .logo_side .logo {
@@ -2435,7 +2436,7 @@ footer .logo_side .logo {
 
 footer .logo_side .logo a img {
 
-    width: 150px;
+    width: 110px;
 }
 
 footer .logo_side .logo h3 {
@@ -4663,7 +4664,9 @@ padding-top: 20px;
      .form-common{
         padding: 20px !important;
      }
-
+    header.fixed .navbar {
+        padding: 0 0px !important;
+    }
 
 
 

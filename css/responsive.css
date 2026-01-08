@@ -1774,8 +1774,16 @@
     .contact_form .section_title{
         margin-top: 50px !important;
     }
+
+
 }
 
+
+@media (min-width: 320px) and (max-width: 760px) {
+    .res-contact{
+        text-align: center;
+    }
+}
 
 
 @media (min-width: 700px) and (max-width: 780px) {

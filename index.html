@@ -349,7 +349,7 @@
                 organization already works.
               </p>
             </div>
-            <div class="btn_block mr-2 mt-4">
+            <div class="btn_block mr-2 mt-4 mb-4 col-md-12 res-contact">
               <a href="contact.html" class="btn puprple_btn ml-0">Contact Us</a>
               <div class="btn_bottom"></div> 
             </div>
@@ -707,6 +707,34 @@
         }
       });
     });
+
+
+
+
+    
+    $("#typed").typed({
+      strings: ["ROJA", "Subscription-First", "Regulatory Clarity", ],
+      typeSpeed: 100,
+      startDelay: 0,
+      backSpeed: 60,
+      backDelay: 2000,
+      loop: true,
+      cursorChar: "|",
+      contentType: 'html'
+    });
+
+    // Fixed Discount Dish JS
+    $(document).ready(function () {
+      let cardBlock = document.querySelectorAll('.task_block');
+      let topStyle = 120;
+
+      cardBlock.forEach((card) => {
+        card.style.top = `${topStyle}px`;
+        topStyle += 30;
+      })
+
+    }
+    );
   </script>
 </body>
 

@@ -1901,3 +1901,8 @@ footer {
   }
 }
 
+
+
+ [data-theme="dark"] .faq_section .card .card-header button .icons i{
+  color: #ffffff;
+}
