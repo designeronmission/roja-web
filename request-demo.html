@@ -471,7 +471,120 @@
 
   <script src="js/dark.js?version=4"></script>
 
+    <script>
+ // Simplified Cookie Consent functionality
+document.addEventListener('DOMContentLoaded', function () {
+  // Elements
+  const consentContainer = document.getElementById('consent-container');
+  const closeBtn = document.getElementById('close-all-btn');
+  const disclaimerPanel = document.getElementById('disclaimer-panel');
+  const cookiePanel = document.getElementById('cookie-panel');
+  const disclaimerOkBtn = document.getElementById('disclaimer-ok-btn');
+  const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+  const rejectCookiesBtn = document.getElementById('reject-cookies-btn');
+  const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
+  const cookieModal = document.getElementById('cookie-options-modal');
+  const closeOptionsBtn = document.getElementById('close-options-modal');
+  const cancelOptionsBtn = document.getElementById('cancel-options-btn');
+  const saveOptionsBtn = document.getElementById('save-options-btn');
 
+  // Check existing preferences
+  const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
+  const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
+
+  // Initialize
+  if (!hasAcceptedDisclaimer || !hasAcceptedCookies) {
+    consentContainer.style.display = 'block';
+    if (hasAcceptedDisclaimer) {
+      disclaimerPanel.style.display = 'none';
+      cookiePanel.style.display = 'flex';
+    }
+  }
+
+  // Close consent container
+  function closeConsent() {
+    consentContainer.style.display = 'none';
+  }
+
+  // Open preferences update
+  function openPreferencesUpdate() {
+    disclaimerPanel.style.display = 'none';
+    cookiePanel.style.display = 'flex';
+    consentContainer.style.display = 'block';
+  }
+
+  // Event Listeners
+  closeBtn.addEventListener('click', closeConsent);
+
+  disclaimerOkBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaDisclaimerAccepted', 'true');
+    disclaimerPanel.style.display = 'none';
+    cookiePanel.style.display = 'flex';
+  });
+
+  acceptCookiesBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', 'true');
+    localStorage.setItem('rojaMarketingCookies', 'true');
+    closeConsent();
+  });
+
+  rejectCookiesBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', 'false');
+    localStorage.setItem('rojaMarketingCookies', 'false');
+    closeConsent();
+  });
+
+  customizeCookiesBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'flex';
+    
+    // Load current preferences
+    const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
+    const marketingPref = localStorage.getItem('rojaMarketingCookies');
+    
+    if (analyticsPref !== null) {
+      document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
+    }
+    if (marketingPref !== null) {
+      document.getElementById('marketing-cookies').checked = marketingPref === 'true';
+    }
+  });
+
+  closeOptionsBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'none';
+  });
+
+  cancelOptionsBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'none';
+  });
+
+  saveOptionsBtn.addEventListener('click', function() {
+    const analyticsChecked = document.getElementById('analytics-cookies').checked;
+    const marketingChecked = document.getElementById('marketing-cookies').checked;
+    
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
+    localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
+    
+    cookieModal.style.display = 'none';
+    closeConsent();
+  });
+
+  // Update preferences link
+  document.getElementById('update-preferences-link')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    openPreferencesUpdate();
+  });
+
+  // Close modal when clicking outside
+  cookieModal.addEventListener('click', function(e) {
+    if (e.target === cookieModal) {
+      cookieModal.style.display = 'none';
+    }
+  });
+});
+  </script>
 
 
 <script>
