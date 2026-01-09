@@ -620,6 +620,112 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+
+
+
+// Sidebar active link functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebarLinks = document.querySelectorAll('.sidebar-content a');
+  const sidebarContent = document.getElementById('sidebarContent');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  
+  // Function to set active link
+  function setActiveLink(targetId) {
+    // Remove active class from all links
+    sidebarLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // Add active class to clicked link
+    const activeLink = document.querySelector(`.sidebar-content a[href="#${targetId}"]`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+    
+    // Store the active section in localStorage for persistence
+    localStorage.setItem('activePrivacySection', targetId);
+  }
+  
+  // Function to update active link based on scroll position
+  function updateActiveLinkOnScroll() {
+    const sections = document.querySelectorAll('.terms-section');
+    const scrollPosition = window.scrollY + 100;
+    
+    let currentSectionId = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (scrollPosition >= sectionTop && 
+          scrollPosition < sectionTop + sectionHeight) {
+        currentSectionId = section.id;
+      }
+    });
+    
+    if (currentSectionId) {
+      setActiveLink(currentSectionId);
+    }
+  }
+  
+  // Add click event listeners to sidebar links
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      
+      // Scroll to the section
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        
+        // Set active link
+        setActiveLink(targetId);
+      }
+    });
+  });
+  
+  // Listen for scroll events to update active link
+  window.addEventListener('scroll', updateActiveLinkOnScroll);
+  
+  // Check for stored active section on page load
+  const storedSection = localStorage.getItem('activePrivacySection');
+  if (storedSection) {
+    // Set a timeout to ensure DOM is fully loaded
+    setTimeout(() => {
+      const targetSection = document.getElementById(storedSection);
+      if (targetSection) {
+        setActiveLink(storedSection);
+      }
+    }, 100);
+  }
+  
+  // Toggle sidebar on mobile (if you want to keep it collapsible)
+  if (sidebarToggle && sidebarContent) {
+    sidebarToggle.addEventListener('click', function() {
+      sidebarContent.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+  }
+  
+  // Optional: Highlight section when URL has hash on page load
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setActiveLink(hash);
+    } else {
+      // Set first link as active by default
+      if (sidebarLinks.length > 0 && !localStorage.getItem('activePrivacySection')) {
+        sidebarLinks[0].classList.add('active');
+      }
+    }
+  });
+});
   </script>
 
 </body>
