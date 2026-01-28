@@ -623,7 +623,7 @@ header.fixed .navbar {
 }
 
 .nav-link.active {
-    color: #e56772 !important;
+    color: #e56772;
     font-weight: bold;
     /* text-decoration: overline; */
 }
@@ -5743,7 +5743,6 @@ footer h5 {
 .butto {
     display: block;
     padding: 10px 35px !important;
-    background-color: #e56772 !important;
     border: none;
     position: relative;
     border-radius: 5px;

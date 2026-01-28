@@ -120,8 +120,6 @@
   color: var(--text-color);
 }
 .btn-outline:hover {
-  background: rgb(229 103 114);
-    border-color: #e56772;
     font-weight: 600;
     color: white;
 }
@@ -300,9 +298,7 @@
   border-radius: 50%;
 }
 
-input:checked + .toggle-slider {
-  background-color: #e56772;
-}
+
 
 input:checked + .toggle-slider:before {
   transform: translateX(20px);
