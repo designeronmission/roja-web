@@ -1968,3 +1968,13 @@ footer {
   background: rgb(229 103 114);
     border-color: #e56772;
 }
+
+
+
+ [data-theme="dark"]  .a-mail{
+  color: white;
+}
+
+ [data-theme="light"]  .a-mail{
+  color: black;
+}
