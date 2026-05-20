@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Client Onboarding · Credentials & Setup</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --gf-red: #E56772;
+      --gf-red-light: #fdf0f1;
+      --gf-red-mid: #f08c94;
+      --gf-border: #dadce0;
+      --gf-text: #202124;
+      --gf-muted: #5f6368;
+      --gf-bg: #fdf2f3;
+      --gf-white: #ffffff;
+      --gf-card-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.08);
+      --gf-card-shadow-hover: 0 6px 14px rgba(229,103,114,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--gf-bg);
+      color: var(--gf-text);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .form-header-banner {
+      background: var(--gf-red);
+      height: 10px;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .progress-strip {
+      height: 5px;
+      background: #fce4e4;
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .progress-strip-fill {
+      height: 100%;
+      background: var(--gf-red);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .gf-card {
+      background: var(--gf-white);
+      border-radius: 8px;
+      box-shadow: var(--gf-card-shadow);
+      margin-bottom: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .gf-card:hover {
+      box-shadow: var(--gf-card-shadow-hover);
+    }
+
+    .gf-card-body {
+      padding: 24px 28px 24px;
+    }
+
+    .title-card .gf-card-body {
+      padding: 28px 28px 22px;
+    }
+
+    .form-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--gf-text);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .form-desc {
+      font-size: 14px;
+      color: var(--gf-muted);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    .section-card .section-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--gf-red);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-card .section-desc {
+      font-size: 13px;
+      color: var(--gf-muted);
+      margin-bottom: 0;
+    }
+
+    .section-num {
+      font-size: 12px;
+      font-weight: 600;
+      background: var(--gf-red-light);
+      color: #b33945;
+      padding: 3px 12px;
+      border-radius: 99px;
+      letter-spacing: 0.02em;
+    }
+
+    .gf-question {
+      margin-bottom: 0;
+    }
+
+    .gf-question+.gf-question {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid #f1f3f4;
+    }
+
+    .gf-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gf-text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      line-height: 1.5;
+    }
+
+    .req {
+      color: #d93025;
+      font-size: 13px;
+      margin-left: 2px;
+    }
+
+    .gf-input,
+    .gf-select,
+    .gf-textarea {
+      border: none;
+      border-bottom: 1px solid var(--gf-border);
+      border-radius: 0;
+      background: transparent;
+      padding: 8px 0 10px;
+      font-size: 14px;
+      color: var(--gf-text);
+      width: 100%;
+      outline: none;
+      font-family: 'Roboto', sans-serif;
+      transition: border-color 0.2s;
+    }
+
+    .gf-input:focus,
+    .gf-select:focus,
+    .gf-textarea:focus {
+      border-bottom: 2px solid var(--gf-red);
+      padding-bottom: 9px;
+    }
+
+    .gf-input::placeholder {
+      color: #9aa0a6;
+    }
+
+    .gf-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235f6368' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 2px center;
+      padding-right: 24px;
+      cursor: pointer;
+    }
+
+    .gf-textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .gf-help {
+      font-size: 12px;
+      color: var(--gf-muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .gf-alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff8e1;
+      border-left: 4px solid #fbc02d;
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: #5d4037;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .gf-alert i {
+      font-size: 16px;
+      color: #f9a825;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .credential-block {
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin: 18px 0 12px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .credential-block .block-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gf-text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      color: var(--gf-text);
+    }
+
+    .radio-option input[type="radio"] {
+      accent-color: var(--gf-red);
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .credential-fields {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px dashed #e0e0e0;
+    }
+
+    .file-upload-box {
+      border: 2px dashed #dadce0;
+      border-radius: 8px;
+      padding: 16px 18px;
+      background: white;
+      margin-top: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .file-upload-box:hover {
+      border-color: var(--gf-red-mid);
+    }
+
+    .file-upload-box input[type="file"] {
+      font-size: 13px;
+      width: 100%;
+      color: var(--gf-muted);
+    }
+
+    .guided-steps {
+      background: #f8f9fa;
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--gf-muted);
+      line-height: 1.8;
+    }
+
+    .guided-steps i {
+      color: var(--gf-red);
+      margin-right: 6px;
+      font-size: 12px;
+    }
+
+    .nav-bar {
+      background: var(--gf-white);
+      border-radius: 8px;
+      box-shadow: var(--gf-card-shadow);
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .btn-gf-next,
+    .btn-gf-submit {
+      background: var(--gf-red);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Google Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-gf-next:hover,
+    .btn-gf-submit:hover {
+      background: #d15562;
+      box-shadow: 0 4px 12px rgba(229,103,114,0.4);
+    }
+
+    .btn-gf-back {
+      background: transparent;
+      color: var(--gf-red);
+      border: none;
+      border-radius: 4px;
+      padding: 12px 22px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Google Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-gf-back:hover {
+      background: var(--gf-red-light);
+    }
+
+    .btn-gf-submit {
+      background: #c62828;
+    }
+
+    .btn-gf-submit:hover {
+      background: #b71c1c;
+    }
+
+    .step-text {
+      font-size: 13px;
+      color: var(--gf-muted);
+      font-weight: 500;
+    }
+
+    .section-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .s-tab {
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 99px;
+      border: 1px solid var(--gf-border);
+      color: var(--gf-muted);
+      background: var(--gf-white);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .s-tab.active {
+      background: var(--gf-red);
+      color: #fff;
+      border-color: var(--gf-red);
+      font-weight: 600;
+    }
+
+    .s-tab.done {
+      background: #fce8ea;
+      color: #b33a47;
+      border-color: #f5c6cb;
+    }
+
+    .s-tab:hover {
+      background: #fce8ea;
+      color: #b33a47;
+    }
+
+    .s-tab.active:hover {
+      background: var(--gf-red);
+      color: #fff;
+    }
+
+    /* Success Screen Styles */
+    .success-screen {
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .success-icon {
+      width: 80px;
+      height: 80px;
+      background: #fdf0f1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 40px;
+      color: var(--gf-red);
+    }
+
+    .success-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .success-sub {
+      font-size: 14px;
+      color: var(--gf-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .btn-restart {
+      color: var(--gf-red);
+      background: transparent;
+      border: 1px solid var(--gf-red);
+      border-radius: 4px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Google Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-restart:hover {
+      background: var(--gf-red-light);
+    }
+
+    .section-panel {
+      animation: fadeSlide 0.3s ease;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .text-muted {
+      color: var(--gf-muted) !important;
+    }
+
+    .fw-bold {
+      font-weight: 600 !important;
+    }
+
+    .mt-4 {
+      margin-top: 24px !important;
+    }
+
+    .mb-2 {
+      margin-bottom: 12px !important;
+    }
+
+    .mb-3 {
+      margin-bottom: 18px !important;
+    }
+
+    @media (max-width: 576px) {
+      .form-title {
+        font-size: 22px;
+      }
+      .gf-card-body {
+        padding: 18px 16px 18px;
+      }
+      .nav-bar {
+        padding: 14px 16px;
+      }
+      .section-tabs {
+        display: none;
+      }
+      .credential-block {
+        padding: 16px 14px;
+      }
+      .radio-group {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" style="max-width:740px; padding-top:32px;">
+
+  <!-- Section tabs breadcrumb -->
+  <div class="section-tabs" id="sectionTabs">
+    <div class="s-tab active" data-idx="0" onclick="goTo(0)">1. Business</div>
+    <div class="s-tab" data-idx="1" onclick="goTo(1)">2. Banking</div>
+    <div class="s-tab" data-idx="2" onclick="goTo(2)">3. Communications</div>
+    <div class="s-tab" data-idx="3" onclick="goTo(3)">4. Publishing</div>
+    <div class="s-tab" data-idx="4" onclick="goTo(4)">5. Security</div>
+  </div>
+
+  <!-- Main form container -->
+  <div id="formContainer">
+    <!-- ==================== STEP 0: BUSINESS & COMPLIANCE ==================== -->
+    <div class="section-panel" id="step0">
+      <div class="gf-card title-card">
+        <div class="form-header-banner"></div>
+        <div class="gf-card-body">
+          <h1 class="form-title">Client Onboarding Questionnaire</h1>
+          <p class="form-desc">Complete all 5 sections to set up your account. Choose <strong>"I have credentials"</strong> to enter existing details, or <strong>"Create for me"</strong> and we'll handle the setup.</p>
+          <div class="progress-strip mt-3">
+            <div class="progress-strip-fill" style="width:20%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gf-card section-card">
+        <div class="gf-card-body">
+          <div class="section-title">
+            <span class="section-num">Section 1 of 5</span> Business &amp; Compliance
+          </div>
+          <p class="section-desc">Company information, website, and legal page details.</p>
+        </div>
+      </div>
+
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="gf-question">
+            <div class="gf-label">Legal company name <span class="req">*</span></div>
+            <input type="text" class="gf-input" placeholder="Acme Corp LLC">
+          </div>
+
+          <div class="gf-question">
+            <div class="gf-label">DBA / Trade name</div>
+            <input type="text" class="gf-input" placeholder="If different from legal name">
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <div class="gf-question">
+                <div class="gf-label">EIN / Tax ID <span class="req">*</span></div>
+                <input type="text" class="gf-input" placeholder="XX-XXXXXXX">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="gf-question">
+                <div class="gf-label">State of incorporation <span class="req">*</span></div>
+                <input type="text" class="gf-input" placeholder="e.g. Delaware, California, New York">
+              </div>
+            </div>
+          </div>
+
+          <!-- Website & Legal Pages -->
+          <div class="credential-block mt-4">
+            <div class="block-title">
+               Website &amp; Legal Pages
+            </div>
+            <div class="radio-group" id="websiteRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="websiteCred" value="have" checked onchange="handleWebsiteToggle(this.value)"> I have a website / legal pages
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="websiteCred" value="create" onchange="handleWebsiteToggle(this.value)"> Create website & legal pages for me
+              </label>
+            </div>
+
+            <!-- Have website fields -->
+            <div id="websiteHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">Website URL <span class="req">*</span></div>
+                <input type="url" class="gf-input" placeholder="https://yourcompany.com">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Privacy policy URL <span class="req">*</span></div>
+                <input type="url" class="gf-input" placeholder="https://yourcompany.com/privacy">
+                <div class="gf-help">Must be live and publicly accessible.</div>
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Terms of service URL <span class="req">*</span></div>
+                <input type="url" class="gf-input" placeholder="https://yourcompany.com/terms">
+              </div>
+            </div>
+
+            <!-- Create website fields -->
+            <div id="websiteCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Upload privacy policy content</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.doc,.docx,.txt">
+                <div class="gf-help">Upload your privacy policy document (PDF, DOC, DOCX, TXT)</div>
+              </div>
+              <div class="gf-label mt-4">Upload terms of use content</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.doc,.docx,.txt">
+                <div class="gf-help">Upload your terms of service document (PDF, DOC, DOCX, TXT)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <span class="step-text">Step 1 of 5</span>
+        <button class="btn-gf-next" onclick="goTo(1)">Next <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ==================== STEP 1: BANKING & INTEGRATIONS ==================== -->
+    <div class="section-panel" id="step1" style="display:none">
+      <div class="gf-card title-card">
+        <div class="form-header-banner"></div>
+        <div class="gf-card-body">
+          <h1 class="form-title" style="font-size:22px;">Client Onboarding Questionnaire</h1>
+          <div class="progress-strip mt-2">
+            <div class="progress-strip-fill" style="width:40%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gf-card section-card">
+        <div class="gf-card-body">
+          <div class="section-title">
+            <span class="section-num">Section 2 of 5</span> Banking &amp; Integrations
+          </div>
+          <p class="section-desc">ACH payment processing, credit score integration, and Chirp IBV setup.</p>
+        </div>
+      </div>
+
+      <!-- ACH / Banking -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+               ACH / Banking
+            </div>
+            <div class="radio-group" id="achRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="achCred" value="have" checked onchange="handleAchToggle(this.value)"> I have ACH credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="achCred" value="create" onchange="handleAchToggle(this.value)"> Create ACH setup for me
+              </label>
+            </div>
+            <div id="achHaveFields" class="credential-fields">
+              <select class="gf-select mb-3" id="achProviderSelect" onchange="toggleAchProviderFields()">
+                <option value="">-- Select ACH provider --</option>
+                <option value="publicsquare">PublicSquare</option>
+                <option value="loanpaymentpro">LoanPaymentPro</option>
+              </select>
+              <div id="achProviderFields" style="display:none;">
+                <div class="gf-question">
+                  <div class="gf-label">Username</div>
+                  <input type="text" class="gf-input" placeholder="Enter username">
+                </div>
+                <div class="gf-question">
+                  <div class="gf-label">Password</div>
+                  <input type="password" class="gf-input" placeholder="Enter password">
+                </div>
+              </div>
+            </div>
+            <div id="achCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> We will initiate ACH payment processing setup for your account.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Credit Score Integration -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+               Credit Score Integration
+            </div>
+            <div class="radio-group" id="creditRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="creditCred" value="have" checked onchange="handleCreditToggle(this.value)"> I have credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="creditCred" value="create" onchange="handleCreditToggle(this.value)"> Create for me
+              </label>
+            </div>
+            <div id="creditHaveFields" class="credential-fields">
+              <select class="gf-select mb-3" id="creditProviderSelect" onchange="toggleCreditProviderFields()">
+                <option value="">-- Select credit bureau --</option>
+                <option value="experian">Experian</option>
+                <option value="equifax">Equifax</option>
+              </select>
+              <div id="creditProviderFields" style="display:none;">
+                <div class="gf-question">
+                  <div class="gf-label">Username</div>
+                  <input type="text" class="gf-input" placeholder="Enter client ID">
+                </div>
+                <div class="gf-question">
+                  <div class="gf-label">Password</div>
+                  <input type="password" class="gf-input" placeholder="Enter password">
+                </div>
+              </div>
+            </div>
+            <div id="creditCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> We will create credit bureau access for your account.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chirp IBV -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+               Chirp IBV (Identity Verification)
+            </div>
+            <div class="radio-group" id="chirpRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="chirpCred" value="have" checked onchange="handleChirpToggle(this.value)"> I have Chirp credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="chirpCred" value="create" onchange="handleChirpToggle(this.value)"> Create Chirp IBV for me
+              </label>
+            </div>
+            <div id="chirpHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">Username </div>
+                <input type="text" class="gf-input" placeholder="Enter username">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Password</div>
+                <input type="password" class="gf-input" placeholder="Enter password">
+              </div>
+            </div>
+            <div id="chirpCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> Chirp IBV account will be created and configured for your use.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <button class="btn-gf-back" onclick="goTo(0)"><i class="bi bi-arrow-left"></i> Back</button>
+        <span class="step-text">Step 2 of 5</span>
+        <button class="btn-gf-next" onclick="goTo(2)">Next <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ==================== STEP 2: COMMUNICATIONS & CLOUD ==================== -->
+    <div class="section-panel" id="step2" style="display:none">
+      <div class="gf-card title-card">
+        <div class="form-header-banner"></div>
+        <div class="gf-card-body">
+          <h1 class="form-title" style="font-size:22px;">Client Onboarding Questionnaire</h1>
+          <div class="progress-strip mt-2">
+            <div class="progress-strip-fill" style="width:60%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gf-card section-card">
+        <div class="gf-card-body">
+          <div class="section-title">
+            <span class="section-num">Section 3 of 5</span> Communications &amp; Cloud
+          </div>
+          <p class="section-desc">SMS, Email, Firebase push notifications, AWS, and MongoDB Atlas.</p>
+        </div>
+      </div>
+
+      <!-- SMS -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+              SMS Provider
+            </div>
+            <div class="radio-group" id="smsRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="smsCred" value="have" checked onchange="handleSmsToggle(this.value)"> I have SMS credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="smsCred" value="create" onchange="handleSmsToggle(this.value)"> Create SMS account for me
+              </label>
+            </div>
+            <div id="smsHaveFields" class="credential-fields">
+              <select class="gf-select mb-3" id="smsProviderSelect" onchange="toggleSmsProviderFields()">
+                <option value="">-- Select SMS provider --</option>
+                <option value="twilio">Twilio</option>
+                <option value="truedialog">TrueDialog</option>
+              </select>
+              <div id="smsProviderFields" style="display:none;">
+                <div class="gf-question">
+                  <div class="gf-label">Username</div>
+                  <input type="text" class="gf-input" placeholder="Enter account SID">
+                </div>
+                <div class="gf-question">
+                  <div class="gf-label">Password</div>
+                  <input type="password" class="gf-input" placeholder="Enter password">
+                </div>
+              </div>
+            </div>
+            <div id="smsCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> SMS account will be provisioned and configured.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+               Email Service
+            </div>
+            <div class="radio-group" id="emailRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="emailCred" value="have" checked onchange="handleEmailToggle(this.value)"> I have email credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="emailCred" value="create" onchange="handleEmailToggle(this.value)"> Create email service for me
+              </label>
+            </div>
+            <div id="emailHaveFields" class="credential-fields">
+              <select class="gf-select mb-3" id="emailProviderSelect" onchange="toggleEmailProviderFields()">
+                <option value="">-- Select email provider --</option>
+                <option value="gmail">Gmail</option>
+                <option value="microsoft">Microsoft Office 365</option>
+                <option value="mailgun">Mailgun</option>
+                <option value="brevo">Brevo</option>
+                <option value="sendgrid">Sendgrid</option>
+                <option value="smtp">Custom SMTP</option>
+              </select>
+              <div id="emailProviderFields" style="display:none;">
+                <div class="gf-question">
+                  <div class="gf-label">Username</div>
+                  <input type="text" class="gf-input" placeholder="user@domain.com">
+                </div>
+                <div class="gf-question">
+                  <div class="gf-label">Password</div>
+                  <input type="password" class="gf-input" placeholder="Enter password">
+                </div>
+              </div>
+            </div>
+            <div id="emailCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> Email service will be configured for your domain.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Firebase -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+               Firebase (Push Notifications)
+            </div>
+            <div class="radio-group" id="firebaseRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="firebaseCred" value="have" checked onchange="handleFirebaseToggle(this.value)"> I have Firebase project
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="firebaseCred" value="create" onchange="handleFirebaseToggle(this.value)"> Create Firebase project for me
+              </label>
+            </div>
+            <div id="firebaseHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">Username</div>
+                <input type="text" class="gf-input" placeholder="Enter username">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Password</div>
+                <input type="password" class="gf-input" placeholder="Enter password">
+              </div>
+            </div>
+            <div id="firebaseCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> Firebase project will be created and configured for push notifications.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AWS -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+              AWS (Amazon Web Services)
+            </div>
+            <div class="radio-group" id="awsRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="awsCred" value="have" checked onchange="handleAwsToggle(this.value)"> I have AWS credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="awsCred" value="create" onchange="handleAwsToggle(this.value)"> Create AWS account for me
+              </label>
+            </div>
+            <div id="awsHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">AWS Access Key ID</div>
+                <input type="text" class="gf-input" placeholder="AKIAIOSFODNN7EXAMPLE">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">AWS Secret Access Key</div>
+                <input type="password" class="gf-input" placeholder="Enter secret access key">
+              </div>
+            </div>
+            <div id="awsCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> AWS account setup will be initiated with appropriate IAM permissions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MongoDB Atlas -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+               MongoDB Atlas
+            </div>
+            <div class="radio-group" id="mongoRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="mongoCred" value="have" checked onchange="handleMongoToggle(this.value)"> I have MongoDB credentials
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="mongoCred" value="create" onchange="handleMongoToggle(this.value)"> Create MongoDB cluster for me
+              </label>
+            </div>
+            <div id="mongoHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">Username</div>
+                <input type="text" class="gf-input" placeholder="Enter username">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Password</div>
+                <input type="password" class="gf-input" placeholder="Enter password">
+              </div>
+            </div>
+            <div id="mongoCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> MongoDB Atlas cluster will be created and configured.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <button class="btn-gf-back" onclick="goTo(1)"><i class="bi bi-arrow-left"></i> Back</button>
+        <span class="step-text">Step 3 of 5</span>
+        <button class="btn-gf-next" onclick="goTo(3)">Next <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ==================== STEP 3: MOBILE PUBLISHING ==================== -->
+    <div class="section-panel" id="step3" style="display:none">
+      <div class="gf-card title-card">
+        <div class="form-header-banner"></div>
+        <div class="gf-card-body">
+          <h1 class="form-title" style="font-size:22px;">Client Onboarding Questionnaire</h1>
+          <div class="progress-strip mt-2">
+            <div class="progress-strip-fill" style="width:80%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gf-card section-card">
+        <div class="gf-card-body">
+          <div class="section-title">
+            <span class="section-num">Section 4 of 5</span> Mobile Publishing
+          </div>
+          <p class="section-desc">Google Play Console and Apple Developer Program account details.</p>
+        </div>
+      </div>
+
+      <!-- Google Play Console -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+              Google Play Console
+            </div>
+            <div class="radio-group" id="playRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="playCred" value="have" checked onchange="handlePlayToggle(this.value)"> Yes, I have an account
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="playCred" value="create" onchange="handlePlayToggle(this.value)"> No, create for me
+              </label>
+            </div>
+
+            <!-- Have Google Play account -->
+            <div id="playHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">Developer account email <span class="req">*</span></div>
+                <input type="email" class="gf-input" placeholder="developer@company.com">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Password</div>
+                <input type="password" class="gf-input" placeholder="Enter account password">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">App package name</div>
+                <input type="text" class="gf-input" placeholder="com.appname">
+                <div class="gf-help">Reverse domain format. Cannot be changed after publishing.</div>
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">App Name</div>
+                <input type="text" class="gf-input" placeholder="Enter App Name">
+              </div>
+            </div>
+
+            <!-- Create Google Play account -->
+            <div id="playCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-alert">
+                <i class="bi bi-info-circle-fill"></i>
+                <div><strong>We'll guide your Google Play enrollment:</strong> Assist with account creation, verification, and app submission. One-time registration fee is $25.</div>
+              </div>
+              <div class="gf-label mt-3">Upload DUNS Number document</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.jpg,.png">
+                <div class="gf-help">Upload DUNS number certificate or documentation (PDF, JPG, PNG)</div>
+              </div>
+              <div class="gf-label mt-4">Upload driving license (authorized officer)</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.jpg,.png">
+                <div class="gf-help">Government-issued photo ID of the authorized representative</div>
+              </div>
+              <div class="gf-label mt-4">Upload company certification</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.jpg,.png">
+                <div class="gf-help">Business registration certificate or articles of incorporation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apple Developer Program -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+             Apple Developer Program
+            </div>
+            <div class="radio-group" id="appleRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="appleCred" value="have" checked onchange="handleAppleToggle(this.value)"> Yes, I have a membership
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="appleCred" value="create" onchange="handleAppleToggle(this.value)"> No, I need to enroll
+              </label>
+            </div>
+
+            <!-- Have Apple Developer account -->
+            <div id="appleHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">Apple ID (developer email) <span class="req">*</span></div>
+                <input type="email" class="gf-input" placeholder="dev@company.com">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Password</div>
+                <input type="password" class="gf-input" placeholder="Enter Apple ID password">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">App Name</div>
+                <input type="text" class="gf-input" placeholder="Enter App Name">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">App Bundle ID</div>
+                <input type="text" class="gf-input" placeholder="com.company.appname">
+                <div class="gf-help">Must match your provisioning profile.</div>
+              </div>
+            </div>
+
+            <!-- Create Apple Developer account -->
+            <div id="appleCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-alert">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                <div>
+                  <strong>We'll guide your Apple Developer enrollment:</strong><br>
+                  <span class="guided-steps" style="display:block; margin-top:8px;">
+                    <i class="bi bi-check2"></i> Assist with DUNS number application via Dun &amp; Bradstreet (free)<br>
+                    <i class="bi bi-check2"></i> Walk through Apple's org verification process step by step<br>
+                    <i class="bi bi-check2"></i> Register the app on App Store Connect once approved<br>
+                    <i class="bi bi-check2"></i> Generate distribution certificates and provisioning profiles<br>
+                    <i class="bi bi-check2"></i> Submit app for App Store review<br>
+                  </span>
+                  <strong style="display:block; margin-top:10px;">⚠️ DUNS + Apple org verification takes 2–4 weeks. Start now. Annual membership fee is $99/year.</strong>
+                </div>
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Apple ID email to use <span class="req">*</span></div>
+                <input type="email" class="gf-input" placeholder="dev@company.com">
+                <div class="gf-help">This email will be used to create your Apple Developer account.</div>
+              </div>
+              <div class="gf-label mt-4">Upload DUNS Number document</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.jpg,.png">
+                <div class="gf-help">Upload DUNS number certificate (if already obtained)</div>
+              </div>
+              <div class="gf-label mt-4">Upload driving license (authorized officer)</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.jpg,.png">
+                <div class="gf-help">Government-issued photo ID for identity verification</div>
+              </div>
+              <div class="gf-label mt-4">Upload company certification</div>
+              <div class="file-upload-box">
+                <input type="file" accept=".pdf,.jpg,.png">
+                <div class="gf-help">Business registration or articles of incorporation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <button class="btn-gf-back" onclick="goTo(2)"><i class="bi bi-arrow-left"></i> Back</button>
+        <span class="step-text">Step 4 of 5</span>
+        <button class="btn-gf-next" onclick="goTo(4)">Next <i class="bi bi-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ==================== STEP 4: SECURITY & BRANDING ==================== -->
+    <div class="section-panel" id="step4" style="display:none">
+      <div class="gf-card title-card">
+        <div class="form-header-banner"></div>
+        <div class="gf-card-body">
+          <h1 class="form-title" style="font-size:22px;">Client Onboarding Questionnaire</h1>
+          <div class="progress-strip mt-2">
+            <div class="progress-strip-fill" style="width:100%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gf-card section-card">
+        <div class="gf-card-body">
+          <div class="section-title">
+            <span class="section-num">Section 5 of 5</span> Security &amp; Branding
+          </div>
+          <p class="section-desc">GitHub repository access and brand asset details.</p>
+        </div>
+      </div>
+
+      <!-- GitHub -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="credential-block">
+            <div class="block-title">
+              Git / GitHub Repository
+            </div>
+            <div class="radio-group" id="gitRadioGroup">
+              <label class="radio-option">
+                <input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have a GitHub repo
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create repository for me
+              </label>
+            </div>
+            <div id="gitHaveFields" class="credential-fields">
+              <div class="gf-question">
+                <div class="gf-label">GitHub username</div>
+                <input type="text" class="gf-input" placeholder="@username">
+              </div>
+              <div class="gf-question">
+                <div class="gf-label">Password / Personal Access Token</div>
+                <input type="password" class="gf-input" placeholder="Enter password or token">
+              </div>
+            </div>
+            <div id="gitCreateFields" class="credential-fields" style="display:none;">
+              <p class="text-muted"><i class="bi bi-info-circle me-1"></i> A new repository will be created and access will be configured.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Branding Assets -->
+      <div class="gf-card">
+        <div class="gf-card-body">
+          <div class="block-title mb-3">
+            Branding Assets
+          </div>
+          <div class="gf-question">
+            <div class="gf-label">Primary brand color <span class="req">*</span></div>
+            <input type="text" class="gf-input" value="#E56772" placeholder="#E56772">
+            <div class="gf-help">Hex color code for app theme, splash screen, and icons.</div>
+          </div>
+          <div class="gf-question">
+            <div class="gf-label">Secondary / accent color</div>
+            <input type="text" class="gf-input" placeholder="#FF5A00">
+          </div>
+          <div class="gf-label mt-4">Upload logo (SVG or PNG) <span class="req">*</span></div>
+          <div class="file-upload-box">
+            <input type="file" accept="image/*">
+            <div class="gf-help">Upload your logo in SVG (preferred) or high-resolution PNG format.</div>
+          </div>
+          <div class="gf-question mt-4">
+            <div class="gf-label">Additional notes or special instructions</div>
+            <textarea class="gf-textarea" placeholder="Any other details the team should know..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-bar">
+        <button class="btn-gf-back" onclick="goTo(3)"><i class="bi bi-arrow-left"></i> Back</button>
+        <span class="step-text">Step 5 of 5</span>
+        <button class="btn-gf-submit" onclick="submitForm()"><i class="bi bi-send"></i> Submit Onboarding</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SUCCESS SCREEN ==================== -->
+  <div id="successScreen" style="display:none;">
+    <div class="gf-card">
+      <div class="form-header-banner"></div>
+      <div class="gf-card-body success-screen">
+        <div class="success-icon">
+          <i class="bi bi-check2"></i>
+        </div>
+        <h2 class="success-title">Thank You for Submitting!</h2>
+        <p class="success-sub">
+          Your onboarding form has been submitted successfully.<br>
+          Our team will review your information and reach out within 1–2 business days.
+        </p>
+        <button class="btn-restart" onclick="restartForm()">
+          <i class="bi bi-arrow-counterclockwise"></i> Submit another response
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let current = 0;
+  const total = 5;
+  const completed = new Array(total).fill(false);
+  const tabs = document.querySelectorAll('.s-tab');
+
+  function goTo(idx) {
+    // Mark current step as completed
+    completed[current] = true;
+    
+    // Hide current step
+    document.getElementById('step' + current).style.display = 'none';
+    
+    // Update current index
+    current = idx;
+    
+    // Show new step
+    document.getElementById('step' + current).style.display = 'block';
+    
+    // Update tabs visual state
+    updateTabs();
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateTabs() {
+    tabs.forEach((t, i) => {
+      t.classList.remove('active', 'done');
+      if (i === current) {
+        t.classList.add('active');
+      } else if (completed[i]) {
+        t.classList.add('done');
+      }
+    });
+  }
+
+  function submitForm() {
+    // Hide the form container
+    document.getElementById('formContainer').style.display = 'none';
+    
+    // Hide the section tabs
+    document.getElementById('sectionTabs').style.display = 'none';
+    
+    // Show success screen
+    document.getElementById('successScreen').style.display = 'block';
+    
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function restartForm() {
+    // Reset current step
+    current = 0;
+    completed.fill(false);
+    
+    // Hide success screen
+    document.getElementById('successScreen').style.display = 'none';
+    
+    // Show form container
+    document.getElementById('formContainer').style.display = 'block';
+    
+    // Show tabs
+    document.getElementById('sectionTabs').style.display = 'flex';
+    
+    // Reset all steps - show first step, hide others
+    for (let i = 0; i < total; i++) {
+      document.getElementById('step' + i).style.display = i === 0 ? 'block' : 'none';
+    }
+    
+    updateTabs();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ========== TOGGLE HELPER FUNCTIONS ==========
+
+  // Step 0: Website & Legal Pages
+  function handleWebsiteToggle(val) {
+    document.getElementById('websiteHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('websiteCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 1: ACH / Banking
+  function handleAchToggle(val) {
+    document.getElementById('achHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('achCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  function toggleAchProviderFields() {
+    const sel = document.getElementById('achProviderSelect').value;
+    document.getElementById('achProviderFields').style.display = sel ? 'block' : 'none';
+  }
+
+  // Step 1: Credit Score Integration
+  function handleCreditToggle(val) {
+    document.getElementById('creditHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('creditCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  function toggleCreditProviderFields() {
+    document.getElementById('creditProviderFields').style.display = document.getElementById('creditProviderSelect').value ? 'block' : 'none';
+  }
+
+  // Step 1: Chirp IBV
+  function handleChirpToggle(val) {
+    document.getElementById('chirpHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('chirpCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 2: SMS
+  function handleSmsToggle(val) {
+    document.getElementById('smsHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('smsCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  function toggleSmsProviderFields() {
+    document.getElementById('smsProviderFields').style.display = document.getElementById('smsProviderSelect').value ? 'block' : 'none';
+  }
+
+  // Step 2: Email
+  function handleEmailToggle(val) {
+    document.getElementById('emailHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('emailCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  function toggleEmailProviderFields() {
+    document.getElementById('emailProviderFields').style.display = document.getElementById('emailProviderSelect').value ? 'block' : 'none';
+  }
+
+  // Step 2: Firebase
+  function handleFirebaseToggle(val) {
+    document.getElementById('firebaseHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('firebaseCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 2: AWS
+  function handleAwsToggle(val) {
+    document.getElementById('awsHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('awsCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 2: MongoDB Atlas
+  function handleMongoToggle(val) {
+    document.getElementById('mongoHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('mongoCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 3: Google Play
+  function handlePlayToggle(val) {
+    document.getElementById('playHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('playCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 3: Apple Developer
+  function handleAppleToggle(val) {
+    document.getElementById('appleHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('appleCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Step 4: Git / GitHub
+  function handleGitToggle(val) {
+    document.getElementById('gitHaveFields').style.display = val === 'have' ? 'block' : 'none';
+    document.getElementById('gitCreateFields').style.display = val === 'create' ? 'block' : 'none';
+  }
+
+  // Initialize all toggle states on page load
+  window.addEventListener('load', function() {
+    updateTabs();
+    handleWebsiteToggle('have');
+    handleAchToggle('have');
+    handleCreditToggle('have');
+    handleChirpToggle('have');
+    handleSmsToggle('have');
+    handleEmailToggle('have');
+    handleFirebaseToggle('have');
+    handleAwsToggle('have');
+    handleMongoToggle('have');
+    handlePlayToggle('have');
+    handleAppleToggle('have');
+    handleGitToggle('have');
+  });
+</script>
+
+</body>
+</html>
