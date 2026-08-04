@@ -1,4 +1,4 @@
-<?php /* include("API_Request.php");
+<?php include("API_Request.php");
 // File: contact-form-handler.php
 
 // Enable error reporting for debugging (remove in production)
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $recaptcha_json = json_decode($recaptcha_result);
     
     // Verify the response
-    if ($recaptcha_json->success && $recaptcha_json->score >= 0.5) {
+    if ($recaptcha_json->success && $recaptcha_json->score >= 0.5 && $recaptcha_json->action === 'submit') {
         // reCAPTCHA verification passed
         // You can adjust the score threshold (0.5 is recommended)
         
@@ -73,14 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         $record['name'] = $name;
         $record['email'] = $email;
-        $record['phone'] = $phone;
+        $record['phone'] = '+1'.$phone;
         $record['subject'] = $subject;
         $record['description'] = $message;
         
         $result = contactRequest($record);
 		$msg = '';
 		if($result)
-			$msg = $result['message'];
+			$msg = $result;
 		echo $msg;
         
     } else {
@@ -103,8 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     // Not a POST request
     die("Invalid request method.");
-}*/
-
+}
+ /*
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
 header('Content-Type: application/json; charset=utf-8');
@@ -224,4 +224,4 @@ if(!$mail->send()) {
 	]);
     exit;
 }
-}
+}*/
