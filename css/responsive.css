@@ -1774,14 +1774,22 @@
     .contact_form .section_title{
         margin-top: 50px !important;
     }
+
+
 }
 
+
+@media (min-width: 320px) and (max-width: 760px) {
+    .res-contact{
+        text-align: center;
+    }
+}
 
 
 @media (min-width: 700px) and (max-width: 780px) {
 
     .how_it_inner .steps_block .step {
-        margin-top: 230px;
+        margin-top: 150px;
     }
 
     .progress-text {
@@ -1838,6 +1846,15 @@
 
 
 
+@media (min-width: 1200px) and (max-width: 1400px) {
+    header .container {
+        max-width: 1150px;
+    }
+
+    .container, .container-lg, .container-md, .container-sm {
+        max-width: 1100px;
+    }
+}
 
 
 
@@ -1894,3 +1911,10 @@
     margin-right: 0 !important;
   }
 }
+
+/* 
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 870px;
+    }
+} */

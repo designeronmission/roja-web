@@ -5,7 +5,7 @@
   right: 20px;
   z-index: 9999;
   display: none;
-  max-width: 400px;
+  max-width: 420px;
   width: calc(100% - 40px);
   font-family: inherit;
 }
@@ -120,8 +120,6 @@
   color: var(--text-color);
 }
 .btn-outline:hover {
-  background: rgb(229 103 114);
-    border-color: #e56772;
     font-weight: 600;
     color: white;
 }
@@ -300,9 +298,7 @@
   border-radius: 50%;
 }
 
-input:checked + .toggle-slider {
-  background-color: #e56772;
-}
+
 
 input:checked + .toggle-slider:before {
   transform: translateX(20px);

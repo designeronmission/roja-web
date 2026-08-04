@@ -23,12 +23,12 @@
   <!-- Aos-Style-link -->
   <link rel="stylesheet" href="css/aos.css?version=1">
   <!-- Coustome-Style-link -->
-   <link rel="stylesheet" href="css/style.css?version=6">
+   <link rel="stylesheet" href="css/style.css?version=7">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=2">
+   <link rel="stylesheet" href="css/responsive.css?version=5">
 
   <!-- Dark Theme css -->
-  <link rel="stylesheet" href="css/dark-light-theme.css?version=5">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=7">
 
         <!-- cookie Theme css -->
   <link rel="stylesheet" href="css/cookie.css">
@@ -42,6 +42,30 @@
 </head>
 
 <body>
+
+     <noscript>
+        <div style="
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 983403489248;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        ">
+            ⚠️ JavaScript is disabled in your browser. 
+            Some features may not work properly.
+            <a href="https://www.enable-javascript.com/" 
+               target="_blank" 
+               style="color: #ffe66d; text-decoration: underline; margin-left: 10px;">
+                How to enable JavaScript
+            </a>
+        </div>
+    </noscript>
 
   <!-- Preloader -->
   <div id="preloader">
@@ -184,7 +208,7 @@
             <div id="formAlert" class="alert" style="display: none;"></div>
           </div>
 
-          <div class="col-md-12">
+<!--           <div class="col-md-12">
             <div class="form-group">
               <div class="captcha-info">
                 <small class="text-muted captcha-text">This site is protected by reCAPTCHA and the Google
@@ -193,9 +217,9 @@
                 </small>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="col-md-12 text-right">
+          <div class="col-md-12 text-center">
             <div class="btn_block mt-4">
               <button type="submit" class="btn puprple_btn ml-0" id="submitBtn">
                 <span class="submit-bt" style="color: black;">Submit</span>
@@ -437,11 +461,11 @@
   <!-- Typed Js Cdn -->
   <script src='js/typed.min.js'></script>
   <!-- main-js-Link -->
-  <script src="js/main.js?version=2"></script>
+  <script src="js/main.js?version=3"></script>
 
   <!-- Dark Theme js -->
 
-  <script src="js/dark.js?version=3"></script>
+  <script src="js/dark.js?version=4"></script>
 
     <script>
  // Simplified Cookie Consent functionality
@@ -783,7 +807,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // reCAPTCHA v3 verification
       grecaptcha.ready(function () {
-        grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', { action: 'submit' })
+grecaptcha.execute('6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et', { action: 'submit' })
           .then(function (token) {
             // Set the token in the hidden field
             document.getElementById('g-recaptcha-response').value = token;

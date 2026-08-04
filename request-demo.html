@@ -23,12 +23,12 @@
   <!-- Aos-Style-link -->
   <link rel="stylesheet" href="css/aos.css?version=1">
   <!-- Coustome-Style-link -->
-   <link rel="stylesheet" href="css/style.css?version=6">
+   <link rel="stylesheet" href="css/style.css?version=7">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=4">
+  <link rel="stylesheet" href="css/responsive.css?version=5">
 
     <!-- Dark Theme css -->
-  <link rel="stylesheet" href="css/dark-light-theme.css?version=5">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=7">
 
           <!-- cookie Theme css -->
   <link rel="stylesheet" href="css/cookie.css">
@@ -46,6 +46,30 @@
 </head>
 
 <body>
+
+     <noscript>
+        <div style="
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 983403489248;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        ">
+            ⚠️ JavaScript is disabled in your browser. 
+            Some features may not work properly.
+            <a href="https://www.enable-javascript.com/" 
+               target="_blank" 
+               style="color: #ffe66d; text-decoration: underline; margin-left: 10px;">
+                How to enable JavaScript
+            </a>
+        </div>
+    </noscript>
 
   <!-- Preloader -->
   <div id="preloader">
@@ -108,7 +132,7 @@
       <div class="container">
 
         <div class="section_title mb-4" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
-          <span class="title_badge">Request Quote</span>
+          <span class="title_badge">Request a Demo</span>
           <h2>Launch Your Own<span> Cash Advance App in Weeks </span></h2>
         </div>
 
@@ -184,7 +208,7 @@
                 </div>
 
 
-                <div class="col-md-12">
+             <!--    <div class="col-md-12">
                     <div class="form-group">
                         <div class="captcha-info">
                             <small class="text-muted captcha-text">This site is protected by reCAPTCHA and the Google 
@@ -193,9 +217,9 @@
                             </small>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
-                <div class="col-md-12 text-right">
+                <div class="col-md-12 text-center">
                     <div class="btn_block mt-4">
                         <button type="submit" class="btn puprple_btn ml-0" id="submitBtn">
                             <span class="submit-bt" style="color: black;">Submit</span>
@@ -441,13 +465,126 @@
   <!-- Typed Js Cdn -->
   <script src='js/typed.min.js'></script>
    <!-- main-js-Link -->
-  <script src="js/main.js?version=2"></script>
+  <script src="js/main.js?version=3"></script>
 
   <!-- Dark Theme js -->
 
-  <script src="js/dark.js?version=3"></script>
+  <script src="js/dark.js?version=4"></script>
 
+    <script>
+ // Simplified Cookie Consent functionality
+document.addEventListener('DOMContentLoaded', function () {
+  // Elements
+  const consentContainer = document.getElementById('consent-container');
+  const closeBtn = document.getElementById('close-all-btn');
+  const disclaimerPanel = document.getElementById('disclaimer-panel');
+  const cookiePanel = document.getElementById('cookie-panel');
+  const disclaimerOkBtn = document.getElementById('disclaimer-ok-btn');
+  const acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+  const rejectCookiesBtn = document.getElementById('reject-cookies-btn');
+  const customizeCookiesBtn = document.getElementById('customize-cookies-btn');
+  const cookieModal = document.getElementById('cookie-options-modal');
+  const closeOptionsBtn = document.getElementById('close-options-modal');
+  const cancelOptionsBtn = document.getElementById('cancel-options-btn');
+  const saveOptionsBtn = document.getElementById('save-options-btn');
 
+  // Check existing preferences
+  const hasAcceptedDisclaimer = localStorage.getItem('rojaDisclaimerAccepted');
+  const hasAcceptedCookies = localStorage.getItem('rojaCookiesAccepted');
+
+  // Initialize
+  if (!hasAcceptedDisclaimer || !hasAcceptedCookies) {
+    consentContainer.style.display = 'block';
+    if (hasAcceptedDisclaimer) {
+      disclaimerPanel.style.display = 'none';
+      cookiePanel.style.display = 'flex';
+    }
+  }
+
+  // Close consent container
+  function closeConsent() {
+    consentContainer.style.display = 'none';
+  }
+
+  // Open preferences update
+  function openPreferencesUpdate() {
+    disclaimerPanel.style.display = 'none';
+    cookiePanel.style.display = 'flex';
+    consentContainer.style.display = 'block';
+  }
+
+  // Event Listeners
+  closeBtn.addEventListener('click', closeConsent);
+
+  disclaimerOkBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaDisclaimerAccepted', 'true');
+    disclaimerPanel.style.display = 'none';
+    cookiePanel.style.display = 'flex';
+  });
+
+  acceptCookiesBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', 'true');
+    localStorage.setItem('rojaMarketingCookies', 'true');
+    closeConsent();
+  });
+
+  rejectCookiesBtn.addEventListener('click', function() {
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', 'false');
+    localStorage.setItem('rojaMarketingCookies', 'false');
+    closeConsent();
+  });
+
+  customizeCookiesBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'flex';
+    
+    // Load current preferences
+    const analyticsPref = localStorage.getItem('rojaAnalyticsCookies');
+    const marketingPref = localStorage.getItem('rojaMarketingCookies');
+    
+    if (analyticsPref !== null) {
+      document.getElementById('analytics-cookies').checked = analyticsPref === 'true';
+    }
+    if (marketingPref !== null) {
+      document.getElementById('marketing-cookies').checked = marketingPref === 'true';
+    }
+  });
+
+  closeOptionsBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'none';
+  });
+
+  cancelOptionsBtn.addEventListener('click', function() {
+    cookieModal.style.display = 'none';
+  });
+
+  saveOptionsBtn.addEventListener('click', function() {
+    const analyticsChecked = document.getElementById('analytics-cookies').checked;
+    const marketingChecked = document.getElementById('marketing-cookies').checked;
+    
+    localStorage.setItem('rojaCookiesAccepted', 'true');
+    localStorage.setItem('rojaAnalyticsCookies', analyticsChecked.toString());
+    localStorage.setItem('rojaMarketingCookies', marketingChecked.toString());
+    
+    cookieModal.style.display = 'none';
+    closeConsent();
+  });
+
+  // Update preferences link
+  document.getElementById('update-preferences-link')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    openPreferencesUpdate();
+  });
+
+  // Close modal when clicking outside
+  cookieModal.addEventListener('click', function(e) {
+    if (e.target === cookieModal) {
+      cookieModal.style.display = 'none';
+    }
+  });
+});
+  </script>
 
 
 <script>

@@ -5,6 +5,7 @@ $projectname = $url[1] == ''?'':$url[1].'/';
 $https = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://";
 $baseurl = ($_SERVER['HTTP_HOST'] == 'localhost:88' || $_SERVER['HTTP_HOST'] == '192.168.29.121:88') ?  "http://".$_SERVER['HTTP_HOST']."/roja_website/" : $https."www.roja.one/";
 $apiurl = ($_SERVER['HTTP_HOST'] == 'localhost:88' || $_SERVER['HTTP_HOST'] == '192.168.29.121:88') ? "http://192.168.29.121:3500/api/" :  $https."api.roja.one/api/";
+
 define('BASE_URL', $baseurl);
 $apiurl = $apiurl;
 

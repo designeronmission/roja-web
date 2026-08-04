@@ -23,12 +23,12 @@
   <!-- Aos-Style-link -->
   <link rel="stylesheet" href="css/aos.css?version=1">
   <!-- Coustome-Style-link -->
-   <link rel="stylesheet" href="css/style.css?version=6">
+   <link rel="stylesheet" href="css/style.css?version=7">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=4">
+  <link rel="stylesheet" href="css/responsive.css?version=5">
 
     <!-- Dark Theme css -->
-  <link rel="stylesheet" href="css/dark-light-theme.css?version=5">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=7">
 
           <!-- cookie Theme css -->
   <link rel="stylesheet" href="css/cookie.css">
@@ -41,6 +41,30 @@
 
 
 <body>
+
+     <noscript>
+        <div style="
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 983403489248;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        ">
+            ⚠️ JavaScript is disabled in your browser. 
+            Some features may not work properly.
+            <a href="https://www.enable-javascript.com/" 
+               target="_blank" 
+               style="color: #ffe66d; text-decoration: underline; margin-left: 10px;">
+                How to enable JavaScript
+            </a>
+        </div>
+    </noscript>
 
     <!-- Preloader -->
     <div id="preloader">
@@ -489,11 +513,11 @@
     <!-- Typed Js Cdn -->
     <script src='js/typed.min.js'></script>
   <!-- main-js-Link -->
-  <script src="js/main.js?version=2"></script>
+  <script src="js/main.js?version=3"></script>
 
   <!-- Dark Theme js -->
 
-  <script src="js/dark.js?version=3"></script>
+  <script src="js/dark.js?version=4"></script>
 
 
 
@@ -611,6 +635,115 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+
+
+
+
+// Sidebar active link functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebarLinks = document.querySelectorAll('.sidebar-content a');
+  const sidebarContent = document.getElementById('sidebarContent');
+  const sidebarToggle = document.getElementById('sidebarToggle');
+  
+  // Function to set active link
+  function setActiveLink(targetId) {
+    // Remove active class from all links
+    sidebarLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+    
+    // Add active class to clicked link
+    const activeLink = document.querySelector(`.sidebar-content a[href="#${targetId}"]`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+    
+    // Store the active section in localStorage for persistence
+    localStorage.setItem('activePrivacySection', targetId);
+  }
+  
+  // Function to update active link based on scroll position
+  function updateActiveLinkOnScroll() {
+    const sections = document.querySelectorAll('.terms-section');
+    const scrollPosition = window.scrollY + 100;
+    
+    let currentSectionId = '';
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      
+      if (scrollPosition >= sectionTop && 
+          scrollPosition < sectionTop + sectionHeight) {
+        currentSectionId = section.id;
+      }
+    });
+    
+    if (currentSectionId) {
+      setActiveLink(currentSectionId);
+    }
+  }
+  
+  // Add click event listeners to sidebar links
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      
+      // Scroll to the section
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        
+        // Set active link
+        setActiveLink(targetId);
+      }
+    });
+  });
+  
+  // Listen for scroll events to update active link
+  window.addEventListener('scroll', updateActiveLinkOnScroll);
+  
+  // Check for stored active section on page load
+  const storedSection = localStorage.getItem('activePrivacySection');
+  if (storedSection) {
+    // Set a timeout to ensure DOM is fully loaded
+    setTimeout(() => {
+      const targetSection = document.getElementById(storedSection);
+      if (targetSection) {
+        setActiveLink(storedSection);
+      }
+    }, 100);
+  }
+  
+  // Toggle sidebar on mobile (if you want to keep it collapsible)
+  if (sidebarToggle && sidebarContent) {
+    sidebarToggle.addEventListener('click', function() {
+      sidebarContent.classList.toggle('active');
+      this.classList.toggle('active');
+    });
+  }
+  
+  // Optional: Highlight section when URL has hash on page load
+  window.addEventListener('load', function() {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      setActiveLink(hash);
+    } else {
+      // Set first link as active by default
+      if (sidebarLinks.length > 0 && !localStorage.getItem('activePrivacySection')) {
+        sidebarLinks[0].classList.add('active');
+      }
+    }
+  });
+});
+
+
+
   </script>
 </body>
 

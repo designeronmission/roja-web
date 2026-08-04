@@ -23,10 +23,10 @@
   <!-- Coustome-Style-link -->
   <link rel="stylesheet" href="css/style.css?version=2">
   <!-- Responsive-Style-link -->
-  <link rel="stylesheet" href="css/responsive.css?version=2">
+   <link rel="stylesheet" href="css/responsive.css?version=5">
 
   <!-- Light Theme css (renamed from dark-light-theme.css) -->
-  <link rel="stylesheet" href="css/light-theme.css?version=2">
+  <link rel="stylesheet" href="css/dark-light-theme.css?version=2">
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="images/fav-icon.png" type="image/x-icon">
@@ -35,102 +35,40 @@
   <script src="https://www.google.com/recaptcha/api.js?render=6Ldj4T4sAAAAAIQSee0NEYh8CuJQG6VVw78wo9et"></script>
 
 
-<style>
-    /* ======================
-   404 PAGE
-====================== */
-.error-404 {
-  min-height: 100vh;
-  background: var(--bg-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-}
-
-.error-container {
-  background: var(--card-bg);
-  box-shadow: var(--shadow-soft);
-  border-radius: 20px;
-  padding: 60px 50px;
-  text-align: center;
-  max-width: 520px;
-  width: 100%;
-}
-
-.error-container h1 {
-  font-size: 120px;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 20px;
-}
-
-.error-container h2 {
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 15px;
-}
-
-.error-container p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  margin-bottom: 35px;
-}
-
-/* Button */
-.btn-primary {
-  display: inline-block;
-  padding: 14px 34px;
-  background-color: #e56772;
-  color: #ffffff;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-    background-color: #e56772;
-  color: #ffffff;
-}
-
-/* ======================
-   RESPONSIVE
-====================== */
-@media (max-width: 768px) {
-  .error-container {
-    padding: 40px 25px;
-  }
-
-  .error-container h1 {
-    font-size: 90px;
-  }
-
-  .error-container h2 {
-    font-size: 22px;
-  }
-
-  .error-container p {
-    font-size: 15px;
-  }
-}
-
-</style>
-
-
-
 </head>
 <body>
+
+     <noscript>
+        <div style="
+            position: fixed;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            z-index: 983403489248;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        ">
+            ⚠️ JavaScript is disabled in your browser. 
+            Some features may not work properly.
+            <a href="https://www.enable-javascript.com/" 
+               target="_blank" 
+               style="color: #ffe66d; text-decoration: underline; margin-left: 10px;">
+                How to enable JavaScript
+            </a>
+        </div>
+    </noscript>
 
 
 
 
 <section class="error-404">
   <div class="error-container">
-    <h1>404</h1>
+      <img src="images/404.png" alt="images" class="h-w-img overlay-light">
+        <img src="images/404.png" alt="images" class="h-w-img overlay-dark">
     <h2>Page Not Found</h2>
     <p>
       Oops! The page you’re looking for doesn’t exist or was moved.
@@ -138,7 +76,6 @@
     <a href="index.html" class="btn-primary">Back to Home</a>
   </div>
 </section>
-
 
 
   <!-- Your existing consent container (kept from original) -->
@@ -158,12 +95,12 @@
   <!-- Typed Js Cdn -->
   <script src='js/typed.min.js'></script>
   <!-- main-js-Link -->
-  <script src="js/main.js?version=2"></script>
+  <script src="js/main.js?version=3"></script>
 
   
   <!-- Dark Theme js -->
 
-  <script src="js/dark.js?version=3"></script>
+  <script src="js/dark.js?version=4"></script>
 
 
 </body>
